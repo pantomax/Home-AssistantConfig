@@ -1,0 +1,23 @@
+############################################################
+#
+# history
+#
+############################################################
+  include:
+    entities:
+      - sensor.sensore_humidity
+      - sensor.sensore_noise
+      - sensor.luce_accesa_bagno
+      - sensor.sensore_temperature
+      - sensor.temperatura_salotto_temperature
+      - sensor.temperatura_camera_temperature
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - input_boolean.mxhome
+      - input_boolean.muhome
+      - sensor.movimento_cucina_s1c
+      - sensor.movimento_corridoio_s1c
+      - sensor.porta_retro_s1c
+      - sensor.porta_corridoio_s1c
+      - sensor.finestra_salotto_s1c

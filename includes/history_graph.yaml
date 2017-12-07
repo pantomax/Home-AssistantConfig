@@ -1,0 +1,28 @@
+############################################################
+#
+# History Graph
+#
+############################################################
+  grafico_pi:
+    name: Utilizzo Pi
+    entities:
+      - sensor.cpu_used
+      - sensor.ram_used
+    hours_to_show: 72
+    refresh: 60
+  grafico_temperatura_salotto:
+    name: Temperatura salotto
+    entities:
+      - sensor.temperatura_salotto_temperature
+    hours_to_show: 72
+  grafico_temperatura_bagno:
+    name: Temperatura e umidità bagno
+    entities:
+      - sensor.sensore_temperature
+      - sensor.sensore_humidity
+    hours_to_show: 72
+  grafico_temperatura_camera:
+    name: Temperatura camera
+    entities:
+      - sensor.temperatura_camera_temperature
+    hours_to_show: 72

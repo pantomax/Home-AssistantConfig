@@ -1,0 +1,118 @@
+############################################################
+#
+# Chromecast Radio Package
+#
+############################################################
+group:
+  radio:
+    name: Radio
+    entities:
+      - input_select.radio_player
+      - input_select.radio_station
+      - input_number.google_volume
+
+input_number:
+  google_volume:
+    name: Volume
+    initial: 8
+    min: 0
+    max: 10
+    step: 0.5
+    icon: mdi:volume-medium
+
+input_select:
+  radio_station:
+    name: Stazione Radio
+    options:
+      - " "
+      - Antenna Bayern Workout
+      - Flaixa FM
+      - Miki FM
+      - Oosumi FM
+      - SmoothFM
+      - SBS Chill
+    initial: " "
+    icon: mdi:radio
+  radio_player:
+    name: Chromecast
+    options:
+      - " "
+      - Chromecast Bagno
+      - Chromecast Salotto
+      - Chromecast Cucina
+      - Kodi Salotto
+      - Tutti
+    initial: " "
+    icon: mdi:cast
+
+automation:
+  - alias: START Streaming Radio on CHROMECAST
+    trigger:
+    - platform: state
+      entity_id: input_select.radio_station
+    action:
+    - service: media_player.play_media
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bathroom
+          {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.living_room
+          {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.kitchen
+          {%-elif is_state("input_select.radio_player", "Kodi Salotto") %} media_player.kodi
+          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bathroom, media_player.living_room, media_player.kitchen
+          {% else %}
+            "None"
+          {% endif %}
+        media_content_id: >
+          {% if is_state("input_select.radio_station", "Antenna Bayern Workout") %}
+            http://mp3channels.webradio.antenne.de/workout-hits.aac
+          {%-elif is_state("input_select.radio_station", "Flaixa FM") %}
+            http://radiostream.flaixfm.cat:8002/;stream.nsv
+          {%-elif is_state("input_select.radio_station", "Nova 100") %}
+            http://streaming.novaentertainment.com.au/nova100
+          {%-elif is_state("input_select.radio_station", "SmoothFM") %}
+            http://streaming.novaentertainment.com.au/smooth915 
+          {%-elif is_state("input_select.radio_station", "SBS Chill") %}
+            http://shoutcast.sbs.com.au/SBSChill
+          {% else %}
+            "None"
+          {% endif %}
+        media_content_type: 'audio/mp4'
+#***********************************************************************************
+  - alias: STOP Streaming Radio on CHROMECAST
+    trigger:
+    - platform: state
+      entity_id: input_select.radio_station
+      to: "None"
+    action:
+    - service: media_player.turn_off
+      data_template:
+        entity_id: >
+            {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bathroom
+            {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.living_room
+            {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.kitchen
+            {%-elif is_state("input_select.radio_player", "Kodi Salotto") %} media_player.kodi
+            {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bathroom, media_player.living_room, media_player.kitchen
+            {% else %}
+              "None"
+            {% endif %}
+#***********************************************************************************
+  - alias: change volume Chromecast
+    trigger:
+    - platform: state
+      entity_id: input_number.google_volume
+    condition:
+    - condition: template
+      value_template: "{{ states.input_select.radio_player.state != 'OFF' }}"
+    action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bathroom
+          {% elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.living_room
+          {% elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.kitchen
+          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bathroom, media_player.living_room, media_player.kitchen
+          {% else %}
+            "None"
+          {% endif %}
+        volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"
+#*************************************************************************************************************************************************************

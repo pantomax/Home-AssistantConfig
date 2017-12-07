@@ -1,0 +1,25 @@
+############################################################
+#
+# Panel Iframes
+#
+############################################################
+  editor:
+    title: Editor
+    icon: mdi:file-document
+    url: http://***REMOVED***:3218
+  terminal:
+    title: Terminal
+    icon: mdi:console-line
+    url: http://***REMOVED***:7681
+  kodi:
+    title: Kodi
+    icon: mdi:movie
+    url: http://***REMOVED***:8800
+  nodered_flows:
+    title: Node-RED Flows
+    url: http://maxhassio.duckdns.org:1880
+    icon: mdi:nodejs
+  router:
+    title: Router
+    icon: mdi:router-wireless
+    url: https://***REMOVED***:***REMOVED***/login.lp
