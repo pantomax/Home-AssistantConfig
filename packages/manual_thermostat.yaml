@@ -1,0 +1,230 @@
+############################################################
+#
+# Termostato manuale per scaldare e raffreddare
+#
+############################################################
+#*****************************************************
+group:
+#*****************************************************
+  airconditioner:
+    name: Impianto Condizionamento
+    entities:
+      - input_select.select_splitter
+      - input_select.ac_operation_mode
+      - input_select.ac_fan_mode
+      - input_select.ac_swing_mode
+      - input_number.ac_target_temp
+      - sensor.ac_target
+      - sensor.temperatura_corretta_salotto_per_termostato_manuale
+      - sensor.temperatura_corretta_camera_per_termostato_manuale
+      - input_boolean.telecomando_visibile
+#*****************************************************
+  provacondizionatore:
+    name: pulsanti ac 
+    entities:
+      - switch.salotto_off
+      - switch.salotto_ventilatore_basso_fisso
+      - switch.salotto_ventilatore_medio_fisso
+      - switch.salotto_ventilatore_alto_fisso
+      - switch.salotto_ventilatore_turbo_fisso
+      - switch.salotto_ventilatore_basso_fisso
+      - switch.salotto_ventilatore_medio_fisso
+      - switch.salotto_ventilatore_alto_fisso
+      - switch.salotto_ventilatore_turbo_fisso
+      - switch.salotto_automatico_auto_fisso_16
+      - switch.salotto_automatico_auto_fisso_17
+      - switch.salotto_automatico_auto_fisso_18
+      - switch.salotto_automatico_auto_fisso_19
+      - switch.salotto_automatico_auto_fisso_20
+      - switch.salotto_automatico_auto_fisso_21
+      - switch.salotto_automatico_auto_fisso_22
+      - switch.salotto_automatico_auto_fisso_23
+      - switch.salotto_automatico_auto_fisso_24
+      - switch.salotto_automatico_auto_fisso_25
+      - switch.salotto_automatico_auto_fisso_26
+      - switch.salotto_automatico_auto_fisso_27
+      - switch.salotto_automatico_auto_fisso_28
+      - switch.salotto_automatico_auto_fisso_29
+      - switch.salotto_automatico_auto_fisso_30
+      - switch.salotto_deumidifica_auto_fisso_16
+      - switch.salotto_deumidifica_auto_fisso_17
+      - switch.salotto_deumidifica_auto_fisso_18
+      - switch.salotto_deumidifica_auto_fisso_19
+      - switch.salotto_deumidifica_auto_fisso_20
+      - switch.salotto_deumidifica_auto_fisso_21
+      - switch.salotto_deumidifica_auto_fisso_22
+      - switch.salotto_deumidifica_auto_fisso_23
+      - switch.salotto_deumidifica_auto_fisso_24
+      - switch.salotto_deumidifica_auto_fisso_25
+      - switch.salotto_deumidifica_auto_fisso_26
+      - switch.salotto_deumidifica_auto_fisso_27
+      - switch.salotto_deumidifica_auto_fisso_28
+      - switch.salotto_deumidifica_auto_fisso_29
+      - switch.salotto_deumidifica_auto_fisso_30
+#*****************************************************
+input_select:
+#*****************************************************
+  select_splitter:
+    name: Condizionatore
+    options:
+      - SALOTTO
+      - CAMERA
+    initial: SALOTTO
+    icon: mdi:air-conditioner
+#*****************************************************
+  ac_operation_mode:
+    name: Operating Mode
+    options:
+      - AUTOMATICO
+      - RAFFREDDA
+      - SCALDA
+      - DEUMIDIFICA
+      - VENTILATORE
+      - Spento
+    initial: Spento
+    icon: mdi:settings
+#*****************************************************
+  ac_fan_mode:
+    name: Fan Mode
+    options:
+      - AUTO
+      - BASSO
+      - MEDIO
+      - ALTO
+      - TURBO
+    initial: AUTO
+    icon: mdi:fan
+#*****************************************************
+  ac_swing_mode:
+    name: Swing Mode
+    options:
+     - FISSO
+     - VERTICALE
+    initial: FISSO
+    icon: mdi:arrow-expand
+#*****************************************************
+input_number:
+#*****************************************************
+  ac_target_temp:
+    name: Imposta Temp
+    min: 16
+    max: 30
+    step: 1
+    initial: 21
+#*****************************************************
+input_boolean:
+#*****************************************************
+  telecomando_visibile:
+    name: Condizionatori
+    initial: off
+    icon: mdi:air-conditioner
+#*****************************************************
+intent_script:
+#*****************************************************
+  TurnACOnOff:
+    speech:
+      text: Turning the {{ Stanze }} air conditioner {{ OnOff }}
+    action:
+      service: switch.turn_on
+      data_template:
+          entity_id: >
+              {%- if OnOff == ["on"] -%}
+                switch.{{ Stanze }}_automatico_auto_fisso_24
+              {%- else -%}
+                switch.{{ Stanze }}_off
+              {%- endif -%}
+#*****************************************************
+sensor:
+#*****************************************************
+# Termostato Manuale Impianto di condizionamento
+  - platform: template
+    sensors:
+      ac_setting_cool:
+        friendly_name: 'Current AC Cool Setting'
+        value_template: '{{ states.input_select.select_splitter.state.lower() }}_{{ states.input_select.ac_operation_mode.state.lower() }}_{{ states.input_select.ac_fan_mode.state.lower() }}_{{ states.input_select.ac_swing_mode.state.lower() }}_{{ states.input_number.ac_target_temp.state | int }}'
+      ac_setting_fan:
+        friendly_name: 'Current AC Fan Setting'
+        value_template: '{{ states.input_select.select_splitter.state.lower() }}_ventilatore_{{ states.input_select.ac_fan_mode.state.lower() }}_{{ states.input_select.ac_swing_mode.state.lower() }}' 
+      ac_target:
+        friendly_name: 'Target Temperature'
+        value_template: '{{ states.input_number.ac_target_temp.state | int }}'
+        unit_of_measurement: '°C'
+#*****************************************************
+  - platform: broadlink
+    update_interval: 120
+    name: Temperatura Salotto per termostato manuale
+    host: 192.168.1.69
+    mac: '34:ea:34:f4:52:ac'
+    monitored_conditions:
+      - temperature
+#*****************************************************
+  - platform: broadlink
+    update_interval: 120
+    name: Temperatura Bagno per termostato manuale
+    host: 192.168.1.69
+    mac: '34:ea:34:f4:52:ac'
+    monitored_conditions:
+      - temperature
+#*****************************************************
+  - platform: broadlink
+    update_interval: 120
+    name: Temperatura Camera per termostato manuale
+    host: 192.168.1.69
+    mac: '34:ea:34:f4:52:ac'
+    monitored_conditions:
+      - temperature
+#*****************************************************
+  - platform: template
+    sensors:
+      temperatura_corretta_salotto_per_termostato_manuale:
+        friendly_name: "Temperatura Salotto"
+        unit_of_measurement: '°C'
+        value_template: "{{ states('sensor.temperatura_salotto_per_termostato_manuale_temperature')|float - 2 }}"
+#*****************************************************
+  - platform: template
+    sensors:
+      temperatura_corretta_bagno_per_termostato_manuale:
+        friendly_name: "Temperatura Bagno"
+        unit_of_measurement: '°C'
+        value_template: "{{ states('sensor.temperatura_bagno_per_termostato__manuale_temperature')|float - 2 }}"
+#*****************************************************
+  - platform: template
+    sensors:
+      temperatura_corretta_camera_per_termostato_manuale:
+        friendly_name: "Temperatura Camera"
+        unit_of_measurement: '°C'
+        value_template: "{{ states('sensor.temperatura_camera_per_termostato_manuale_temperature')|float - 2 }}"
+#*****************************************************
+automation:
+#*****************************************************
+  - alias: Cambia Velocità Condizionatore
+    trigger:
+    - platform: state
+      entity_id: input_select.ac_fan_mode
+    action:
+    - service: switch.turn_on
+      data_template:
+        entity_id: >
+              switch.{{ states.sensor.ac_setting_fan.state }}
+#*****************************************************
+  - alias: Cambia modalità Condizionatore
+    trigger:
+    - platform: state
+      entity_id: sensor.ac_setting_cool
+    action:
+    - service: switch.turn_on
+      data_template:
+        entity_id: >
+              switch.{{ states.sensor.ac_setting_cool.state }}
+#*****************************************************
+  - alias: Spegni Condizionatore
+    trigger:
+    - platform: state
+      entity_id: input_select.ac_operation_mode
+      to: "Spento"
+    action:
+    - service: switch.turn_on
+      data_template:
+        entity_id: >
+            switch.{{ states.input_select.select_splitter.state }}_off
+#*****************************************************

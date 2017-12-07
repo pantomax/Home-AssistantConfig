@@ -1,0 +1,106 @@
+############################################################
+#
+# Luci salotto con film su chromecast
+#
+############################################################
+automation:
+  - alias: "Chromecast in partenza"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'idle'
+        to: 'playing'
+        for:
+          hours: 0
+          minutes: 0
+          seconds: 20
+    condition:
+      condition: and
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-1:00:00"
+        - condition: state
+          entity_id: sensor.tipo_di_media
+          state: ''
+        - condition: state
+          entity_id: input_boolean.scene
+          state: 'off'
+    action:
+        service: scene.turn_on
+        entity_id: scene.film
+#***********************************************************************************
+  - alias: "Chromecast in stop"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        to: 'off'
+        for:
+          seconds: 20
+    condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-1:00:00"
+    action:
+        service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: "Chromecast in stop"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'playing'
+        to: 'idle'
+        for:
+          hours: 0
+          minutes: 0
+          seconds: 20
+    condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-1:00:00"
+    action:
+        service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+#***********************************************************************************
+  - alias: "Chromecast in pausa"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'playing'
+        to: 'paused'
+        for:
+          seconds: 20
+    condition:
+      condition: and
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-1:00:00"
+        - condition: state
+          entity_id: sensor.tipo_di_media
+          state: ''
+    action:
+        service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+#***********************************************************************************
+  - alias: "Chromecast in riproduzione"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'paused'
+        to: 'playing'
+    condition:
+      condition: and
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-1:00:00"
+        - condition: state
+          entity_id: sensor.tipo_di_media
+          state: ''
+        - condition: state
+          entity_id: input_boolean.scene
+          state: 'off'
+    action:
+        service: scene.turn_on
+        entity_id: scene.film

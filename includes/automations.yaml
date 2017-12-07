@@ -1,0 +1,277 @@
+####################################################################################
+#
+# Automation
+#
+####################################################################################
+  - alias: Startup Notification
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: notify.notify
+        data:
+          message: "Home Assistant è attivo."
+#      - service: ifttt.trigger
+#        data: {"event":"TestHA_Trigger", "value1":"Home Assistant è attivo."}
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/computer_activate.mp3"
+      - service: group.set_visibility
+        entity_id: group.airconditioner
+        data:
+          visible: False
+      - service: group.set_visibility
+        entity_id: group.termoventilatore_bagno
+        data:
+          visible: False
+      - service: group.set_visibility
+        entity_id: group.media_salotto
+        data:
+          visible: False
+      - service: group.set_visibility
+        entity_id: group.radio
+        data:
+          visible: False
+      - service: group.set_visibility
+        entity_id: group.telecomando_tv
+        data:
+          visible: False
+      - service: group.set_visibility
+        entity_id: group.tastierino_sky
+        data:
+          visible: False
+      - service: group.set_visibility
+        entity_id: group.telecomando_sky
+        data:
+          visible: False
+#***********************************************************************************
+  - alias: Shutdown/Reboot Notification
+    trigger:
+      - platform: homeassistant
+        event: shutdown
+    action:
+      - service: notify.notify
+        data:
+          message: "Home Assistant è in riavvio."
+#      - service: ifttt.trigger
+#        data: {"event":"TestHA_Trigger", "value1":"Home Assistant è in riavvio."}
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_off.mp3"
+#***********************************************************************************
+  - alias: Togli Visibilita Gruppo Webcam
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+    - service: group.set_visibility
+      entity_id: group.webcam_casa
+      data:
+        visible: False
+    - service: hassio.addon_stdin
+      data:
+        addon: local_audio_player
+        input: "http://192.168.1.100:8123/local/tos-redalert.wav"
+#***********************************************************************************
+  - alias: Cambia Visibilita Gruppo Webcam
+    trigger:
+    - platform: state
+      entity_id: input_number.visibilita_gruppo
+    action:
+    - service: group.set_visibility
+      entity_id: group.webcam_casa
+      data_template:
+        visible: >
+          {% if is_state("input_number.visibilita_gruppo", "24.0") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Telecomando Condizionatori
+    trigger:
+    - platform: state
+      entity_id: input_boolean.telecomando_visibile
+    action:
+    - service: group.set_visibility
+      entity_id: group.airconditioner
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.telecomando_visibile", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Telecomando Termoventilatore
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_termoventilatore
+    action:
+    - service: group.set_visibility
+      entity_id: group.termoventilatore_bagno
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_termoventilatore", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Telecomando MEDIA
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_tv
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_salotto
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_tv", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Telecomando Radio
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_radio
+    action:
+    - service: group.set_visibility
+      entity_id: group.radio
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_radio", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Telecomando TV
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_televisione
+    action:
+    - service: group.set_visibility
+      entity_id: group.telecomando_tv
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_televisione", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Tastierino SKY
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_tastierino_sky
+    action:
+    - service: group.set_visibility
+      entity_id: group.tastierino_sky
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_tastierino_sky", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: Cambia Visibilita Telecomando SKY
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_sky
+    action:
+    - service: group.set_visibility
+      entity_id: group.telecomando_sky
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_sky", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#***********************************************************************************
+  - alias: "Notify I am home"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.mxhome
+      to: 'on'
+    action:
+    - service: notify.notify
+      data:
+        message: "Welcome home"
+        target: "Smartphone Max"
+        data:
+          actions:
+            - action: "button1"
+              title: "Luce cucina"
+            - action: "button2"
+              title: "Luci cucina e salotto"
+#  - alias: 'Notify Gate Closed'
+#    trigger:
+#      - platform: state
+#        entity_id: binary_sensor.entry_gate
+#        from: 'on'
+#        to: 'off'
+#    action:
+#      - service: notify.notify
+#        data:
+#          title: 'GATE'
+#          message: 'Closed'
+#          data:
+#            tag: alert
+#            url: 'https://my_HAserver.com'
+#            image: "https://my_HAserver.com/api/camera_proxy/camera.mycamera?api_password=MyHAPassword"
+#            vibrate:
+#              - 300
+#              - 100
+#              - 400
+#            renotify: 0
+#***********************************************************************************
+  - alias: HTML5 push notification action button clicked
+    trigger:
+    - platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: manual_action
+    action:
+    - service_template: >
+       {{ trigger.event.data.data["entityType"] }}.{{ trigger.event.data.data["secureAction"] }}
+      data_template:
+        entity_id: >
+         {{ trigger.event.data.data["entityName"] }}
+
+#2017-11-03 20:59:49 DEBUG (MainThread) [homeassistant.components.api] STREAM 1938801152 WRITING data: {"event_type": "html5_notification.clicked", "data": {"tag": "e1cf64cd-eb8f-44a4-890e-a794c2d464d3", "type": "clicked", "target": "Smartphone Max", "action": "button2"}, "origin": "LOCAL", "time_fired": "2017-11-03T19:59:49.786210+00:00"}
+  - alias: HTML5 push notification action button clicked Turn on lights
+    trigger:
+      platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: button1
+    action:
+      - service: light.turn_on
+        entity_id: group.kitchen
+  - alias: HTML5 push notification action button clicked Turn on lights 2
+    trigger:
+      platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: button2
+    action:
+      - service: light.turn_on
+        entity_id: group.kitchen
+      - service: light.turn_on
+        entity_id: group.living_room
+        

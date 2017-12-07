@@ -1,0 +1,424 @@
+############################################################
+#
+# Termostato per scaldare camera
+#
+############################################################
+#***********************************************************************************
+#***********************************************************************************
+group:
+#***********************************************************************************
+#***********************************************************************************
+  termostato_camera:
+    name: Termostato camera
+    control: hidden
+    entities:
+      - input_boolean.termostato_camera_interruttore
+      - climate.termostato_camera
+      - input_number.termostato_camera_target_temp
+      - sensor.termostato_camera_ac_target
+      - input_boolean.termostato_camera_timer_interruttore
+      - input_number.termostato_camera_timer
+      - sensor.termostato_camera_tempo_impostato
+      - sensor.countdown_camera
+      - switch.camera_scalda
+
+#***********************************************************************************
+#***********************************************************************************
+sensor:
+#***********************************************************************************
+#***********************************************************************************
+  - platform: template
+    sensors:
+      temperatura_corretta_camera_per_termostato:
+        friendly_name: "Temperatura camera"
+        unit_of_measurement: '°C'
+        value_template: "{{ states('sensor.temperatura_camera_temperature')|float - 2 }}"
+#***********************************************************************************
+  - platform: template
+    sensors:
+      tempo_spegnimento_camera:
+        value_template: "{{ ( ( states.input_number.termostato_camera_timer.state | int) * 60 ) | int }}"
+#***********************************************************************************
+# Termostato camera
+  - platform: template
+    sensors:
+      termostato_camera_ac_setting:
+        friendly_name: 'Current AC Cool Setting'
+        value_template: 'camera_automatico_auto_fisso_{{ states.input_number.termostato_camera_target_temp.state | int }}'
+      termostato_camera_ac_target:
+        friendly_name: 'Temperatura Impostata'
+        value_template: '{{ states.input_number.termostato_camera_target_temp.state | int }}'
+        unit_of_measurement: '°C'
+      termostato_camera_tempo_impostato:
+        friendly_name: 'Tempo Impostato'
+        value_template: '{{ states.input_number.termostato_camera_timer.state | int }}'
+        unit_of_measurement: 'min'
+#***********************************************************************************
+  - platform: template
+    sensors:
+      countdown_camera:
+        friendly_name: "Tempo Rimanente"
+        value_template: "{{ states('sensor.countdown_camera_hours') }} : {{ states('sensor.countdown_camera_minutes') }} : {{ states('sensor.countdown_camera_seconds') }}"
+  - platform: template
+    sensors:
+      countdown_camera_hours:
+        value_template: >
+          {% if ( ( states('input_number.countdown_camera') | float / 3600 ) | int ) < 10 %}
+            0{{( states('input_number.countdown_camera') | float / 3600 ) | int}}
+          {% else %}
+            {{( states('input_number.countdown_camera') | float / 3600 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_camera_minutes:
+        value_template: >
+          {% if ( ((( states('input_number.countdown_camera') | float / 3600 ) - ( states('sensor.countdown_camera_hours') | float )) * 60 ) | int ) < 10 %}
+            0{{((( states('input_number.countdown_camera') | float / 3600 ) - ( states('sensor.countdown_camera_hours') | float )) * 60 ) | int}}
+          {% else %}
+            {{((( states('input_number.countdown_camera') | float / 3600 ) - ( states('sensor.countdown_camera_hours') | float )) * 60 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_camera_seconds:
+        value_template: >
+          {% if ( ((((( states('input_number.countdown_camera') | float / 3600 ) - ( states('sensor.countdown_camera_hours') | float )) * 60 ) - ( states('sensor.countdown_camera_minutes') | float )) * 60 ) | int ) < 10 %}
+            0{{((((( states('input_number.countdown_camera') | float / 3600 ) - ( states('sensor.countdown_camera_hours') | float )) * 60 ) - ( states('sensor.countdown_camera_minutes') | float )) * 60 ) | int}}
+          {% else %}
+            {{((((( states('input_number.countdown_camera') | float / 3600 ) - ( states('sensor.countdown_camera_hours') | float )) * 60 ) - ( states('sensor.countdown_camera_minutes') | float )) * 60 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_camera_meno_1:
+        value_template: "{{( states('input_number.countdown_camera') | int - 1 ) | int}}"
+#***********************************************************************************
+  - platform: broadlink
+    update_interval: 120
+    name: Temperatura camera per termostato
+    host: 192.168.1.104
+    mac: '34:ea:34:d0:9f:5f'
+    monitored_conditions:
+      - temperature
+#***********************************************************************************
+#***********************************************************************************
+switch:
+#***********************************************************************************
+#***********************************************************************************
+  - platform: broadlink
+    host: 192.168.1.104
+    mac: '34:ea:34:d0:9f:5f'
+    timeout: 15
+    type: rm2
+    switches:
+      camera_scalda:
+        command_on: 'JgDuAGMAASYSDw8yDxIRDxIPEg8SDhIPEg4SMBIOEg8SLxIPEgwVMA8yDzIRMRIvEg8SDhIPEg8SDhIPEgsWDhIPEg8SDw8SDxEPEg8SEQ8REBEQEQ8REBEQEQ8REBEMFQ8SDxIPERAREA8RDxIPEg8yETARMBIwEmBkAAEkEjASDhEREBAREA8SEQ8PEg8SDzIREBEPEQsWDBUwETARDBUwETERMREPDzMPEREwEjASDhIPERARMBEwETESDxEQDxEQEQ8SDxERMRIvEi8SMBEwEQwWLxIPEg4SMA8SDxIPEREQERARMBIvEjARMBIADQUAAAAAAAAAAAAA'
+        command_off: 'JgBoAREAAktgAAEoDhMOMw4TDhIPEg4TDhIPEg4SDzMOEg8SDjQNNA4TDTQOMxAxDzMOMw4TDhIOEw4SDxIOEw4TDhMNEw4TDRQOEg4TDhIPEg4TDhIPEg4SDxIOEw4SDxIOEw4TDxINEw4TDRMOExARDhIPEg4SDzMOMw5kYAABKA4zDhQNEw4TDRMOEw0UDhIOEw4zDhMOEg8zDhIOMw8zDjQNNA00DTQPEg4TDhIOEw4SDxIOEw4SDxIOEg8SDhMOEw4TDRMOEw0UDRMOExAQDxIOEw4SDxIOEg8SDhMQEA8SDhMOEw4TDRMOEw0TDhMOZGAAASgOMw8SDhIPEg4TDhIPEg4TDhIONA4TDRMONA00DjMOMw8SDjMQMQ8zEDEQMg8yDjMONA4SDhMOEg8zDjMOMw4TDhIPEg4TDhMOEw0TDhMNEw40DjMOEw4zDjMOEw4SDxIOEw4SDhQNEw4TDRMONA4zDgANBQ=='
+      camera_timer_2_ore:
+        command_on: 'JgBoARUAAjtjAAEnDhMOMxEQERARDxIPERAREBIOEjASDxEPEjASDxEQETEOMxExETARMRIOEg8REBEQEQ8SDxIPERAREBEQDxIOEg8SERAREBEPEg8SDxEQEQ8SDxIPERAREBEPERARERAQERAPEhEQEQ8RMREwEjARMBJhYwABJhIwDxIREBEQEBEOEg8SDxIPEg8yEBEREBEwETEPERIwETASMQ4zDzMOEhAREBEREBEwERAREA8REg8REBEQEQ8SDxERDhIPEhEQERAPERARERAREBEwEBEREA8REBEREBEQERAREA8SDhMOEg8SDxIPY2IAASgRMBIPEBERDxEQEg8REBEQEBAQMxAQDxIREA4zEBEQMhEPEjARMBIwETASMBExETERMA8SDxIPERAyDzIQMhEQEQ8SDxEQERAREBExDjMRMQ8yEjARDxIwERARDxIwERAREBEPEBIPEg4zDzMPMhExEQANBQ=='
+      camera_display_off:
+        command_on: 'JgDyABUAAjlkAAEkEw4SLxMOEg8SDhMPERARDw8SDzIREBEPEy8SDhMOEi8TLxIvEi8TLxIPEg8PERARERARDxIPEg8SDhMOEg8SDhMOEg8SDhMOEg8SDxIPERAPEQ8SERARDxEQEg8SDhIPEg8SDhIPEg8SLxIvEjASMBJfZQABJBIwEg4SDxIPEg4SDxIPEg4SDxIvEg8SEBEwETAPEhEwEg8SLxIvEy8SLxIvEjASMBEwEg8PERENFQ8SLxIvEw4SDxIOEg8SDxIOEy8SMBEwDzIRMRIOEy8SDhMOEi8TDhIPEg4TDhIQETARMA8zETASAA0FAAAAAAAA'
+      camera_beep_off:
+        command_on: 'JgDyABMAAjxiAAEnDxIPMhAOEw4UDxEQERARDxEQETAREBEPETERDhMQDzIPMw8yETARMREPERAREBEPERASDxEOEhAREA8REBIPEQ8SDxIRDxEQERARDxEQEQkYDxEQEg8RDxIQEBASDw8SDxEPEg8SEBARMREwETARMRFhZAABJBIwEg8REBEPEBESDw8RERARDRUvEg8RDxIwEg4SDxIvEg8SLxIxDzIPMhEwEjASLxIvEw4SDxIOEjASLxIwDxIPEg8RERAREBEPEjASLxIvEjASLxIPEjARDw8SDzIREBEQEg4SMBIOEjASLxIvEjAQAA0FAAAAAAAA'
+  - platform: template
+    switches:
+      accendi_termostato_dashboard_camera:
+        value_template: "{{ is_state('input_boolean.termostato_camera_interruttore', 'on') }}"
+        turn_on:
+          - service: homeassistant.turn_on
+            data:
+              entity_id: input_boolean.termostato_camera_interruttore
+          - service: homeassistant.turn_on
+            data:
+              entity_id: input_boolean.termostato_camera_timer_interruttore
+        turn_off:
+          - service: homeassistant.turn_off
+            data:
+              entity_id: input_boolean.termostato_camera_interruttore
+          - service: homeassistant.turn_off
+            data:
+              entity_id: input_boolean.termostato_camera_timer_interruttore
+      spegni_timer_dashboard_camera:
+        value_template: "{{ is_state('input_boolean.termostato_camera_timer_interruttore', 'on') }}"
+        turn_on:
+          - service: homeassistant.turn_on
+            data:
+              entity_id: input_boolean.termostato_camera_timer_interruttore
+        turn_off:
+          - service: homeassistant.turn_off
+            data:
+              entity_id: input_boolean.termostato_camera_timer_interruttore
+#***********************************************************************************
+#***********************************************************************************
+climate:
+#***********************************************************************************
+#***********************************************************************************
+  - platform: generic_thermostat
+    name: Termostato camera
+    heater: switch.camera_scalda
+    target_sensor: sensor.temperatura_camera_temperature
+    min_temp: 16
+    max_temp: 30
+#    target_temp: 24
+    tolerance: 0.3
+    min_cycle_duration:
+      seconds: 5
+#***********************************************************************************
+#***********************************************************************************
+input_number:
+#***********************************************************************************
+#***********************************************************************************
+  termostato_camera_target_temp:
+    name: Imposta Temp
+    min: 16
+    max: 30
+    step: 1
+    initial: 30
+#***********************************************************************************
+  termostato_camera_timer:
+    name: Tempo
+    min: 1
+    max: 240
+    step: 1
+    initial: 30
+#***********************************************************************************
+  countdown_camera:
+    name: Countdown camera
+    min: 0
+    max: 7200
+    step: 1
+    initial: 1800
+#***********************************************************************************
+#***********************************************************************************
+input_boolean:
+#***********************************************************************************
+#***********************************************************************************
+  termostato_camera_interruttore:
+    name: Accendi
+    initial: off
+    icon: mdi:thermometer-lines
+#***********************************************************************************
+  termostato_camera_timer_interruttore:
+    name: Timer
+    initial: off
+    icon: mdi:timer
+#***********************************************************************************
+  countdown_camera:
+    name: Countdown camera
+    initial: off
+    icon: mdi:timelapse
+#***********************************************************************************
+#***********************************************************************************
+automation:
+#***********************************************************************************
+#***********************************************************************************
+  - alias: "Termostato camera Attiva Riscaldamento 30 gradi, basculante e limite massimo di 2 ore"
+    trigger:
+      platform: state
+      entity_id: climate.termostato_camera
+      to: 'heat'
+    action:
+      - delay:
+            seconds: 5
+      - service: switch.turn_on
+        entity_id: switch.camera_timer_2_ore
+      - delay:
+            seconds: 1
+      - service: switch.turn_on
+        entity_id: switch.camera_beep_off
+      - delay:
+            seconds: 1
+      - service: switch.turn_on
+        entity_id: switch.camera_display_off
+
+
+
+
+
+
+#***********************************************************************************
+  - alias: "Termostato camera Accensione Manuale"
+    trigger:
+      platform: state
+      entity_id: input_boolean.termostato_camera_interruttore
+      to: 'on'
+    action:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: "climate.termostato_camera"
+          temperature: '{{ float(states.input_number.termostato_camera_target_temp.state) }}'
+#***********************************************************************************
+  - alias: "Termostato camera Spegnimento Manuale"
+    trigger:
+      platform: state
+      entity_id: input_boolean.termostato_camera_interruttore
+      to: 'off'
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.termostato_camera
+          temperature: 0
+#***********************************************************************************
+  - alias: "Termostato camera Regola Temperatura"
+    trigger:
+      platform: state
+      entity_id: input_number.termostato_camera_target_temp
+    condition:
+      - condition: state
+        entity_id: input_boolean.termostato_camera_interruttore
+        state: 'on'
+    action:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: "climate.termostato_camera"
+          temperature: '{{ float(states.input_number.termostato_camera_target_temp.state) }}'
+#***********************************************************************************
+  - alias: "Termostato camera Spegni con timer"
+    trigger:
+      platform: state
+      entity_id: input_boolean.termostato_camera_timer_interruttore
+      to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.termostato_camera_interruttore
+      - delay: 'sensors.tempo_spegnimento_camera'
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.termostato_camera_interruttore
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.termostato_camera_timer_interruttore
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.termostato_camera_timer'
+          value: "1800"
+#***********************************************************************************
+  - alias: "Termostato camera disattiva timer in caso di spegnimento manuale"
+    trigger:
+      platform: state
+      entity_id: input_boolean.termostato_camera_interruttore
+      to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.termostato_camera_timer_interruttore
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.termostato_camera_timer'
+          value: "1800"
+#***********************************************************************************
+  - alias: 'Start Countdown'
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown_camera
+      above: '0'
+    condition:
+      condition: state
+      entity_id: input_boolean.countdown_camera
+      state: 'on'
+    action:
+      service: script.turn_on
+      entity_id: script.scala_countdown_camera
+
+  - alias: 'Start Countdown 2'
+    trigger:
+      platform: state
+      entity_id: input_boolean.countdown_camera
+      to: 'on'
+    condition:
+      condition: numeric_state
+      entity_id: input_number.countdown_camera
+      above: '0'
+    action:
+      service: script.turn_on
+      entity_id: script.scala_countdown_camera
+
+  - alias: 'Stop Countdown'
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown_camera
+      below: '1'
+    action:
+      service: homeassistant.turn_off
+      entity_id: input_boolean.countdown_camera
+
+  - alias: 'Stop Countdown 2'
+    trigger:
+      platform: state
+      entity_id: input_boolean.countdown_camera
+      to: 'off'
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown_camera'
+          value: "0"
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.termostato_camera_interruttore
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.termostato_camera_timer_interruttore
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.termostato_camera_timer'
+          value: "1800"
+#***********************************************************************************
+#***********************************************************************************
+#***********************************************************************************
+  - alias: "Sincronizza Accensione countdown con accensione termostato"
+    trigger:
+      platform: state
+      entity_id: input_boolean.termostato_camera_timer_interruttore
+      to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.countdown_camera
+#***********************************************************************************
+  - alias: "Sincronizza Spegnimento countdown con spegnimento termostato"
+    trigger:
+      platform: state
+      entity_id: input_boolean.termostato_camera_timer_interruttore
+      to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.countdown_camera
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.termostato_camera_timer'
+          value: "1800"
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown_camera'
+          value: "{{ ( ( states.input_number.termostato_camera_timer.state | int) * 60 ) | int }}"
+#***********************************************************************************
+  - alias: "Sincronizza tempo timer con countdown"
+    trigger:
+      platform: state
+      entity_id: input_number.termostato_camera_timer
+    action:
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown_camera'
+          value: "{{ ( ( states.input_number.termostato_camera_timer.state | int) * 60 ) | int }}"
+#***********************************************************************************
+#***********************************************************************************
+#***********************************************************************************
+script:
+  scala_countdown_camera:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown_camera'
+          value: "{{ states.sensor.countdown_camera_meno_1.state | int }}"
+      - service: script.turn_on
+        data:
+          entity_id: script.attendi_e_ripeti_countdown_camera
+
+  attendi_e_ripeti_countdown_camera:
+    sequence:
+      - condition: and
+        conditions:
+           - condition: state
+             entity_id: input_boolean.countdown_camera
+             state: 'on'
+           - condition: numeric_state
+             entity_id: input_number.countdown_camera
+             above: '0'
+      - delay:
+          milliseconds: 9
+      - service: script.turn_on
+        data:
+          entity_id: script.scala_countdown_camera

@@ -1,0 +1,118 @@
+############################################################
+#
+# Intent Scripts
+#
+############################################################
+  Alert:
+    speech:
+      text: Yes Captain, {{ color }} alert {{ OnOff }}
+    action:
+    - service: scene.turn_on
+      data_template:
+        entity_id: >
+          {%- if OnOff == ["off"] -%}
+            scene.luci_sala_accese
+          {%-elif color == ["blue"] %}
+            scene.black_alert
+          {%-elif color == ["black"] %}
+            scene.black_alert_1
+          {%-elif color == ["red"] %}
+            scene.red_alert
+          {%- else -%}
+            scene.luci_sala_accese
+          {%- endif -%}
+
+  TurnLights:
+    speech:
+      text: Turning {{ Room }} lights {{ OnOff }}
+    async_action: False
+    action:
+      service_template: >
+        {%- if OnOff == ["on"] -%}
+          switch.turn_on
+        {%- else -%}
+          switch.turn_off
+        {%- endif -%}
+      data_template:
+          entity_id: "group.{{ Room | replace(' ', '_') }}"
+
+  Temperature:
+    speech:
+      text: A casa ci sono {{ states('sensor.sensore_temperature') }} gradi
+
+#        {%- if lang == ["en"] -%}
+#          The temperature at home is {{ states('sensor.sensore_temperature') }} degrees {{ trigger.lang }}
+#        {%- elif lang == ["it"] %}
+#          A casa ci sono {{ states('sensor.sensore_temperature') }} gradi 
+#        {%- else -%}
+#          Sorry I don't speak your language {{ trigger.lang }}
+#        {%- endif -%}
+
+
+  ComputerOn:
+    speech:
+      text: Il computer è {{ states('sensor.computersalotto') }}
+
+  LocateIntent:
+    speech:
+      text: >
+        {%- for state in states.device_tracker -%}
+          {%- if state.name.lower() == User.lower() -%}
+            {{ state.name }} is at {{ state.state }}
+          {%- elif loop.last -%}
+            I am sorry, I do not know where {{ User }} is.
+          {%- endif -%}
+        {%- else -%}
+          Sorry, I don't have any trackers registered.
+        {%- endfor -%}
+
+  SetTemperature:
+    speech:
+      text: Ok, {{ Room }} s temperature set to {{ degrees }} degrees, {{ Room }} s temperature is {{ states('sensor.temperatura_salotto_temperature') }} degrees right now
+    action:
+      service_template: >
+        {%- if OnOff == ["on"] -%}
+          switch.turn_off
+        {%- else -%}
+          switch.turn_on
+        {%- endif -%}
+      data_template:
+          entity_id: "switch.salotto_automatico_auto_fisso_{{ degrees }}" 
+
+  WhereAreWeIntent:
+    speech:
+      text: >
+        {%- if is_state('device_tracker.ec9bf3074845', 'home') and
+               is_state('device_tracker.28c671063a1f', 'home') -%}
+          You are both home, you silly
+        {%- else -%}
+          Max is {{ states("device_tracker.28c671063a1f") }}
+          and Mauro is {{ states("device_tracker.ec9bf3074845") }}
+        {% endif %}
+
+  GetHomeTemperature:
+    speech: 
+      text: The temperature at home is {{ states('sensor.sensore_temperature') }} degrees
+    async_action: False
+    action:
+      service: notify.notify
+      data_template:
+        message: Api.ai has send a request
+
+  buonanottepc:
+    speech: 
+      text: Yes captain, computer is shutting down. Deactivation complete. 
+    async_action: False
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: scene.buona_notte_pc
+
+  buonanotte:
+    speech: 
+      text: Yes captain, deactivation complete
+    async_action: False
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: scene.buona_notte

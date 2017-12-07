@@ -1,0 +1,69 @@
+############################################################
+#
+# Telecamere
+#
+############################################################
+  - platform: mjpeg
+    mjpeg_url: http://www.skylinewebcams.com/fa91d276-a07f-4119-90ce-71349a2f216b
+    name: Piazza Bra
+  - platform: generic
+    name: Verona Nord
+    still_image_url: http://www.autobrennero.it/WebCamImg/km228.jpg
+  - platform: generic
+    name: Nogarole
+    still_image_url: http://www.autobrennero.it/WebCamImg/km240.jpg
+  - platform: generic
+    name: Mantova Sud
+    still_image_url: http://www.autobrennero.it/WebCamImg/km272.jpg
+  - platform: generic
+    name: Raggiolo
+    still_image_url: http://www.autobrennero.it/WebCamImg/km285.jpg
+  - platform: generic
+    name: Raccordo A1
+    still_image_url: http://www.autobrennero.it/WebCamImg/km313.jpg
+  - platform: generic
+    name: Meteogramma
+    still_image_url: https://www.yr.no/place/Italy/Veneto/Verona/meteogram.svg
+    content_type: 'image/svg+xml'
+  - platform: generic
+    still_image_url: httpss://api.sat24.com/animated/EU/visual/2/Central%20European%20Standard%20Time
+    name: Meteo Visibile
+  - platform: generic
+    still_image_url: httpss://api.sat24.com/animated/EU/infraPolair/2/Central%20European%20Standard%20Time
+    name: Meteo Infrarosso 2
+  - platform: generic
+    still_image_url: httpss://api.sat24.com/animated/EU/rainTMC/2/Central%20European%20Standard%20Time
+    name: Meteo Pioggia
+  - platform: generic
+    still_image_url: http://www.meteo60.fr/satellites/animation-satellite-ir-france.gif
+    name: Meteo Infrarosso
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.72:8080/video
+    name: Webcam Cucina
+    username: !secret http_user
+    password: !secret camera_password
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.94:8080/video
+    name: Webcam Salotto
+    username: !secret http_user
+    password: !secret camera_password
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.85:8080/video
+    name: Webcam Bagno
+    username: !secret http_user
+    password: !secret camera_password
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.106:8081/video
+    name: Webcam Salotto 2
+    username: !secret http_user
+    password: !secret camera_password
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.105:8080/video
+    name: Webcam Salotto 3
+    username: !secret http_user
+    password: !secret camera_password
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.111:8080/video
+    name: Webcam Camera da letto
+    username: !secret http_user
+    password: !secret camera_password

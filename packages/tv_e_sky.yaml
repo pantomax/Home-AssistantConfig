@@ -1,0 +1,319 @@
+############################################################
+#
+# Gestione Tv e Ricevitore
+#
+############################################################
+#*****************************************************
+switch:
+#*****************************************************
+#************** SWITCH TV PER GOOGLE ASSISTANT ********************
+  - platform: template
+    switches:
+      tv:
+        value_template: "{{ is_state('input_boolean.guarda_tv', 'on') }}"
+        turn_on:
+          service: homeassistant.turn_on
+          data:
+            entity_id: input_boolean.guarda_tv
+        turn_off:
+          service: homeassistant.turn_off
+          data:
+            entity_id: input_boolean.guarda_tv
+#*****************************************************
+group:
+#*****************************************************
+  Media_Salotto:
+    name: Media Sala
+    control: hidden
+    entities:
+      - input_boolean.guarda_tv
+      - switch.hdmi_1_o_2
+      - switch.volume
+      - switch.retro_tv
+      - switch.canale_su_giu
+      - input_select.tv_channel_pick
+  Media_Salotto_2:
+    name: Media Sala
+    control: hidden
+    entities:
+      - input_boolean.guarda_tv
+      - switch.hdmi_1_o_2
+      - switch.volume
+      - switch.retro_tv
+      - switch.canale_su_giu
+      - input_select.tv_channel_pick
+      - input_boolean.visualizza_telecomando_televisione
+      - input_boolean.visualizza_tastierino_sky
+      - input_boolean.visualizza_telecomando_sky
+#*****************************************************
+  telecomando_tv:
+    name: Tv
+    control: hidden
+    entities:
+      - switch.tv_power
+      - switch.ok_esc
+      - switch.mute
+      - switch.volume_su
+      - switch.volume_giu
+      - switch.select_hdmi
+      - switch.select_hdmi_1
+      - switch.select_hdmi_2
+      - switch.select_hdmi_3
+#*****************************************************
+  tastierino_sky:
+    name: Tastierino Sky
+    control: hidden
+    entities:
+      - switch.sky_power
+      - switch.sky_button_tv_channel_1
+      - switch.sky_button_tv_channel_2
+      - switch.sky_button_tv_channel_3
+      - switch.sky_button_tv_channel_4
+      - switch.sky_button_tv_channel_5
+      - switch.sky_button_tv_channel_6
+      - switch.sky_button_tv_channel_7
+      - switch.sky_button_tv_channel_8
+      - switch.sky_button_tv_channel_9
+      - switch.sky_button_tv_channel_0
+  telecomando_sky:
+    name: telecomando Sky
+    control: hidden
+    entities:
+      - switch.sky_left_arrow
+      - switch.sky_button_tv
+      - switch.sky_button_sky
+      - switch.sky_button_guida_tv
+      - switch.sky_button_primafila
+      - switch.sky_button_menu
+      - switch.sky_button_on_demand
+      - switch.sky_button_i
+      - switch.sky_button_chan_up
+      - switch.sky_button_chan_down
+      - switch.sky_button_arrow_up
+      - switch.sky_button_arrow_down
+      - switch.sky_button_arrow_left
+      - switch.sky_button_arrow_right
+      - switch.sky_button_ok
+      - switch.sky_button_p
+      - switch.sky_button_esc
+      - switch.sky_button_my
+      - switch.sky_button_rewind
+      - switch.sky_button_forward
+      - switch.sky_button_pause
+      - switch.sky_button_play
+      - switch.sky_button_rec
+      - switch.sky_button_stop
+      - switch.sky_button_red
+      - switch.sky_button_green
+      - switch.sky_button_yellow
+      - switch.sky_button_blue
+#*****************************************************
+input_boolean:
+#*****************************************************
+  guarda_tv:
+    name: Guarda Tv
+    initial: off
+    icon: mdi:satellite-variant
+#*****************************************************
+input_select:
+#*****************************************************
+  tv_remote:
+    name: Telecomando Tv
+    options:
+      - "Muto"
+      - "Volume Su"
+      - "Volume Giu"
+      - "Hdmi 1"
+      - "Hdmi 2"
+      - "Hdmi 3"
+    icon: mdi:television-classic
+#*****************************************************
+  tv_channel_pick:
+    name: Scegli Canale
+    options:
+     - " "
+     - "Sky News"
+     - "Sky 1"
+     - "NHK"
+    initial: " "
+    icon: mdi:television-classic
+#*****************************************************
+intent_script:
+#*****************************************************
+  TurnTV:
+    speech:
+      text: Turning television {{ OnOff }}
+    action:
+      service_template: >
+        {%- if OnOff == ["on"] -%}
+          homeassistant.turn_on
+        {%- else -%}
+          homeassistant.turn_off
+        {%- endif -%}
+      data_template:
+          entity_id: "input_boolean.guarda_tv"
+#*****************************************************
+script:
+#*****************************************************
+  sky_on:
+    alias: Turn Tv and Sky On
+    sequence:
+      - service: switch.turn_on
+        entity_id:
+          - switch.tv_power
+      - delay:
+            milliseconds: 00
+      - service: switch.turn_on
+        entity_id:
+          - switch.sky_power
+      - service: switch.turn_on
+        entity_id:
+          - switch.tv_power
+      - delay:
+            milliseconds: 200
+      - delay:
+            milliseconds: 200
+      - service: switch.turn_on
+        entity_id:
+          - switch.ok_esc
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id:
+          - switch.ok_esc
+#*****************************************************
+  sky_off:
+    alias: Turn Tv and Sky Off
+    sequence:
+      - service: switch.turn_off
+        entity_id:
+          - switch.tv_power
+      - delay:
+            milliseconds: 500
+      - service: switch.turn_off
+        entity_id:
+          - switch.sky_power
+#*****************************************************
+automation:
+#*****************************************************
+  - alias: "Sky News"
+    hide_entity: true
+    trigger:
+      - platform: state
+        entity_id: input_select.tv_channel_pick
+    condition:
+      - condition: state
+        entity_id: input_select.tv_channel_pick
+        state: 'Sky News'
+    action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_1
+    - delay:
+          milliseconds: 200
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_0
+    - delay:
+          milliseconds: 200
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_0 
+#*****************************************************
+  - alias: "Sky 1"
+    hide_entity: true
+    trigger:
+      - platform: state
+        entity_id: input_select.tv_channel_pick
+    condition:
+      - condition: state
+        entity_id: input_select.tv_channel_pick
+        state: 'Sky 1'
+    action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_1
+    - delay:
+          milliseconds: 200
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_0
+    - delay:
+          milliseconds: 200
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_8
+#*****************************************************
+  - alias: "NHK"
+    hide_entity: true
+    trigger:
+      - platform: state
+        entity_id: input_select.tv_channel_pick
+    condition:
+      - condition: state
+        entity_id: input_select.tv_channel_pick
+        state: 'NHK'
+    action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_5
+    - delay:
+          milliseconds: 200
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_3
+    - delay:
+          milliseconds: 200
+    - service: switch.turn_on
+      entity_id:
+        - switch.sky_button_tv_channel_3
+#*****************************************************
+  - alias: TvOn
+    trigger:
+      - platform: state
+        entity_id: input_boolean.guarda_tv
+        to: 'on'
+    action:
+        service: script.turn_on
+        entity_id: script.sky_on
+#*****************************************************
+  - alias: TvOff
+    trigger:
+      - platform: state
+        entity_id: input_boolean.guarda_tv
+        to: 'off'
+    action:
+        service: script.turn_on
+        entity_id: script.sky_off
+#*****************************************************      
+  - alias: Cambia stato Guarda TV se Chromecast è on line
+    trigger:
+      - platform: state
+        entity_id: sensor.livingroomchromecast
+        to: 'Online'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.guarda_tv
+      - service: switch.turn_on
+        entity_id:
+          - switch.retro_tv
+
+  - alias: Cambia stato Guarda TV se Chromecast è off line
+    trigger:
+      - platform: state
+        entity_id: sensor.livingroomchromecast
+        to: 'Offline'
+    action:
+        service: homeassistant.turn_off
+        entity_id: input_boolean.guarda_tv
+
+scene:
+  - name: nhk
+    entities:
+      input_select.tv_channel_pick: "NHK"
+  - name: skyuno
+    entities:
+      input_select.tv_channel_pick: "Sky News"
+  - name: skynews
+    entities:
+      input_select.tv_channel_pick: "Sky 1"

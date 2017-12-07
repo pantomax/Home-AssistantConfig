@@ -1,0 +1,14 @@
+  entities:
+    - name: Router
+      url: http://192.168.1.254/
+      icon: mdi:router-wireless
+    - name: Router da fuori
+      url: https://2.234.144.242:2906/login.lp
+      icon: mdi:router-wireless
+    - name: Home Assistant
+      url: https://home-assistant.io
+      icon: mdi:home-assistant
+    - name: HA Community
+      url: https://community.home-assistant.io
+      icon: mdi:forum
+      
