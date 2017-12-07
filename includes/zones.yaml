@@ -1,0 +1,15 @@
+############################################################
+#
+# Zone
+#
+############################################################
+  - name: Mauro Work
+    latitude: 45.402697
+    longitude: 10.970042
+    radius: 250
+    icon: mdi:package-variant
+  - name: Max Work
+    latitude: 44.650324
+    longitude: 10.929986
+    radius: 250
+    icon: mdi:bank

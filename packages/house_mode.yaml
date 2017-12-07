@@ -1,0 +1,157 @@
+#*******************************************************************************
+#*******************************************************************************
+group:
+#*******************************************************************************
+#*******************************************************************************
+  house_mode:
+    name: House Mode
+    entities:
+      - input_select.house_mode
+#*******************************************************************************
+#*******************************************************************************
+input_select:
+#*******************************************************************************
+#*******************************************************************************
+  house_mode:
+    name: House mode
+    options:
+        - Normal
+        - Dog Mode
+        - Night Mode
+        - Weekend Mode
+        - Vacation Mode
+        - At home
+        - Lights On
+    initial: Normal
+    icon: mdi:home-variant
+#*******************************************************************************
+#*******************************************************************************
+binary_sensor:
+#*******************************************************************************
+#*******************************************************************************
+  - platform: template
+    sensors:
+      permetti_accensione_luci:
+        entity_id:
+          - input_select.house_mode
+        value_template: >-
+          {{ is_state('input_select.house_mode', 'Normal')
+             or is_state('input_select.house_mode', 'At home')
+             or is_state('input_select.house_mode', 'Weekend Mode') }}
+#*******************************************************************************
+#*******************************************************************************
+automation:
+#*******************************************************************************
+#*******************************************************************************
+  - alias: Attiva House Mode - Normal
+    trigger:
+      - platform: time
+        at: '07:10:00'
+      - platform: time
+        at: '12:10:00'
+      - platform: time
+        at: '17:00:00'
+    condition:
+      condition: and
+      conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Dog Mode"
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Night Mode"
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: "Normal"
+#*******************************************************************************
+  - alias: Attiva House Mode - Dog Mode
+    trigger:
+      - platform: time
+        at: '08:10:00'
+      - platform: time
+        at: '13:40:00'
+    condition:
+      condition: and
+      conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Normal"
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Night Mode"
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: "Dog Mode"
+#*******************************************************************************
+  - alias: Attiva House Mode - Night Mode
+    trigger:
+      - platform: time
+        at: '00:40:00'
+    condition:
+      condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: "Normal"
+      - condition: state
+        entity_id: input_select.house_mode
+        state: "Dog Mode"
+      - condition: state
+        entity_id: input_select.house_mode
+        state: "Weekend Mode"
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: "Night Mode"
+#*******************************************************************************
+  - alias: Attiva House Mode - Weekend Mode
+    trigger:
+      - platform: time
+        at: '07:15:00'
+    condition:
+      condition: and
+      conditions:
+      - condition: time
+        weekday:
+          - sat
+          - sun
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Dog Mode"
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Normal"
+        - condition: state
+          entity_id: input_select.house_mode
+          state: "Night Mode"
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: "Weekend Mode"
+#*******************************************************************************

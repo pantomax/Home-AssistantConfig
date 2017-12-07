@@ -1,0 +1,49 @@
+############################################################
+#
+# Ring
+#
+############################################################
+ring:
+  username: !secret ring_user
+  password: !secret ring_password
+
+sensor:
+  - platform: ring
+binary_sensor:
+  - platform: ring
+#camera:
+#  - platform: ring
+#  - platform: ffmpeg
+#    name: last_ring_video
+#    input: http://192.168.1.100:8123/local/last.mpg
+automation:
+  - alias: 'Doorbell Motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.ring_front_door_motion
+        from: 'off'
+        to: 'on'
+    action:
+      - service: downloader.download_file
+        data_template:
+          url: "{{ states.camera.front_door.attributes.video_url }}"
+          filename: "last.mpg"
+          overwrite: true
+      - service: notify.notify
+        data:
+          message: "Movimento davanti al cancello."
+
+  - alias: 'Doorbell Ding'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.ring_front_door_ding
+        from: 'off'
+        to: 'on'
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/doorbell-1.mp3"
+      - service: notify.notify
+        data:
+          message: "Campanello!"

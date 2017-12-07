@@ -1,0 +1,57 @@
+####################################################################################
+#
+# RF Sensor
+# 
+####################################################################################
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+sensor:
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+  - platform: mqtt
+    state_topic: "sensors/rf/receiver"
+    name: "RF Receiver"
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+binary_sensor:
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+  - platform: template
+    sensors:
+      motion_sensor_rf_1:
+        friendly_name: "Motion Sensor RF 1"
+        device_class: motion
+        delay_off:
+          seconds: 20
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '13679406') }}
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+automation:
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+  - alias: 'Accendi luce scrivania'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_rf_1
+        to: 'on'
+#    condition:
+#      - condition: state
+#        entity_id: binary_sensor.permetti_accensione_luci
+#        state: 'on'
+    action:
+      - service: light.turn_on
+        entity_id: light.camera
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
+  - alias: 'Spegni luce scrivania'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_rf_1
+        to: 'off'
+    action:
+      - service: light.turn_off
+        entity_id: light.camera

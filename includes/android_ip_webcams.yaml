@@ -1,0 +1,77 @@
+############################################################
+#
+# Android IP Webcam
+#
+############################################################
+  - name: 'Cucina'
+    username: !secret cam_user
+    password: !secret cam_password
+    host: 192.168.1.72
+    scan_interval: 10
+    sensors:
+      - battery_voltage
+      - light
+      - motion
+#    switches:
+#      - exposure_lock
+#      - ffc
+#      - focus
+#      - gps_active
+#      - night_vision
+#      - overlay
+#      - torch
+#      - whitebalance_lock
+#      - video_recording
+#-----------------------------------------------------------
+  - name: 'Bagno'
+    username: !secret cam_user
+    password: !secret cam_password
+    host: 192.168.1.85
+    scan_interval: 10
+    sensors:
+      - battery_voltage
+      - light
+      - motion
+#-----------------------------------------------------------
+#  - name: 'Salotto'
+#    username: !secret cam_user
+#    password: !secret cam_password
+#    host: 192.168.1.94
+#    scan_interval: 10
+#    sensors:
+#      - battery_voltage
+#      - light
+#      - motion
+#-----------------------------------------------------------
+  - name: 'Salotto 2'
+    username: !secret cam_user
+    password: !secret cam_password
+    host: 192.168.1.106
+    port: 8081
+    scan_interval: 10
+    sensors:
+      - battery_voltage
+      - light
+      - motion
+#-----------------------------------------------------------
+  - name: 'Salotto 3'
+    username: !secret cam_user
+    password: !secret cam_password
+    host: 192.168.1.105
+    scan_interval: 10
+    sensors:
+      - battery_voltage
+      - light
+      - motion
+#-----------------------------------------------------------
+  - name: 'Camera da letto'
+    username: !secret cam_user
+    password: !secret cam_password
+    host: 192.168.1.111
+    scan_interval: 10
+    sensors:
+      - battery_voltage
+      - light
+      - motion
+      - battery_temp
+      - pressure
