@@ -1,0 +1,2 @@
+  start_timer: 'echo $(($(date +%s) + 30)) > /tmp/hass_timer'
+  stop_timer: '/bin/rm -f /tmp/hass_timer'

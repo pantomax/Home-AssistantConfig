@@ -1,0 +1,14 @@
+#sensor:
+#  - platform: template
+#    sensors:
+#      above_cloud_lux:
+#        friendly_name: "Above Cloud Lux"
+#        unit_of_measurement: "Lux"
+#        value_template: >-
+#          {{ states.sun.sun.attributes.daylight | round(0) }}
+#      lux:
+#        friendly_name: "Exterior Lux"
+#        unit_of_measurement: "lux"
+#        value_template: '{{ ((100-states.sensor.dark_sky_cloud_coverage.state|float)/100 * states.sun.sun.attributes.daylight) | round(0)  }}'
+# consider using other methods of calculation here as well
+#  this could be calculated using the wunderground solar_radiation value, if available

@@ -1,0 +1,151 @@
+####################################################################################
+#
+# Luce lampeggiante con musica su tv in salotto
+#
+####################################################################################
+#***********************************************************************************
+#***********************************************************************************
+sensor:
+#***********************************************************************************
+#***********************************************************************************
+  - platform: template
+    sensors:
+      tipo_di_media:
+        entity_id: media_player.living_room
+        value_template: '{{ states.media_player.living_room.attributes.media_content_type }}'
+#***********************************************************************************
+#***********************************************************************************
+script:
+#***********************************************************************************
+#***********************************************************************************
+  flash_room1:
+    alias: Flash Room1 On
+    sequence:
+      - alias: Light Room1 On
+        service: homeassistant.turn_on
+        data:
+          entity_id: switch.retro_tv
+      - delay:
+          # time for flash light on
+          seconds: 2
+      - alias: Light Room1 Off
+        service: homeassistant.turn_off
+        data:
+          entity_id: switch.retro_tv
+      - alias: call_loop
+        service: script.turn_on
+        data:
+          entity_id: script.loop_flash
+  loop_flash:
+    alias: Loop Flash on
+    sequence:
+      - condition: and
+        conditions:
+           - condition: state
+             entity_id: sensor.tipo_di_media
+             state: 'music'
+           - condition: state
+             entity_id: media_player.living_room
+             state: 'playing'
+      - delay:
+          # time for flash light off
+          seconds: 1
+      - service: script.turn_on
+        data:
+          entity_id: script.flash_room1
+#***********************************************************************************
+#***********************************************************************************
+automation:
+#***********************************************************************************
+#***********************************************************************************
+  - alias: "Chromecast Music"
+    trigger:
+      - platform: state
+        entity_id: sensor.tipo_di_media
+        to: 'music'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.select_hdmi_2
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: purple
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: purple
+          brightness: 255
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: colorjump
+      - service: script.turn_on
+        entity_id: script.flash_room1
+#***********************************************************************************
+  - alias: "Chromecast Music Off"
+    trigger:
+      - platform: state
+        entity_id: sensor.tipo_di_media
+        from: 'music'
+        to: ' '
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+          transition: "20"
+      - service: switch.turn_on
+        entity_id:
+          - switch.retro_tv
+#***********************************************************************************
+  - alias: "Chromecast canzone successiva"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'idle'
+        to: 'playing'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.tipo_di_media
+          state: 'music'
+    action:
+         service: script.turn_on
+         entity_id: script.flash_room1
+#***********************************************************************************
+  - alias: "Chromecast pausa canzone"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'paused'
+        to: 'playing'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.tipo_di_media
+          state: 'music'
+    action:
+         service: script.turn_on
+         entity_id: script.flash_room1
+#***********************************************************************************
+  - alias: "Spegni mediaplayer se va offline"
+    trigger:
+      - platform: state
+        entity_id: sensor.livingroomchromecast
+        to: 'Offline'
+    action:
+         service: media_player.turn_off
+         entity_id: media_player.living_room

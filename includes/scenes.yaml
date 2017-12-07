@@ -1,0 +1,276 @@
+############################################################
+#
+# Scene
+#
+############################################################
+  - name: Buona notte
+    entities:
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: off
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      light.led_strip:
+        state: off
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      media_player.allmediaplayers:
+        state: off
+      input_boolean.guarda_tv: off
+      switch.salotto_off: on
+      switch.insettivoro: off
+      script.power_down: on
+#******************************************************************************
+  - name: Buona notte PC
+    entities:
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: off
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      light.led_strip:
+        state: off
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      input_boolean.guarda_tv: off
+      switch.salotto_off: on
+      switch.insettivoro: off
+      switch.pc: off
+#******************************************************************************
+  - name: Film
+    entities:
+      input_boolean.scene: off
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: on
+      light.light_desk: off
+      light.led_strip:
+        state: on
+        brightness: 255
+        rgb_color: [231,210,255]
+#        color_name: turqoise
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      switch.insettivoro: off
+
+#******************************************************************************
+  - name: Film Off
+    entities:
+      light.retro_tv: off
+#******************************************************************************
+  - name: Luci Sala Accese
+    entities:
+      input_boolean.scene: off
+      light.tavolino: on
+      light.libreria: on
+      light.soffitto: on
+      light.mobile_tv: on
+      light.retro_tv: on
+      light.light_desk: on
+      script.luci_sala_accese: on
+      light.led_strip:
+        state: on
+        brightness: 255
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      switch.insettivoro: off
+#******************************************************************************
+  - name: Luci Sala Spente
+    entities:
+      input_boolean.scene: off
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: off
+      light.light_desk: off
+      light.led_strip:
+        state: on
+        brightness: 0
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      switch.insettivoro: off
+#******************************************************************************
+  - name: Corridoio spento
+    entities:
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+#******************************************************************************
+  - name: Black Alert
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: on
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      switch.insettivoro: on
+      script.black_alert: on
+      light.led_strip:
+        state: on
+        brightness: 255
+        color_name: blue
+      input_boolean.scene: off
+
+  - name: Black Alert 1
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: on
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      switch.insettivoro: on
+      script.black_alert_1: on
+      light.led_strip:
+        state: on
+        brightness: 255
+        color_name: blue
+      input_boolean.scene: off
+#******************************************************************************
+  - name: Red Alert
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: off
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      switch.insettivoro: off
+      script.red_alert: on
+      light.led_strip:
+        state: on
+        brightness: 255
+        color_name: red
+      input_boolean.scene: off
+#******************************************************************************
+  - name: Alert Off
+    entities:
+      light.led_strip:
+        state: on
+        brightness: 0
+  - name: Foresta
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: on
+      light.mobile_tv: on
+      light.retro_tv: off
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      switch.insettivoro: off
+      script.foresta: on
+      input_boolean.scene: off
+  - name: Inverno
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: on
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: off
+      light.retro_tv: off
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      switch.insettivoro: off
+      script.inverno: on
+      input_boolean.scene: off
+  - name: Oceano
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: on
+      light.mobile_tv: on
+      light.retro_tv: on
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      switch.insettivoro: on
+      script.oceano: on
+      input_boolean.scene: off
+  - name: Acquario
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: of
+      light.mobile_tv: on
+      light.retro_tv: on
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      switch.insettivoro: off
+      script.acquario: on
+      input_boolean.scene: off
+  - name: Club
+    entities:
+      switch.select_hdmi_2: on
+      light.tavolino: off
+      light.libreria: off
+      light.soffitto: off
+      light.mobile_tv: on
+      light.retro_tv: on
+      light.light_desk: off
+      light.light_kitchen: off
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+      switch.insettivoro: on
+      script.club: on
+      input_boolean.scene: off
+#******************************************************************************
+  - name: Sky On
+    entities:
+      switch.sky_ir_power: on
+      switch.ok_esc: on
+      switch.sinistra: on
+      switch.tv_power: on
+#******************************************************************************
+  - name: Sky Off
+    entities:
+      switch.sky_ir_power: off
+      switch.tv_power: off
+#******************************************************************************
+  - name: Tv On
+    entities:
+      input_boolean.guarda_tv: on
+#******************************************************************************
+  - name: Tv off
+    entities:
+      input_boolean.guarda_tv: off
+#******************************************************************************
+  - name: Heater On
+    entities:
+      input_boolean.termostato_bagno_timer_interruttore: on
+#******************************************************************************
+  - name: Heater Off
+    entities:
+      input_boolean.termostato_bagno_interruttore: off
+#******************************************************************************
