@@ -1,0 +1,17 @@
+############################################################
+#
+# Input Number
+#
+############################################################
+  visibilita_gruppo:
+    name: Visibilita
+    min: 1
+    max: 30
+    step: 1
+    initial: 1
+  tempo_spegnimento_luce_cucina:
+    name: Tempo Spegnimento Luce Cucina
+    min: 1
+    max: 120
+    step: 1
+    initial: 1

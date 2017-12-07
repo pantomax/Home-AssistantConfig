@@ -1,0 +1,219 @@
+####################################################################################
+#
+# Alarm
+# 
+####################################################################################
+#***********************************************************************************
+#***********************************************************************************
+sensor:
+#***********************************************************************************
+#***********************************************************************************
+  - platform: mqtt
+    state_topic: "sensors/s1c/porta_corridoio"
+    name: "porta_corridoio_s1c"
+  - platform: mqtt
+    state_topic: "sensors/s1c/porta_retro"
+    name: "porta_retro_s1c"
+  - platform: mqtt
+    state_topic: "sensors/s1c/finestra_salotto"
+    name: "finestra_salotto_s1c"
+  - platform: mqtt
+    state_topic: "sensors/s1c/motion1"
+    name: "movimento_cucina_s1c"
+  - platform: mqtt
+    state_topic: "sensors/s1c/motion2"
+    name: "movimento_corridoio_s1c"
+#***********************************************************************************
+#***********************************************************************************
+binary_sensor:
+#***********************************************************************************
+#***********************************************************************************
+  - platform: template
+    sensors:
+      stato_allarme:
+        device_class: light
+        value_template: "{{ is_state('alarm_control_panel.home_alarm', 'triggered') }}"
+#***********************************************************************************
+#***********************************************************************************
+script:
+#***********************************************************************************
+#***********************************************************************************
+  flash_rooms_alarm:
+    alias: Flash Room alarm On
+    sequence:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: alarm_control_panel.home_alarm
+            state: 'triggered'
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          state: on
+          brightness: 255
+          color_name: red
+      - service: switch.turn_on
+        entity_id: switch.corridoio_bagno
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: red_strobe
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: red_strobe
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/voyredalert.mp3"
+      - alias: All lights On
+        service: light.turn_on
+      - delay:
+          seconds: 1
+      - alias: All Lights Off
+        service: light.turn_off
+      - alias: call_loop
+        service: script.turn_on
+        data:
+          entity_id: script.loop_flash_rooms_alarm
+
+  loop_flash_rooms_alarm:
+    alias: Loop Flash alarm on
+    sequence:
+      - delay:
+          seconds: 1
+      - service: script.turn_on
+        data:
+          entity_id: script.flash_rooms_alarm
+
+  pending_beep:
+    alias: Pending Beep
+    sequence:
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/alarm01.mp3"
+      - alias: call_loop
+        service: script.turn_on
+        data:
+          entity_id: script.repeat_pending_beep
+
+  repeat_pending_beep:
+    alias: Repeat Pending Beep
+    sequence:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: alarm_control_panel.home_alarm
+            state: 'pending'
+      - delay:
+          seconds: 1
+      - service: script.turn_on
+        data:
+          entity_id: script.pending_beep
+#***********************************************************************************
+#***********************************************************************************
+automation:
+#***********************************************************************************
+#***********************************************************************************
+  - alias: 'Trigger alarm while armed away'
+    trigger:
+      - platform: state
+        entity_id: sensor.movimento_cucina_s1c
+        to: 'Presente'
+      - platform: state
+        entity_id: sensor.movimento_corridoio_s1c
+        to: 'Presente'
+      - platform: state
+        entity_id: sensor.porta_retro_s1c
+        to: 'Aperta'
+      - platform: state
+        entity_id: sensor.porta_corridoio_s1c
+        to: 'Aperta'
+      - platform: state
+        entity_id: sensor.finestra_salotto_s1c
+        to: 'Aperta'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: armed_away
+    action:
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.home_alarm
+#***********************************************************************************
+  - alias: 'Trigger alarm while armed home'
+    trigger:
+      - platform: state
+        entity_id: sensor.porta_retro_s1c
+        to: 'Aperta'
+      - platform: state
+        entity_id: sensor.finestra_salotto_s1c
+        to: 'Aperta'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: armed_home
+    action:
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.home_alarm
+#***********************************************************************************
+  - alias: 'Start alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.home_alarm
+        to: 'triggered'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.allarme_attivato
+      - service: notify.notify
+        data:
+          title: "Allarme"
+          message: "Allarme attivato"
+          data:
+            tag: 'front-door-motion'
+            url: "http://2.234.144.242:8082/video"
+      - service: ifttt.trigger
+        data: {"event":"Alarm_Trigger", "value1":"Attivato allarme"}
+      - alias: call_flash
+        service: script.turn_on
+        data:
+          entity_id: script.flash_rooms_alarm
+#***********************************************************************************
+  - alias: 'Disable alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.home_alarm
+        to: 'disarmed'
+    action:
+      - service: notify.notify
+        data:
+          title: "Allarme"
+          message: "Allarme disattivato"
+      - delay:
+          seconds: 15    
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+#***********************************************************************************
+  - alias: 'Beep on pending'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.home_alarm
+        to: 'pending'
+    action:
+      - alias: beep beep beep
+        service: script.turn_on
+        data:
+          entity_id: script.pending_beep
+#***********************************************************************************

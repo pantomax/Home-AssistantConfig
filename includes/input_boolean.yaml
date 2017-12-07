@@ -1,0 +1,37 @@
+############################################################
+#
+# Input Boolean
+#
+############################################################
+  led_strip:
+    name: Striscia Led
+    initial: off
+    icon: mdi:account
+  visualizza_telecomando_termoventilatore:
+    name: Termoventilatore Manuale
+    initial: off
+    icon: mdi:remote
+  visualizza_telecomando_tv:
+    name: Telecomando Media
+    initial: off
+    icon: mdi:remote
+  visualizza_telecomando_televisione:
+    name: Telecomando Tv
+    initial: off
+    icon: mdi:remote
+  visualizza_tastierino_sky:
+    name: Numeri Sky
+    initial: off
+    icon: mdi:remote
+  visualizza_telecomando_sky:
+    name: Telecomando Sky
+    initial: off
+    icon: mdi:remote   
+  visualizza_telecomando_radio:
+    name: Telecomando Radio
+    initial: off
+    icon: mdi:remote
+  scene:
+    name: scene
+    initial: off
+    icon: mdi:account
