@@ -1,0 +1,71 @@
+  - platform: template
+    sensors:
+      luce_bagno:
+        device_class: light
+        value_template: "{{ is_state('sensor.luce_accesa_bagno', 'Accesa') }}"
+      movimento_salotto:
+        device_class: motion
+        value_template: "{{ is_state('sensor.movimento_salotto', 'Presente') }}"
+      movimento_bagno:
+        device_class: motion
+        value_template: "{{ is_state('sensor.movimento_bagno', 'Presente') }}"
+      movimento_corridoio_s1c:
+        device_class: motion
+        value_template: "{{ is_state('sensor.movimento_corridoio_s1c', 'Presente') }}"
+      porta_corridoio_s1c:
+        device_class: opening
+        value_template: "{{ is_state('sensor.porta_corridoio_s1c', 'Aperta') }}"
+      porta_retro_s1c:
+        device_class: opening
+        value_template: "{{ is_state('sensor.porta_retro_s1c', 'Aperta') }}"
+      finestra_salotto_s1c:
+        device_class: opening
+        value_template: "{{ is_state('sensor.finestra_salotto_s1c', 'Aperta') }}"
+      livingroomchromecast:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.chromecast_salotto', 'home') }}"
+      bathroomchromecast:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.chromecast_bagno', 'home') }}"
+      kitchenchromecast:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.chromecast_cucina', 'home') }}"
+      computersalotto:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.computersalotto', 'home') }}"
+      zidoo:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.zidoo', 'home') }}"
+      tabletbagno:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.tabletbagno', 'home') }}"
+      tabletcucina:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.tabletcucina', 'home') }}"
+      tabletcucina2:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.tabletcucina2', 'home') }}"
+      smartphonesalotto:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.smartphonesalotto', 'home') }}"
+      smartphonesalotto3:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.smartphonesalotto3', 'home') }}"
+      movimento_cucina_s1c:
+        device_class: motion
+        value_template: "{{ is_state('sensor.movimento_cucina_s1c', 'Presente') }}"
+        delay_off:
+          minutes: 2
+            #{{ input_number.tempo_spegnimento_luce_cucina }}
+#      lightsoff:
+#        device_class: light 
+#        entity_id:
+#          - input_select.house_mode
+#        value_template: >-
+#          {{ is_state('input_select.house_mode', 'Normal')
+#             or is_state('input_select.house_mode', 'Dog Mode')
+#             or is_state('input_select.house_mode', 'Night Mode')
+#             or is_state('input_select.house_mode', 'Weekend Mode')
+#             or is_state('input_select.house_mode', 'At home')
+#             or is_state('input_select.house_mode', 'Vacation Mode') }}
+      
