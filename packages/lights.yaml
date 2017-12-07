@@ -1,0 +1,393 @@
+############################################################
+#
+# Accensione Luci con sensori
+#
+############################################################
+#*******************************************************************************
+#*******************************************************************************
+input_boolean:
+#*******************************************************************************
+#*******************************************************************************
+  countdown_corridoio:
+    name: Countdown_corridoio
+    initial: off
+    icon: mdi:timelapse
+#*******************************************************************************
+#*******************************************************************************
+input_number:
+#*******************************************************************************
+#*******************************************************************************
+  countdown_corridoio:
+    name: countdown_corridoio
+    min: 0
+    max: 18000
+    step: 1
+    initial: 0
+#*******************************************************************************
+#*******************************************************************************
+sensor:
+#*******************************************************************************
+#*******************************************************************************
+  - platform: template
+    sensors:
+      countdown_corridoio:
+        friendly_name: "Tempo Rimanente"
+        value_template: "{{ states('sensor.countdown_corridoio_hours') }} : {{ states('sensor.countdown_corridoio_minutes') }} : {{ states('sensor.countdown_corridoio_seconds') }}"
+  - platform: template
+    sensors:
+      countdown_corridoio_hours:
+        value_template: >
+          {% if ( ( states('input_number.countdown_corridoio') | float / 3600 ) | int ) < 10 %}
+            0{{( states('input_number.countdown_corridoio') | float / 3600 ) | int}}
+          {% else %}
+            {{( states('input_number.countdown_corridoio') | float / 3600 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_corridoio_minutes:
+        value_template: >
+          {% if ( ((( states('input_number.countdown_corridoio') | float / 3600 ) - ( states('sensor.countdown_corridoio_hours') | float )) * 60 ) | int ) < 10 %}
+            0{{((( states('input_number.countdown_corridoio') | float / 3600 ) - ( states('sensor.countdown_corridoio_hours') | float )) * 60 ) | int}}
+          {% else %}
+            {{((( states('input_number.countdown_corridoio') | float / 3600 ) - ( states('sensor.countdown_corridoio_hours') | float )) * 60 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_corridoio_seconds:
+        value_template: >
+          {% if ( ((((( states('input_number.countdown_corridoio') | float / 3600 ) - ( states('sensor.countdown_corridoio_hours') | float )) * 60 ) - ( states('sensor.countdown_corridoio_minutes') | float )) * 60 ) | int ) < 10 %}
+            0{{((((( states('input_number.countdown_corridoio') | float / 3600 ) - ( states('sensor.countdown_corridoio_hours') | float )) * 60 ) - ( states('sensor.countdown_corridoio_minutes') | float )) * 60 ) | int}}
+          {% else %}
+            {{((((( states('input_number.countdown_corridoio') | float / 3600 ) - ( states('sensor.countdown_corridoio_hours') | float )) * 60 ) - ( states('sensor.countdown_corridoio_minutes') | float )) * 60 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_corridoio_meno_1:
+        value_template: "{{( states('input_number.countdown_corridoio') | int - 1 ) | int}}"
+#*******************************************************************************
+#*******************************************************************************
+script:
+#*******************************************************************************
+#*******************************************************************************
+  scala_corridoio:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown_corridoio'
+          value: "{{ states.sensor.countdown_corridoio_meno_1.state | int }}"
+      - service: script.turn_on
+        data:
+          entity_id: script.attendi_e_ripeti_corridoio
+#*******************************************************************************
+  attendi_e_ripeti_corridoio:
+    sequence:
+      - condition: and
+        conditions:
+           - condition: numeric_state
+             entity_id: input_number.countdown_corridoio
+             above: '0'
+      - delay:
+          milliseconds: 1
+      - service: script.turn_on
+        data:
+          entity_id: script.scala_corridoio
+#*******************************************************************************
+#*******************************************************************************
+automation:
+#*******************************************************************************
+#*******************************************************************************
+  - alias: Accendi Luce Cucina
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_cucina_s1c
+        to: 'on'
+    condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.permetti_accensione_luci
+        state: 'on'
+      - condition: or
+        conditions:
+# tutti i giorni dalle 7.15 alle 8.15
+        - condition: and
+          conditions:
+          - condition: time
+            after: '7:15'
+          - condition: time
+            before: '8:15'
+# tutti i giorni dopo il tramonto comunque dopo le 17 fino a mezzanotte
+        - condition: and
+          conditions:
+          - condition: sun
+            after: sunset
+            after_offset: "-2:00:00"
+          - condition: time
+            after: '17:00'
+# tutti i giorni dopo le 17 se c'è nuvoloso
+        - condition: and
+          conditions:
+          - condition: time
+            after: '17:00'
+          - condition: numeric_state
+            entity_id: sensor.dark_sky_cloud_coverage
+            above: 90
+# nel weekend per tutto il giorno dopo le 7 del mattino se c'è nuvoloso
+        - condition: and
+          conditions:
+          - condition: time
+            after: '7:00'
+          - condition: numeric_state
+            entity_id: sensor.dark_sky_cloud_coverage
+            above: 90
+          - condition: time
+            weekday:
+              - sat
+              - sun
+    action:
+      - service: light.turn_on
+        entity_id: group.kitchen
+#*******************************************************************************
+  - alias: Spegni Luce Cucina
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_cucina_s1c
+        to: 'off'
+    action:
+      - service: light.turn_off
+        entity_id: group.kitchen
+#*******************************************************************************
+  - alias: Accendi Luci corridoio con sensore
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_corridoio_s1c
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: binary_sensor.permetti_accensione_luci
+      state: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_on
+        entity_id: switch.corridoio_porta
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.countdown_corridoio
+         value: "360"
+#*******************************************************************************
+  - alias: Accendi Luci corridoio con porta
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.porta_retro_s1c
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.porta_corridoio_s1c
+        to: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_on
+        entity_id: switch.corridoio_porta
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.countdown_corridoio
+         value: "360"
+#*******************************************************************************
+  - alias: Spegni Luci corridoio
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_corridoio_s1c
+        to: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+#*******************************************************************************  
+  - alias: Spegni Luci corridoio con porte
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.porta_retro_s1c
+        to: 'off'
+      - platform: state
+        entity_id: binary_sensor.porta_corridoio_s1c
+        to: 'off'
+    condition:
+      condition: state
+      entity_id: binary_sensor.movimento_corridoio_s1c
+      state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.countdown_corrifoio
+         value: "0"
+#*******************************************************************************
+  - alias: 'Start Countdown spegnimento luci corridoio'
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown_corridoio
+      above: '0'
+    action:
+      service: script.turn_on
+      entity_id: script.scala_corridoio
+#*******************************************************************************
+  - alias: 'Stop Countdown spegnimento luci corridoio'
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown_corridoio
+      below: '1'
+    condition:
+      condition: state
+      entity_id: binary_sensor.movimento_corridoio_s1c
+      state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+#*******************************************************************************
+  - alias: 'Controlla ogni 5 minuti e spegne luci corridoio'
+    trigger:
+      platform: time
+      minutes: '/5'
+      seconds: 00
+    condition:
+      - condition: state
+        entity_id: binary_sensor.movimento_corridoio_s1c
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.porta_retro_s1c
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.porta_corridoio_s1c
+        state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+#*******************************************************************************
+  - alias: 'Controlla ogni 9 minuti e spegne luci cucina'
+    trigger:
+      platform: time
+      minutes: '/9'
+      seconds: 00
+    condition:
+      - condition: state
+        entity_id: binary_sensor.movimento_cucina_s1c
+        state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.light_kitchen
+#*******************************************************************************
+  - alias: 'Accende le luci sui comodini tutti i giorni alle 7.15 del lun al ven'
+    trigger:
+      platform: time
+      at: '07:15:00'
+    condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.permetti_accensione_luci
+        state: 'on'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: light.turn_on
+        entity_id: light.camera
+#*******************************************************************************
+  - alias: 'Spegne le luci sui comodini tutti i giorni alle 7.40 del lun al ven'
+    trigger:
+      platform: time
+      at: '07:40:00'
+    condition:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    action:
+      - service: light.turn_off
+        entity_id: light.camera
+#*******************************************************************************
+  - alias: Luce Cucina Rimani Accesa 
+    trigger:
+      - platform: state
+        entity_id: input_select.house_mode
+        to: 'Lights On'
+    action:
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.tempo_spegnimento_luce_cucina
+         value: 120
+#*******************************************************************************
+  - alias: Luce Cucina Tempo 5 minuti durante i pasti
+    trigger:
+      - platform: state
+        entity_id: input_select.house_mode
+        to: 'Normal'
+      - platform: time
+        at: '7:20:00'
+      - platform: time
+        at: '19:15:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.lightsoff
+          state: 'on'
+        - condition: or
+          conditions:
+            - condition: time
+              after: '7:20:00'
+              before: '7:50:00'
+            - condition: time
+              after: '19:15:00'
+              before: '20:30:00'
+    action:
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.tempo_spegnimento_luce_cucina
+         value: 5
+#*******************************************************************************
+  - alias: Luce Cucina Ripristino 1 minuto fuori pasti
+    trigger:
+      - platform: state
+        entity_id: input_select.house_mode
+        to: 'Normal'
+      - platform: time
+        at: '7:50:00'
+      - platform: time
+        at: '20:30:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.lightsoff
+          state: 'on'
+        - condition: or
+          conditions:
+            - condition: time
+              after: '7:50:00'
+              before: '19:15:00'
+            - condition: time
+              after: '20:30:00'
+            - condition: time
+              before: '7:20:00'
+    action:
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.tempo_spegnimento_luce_cucina
+         value: 1

@@ -1,0 +1,399 @@
+############################################################
+#
+# Customizzazione
+#
+############################################################
+#********************************************GOOGLE*********************************
+    light.tavolino:
+      icon: mdi:lamp
+      google_assistant: true
+      google_assistant_name: table
+      aliases:
+        - light on the small table
+        - entity o 1
+    light.libreria:
+      icon: mdi:spotlight-beam
+      google_assistant: true
+      google_assistant_name: library
+      aliases:
+        - light on the library
+        - entity o 2
+    light.mobile_tv:
+      icon: mdi:ceiling-light
+      google_assistant: true
+      google_assistant_name: spot
+      aliases:
+        - lights on the black library
+        - entity o 3
+    light.retro_tv:
+      icon: mdi:spotlight
+      google_assistant: true
+      google_assistant_name: tv light
+      aliases:
+        - light over the tv
+        - entity o 4
+    light.light_desk:
+      friendly_name: "Scrivania"
+      icon: mdi:lava-lamp
+      google_assistant: true
+      google_assistant_name: desk
+      aliases:
+        - light on the desk
+        - entity o 5
+    light.led_strip:
+      friendly_name: "Striscia Led"
+      icon: mdi:led-strip
+      google_assistant: true
+      google_assistant_name: led strip
+      aliases:
+        - led strip light
+        - entity o 6
+    light.light_kitchen:
+      friendly_name: "Lavello"
+      icon: mdi:water-pump
+      google_assistant: true
+      google_assistant_name: sink
+      aliases:
+        - sink light
+        - entity o 7
+    light.light_kitchen_2:
+      friendly_name: "Ingresso"
+      icon: mdi:glassdoor
+      google_assistant: true
+      google_assistant_name: entrance
+      aliases:
+        - entrance light
+        - entity o 8
+    light.corridoio_bagno:
+      friendly_name: "Corridoio Bagno"
+      icon: mdi:ceiling-light
+      google_assistant: true
+      google_assistant_name: white
+      aliases:
+        - white bulb light in the hallway
+        - entity o 9
+    light.corridoio_porta:
+      friendly_name: "Corridoio Porta"
+      icon: mdi:ceiling-light
+      google_assistant: true
+      google_assistant_name: blue
+      aliases:
+        - small blue lamp in the hallway
+        - entity o 10
+    light.tv:
+      friendly_name: Tv
+      icon: mdi:television-classic
+      google_assistant: true
+      google_assistant_name: on the back of tv 
+      aliases:
+        - light on the back of tv
+        - entity o 11
+    light.soffitto:
+      friendly_name: "Soffitto"
+      icon: mdi:format-vertical-align-top
+      google_assistant: true
+      google_assistant_name: ceiling
+      aliases:
+        - light toward the ceiling
+        - entity o 12
+    scene.buona_notte:
+      entity_picture: /local/goodnight.png
+      google_assistant: true
+      google_assistant_name: night
+      aliases:
+        - a sweet sweet good night
+        - good night
+        - good night scene
+        - entity o 20
+    scene.corridoio_spento:
+      friendly_name: Spegni Corridoio
+      icon: mdi:lightbulb
+      google_assistant: true
+      google_assistant_name: hallway
+      aliases:
+        - hallway lights
+        - entity o 21
+    scene.film:
+      friendly_name: "Film"
+      entity_picture: /local/film.png
+      google_assistant: true
+      google_assistant_name: movie
+      aliases:
+        - movie lights
+        - movie scene
+        - movie 1
+        - entity o 22
+    scene.black_alert:
+      friendly_name: "Allarme Nero"
+      entity_picture: /local/bluealert.png
+      icon: mdi:chemical-weapon
+      google_assistant: true
+      google_assistant_name: black alert
+      aliases:
+        - black alert immediatly
+        - entity o 23
+    scene.red_alert:
+      friendly_name: "Allarme Rosso"
+      entity_picture: /local/redalert.png
+      icon: mdi:chemical-weapon
+      google_assistant: true
+      google_assistant_name: red alert
+      aliases:
+        - red alert immediatly
+        - entity o 24
+    scene.foresta:
+      friendly_name: "Ambiance Foresta"
+      entity_picture: /local/foresta.png
+      google_assistant: true
+      google_assistant_name: forest
+      aliases:
+        - forest scene
+        - entity o 25
+    scene.inverno:
+      friendly_name: "Ambiance Inverno"
+      entity_picture: /local/fuoco.png
+      google_assistant: true
+      google_assistant_name: winter
+      aliases:
+        - winter scene
+        - entity o 26
+    scene.oceano:
+      friendly_name: "Ambiance Oceano"
+      entity_picture: /local/oceano.png
+      google_assistant: true
+      google_assistant_name: ocean
+      aliases:
+        - ocean scene
+        - entity o 27
+    scene.club:
+      friendly_name: "Ambiance Club"
+      entity_picture: /local/club.png
+      google_assistant: true
+      google_assistant_name: club
+      aliases:
+        - club scene
+        - entity o 28
+    scene.acquario:
+      friendly_name: "Ambiance Acquario"
+      entity_picture: /local/acquario.png
+      google_assistant: true
+      google_assistant_name: aquarium
+      aliases:
+        - aquarium scene
+        - entity o 29
+    switch.insettivoro:
+      friendly_name: "Insettivoro"
+      icon: mdi:bug
+      google_assistant: true
+      google_assistant_name: bug eater
+      aliases:
+        - bug eater on the library
+        - entity o 40
+    switch.tv:
+      friendly_name: "Accendi TV" 
+      icon: mdi:satellite-variant
+      google_assistant: true
+      google_assistant_name: tv
+      aliases:
+        - television
+        - entity o 41
+    switch.accendi_termostato_dashboard_bagno:
+      friendly_name: "Scalda bagno"
+      icon: mdi:fire
+      google_assistant: true
+      google_assistant_name: warm up bathroom
+      aliases:
+        - the heater in the bathroom
+        - warm up the bathroom
+        - warm up the toilet
+        - entity o 42
+    switch.accendi_termostato_dashboard_salotto:
+      friendly_name: "Scalda salotto"
+      icon: mdi:fire
+      google_assistant: true
+      google_assistant_name: warm up living room
+      aliases:
+        - the heater in the living room
+        - warm up the livin
+        - warm up the living room
+        - entity o 43
+    switch.accendi_termostato_dashboard_camera:
+      friendly_name: "Scalda camera"
+      icon: mdi:fire
+      google_assistant: true
+      google_assistant_name: warm up bed room
+      aliases:
+        - the heater in the master bedroom
+        - warm up the bedroom
+        - warm up the bedroom
+        - entity o 44
+#********************************************SCENES*********************************
+    scene.luci_sala_accese:
+      friendly_name: "Luci Sala Accese"
+      entity_picture: /local/lightbulbs.png
+    scene.black_alert_1:
+      friendly_name: "Allarme Nero 1"
+      icon: mdi:chemical-weapon
+    scene.heater_on:
+      friendly_name: "Accendi termoventilatore"
+      icon: mdi:fire
+    scene.heater_off:
+      friendly_name: "Spegni termoventilatore"
+      icon: mdi:fire
+#********************************************DEVICE TRACKERS*********************************
+    device_tracker.a039f73be2c7:
+      friendly_name: Max
+      icon: mdi:account
+    device_tracker.28c671063a1f:
+      friendly_name: Max Lavoro
+      icon: mdi:account
+    device_tracker.f823b2ea1ff1:
+      friendly_name: Mauro Lavoro
+      icon: mdi:account
+#********************************************VARIOUS*********************************
+    switch.windows:
+      friendly_name: Pc Windows
+      icon: mdi:desktop-classic
+    group.all_switches:
+      icon: mdi:home-assistant
+    input_boolean.motion_timer:
+      friendly_name: Motion Timer
+      icon: mdi:toggle-switch
+    media_player.living_room:
+      friendly_name: Chromecast
+      icon: mdi:google-chromecast
+    sun.sun:
+      friendly_name: Sole
+    switch.volume:
+      icon: mdi:volume-high
+#********************************************SCENE*********************************
+    scene.luci_sala_spente:
+      entity_picture: /local/lightsoff.png
+    scene.sky_on:
+      friendly_name: Accendi Sky
+      icon: mdi:satellite-variant
+    scene.sky_off:
+      friendly_name: Spegni Sky
+      icon: mdi:satellite-variant
+#********************************************SENSORI*********************************
+    sensor.movimento_cucina:
+      friendly_name: "Movimento Cucina"
+      icon: mdi:run-fast
+    binary_sensor.movimento_salotto:
+      friendly_name: "Movimento Salotto"
+      icon: mdi:run-fast
+    binary_sensor.motion_sensor_rf_1:
+      friendly_name: "Movimento Camera"
+      icon: mdi:run-fast
+    binary_sensor.movimento_bagno:
+      friendly_name: "Movimento Bagno"
+      icon: mdi:run-fast
+    binary_sensor.movimento_cucina_s1c:
+      friendly_name: Movimento Cucina
+      icon: mdi:run-fast
+    binary_sensor.movimento_corridoio_s1c:
+      friendly_name: Movimento Corridoio
+      icon: mdi:run-fast
+    binary_sensor.porta_corridoio_s1c:
+      friendly_name: Porta Corridoio
+      icon: mdi:glassdoor
+    binary_sensor.porta_retro_s1c:
+      friendly_name: Porta Retro
+      icon: mdi:glassdoor
+    binary_sensor.finestra_salotto_s1c:
+      friendly_name: Finestra Salotto
+      icon: mdi:window-closed
+    sensor.zidoo:
+      friendly_name: Zidoo
+      icon: mdi:airplay
+    binary_sensor.tabletbagno:
+      friendly_name: Tablet Bagno
+      icon: mdi:tablet-android
+    binary_sensor.tabletcucina:
+      friendly_name: Tablet Cucina
+      icon: mdi:tablet-android
+    binary_sensor.tabletcucina2:
+      friendly_name: Tablet Cucina 2
+      icon: mdi:tablet-android
+    binary_sensor.smartphonesalotto:
+      friendly_name: Sensore 1
+      icon: mdi:access-point
+    binary_sensor.smartphonesalotto3:
+      friendly_name: Sensore 2
+      icon: mdi:access-point
+    sensors.countdown_bagno:
+      friendly_name: Tempo Rimanente
+      icon: mdi:timelapse
+    sensors.countdown_salotto:
+      friendly_name: Tempo Rimanente
+      icon: mdi:timelapse
+    sensors.countdown_camera:
+      friendly_name: Tempo Rimanente
+      icon: mdi:timelapse
+    sensor.sensore_air_quality:
+      friendly_name: Qualità Aria
+      icon: mdi:nature-people
+    sensor.sensore_humidity:
+      friendly_name: Umidità
+      icon: mdi:water-percent
+    sensor.sensore_noise:
+      friendly_name: Rumore
+      icon: mdi:surround-sound
+    sensor.sensore_temperature:
+      friendly_name: Temperatura Bagno
+    sensor.sensore_light:
+      friendly_name: Luce
+      icon: mdi:theme-light-dark
+    sensor.temperatura_salotto_temperature:
+      friendly_name: Temperatura Salotto
+    sensor.temperatura_camera_temperature:
+      friendly_name: Temperatura Camera
+    sensor.speedtest_download:
+      friendly_name: Download
+      icon: 'mdi:speedometer'
+    sensor.speedtest_upload:
+      friendly_name: Upload
+      icon: 'mdi:speedometer'
+    sensor.speedtest_ping:
+      icon: 'mdi:speedometer'
+    binary_sensor.livingroomchromecast:
+      friendly_name: Chromecast Salotto
+      icon: mdi:google-chrome
+    binary_sensor.bathroomchromecast:
+      friendly_name: Chromecast Bagno
+      icon: mdi:google-chrome
+    binary_sensor.kitchenchromecast:
+      friendly_name: Chromecast Cucina
+      icon: mdi:google-chrome
+    binary_sensor.luce_accesa_bagno:
+      friendly_name: Luce Bagno
+      icon: mdi:lightbulb
+    binary_sensor.computersalotto:
+      friendly_name: Pc Windows
+      icon: mdi:desktop-classic
+    sensor.motion_timer:
+      friendly_name: Motion Timer
+      icon: mdi:timer
+#********************************************AUTOMATIONS*********************************
+    automation.chromecast_in_stop:
+      icon: mdi:stop
+    automation.chromecast_in_partenza:
+      icon: mdi:play
+    automation.chromecast_in_pausa:
+      icon: mdi:pause
+    automation.chromecast_in_riproduzione:
+      icon: mdi:play
+    automation.chromecast_music:  
+      icon: mdi:library-music
+    script.apricancello:
+      friendly_name : Apri Cancello
+      icon: mdi:gate
+    script.forest:
+      friendly_name : La foret
+      entity_picture: /local/foresta.jpg
+    script.hiver:
+      friendly_name: Feu de cheminée
+      entity_picture: /local/fuoco.jpg
+    script.ocean:
+      friendly_name: Ocean
+      entity_picture: /local/oceano.jpg
