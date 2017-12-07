@@ -1,0 +1,443 @@
+############################################################
+#
+# Ambiance
+# 
+############################################################
+script:
+  luci_sala_accese:
+    alias: Luci Sala Accese
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.scene
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 255
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.living_room
+
+  inverno:
+    alias: Ambiance Inverno
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: red
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: red
+          brightness: 255
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: red_fade
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.living_room
+          is_volume_muted: false
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 1.00
+      - alias: Media play Camino
+        service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/fireplace.mp4"
+      - delay: 00:00:10
+      - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+  foresta:
+    alias: Ambiance Foresta
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: green
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: green
+          brightness: 255
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: green_fade
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.living_room
+          is_volume_muted: false
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 1.00
+      - alias: Media play forest
+        service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/forest.mp4"
+      - delay: 00:00:10
+      - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+  oceano:
+    alias: Ambiance Oceano
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: cyan
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: cyan
+          brightness: 255
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: cyan_fade
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.living_room
+          is_volume_muted: false
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 1.00
+      - alias: Media Play Ocean
+        service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/ocean.mp4"
+      - delay: 00:00:10
+      - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+  club:
+    alias: Ambiance Club
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: purple
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: purple
+          brightness: 255
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: purple_fade
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.living_room
+          is_volume_muted: false
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 1.00
+      - alias: Media Play Club
+        service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/club.mp4"
+      - delay: 00:00:10
+      - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+  acquario:
+    alias: Ambiance Aquario
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: cyan
+          brightness: 255
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: cyan
+          brightness: 255
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: cyan_fade
+      - service: media_player.volume_mute
+        data:
+          entity_id: media_player.living_room
+          is_volume_muted: false
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 1.00
+      - alias: Media Play Aquarium
+        service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/acquario.mp4"
+      - delay: 00:00:10
+      - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+  black_alert:
+    alias: black_alert
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: blue_strobe
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: blue_strobe
+      - delay: 00:00:02
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: blue_fade
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/voybluealert.mp3"
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 0
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/STBlueAlert.mp4"
+      - delay: 00:00:05
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: blue
+          brightness: 255
+
+  black_alert_1:
+    alias: black_alert_1
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: blue_strobe
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: blue_strobe
+      - delay: 00:00:02
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: blue_fade
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/voybluealert.mp3"
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 0
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/STBlueAlert.mp4"
+      - delay: 00:00:05
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: blue
+          brightness: 255
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/computer_activate.mp3"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/consolewarning.mp3"
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/intruderalertdeck8_ep.mp3"
+      - service: light.turn_on
+        data:
+          entity_id: light.light_kitchen
+      - delay: 00:00:01
+      - service: light.turn_off
+        data:
+          entity_id: light.light_kitchen
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/automaticdefenseproceduresinitiated.mp3"
+      - delay: 00:00:20
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 255
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/lcars.mp4"
+
+  red_alert:
+    alias: red_alert
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.scene
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: red_strobe
+      - service: light.turn_off
+        data:
+          entity_id: light.led_strip
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          brightness: 0
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: red_strobe
+      - delay: 00:00:01
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          effect: red_fade
+      - service: hassio.addon_stdin
+        data:
+          addon: local_audio_player
+          input: "http://192.168.1.100:8123/local/voyredalert.mp3"
+      - service: media_player.volume_set
+        data:
+          entity_id: media_player.living_room
+          volume_level: 0
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_type: "VIDEO"
+          media_content_id: "http://192.168.1.100:8123/local/STRedAlert.mp4"
+      - delay: 00:00:15
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip
+          color_name: red
+          brightness: 255

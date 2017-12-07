@@ -1,0 +1,140 @@
+group:
+  countdown:
+    name: Countdown
+    entities:
+      - input_boolean.countdown
+      - input_number.countdown
+      - sensor.countdown
+      - script.scala
+      - script.attendi_e_ripeti
+      - sensor.countdown_meno_1
+      - automation.start_countdown
+      - automation.start_countdown_2
+      - automation.stop_countdown
+      - automation.stop_countdown_2
+
+input_boolean:
+  countdown:
+    name: Countdown
+    initial: off
+    icon: mdi:timelapse
+
+input_number:
+  countdown:
+    name: countdown
+    min: 0
+    max: 18000
+    step: 1
+    initial: 0
+
+sensor:
+  - platform: template
+    sensors:
+      countdown:
+        friendly_name: "Tempo Rimanente"
+        value_template: "{{ states('sensor.countdown_hours') }} : {{ states('sensor.countdown_minutes') }} : {{ states('sensor.countdown_seconds') }}"
+  - platform: template
+    sensors:
+      countdown_hours:
+        value_template: >
+          {% if ( ( states('input_number.countdown') | float / 3600 ) | int ) < 10 %}
+            0{{( states('input_number.countdown') | float / 3600 ) | int}}
+          {% else %}
+            {{( states('input_number.countdown') | float / 3600 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_minutes:
+        value_template: >
+          {% if ( ((( states('input_number.countdown') | float / 3600 ) - ( states('sensor.countdown_hours') | float )) * 60 ) | int ) < 10 %}
+            0{{((( states('input_number.countdown') | float / 3600 ) - ( states('sensor.countdown_hours') | float )) * 60 ) | int}}
+          {% else %}
+            {{((( states('input_number.countdown') | float / 3600 ) - ( states('sensor.countdown_hours') | float )) * 60 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_seconds:
+        value_template: >
+          {% if ( ((((( states('input_number.countdown') | float / 3600 ) - ( states('sensor.countdown_hours') | float )) * 60 ) - ( states('sensor.countdown_minutes') | float )) * 60 ) | int ) < 10 %}
+            0{{((((( states('input_number.countdown') | float / 3600 ) - ( states('sensor.countdown_hours') | float )) * 60 ) - ( states('sensor.countdown_minutes') | float )) * 60 ) | int}}
+          {% else %}
+            {{((((( states('input_number.countdown') | float / 3600 ) - ( states('sensor.countdown_hours') | float )) * 60 ) - ( states('sensor.countdown_minutes') | float )) * 60 ) | int}}
+          {% endif %}
+  - platform: template
+    sensors:
+      countdown_meno_1:
+        value_template: "{{( states('input_number.countdown') | int - 1 ) | int}}"
+
+automation:
+  - alias: 'Start Countdown'
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown
+      above: '0'
+    condition:
+      condition: state
+      entity_id: input_boolean.countdown
+      state: 'on'
+    action:
+      service: script.turn_on
+      entity_id: script.scala
+
+  - alias: 'Start Countdown 2'
+    trigger:
+      platform: state
+      entity_id: input_boolean.countdown
+      to: 'on'
+    condition:
+      condition: numeric_state
+      entity_id: input_number.countdown
+      above: '0'
+    action:
+      service: script.turn_on
+      entity_id: script.scala
+
+  - alias: 'Stop Countdown'
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown
+      below: '1'
+    action:
+      service: homeassistant.turn_off
+      entity_id: input_boolean.countdown
+
+  - alias: 'Stop Countdown 2'
+    trigger:
+      platform: state
+      entity_id: input_boolean.countdown
+      to: 'off'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: 'input_number.countdown'
+        value: "0"
+
+script:
+  scala:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown'
+          value: "{{ states.sensor.countdown_meno_1.state | int }}"
+      - service: script.turn_on
+        data:
+          entity_id: script.attendi_e_ripeti
+
+  attendi_e_ripeti:
+    sequence:
+      - condition: and
+        conditions:
+           - condition: state
+             entity_id: input_boolean.countdown
+             state: 'on'
+           - condition: numeric_state
+             entity_id: input_number.countdown
+             above: '0'
+      - delay:
+          milliseconds: 1
+      - service: script.turn_on
+        data:
+          entity_id: script.scala
