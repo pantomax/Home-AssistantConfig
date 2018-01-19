@@ -39,11 +39,13 @@ group:
     entities:
       - input_select.nabaztag_language
       - input_select.nabaztag_time_zone
+#*************************************************************
 input_boolean:
   show_nabaztag_locales:
     name: Locales Setup
     initial: off
     icon: mdi:tune
+#*************************************************************
 input_number:
   nabaztag_left_ear:
     icon: mdi:ear-hearing
@@ -59,6 +61,7 @@ input_number:
     min: 0
     max: 16
     step: 1
+#*************************************************************
 input_select:
   nabaztag_taichi:
     name: Taichi Intensity
@@ -204,6 +207,7 @@ input_select:
       - "GMT +12:00"
     initial: "GMT"
     icon: mdi:clock
+#*************************************************************
 input_text:
   nabaztag_voice:
     name: TTS
@@ -211,6 +215,7 @@ input_text:
     min: 1
     max: 40
     pattern: '[a-fA-F0-9]*'
+#*************************************************************
 switch:
   platform: command_line
   switches:
@@ -226,6 +231,7 @@ switch:
       command_on: "curl http://192.168.1.180/nose?v=1"
       command_off: "curl http://192.168.1.180/nose?v=0"
       friendly_name: Nose
+#*************************************************************
 shell_command:
   nab_surprise: curl http://192.168.1.180/surprise
   nab_stop: curl http://192.168.1.180/stop
@@ -361,6 +367,7 @@ script:
     alias: Stop
     sequence:
       - service: shell_command.nab_stop
+#*************************************************************
 automation:
   - alias: "Hide Locale Setup"
     trigger:
