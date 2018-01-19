@@ -3,9 +3,6 @@
 # Sensori
 #
 ############################################################
-#************** REST API ********************
-  - platform: rest
-    resource: https://maxhassio.duckdns.org/api/dialogflow?api_password=***REMOVED***
   - platform: speedtest
     minute: 30
     hour:
