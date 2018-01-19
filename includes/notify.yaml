@@ -1,0 +1,8 @@
+############################################################
+#
+# Notification Platforms
+#
+############################################################
+  - platform: html5
+    gcm_api_key: 'AAAAub_6uO8:APA91bElbRksMRU1-TsSWVGGtXAraDqy1iUa1lank1jP1I5RExXL51k1hmyqejUMl0-IatNhLGu8PlYaSVavdo5Bqj3y4rx2VJfN7Q6aD1J0TUBkOZGGjAJorzZN_L90L0Uyj1iSkfY8'
+    gcm_sender_id: '797789829359'

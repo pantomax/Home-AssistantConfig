@@ -115,42 +115,42 @@ script:
 #***********************************************************************************
 automation:
 #***********************************************************************************
-  - alias: Lancia musica se viene accesa la luce
-    trigger:
-    - platform: state
-      entity_id: sensor.luce_accesa_bagno
-      to: Accesa
-    condition:
-      condition: and
-      conditions:
-        - condition: time
-          after: '18:00:00'
-        - condition: time
-          before: '23:30:00'
-    action:
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.bathroom
-        media_content_id: http://mp3channels.webradio.antenne.de/workout-hits.aac
-        media_content_type: 'audio/mp4'
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.numero_radio
-        value: '2.0'
-#***********************************************************************************
-  - alias: Ferma musica se viene spenta la luce
-    trigger:
-    - platform: state
-      entity_id: sensor.luce_accesa_bagno
-      to: Spenta
-    action:
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.bathroom
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.numero_radio
-        value: '1.0'
+#  - alias: Lancia musica se viene accesa la luce
+#    trigger:
+#    - platform: state
+#      entity_id: sensor.luce_accesa_bagno
+#      to: Accesa
+#    condition:
+#      condition: and
+#      conditions:
+#        - condition: time
+#          after: '18:00:00'
+#        - condition: time
+#          before: '23:30:00'
+#    action:
+#    - service: media_player.play_media
+#      data:
+#        entity_id: media_player.bathroom
+#        media_content_id: http://mp3channels.webradio.antenne.de/workout-hits.aac
+#        media_content_type: 'audio/mp4'
+#    - service: input_number.set_value
+#      data_template:
+#        entity_id: input_number.numero_radio
+#        value: '2.0'
+##***********************************************************************************
+#  - alias: Ferma musica se viene spenta la luce
+#    trigger:
+#    - platform: state
+#      entity_id: sensor.luce_accesa_bagno
+#      to: Spenta
+#    action:
+#    - service: media_player.turn_off
+#      data:
+#        entity_id: media_player.bathroom
+#    - service: input_number.set_value
+#      data_template:
+#        entity_id: input_number.numero_radio
+#        value: '1.0'
 #***********************************************************************************
   - alias: Resetta numero radio
     trigger:
