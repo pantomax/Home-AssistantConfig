@@ -1,8 +1,8 @@
-############################################################
+################################################################################
 #
 # Accensione Luci con sensori
 #
-############################################################
+################################################################################
 #*******************************************************************************
 #*******************************************************************************
 input_boolean:
@@ -93,13 +93,189 @@ script:
           entity_id: script.scala_corridoio
 #*******************************************************************************
 #*******************************************************************************
+
+
 automation:
 #*******************************************************************************
 #*******************************************************************************
-  - alias: Accendi Luce Cucina
+#*****************************   GIARDINO  *************************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: "Exterior Lighting on when dark outside"
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: "{{ state.attributes.elevation }}"
+      # Can be a positive or negative number
+      below: -4.0
+    action:
+      service: light.turn_on
+      entity_id: light.giardino
+#*******************************************************************************
+  - alias: "Exterior Lighting off at 0.30"
+    trigger:
+      platform: time
+      at: '23:30:00'
+    action:
+      service: light.turn_off
+      entity_id: light.giardino
+#*******************************************************************************
+  - alias: "Exterior Lighting on when someone in front of house during the night"
     trigger:
       - platform: state
-        entity_id: binary_sensor.movimento_cucina_s1c
+        entity_id: binary_sensor.ring_front_door_motion
+        from: 'off'
+        to: 'on'
+    condition:
+      condition: time
+      after: '00:30:00'
+      before: '04:30:00'
+    action:
+      service: light.turn_on
+      entity_id: light.giardino
+#*******************************************************************************
+  - alias: "Turn Off Exterior Lighting 5 minutes after last movement"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'off'
+      for:
+        minutes: 5
+    condition:
+      condition: time
+      after: '00:30:00'
+      before: '04:30:00'
+    action:
+      service: light.turn_off
+      entity_id: light.giardino
+#*******************************************************************************
+#*******************************************************************************
+#*****************************   CORRIDOIO   ***********************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: "Accendi Luci corridoio con sensore"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_corridoio
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: binary_sensor.permetti_accensione_luci
+      state: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_on
+        entity_id: switch.corridoio_porta
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.countdown_corridoio
+         value: "360"
+#*******************************************************************************
+  - alias: "Accendi Luci corridoio con porta"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.porta_retro_s1c
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.porta_corridoio_s1c
+        to: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_on
+        entity_id: switch.corridoio_porta
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.countdown_corridoio
+         value: "360"
+#*******************************************************************************
+  - alias: "Spegni Luci corridoio"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_corridoio
+        to: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+#*******************************************************************************  
+  - alias: "Spegni Luci corridoio con porte"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.porta_retro_s1c
+        to: 'off'
+      - platform: state
+        entity_id: binary_sensor.porta_corridoio_s1c
+        to: 'off'
+    condition:
+      condition: state
+      entity_id: binary_sensor.movimento_corridoio_s1c
+      state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+      - service: input_number.set_value
+        data_template:
+         entity_id: input_number.countdown_corrifoio
+         value: "0"
+#*******************************************************************************
+  - alias: "Start Countdown spegnimento luci corridoio"
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown_corridoio
+      above: '0'
+    action:
+      service: script.turn_on
+      entity_id: script.scala_corridoio
+#*******************************************************************************
+  - alias: "Stop Countdown spegnimento luci corridoio"
+    trigger:
+      platform: numeric_state
+      entity_id: input_number.countdown_corridoio
+      below: '1'
+    condition:
+      condition: state
+      entity_id: binary_sensor.movimento_corridoio_s1c
+      state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+#*******************************************************************************
+  - alias: "Controlla ogni 5 minuti e spegne luci corridoio"
+    trigger:
+      platform: time
+      minutes: '/5'
+      seconds: 00
+    condition:
+      - condition: state
+        entity_id: binary_sensor.movimento_corridoio_s1c
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.porta_retro_s1c
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.porta_corridoio_s1c
+        state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.corridoio_bagno
+      - service: switch.turn_off
+        entity_id: switch.corridoio_porta
+#*******************************************************************************
+#*******************************************************************************
+#******************************   CUCINA   *************************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: "Accendi Luce Cucina"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_cucina
         to: 'on'
     condition:
     - condition: and
@@ -121,7 +297,7 @@ automation:
           conditions:
           - condition: sun
             after: sunset
-            after_offset: "-2:00:00"
+            after_offset: "-4:00:00"
           - condition: time
             after: '17:00'
 # tutti i giorni dopo le 17 se c'è nuvoloso
@@ -148,144 +324,33 @@ automation:
       - service: light.turn_on
         entity_id: group.kitchen
 #*******************************************************************************
-  - alias: Spegni Luce Cucina
+  - alias: "Spegni Luce Cucina"
     trigger:
       - platform: state
-        entity_id: binary_sensor.movimento_cucina_s1c
+        entity_id: binary_sensor.movimento_cucina
         to: 'off'
     action:
       - service: light.turn_off
         entity_id: group.kitchen
 #*******************************************************************************
-  - alias: Accendi Luci corridoio con sensore
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.movimento_corridoio_s1c
-        to: 'on'
-    condition:
-      condition: state
-      entity_id: binary_sensor.permetti_accensione_luci
-      state: 'on'
-    action:
-      - service: switch.turn_on
-        entity_id: switch.corridoio_bagno
-      - service: switch.turn_on
-        entity_id: switch.corridoio_porta
-      - service: input_number.set_value
-        data_template:
-         entity_id: input_number.countdown_corridoio
-         value: "360"
-#*******************************************************************************
-  - alias: Accendi Luci corridoio con porta
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.porta_retro_s1c
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.porta_corridoio_s1c
-        to: 'on'
-    action:
-      - service: switch.turn_on
-        entity_id: switch.corridoio_bagno
-      - service: switch.turn_on
-        entity_id: switch.corridoio_porta
-      - service: input_number.set_value
-        data_template:
-         entity_id: input_number.countdown_corridoio
-         value: "360"
-#*******************************************************************************
-  - alias: Spegni Luci corridoio
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.movimento_corridoio_s1c
-        to: 'off'
-    action:
-      - service: switch.turn_off
-        entity_id: switch.corridoio_bagno
-      - service: switch.turn_off
-        entity_id: switch.corridoio_porta
-#*******************************************************************************  
-  - alias: Spegni Luci corridoio con porte
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.porta_retro_s1c
-        to: 'off'
-      - platform: state
-        entity_id: binary_sensor.porta_corridoio_s1c
-        to: 'off'
-    condition:
-      condition: state
-      entity_id: binary_sensor.movimento_corridoio_s1c
-      state: 'off'
-    action:
-      - service: switch.turn_off
-        entity_id: switch.corridoio_bagno
-      - service: switch.turn_off
-        entity_id: switch.corridoio_porta
-      - service: input_number.set_value
-        data_template:
-         entity_id: input_number.countdown_corrifoio
-         value: "0"
-#*******************************************************************************
-  - alias: 'Start Countdown spegnimento luci corridoio'
-    trigger:
-      platform: numeric_state
-      entity_id: input_number.countdown_corridoio
-      above: '0'
-    action:
-      service: script.turn_on
-      entity_id: script.scala_corridoio
-#*******************************************************************************
-  - alias: 'Stop Countdown spegnimento luci corridoio'
-    trigger:
-      platform: numeric_state
-      entity_id: input_number.countdown_corridoio
-      below: '1'
-    condition:
-      condition: state
-      entity_id: binary_sensor.movimento_corridoio_s1c
-      state: 'off'
-    action:
-      - service: switch.turn_off
-        entity_id: switch.corridoio_bagno
-      - service: switch.turn_off
-        entity_id: switch.corridoio_porta
-#*******************************************************************************
-  - alias: 'Controlla ogni 5 minuti e spegne luci corridoio'
-    trigger:
-      platform: time
-      minutes: '/5'
-      seconds: 00
-    condition:
-      - condition: state
-        entity_id: binary_sensor.movimento_corridoio_s1c
-        state: 'off'
-      - condition: state
-        entity_id: binary_sensor.porta_retro_s1c
-        state: 'off'
-      - condition: state
-        entity_id: binary_sensor.porta_corridoio_s1c
-        state: 'off'
-    action:
-      - service: switch.turn_off
-        entity_id: switch.corridoio_bagno
-      - service: switch.turn_off
-        entity_id: switch.corridoio_porta
-#*******************************************************************************
-  - alias: 'Controlla ogni 9 minuti e spegne luci cucina'
+  - alias: "Controlla ogni 9 minuti e spegne luci cucina"
     trigger:
       platform: time
       minutes: '/9'
       seconds: 00
     condition:
       - condition: state
-        entity_id: binary_sensor.movimento_cucina_s1c
+        entity_id: binary_sensor.movimento_cucina
         state: 'off'
     action:
       - service: switch.turn_off
         entity_id: switch.light_kitchen
 #*******************************************************************************
-  - alias: 'Accende le luci sui comodini tutti i giorni alle 7.15 del lun al ven'
+#*******************************************************************************
+#****************************** LETTO SVEGLIA  *********************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: "Accende le luci sui comodini tutti i giorni alle 7.10 del lun al ven"
     trigger:
       platform: time
       at: '07:15:00'
@@ -306,7 +371,7 @@ automation:
       - service: light.turn_on
         entity_id: light.camera
 #*******************************************************************************
-  - alias: 'Spegne le luci sui comodini tutti i giorni alle 7.40 del lun al ven'
+  - alias: "Spegne le luci sui comodini tutti i giorni alle 7.40 del lun al ven"
     trigger:
       platform: time
       at: '07:40:00'
@@ -322,7 +387,7 @@ automation:
       - service: light.turn_off
         entity_id: light.camera
 #*******************************************************************************
-  - alias: Luce Cucina Rimani Accesa 
+  - alias: "Luce Cucina Rimani Accesa"
     trigger:
       - platform: state
         entity_id: input_select.house_mode
@@ -333,7 +398,7 @@ automation:
          entity_id: input_number.tempo_spegnimento_luce_cucina
          value: 120
 #*******************************************************************************
-  - alias: Luce Cucina Tempo 5 minuti durante i pasti
+  - alias: "Luce Cucina Tempo 5 minuti durante i pasti"
     trigger:
       - platform: state
         entity_id: input_select.house_mode
@@ -360,9 +425,9 @@ automation:
       - service: input_number.set_value
         data_template:
          entity_id: input_number.tempo_spegnimento_luce_cucina
-         value: 5
+         value: 10
 #*******************************************************************************
-  - alias: Luce Cucina Ripristino 1 minuto fuori pasti
+  - alias: "Luce Cucina Ripristino 1 minuto fuori pasti"
     trigger:
       - platform: state
         entity_id: input_select.house_mode
@@ -391,3 +456,4 @@ automation:
         data_template:
          entity_id: input_number.tempo_spegnimento_luce_cucina
          value: 1
+#*******************************************************************************
