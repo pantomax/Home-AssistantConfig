@@ -236,6 +236,30 @@ automation:
       - delay:
             milliseconds: 100
       - service: switch.turn_on
+        entity_id: switch.piu
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.piu
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.piu
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.piu
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.piu
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.piu
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
         entity_id: switch.basculante
       - delay:
             milliseconds: 100
