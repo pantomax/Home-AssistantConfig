@@ -145,7 +145,7 @@ input_select:
       - abort
       - ministop
     initial: " "
-    icon: mdi:tooltip-edit
+    icon: mdi:comment-text-outline
   nabaztag_radio:
     name: Radio Station
     options:
