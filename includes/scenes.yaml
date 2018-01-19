@@ -3,6 +3,10 @@
 # Scene
 #
 ############################################################
+  - name: Stereo Max
+    entities:
+      script.stereomax: on
+#******************************************************************************
   - name: Buona notte
     entities:
       light.tavolino: off

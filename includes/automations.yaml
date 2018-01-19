@@ -3,6 +3,48 @@
 # Automation
 #
 ####################################################################################
+  - alias: 'Spegne il pc in caso salti la luce e manda una notifica'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.zidoo
+        to: 'off'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.computersalotto
+        state: 'on'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.windows
+      - service: notify.notify
+        data:
+          message: "E' saltata la luce."
+#dopo tot minuti spegnere hassio
+# restart HA to keep it fresh
+  - alias: Restart HA
+    trigger: 
+      platform: time
+      at: "16:30:00"
+    condition:
+      condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    action:
+      - service: homeassistant.restart
+  - alias: Restart HA Weekend
+    trigger: 
+      platform: time
+      at: "08:00:00"
+    condition:
+      condition: time
+      weekday:
+      - sat
+      - sun
+    action:
+      - service: homeassistant.restart
   - alias: Startup Notification
     trigger:
       - platform: homeassistant
@@ -11,16 +53,14 @@
       - service: notify.notify
         data:
           message: "Home Assistant è attivo."
-#      - service: ifttt.trigger
-#        data: {"event":"TestHA_Trigger", "value1":"Home Assistant è attivo."}
-      - service: hassio.addon_stdin
-        data:
-          addon: local_audio_player
-          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
-      - service: hassio.addon_stdin
-        data:
-          addon: local_audio_player
-          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
+#      - service: hassio.addon_stdin
+#        data:
+#          addon: local_audio_player
+#          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
+#      - service: hassio.addon_stdin
+#        data:
+#          addon: local_audio_player
+#          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
       - service: hassio.addon_stdin
         data:
           addon: local_audio_player
@@ -53,6 +93,7 @@
         entity_id: group.telecomando_sky
         data:
           visible: False
+      - service: google_assistant.request_sync
 #***********************************************************************************
   - alias: Shutdown/Reboot Notification
     trigger:
@@ -62,8 +103,6 @@
       - service: notify.notify
         data:
           message: "Home Assistant è in riavvio."
-#      - service: ifttt.trigger
-#        data: {"event":"TestHA_Trigger", "value1":"Home Assistant è in riavvio."}
       - service: hassio.addon_stdin
         data:
           addon: local_audio_player
@@ -219,26 +258,6 @@
               title: "Luce cucina"
             - action: "button2"
               title: "Luci cucina e salotto"
-#  - alias: 'Notify Gate Closed'
-#    trigger:
-#      - platform: state
-#        entity_id: binary_sensor.entry_gate
-#        from: 'on'
-#        to: 'off'
-#    action:
-#      - service: notify.notify
-#        data:
-#          title: 'GATE'
-#          message: 'Closed'
-#          data:
-#            tag: alert
-#            url: 'https://my_HAserver.com'
-#            image: "https://my_HAserver.com/api/camera_proxy/camera.mycamera?api_password=MyHAPassword"
-#            vibrate:
-#              - 300
-#              - 100
-#              - 400
-#            renotify: 0
 #***********************************************************************************
   - alias: HTML5 push notification action button clicked
     trigger:

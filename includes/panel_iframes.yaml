@@ -15,11 +15,3 @@
     title: Kodi
     icon: mdi:movie
     url: http://2.234.144.242:8800
-  nodered_flows:
-    title: Node-RED Flows
-    url: http://maxhassio.duckdns.org:1880
-    icon: mdi:nodejs
-  router:
-    title: Router
-    icon: mdi:router-wireless
-    url: https://2.234.144.242:***REMOVED***/login.lp
