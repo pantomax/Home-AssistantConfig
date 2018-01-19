@@ -3,7 +3,9 @@
 # Nabaztag
 # 
 ############################################################
+#*************************************************************
 group:
+#*************************************************************
   nabaztag_body:
     name: Nabaztag Body
     control: hidden
@@ -41,12 +43,14 @@ group:
       - input_select.nabaztag_time_zone
 #*************************************************************
 input_boolean:
+#*************************************************************
   show_nabaztag_locales:
     name: Locales Setup
     initial: off
     icon: mdi:tune
 #*************************************************************
 input_number:
+#*************************************************************
   nabaztag_left_ear:
     icon: mdi:ear-hearing
     name: Left Ear
@@ -63,6 +67,7 @@ input_number:
     step: 1
 #*************************************************************
 input_select:
+#*************************************************************
   nabaztag_taichi:
     name: Taichi Intensity
     options:
@@ -209,6 +214,7 @@ input_select:
     icon: mdi:clock
 #*************************************************************
 input_text:
+#*************************************************************
   nabaztag_voice:
     name: TTS
     initial: Say Something...
@@ -217,6 +223,7 @@ input_text:
     pattern: '[a-fA-F0-9]*'
 #*************************************************************
 switch:
+#*************************************************************
   platform: command_line
   switches:
     nabaztaglife:
@@ -233,6 +240,7 @@ switch:
       friendly_name: Nose
 #*************************************************************
 shell_command:
+#*************************************************************
   nab_surprise: curl http://192.168.1.180/surprise
   nab_stop: curl http://192.168.1.180/stop
   nab_clear: curl http://192.168.1.180/clear
@@ -358,7 +366,9 @@ shell_command:
 #******************************************************************************
 #curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac                                                                          'submit' value='Say text'/></form></li>
 #******************************************************************************
+#*************************************************************
 script:
+#*************************************************************
   nabaztag_surprise:
     alias: Surprise!
     sequence:
@@ -369,6 +379,7 @@ script:
       - service: shell_command.nab_stop
 #*************************************************************
 automation:
+#*************************************************************
   - alias: "Hide Locale Setup"
     trigger:
       - platform: homeassistant
