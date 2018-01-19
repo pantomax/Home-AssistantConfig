@@ -11,11 +11,15 @@ sensor:
   - platform: mqtt
     state_topic: "sensors/rf/receiver"
     name: "RF Receiver"
+  - platform: mqtt
+    state_topic: "sensors/rf/receiver2"
+    name: "RF Receiver 2"
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 binary_sensor:
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
+#************  Letto  ****************
   - platform: template
     sensors:
       motion_sensor_rf_1:
@@ -25,20 +29,56 @@ binary_sensor:
           seconds: 20
         value_template: >-
           {{ is_state('sensor.rf_receiver', '13679406') }}
+#************  Scrivania  ****************
+  - platform: template
+    sensors:
+      motion_sensor_rf_2:
+        friendly_name: "Motion Sensor RF 2"
+        device_class: motion
+        delay_off:
+          seconds: 240
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '1118556') }}
+#************  Bagno Entrata  ****************
+  - platform: template
+    sensors:
+      motion_sensor_rf_3:
+        friendly_name: "Motion Sensor RF 3"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '1855836') }}
+#************  Cucina 2  ****************
+  - platform: template
+    sensors:
+      motion_sensor_rf_4:
+        friendly_name: "Motion Sensor RF 4"
+        device_class: motion
+        delay_off:
+          seconds: 120
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '7815516') }}
+#************  Bagno Uscita  ****************
+  - platform: template
+    sensors:
+      motion_sensor_rf_5:
+        friendly_name: "Motion Sensor RF 5"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '12916060') }}
+ 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 automation:
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-  - alias: 'Accendi luce scrivania'
+#*******************************************************************************
+#*******************************************************************************
+#******************************   LETTO   **************************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: 'Accendi luce sotto il letto'
     trigger:
       - platform: state
         entity_id: binary_sensor.motion_sensor_rf_1
         to: 'on'
-#    condition:
-#      - condition: state
-#        entity_id: binary_sensor.permetti_accensione_luci
-#        state: 'on'
     action:
       - service: light.turn_on
         entity_id: light.camera
@@ -47,7 +87,8 @@ automation:
           topic: 'sensors/rf/receiver'
           payload: '1111111'
           retain: 'true'
-  - alias: 'Spegni luce scrivania'
+#*****************************************************
+  - alias: 'Spegni luce sotto il letto'
     trigger:
       - platform: state
         entity_id: binary_sensor.motion_sensor_rf_1
@@ -55,3 +96,100 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.camera
+#*******************************************************************************
+#*******************************************************************************
+#****************************   SCRIVANIA  *************************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: 'Accendi luce scrivania'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_rf_2
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.permetti_accensione_luci
+        state: 'on'
+    action:
+      - service: light.turn_on
+        entity_id: light.light_desk
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
+#*****************************************************
+  - alias: 'Spegni luce scrivania'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_rf_2
+        to: 'off'
+    action:
+      - service: light.turn_off
+        entity_id: light.light_desk
+#*******************************************************************************
+#*******************************************************************************
+#*******************************   BAGNO   *************************************
+#*******************************************************************************
+#*******************************************************************************
+  - alias: 'Accendi luce bagno'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_rf_3
+        to: 'on'
+    condition:
+      - condition: time
+        after: '7:10:00'
+        before: '01:00:00'
+    action:
+      - service: timer.cancel
+        entity_id: timer.spegnimento_bagno
+      - service: light.turn_on
+        entity_id: light.bagno
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
+      - service: timer.start
+        entity_id: timer.spegnimento_automatico_bagno
+      - service: timer.cancel
+        entity_id: timer.spegnimento_bagno
+#*****************************************************
+  - alias: 'Spegni luce bagno'
+    trigger:
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.spegnimento_bagno
+      - platform: event
+        event_type: timer.finished
+        event_data:
+          entity_id: timer.spegnimento_automatico_bagno
+    action:
+      - service: light.turn_off
+        entity_id: light.bagno
+      - service: timer.cancel
+        entity_id: timer.spegnimento_bagno
+      - service: timer.cancel
+        entity_id: timer.spegnimento_automatico_bagno
+#*****************************************************
+  - alias: 'Conto alla rovescia spegnimento luce bagno se si passa davanti al sensore di uscita'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_sensor_rf_5
+        to: 'on'
+    action:
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
+      - service: timer.start
+        entity_id: timer.spegnimento_bagno
+#*****************************************************
+timer:
+  spegnimento_automatico_bagno:
+    duration: '00:10:00'
+  spegnimento_bagno:
+    duration: '00:00:3'

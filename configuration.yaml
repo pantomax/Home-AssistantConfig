@@ -7,26 +7,44 @@ homeassistant:
   time_zone: Europe/Rome
   customize: !include includes/customize.yaml
   packages: !include_dir_named packages
+cloud:
 config:
 updater:
 discovery:
+sun:
+dialogflow:
+ffmpeg:
+downloader:
+  download_dir: www
 logbook:
+  exclude:
+    entities:
+      - sensor.speedtest
+      - sensor.date_countdown
+      - sensor.wunderground
+      - sensor.darksky
+      - sensor.systemmonitor
+    domains:
+      - sun
+      - ffmpeg
+      - camera
+      - android_ip_webcam
+      - device_tracker
+      - intent_script
+      - zone
+      - weblink
+      - history_graph
+      - panel_iframe
 logger:
-  default: error
+  default: critical
   logs:
     homeassistant.components.dialogflow: debug
 recorder:
   purge_interval: 2
   purge_keep_days: 3
-conversation:
-  intents:
-    ShoppingListAddItem:
-      - Add {item} to my shopping list
-shopping_list:
-sun:
 http:
    server_port: 8123
-   base_url: maxhassio.duckdns.org:8123
+   base_url: !secret base_url_site
    ip_ban_enabled: True
    login_attempts_threshold: 5
    api_password: !secret http_password
@@ -36,23 +54,11 @@ mqtt:
   broker: core-mosquitto
   username: homeassistant
   password: !secret http_password
-dialogflow:
-google_assistant:
-  project_id: hassio-e82dd
-  client_id: 650875060986-jeqihig7afrrjrdv28mt1hiskmio7p68.apps.googleusercontent.com
-  access_token: RxBMdjxmG50cDHvprgqRH96L9zpGuqj4ofo0Dc1iBWeTCjdEwsfPu0HBglejwAjkobc1o9byYZtkCgU9
-  exposed_domains:
-    - light
-notify:
-  - platform: html5
-    gcm_api_key: 'AAAAub_6uO8:APA91bElbRksMRU1-TsSWVGGtXAraDqy1iUa1lank1jP1I5RExXL51k1hmyqejUMl0-IatNhLGu8PlYaSVavdo5Bqj3y4rx2VJfN7Q6aD1J0TUBkOZGGjAJorzZN_L90L0Uyj1iSkfY8'
-    gcm_sender_id: '797789829359'
-ffmpeg:
-downloader:
-  download_dir: www
+
 ############
 # Includes
 ############
+notify: !include includes/notify.yaml
 frontend: !include includes/frontend.yaml
 ifttt: !include includes/ifttt.yaml
 history: !include includes/history.yaml
@@ -77,11 +83,3 @@ binary_sensor: !include includes/binary_sensor.yaml
 alarm_control_panel: !include includes/alarm.yaml
 history_graph: !include includes/history_graph.yaml
 panel_iframe: !include includes/panel_iframes.yaml
-#***********************************************************************************
-#***********************************************************************************
-#  1/A9CCOxJ3QWboPozk0WvCJlv6lQaF5w1DYPeioccY15Q
-#4/UIKUYn7PMwzRXHcjvGBVqWF7v8iKsfho2w7ke2F8TO0
-#hfoaisdhfaosiduhfajsdhufapdhfpaweghHPHPuhu839
-#   ssl_certificate: /ssl/caddy/acme/acme-v01.api.letsencrypt.org/sites/maxhassio.duckdns.org/maxhassio.duckdns.org.crt
-#   ssl_key: /ssl/caddy/acme/acme-v01.api.letsencrypt.org/sites/maxhassio.duckdns.org/maxhassio.duckdns.org.key
-#  broker: 192.168.1.100

@@ -6,3 +6,4 @@
 !.gitignore
 secrets.yaml
 known_devices.yaml
+google_assistant.yaml
