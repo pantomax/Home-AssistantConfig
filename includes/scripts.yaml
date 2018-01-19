@@ -3,6 +3,18 @@
 # Script
 #
 ############################################################
+  check_tv_status:
+    alias: check tv status
+    sequence:
+    - service: input_boolean.turn_on
+      data_template:
+        entity_id: >
+            {% if is_state("sensor.livingroomchromecast", "Online") %} input_boolean.guarda_tv
+            {% endif %}
+  reboot:
+    alias: Reboot HA
+    sequence:
+      - service: homeassistant.restart
   alert:
     alias: alert
     sequence:
@@ -68,5 +80,126 @@
       - service: switch.turn_off
         data:
           entity_id: switch.cancello
-
+  stereomax:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        data:
+          entity_id: switch.stereo_vol_down
+      - delay:
+            milliseconds: 100
 
