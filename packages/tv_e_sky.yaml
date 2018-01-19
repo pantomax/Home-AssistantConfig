@@ -317,3 +317,12 @@ scene:
   - name: skynews
     entities:
       input_select.tv_channel_pick: "Sky 1"
+  - name: hdmi 1
+    entities:
+      switch.select_hdmi_1: on
+  - name: hdmi 2
+    entities:
+      switch.select_hdmi_2: on
+  - name: hdmi 3
+    entities:
+      switch.select_hdmi_3: on

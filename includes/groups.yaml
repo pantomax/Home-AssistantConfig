@@ -17,11 +17,12 @@
     control: hidden
     entities:
       - input_boolean.guarda_tv
+      - switch.windows
       - switch.accendi_termostato_dashboard_bagno
       - switch.accendi_termostato_dashboard_salotto
       - switch.accendi_termostato_dashboard_camera
       - light.camera
-      - sensor.rf_receiver
+      - light.bagno
   kitchen:
     name: Luci Cucina
     entities:
@@ -51,16 +52,23 @@
       - sensor.sensore_temperature
       - sensor.temperatura_salotto_temperature
       - sensor.temperatura_camera_temperature
-      - binary_sensor.movimento_cucina_s1c
-      - binary_sensor.movimento_corridoio_s1c
+      - binary_sensor.movimento_cucina
+      - binary_sensor.movimento_corridoio
       - binary_sensor.movimento_salotto
       - binary_sensor.motion_sensor_rf_1
       - binary_sensor.movimento_bagno
+      - binary_sensor.ring_front_door_motion
       - binary_sensor.luce_bagno
       - binary_sensor.porta_retro_s1c
       - binary_sensor.porta_corridoio_s1c
       - binary_sensor.finestra_salotto_s1c
-      - input_boolean.telecomando_visibile
+      - sensor.rf_receiver
+      - sun.sun
+  rf_receivers:
+    name: RF Receivers
+    entities:
+      - sensor.rf_receiver
+      - sensor.rf_receiver_2
   Webcam_Salotto:
     name: Salotto
     entities:
@@ -259,10 +267,12 @@
     name: Allarme
     control: hidden
     entities:
-      - sensor.ring_front_door_battery
-      - script.apricancello
       - alarm_control_panel.home_alarm
       - input_select.house_mode
+      - sensor.ring_front_door_battery
+      - script.apricancello
+      - light.giardino
+      - input_select.tv_channel_pick
   grupposcene:
     name: Scene e Media
     control: hidden
@@ -275,11 +285,13 @@
       - scene.acquario
       - scene.club
       - scene.film
+      - scene.stereo_max
       - scene.luci_sala_accese
       - scene.luci_sala_spente
       - scene.buona_notte
       - input_boolean.visualizza_telecomando_radio
       - input_boolean.visualizza_telecomando_tv
+      - input_boolean.telecomando_visibile
   rf_sensor:
     name: RF Sensor
     control: hidden
@@ -298,6 +310,14 @@
       - sensor.ring_front_door_volume
       - sensor.ring_front_door_wifi_signal_category
       - sensor.ring_front_door_wifi_signal_strength
+  hdmi:
+    name: Hdmi
+    control: hidden
+    entities:
+      - scene.hdmi_1
+      - scene.hdmi_2
+      - scene.hdmi_3
+
 ############################################################
 #
 # Tabs
@@ -339,6 +359,7 @@
       - group.radio
       - history_graph.temperatura_e_umidita_bagno
       - media_player.bathroom
+      - timer.bagno
   Tab_Camera:
     name: Camera
     view: yes
@@ -357,6 +378,7 @@
       - media_player.bathroom
       - media_player.kitchen
       - media_player.plex_web_chrome
+      - group.hdmi
       - group.media_salotto_2
       - group.telecomando_tv
       - group.tastierino_sky
@@ -381,14 +403,18 @@
     entities:
       - group.rete
       - group.dev_pi
+      - script.reboot
       - automation.chromecast_in_stop
       - automation.chromecast_in_partenza
       - automation.chromecast_in_pausa
       - automation.chromecast_in_riproduzione
       - automation.chromecast_music
       - automation.timed_lights__movement_front_door
+      - script.reboot_pi
       - group.home_switches
       - group.links
+      - group.rf_receivers
+
   Tab_Cam:
     name: Webcam
     view: yes
@@ -417,11 +443,15 @@
       - camera.raccordo_a1
       - camera.piazza_bra
   Tab_Temp:
-    name: Meteo
+    name: Nabaztag
     view: yes
-    icon: mdi:biohazard
+    icon: mdi:carrot
     entities:
-      - media_player.mpd
+      - group.nabaztag_utils
+      - group.nabaztag_body
+      - group.nabaztag_lights
+      - group.nabaztag_locale_setup
+
 ############################################################
 #
 # Default View
