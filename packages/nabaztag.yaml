@@ -409,6 +409,11 @@ automation:
       entity_id: input_text.nabaztag_voice
     action:
     - service: shell_command.nab_talk
+#    - service: tts.google_say
+#      entity_id: media_player.floor
+#      data:
+#        message: 'Que la force soit avec toi.'
+#        language: 'it'
 
   - alias: "Nabaztag Taichi"
     trigger:
