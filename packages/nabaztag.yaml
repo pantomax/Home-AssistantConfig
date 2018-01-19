@@ -465,23 +465,23 @@ automation:
       entity_id: input_number.nabaztag_left_ear
     action:
     - service_template: >
-        {% if is_state("input_number.nabaztag_left_ear", "0") %} shell_command.nab_ear_left_0
-        {% elif is_state("input_number.nabaztag_left_ear", "1") %} shell_command.nab_ear_left_1
-        {% elif is_state("input_number.nabaztag_left_ear", "2") %} shell_command.nab_ear_left_2
-        {% elif is_state("input_number.nabaztag_left_ear", "3") %} shell_command.nab_ear_left_3
-        {% elif is_state("input_number.nabaztag_left_ear", "4") %} shell_command.nab_ear_left_4
-        {% elif is_state("input_number.nabaztag_left_ear", "5") %} shell_command.nab_ear_left_5
-        {% elif is_state("input_number.nabaztag_left_ear", "6") %} shell_command.nab_ear_left_6
-        {% elif is_state("input_number.nabaztag_left_ear", "7") %} shell_command.nab_ear_left_7
-        {% elif is_state("input_number.nabaztag_left_ear", "8") %} shell_command.nab_ear_left_8
-        {% elif is_state("input_number.nabaztag_left_ear", "9") %} shell_command.nab_ear_left_9
-        {% elif is_state("input_number.nabaztag_left_ear", "10") %} shell_command.nab_ear_left_10
-        {% elif is_state("input_number.nabaztag_left_ear", "11") %} shell_command.nab_ear_left_11
-        {% elif is_state("input_number.nabaztag_left_ear", "12") %} shell_command.nab_ear_left_12
-        {% elif is_state("input_number.nabaztag_left_ear", "13") %} shell_command.nab_ear_left_13
-        {% elif is_state("input_number.nabaztag_left_ear", "14") %} shell_command.nab_ear_left_14
-        {% elif is_state("input_number.nabaztag_left_ear", "15") %} shell_command.nab_ear_left_15
-        {% elif is_state("input_number.nabaztag_left_ear", "16") %} shell_command.nab_ear_left_16
+        {% if is_state("input_number.nabaztag_left_ear", "0.0") %} shell_command.nab_ear_left_0
+        {% elif is_state("input_number.nabaztag_left_ear", "1.0") %} shell_command.nab_ear_left_1
+        {% elif is_state("input_number.nabaztag_left_ear", "2.0") %} shell_command.nab_ear_left_2
+        {% elif is_state("input_number.nabaztag_left_ear", "3.0") %} shell_command.nab_ear_left_3
+        {% elif is_state("input_number.nabaztag_left_ear", "4.0") %} shell_command.nab_ear_left_4
+        {% elif is_state("input_number.nabaztag_left_ear", "5.0") %} shell_command.nab_ear_left_5
+        {% elif is_state("input_number.nabaztag_left_ear", "6.0") %} shell_command.nab_ear_left_6
+        {% elif is_state("input_number.nabaztag_left_ear", "7.0") %} shell_command.nab_ear_left_7
+        {% elif is_state("input_number.nabaztag_left_ear", "8.0") %} shell_command.nab_ear_left_8
+        {% elif is_state("input_number.nabaztag_left_ear", "9.0") %} shell_command.nab_ear_left_9
+        {% elif is_state("input_number.nabaztag_left_ear", "10.0") %} shell_command.nab_ear_left_10
+        {% elif is_state("input_number.nabaztag_left_ear", "11.0") %} shell_command.nab_ear_left_11
+        {% elif is_state("input_number.nabaztag_left_ear", "12.0") %} shell_command.nab_ear_left_12
+        {% elif is_state("input_number.nabaztag_left_ear", "13.0") %} shell_command.nab_ear_left_13
+        {% elif is_state("input_number.nabaztag_left_ear", "14.0") %} shell_command.nab_ear_left_14
+        {% elif is_state("input_number.nabaztag_left_ear", "15.0") %} shell_command.nab_ear_left_15
+        {% elif is_state("input_number.nabaztag_left_ear", "16.0") %} shell_command.nab_ear_left_16
         {% else %}
           shell_command.nab_abort
         {% endif %}
@@ -492,23 +492,23 @@ automation:
       entity_id: input_number.nabaztag_right_ear
     action:
     - service_template: >
-        {% if is_state("input_number.nabaztag_right_ear", "0") %} shell_command.nab_ear_right_0
-        {% elif is_state("input_number.nabaztag_right_ear", "1") %} shell_command.nab_ear_right_1
-        {% elif is_state("input_number.nabaztag_right_ear", "2") %} shell_command.nab_ear_right_2
-        {% elif is_state("input_number.nabaztag_right_ear", "3") %} shell_command.nab_ear_right_3
-        {% elif is_state("input_number.nabaztag_right_ear", "4") %} shell_command.nab_ear_right_4
-        {% elif is_state("input_number.nabaztag_right_ear", "5") %} shell_command.nab_ear_right_5
-        {% elif is_state("input_number.nabaztag_right_ear", "6") %} shell_command.nab_ear_right_6
-        {% elif is_state("input_number.nabaztag_right_ear", "7") %} shell_command.nab_ear_right_7
-        {% elif is_state("input_number.nabaztag_right_ear", "8") %} shell_command.nab_ear_right_8
-        {% elif is_state("input_number.nabaztag_right_ear", "9") %} shell_command.nab_ear_right_9
-        {% elif is_state("input_number.nabaztag_right_ear", "10") %} shell_command.nab_ear_right_10
-        {% elif is_state("input_number.nabaztag_right_ear", "11") %} shell_command.nab_ear_right_11
-        {% elif is_state("input_number.nabaztag_right_ear", "12") %} shell_command.nab_ear_right_12
-        {% elif is_state("input_number.nabaztag_right_ear", "13") %} shell_command.nab_ear_right_13
-        {% elif is_state("input_number.nabaztag_right_ear", "14") %} shell_command.nab_ear_right_14
-        {% elif is_state("input_number.nabaztag_right_ear", "15") %} shell_command.nab_ear_right_15
-        {% elif is_state("input_number.nabaztag_right_ear", "16") %} shell_command.nab_ear_right_16
+        {% if is_state("input_number.nabaztag_right_ear", "0.0") %} shell_command.nab_ear_right_0
+        {% elif is_state("input_number.nabaztag_right_ear", "1.0") %} shell_command.nab_ear_right_1
+        {% elif is_state("input_number.nabaztag_right_ear", "2.0") %} shell_command.nab_ear_right_2
+        {% elif is_state("input_number.nabaztag_right_ear", "3.0") %} shell_command.nab_ear_right_3
+        {% elif is_state("input_number.nabaztag_right_ear", "4.0") %} shell_command.nab_ear_right_4
+        {% elif is_state("input_number.nabaztag_right_ear", "5.0") %} shell_command.nab_ear_right_5
+        {% elif is_state("input_number.nabaztag_right_ear", "6.0") %} shell_command.nab_ear_right_6
+        {% elif is_state("input_number.nabaztag_right_ear", "7.0") %} shell_command.nab_ear_right_7
+        {% elif is_state("input_number.nabaztag_right_ear", "8.0") %} shell_command.nab_ear_right_8
+        {% elif is_state("input_number.nabaztag_right_ear", "9.0") %} shell_command.nab_ear_right_9
+        {% elif is_state("input_number.nabaztag_right_ear", "10.0") %} shell_command.nab_ear_right_10
+        {% elif is_state("input_number.nabaztag_right_ear", "11.0") %} shell_command.nab_ear_right_11
+        {% elif is_state("input_number.nabaztag_right_ear", "12.0") %} shell_command.nab_ear_right_12
+        {% elif is_state("input_number.nabaztag_right_ear", "13.0") %} shell_command.nab_ear_right_13
+        {% elif is_state("input_number.nabaztag_right_ear", "14.0") %} shell_command.nab_ear_right_14
+        {% elif is_state("input_number.nabaztag_right_ear", "15.0") %} shell_command.nab_ear_right_15
+        {% elif is_state("input_number.nabaztag_right_ear", "16.0") %} shell_command.nab_ear_right_16
         {% else %}
           shell_command.nab_abort
         {% endif %}
