@@ -137,6 +137,28 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.camera
+  - platform: template
+    lights:
+      bagno:
+        friendly_name: "Bagno"
+        value_template: "{{ is_state('switch.bagno', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.bagno
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.bagno
+  - platform: template
+    lights:
+      giardino:
+        friendly_name: "Giardino"
+        value_template: "{{ is_state('switch.giardino', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.giardino
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.giardino
   - platform: mqtt_json
     name: mqtt_json_light_1
     state_topic: "home/rgb1"

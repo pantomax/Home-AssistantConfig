@@ -5,13 +5,10 @@
         value_template: "{{ is_state('sensor.luce_accesa_bagno', 'Accesa') }}"
       movimento_salotto:
         device_class: motion
-        value_template: "{{ is_state('sensor.movimento_salotto', 'Presente') }}"
+        value_template: "{{ is_state('binary_sensor.motion_sensor_rf_2', 'on') }}"
       movimento_bagno:
         device_class: motion
-        value_template: "{{ is_state('sensor.movimento_bagno', 'Presente') }}"
-      movimento_corridoio_s1c:
-        device_class: motion
-        value_template: "{{ is_state('sensor.movimento_corridoio_s1c', 'Presente') }}"
+        value_template: "{{ is_state('binary_sensor.motion_sensor_rf_3', 'on') }}"
       porta_corridoio_s1c:
         device_class: opening
         value_template: "{{ is_state('sensor.porta_corridoio_s1c', 'Aperta') }}"
@@ -55,17 +52,21 @@
         device_class: motion
         value_template: "{{ is_state('sensor.movimento_cucina_s1c', 'Presente') }}"
         delay_off:
-          minutes: 2
-            #{{ input_number.tempo_spegnimento_luce_cucina }}
-#      lightsoff:
-#        device_class: light 
-#        entity_id:
-#          - input_select.house_mode
-#        value_template: >-
-#          {{ is_state('input_select.house_mode', 'Normal')
-#             or is_state('input_select.house_mode', 'Dog Mode')
-#             or is_state('input_select.house_mode', 'Night Mode')
-#             or is_state('input_select.house_mode', 'Weekend Mode')
-#             or is_state('input_select.house_mode', 'At home')
-#             or is_state('input_select.house_mode', 'Vacation Mode') }}
+          minutes: 5
+      movimento_cucina:
+        device_class: motion
+        value_template: >-
+          {{ is_state('binary_sensor.movimento_cucina_s1c', 'Presente')
+             or is_state('binary_sensor.motion_sensor_rf_4', 'on') }}
+      movimento_corridoio_s1c:
+        device_class: motion
+        value_template: "{{ is_state('sensor.movimento_corridoio_s1c', 'Presente') }}"
+      movimento_corridoio:
+        device_class: motion
+        delay_off:
+          seconds: 30
+        value_template: >-
+          {{ is_state('binary_sensor.movimento_corridoio_s1c', 'Presente')
+             or is_state('binary_sensor.motion_sensor_rf_5', 'on') }}
+
       
