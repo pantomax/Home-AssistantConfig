@@ -24,7 +24,7 @@ group:
       - input_select.nabaztag_stocks
       - input_select.nabaztag_traffic
       - input_select.nabaztag_pollution
-      - switch.nabaztag_info_off
+      - script.nabaztag_info_off
   nabaztag_utils:
     name: Nabaztag Utils
     control: hidden
@@ -66,6 +66,32 @@ input_number:
     min: 0
     max: 16
     step: 1
+#*************************************************************
+input_text:
+#*************************************************************
+  nabaztag_voice:
+    name: TTS
+    initial: Say Something...
+    min: 1
+    max: 40
+    pattern: '[a-fA-F0-9]*'
+#*************************************************************
+switch:
+#*************************************************************
+  platform: command_line
+  switches:
+    nabaztaglife:
+      command_on: "curl http://192.168.1.180/wakeup"
+      command_off: "curl http://192.168.1.180/sleep"
+      friendly_name: Nabaztag Switch
+    nabaztag_taichi:
+      command_on: "curl http://192.168.1.180/taichi?v=1000"
+      command_off: "curl http://192.168.1.180/taichi?v=0"
+      friendly_name: Let's Taichi
+    nabaztag_nose:
+      command_on: "curl http://192.168.1.180/nose?v=1"
+      command_off: "curl http://192.168.1.180/nose?v=0"
+      friendly_name: Nose
 #*************************************************************
 input_select:
 #*************************************************************
@@ -213,32 +239,6 @@ input_select:
       - "GMT +12:00"
     initial: "GMT"
     icon: mdi:clock
-#*************************************************************
-input_text:
-#*************************************************************
-  nabaztag_voice:
-    name: TTS
-    initial: Say Something...
-    min: 1
-    max: 40
-    pattern: '[a-fA-F0-9]*'
-#*************************************************************
-switch:
-#*************************************************************
-  platform: command_line
-  switches:
-    nabaztaglife:
-      command_on: "curl http://192.168.1.180/wakeup"
-      command_off: "curl http://192.168.1.180/sleep"
-      friendly_name: Nabaztag Switch
-    nabaztag_taichi:
-      command_on: "curl http://192.168.1.180/taichi?v=1000"
-      command_off: "curl http://192.168.1.180/taichi?v=0"
-      friendly_name: Let's Taichi
-    nabaztag_nose:
-      command_on: "curl http://192.168.1.180/nose?v=1"
-      command_off: "curl http://192.168.1.180/nose?v=0"
-      friendly_name: Nose
 #*************************************************************
 shell_command:
 #*************************************************************
