@@ -423,8 +423,9 @@ automation:
     action:
     - service: tts.google_say
 #      entity_id: media_player.nabaztag
-      data_template: >
-        message: '{{ states('input_text.nabaztag_voice') }}'
+      data_template: 
+        message: >
+          '{{ states('input_text.nabaztag_voice') }}'
         language: 'it'
 #    - service: shell_command.nab_talk
 
