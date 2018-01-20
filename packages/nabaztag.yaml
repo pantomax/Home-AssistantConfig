@@ -20,11 +20,11 @@ group:
     name: Nabaztag Lights
     control: hidden
     entities:
+      - script.nabaztag_info_off
       - input_select.nabaztag_weather
       - input_select.nabaztag_stocks
       - input_select.nabaztag_traffic
       - input_select.nabaztag_pollution
-      - script.nabaztag_info_off
   nabaztag_utils:
     name: Nabaztag Utils
     control: hidden
@@ -76,6 +76,21 @@ input_text:
     max: 40
     pattern: '[a-fA-F0-9]*'
 #*************************************************************
+script:
+#*************************************************************
+  nabaztag_surprise:
+    alias: Surprise!
+    sequence:
+      - service: shell_command.nab_surprise
+  nabaztag_stop:
+    alias: Stop
+    sequence:
+      - service: shell_command.nab_stop
+  nabaztag_info_off:
+    alias: Lights Off
+    sequence:
+      - service: shell_command.nab_clear
+#*************************************************************
 switch:
 #*************************************************************
   platform: command_line
@@ -117,25 +132,25 @@ input_select:
     name: Weather
     options:
       - " "
-      - sun
-      - clouds
-      - fog
-      - rain
-      - snow
-      - storm
+      - "Sun"
+      - "Clouds"
+      - "Fog"
+      - "Rain"
+      - "Snow"
+      - "Storm"
     initial: " "
     icon: mdi:weather-partlycloudy
   nabaztag_stocks:
     name: Stocks
     options:
       - " "
-      - ---
-      - --
-      - -
-      - 0
-      - +
-      - ++
-      - +++
+      - "---"
+      - "--"
+      - "-"
+      - "0"
+      - "+"
+      - "++"
+      - "+++"
     initial: " "
     icon: mdi:currency-btc
   nabaztag_traffic:
@@ -174,7 +189,6 @@ input_select:
       - " "
       - update time from timeserver
       - reboot
-      - info off
       - communication
       - ack
       - abort
@@ -368,21 +382,6 @@ shell_command:
 #curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac                                                                          'submit' value='Say text'/></form></li>
 #******************************************************************************
 #*************************************************************
-script:
-#*************************************************************
-  nabaztag_surprise:
-    alias: Surprise!
-    sequence:
-      - service: shell_command.nab_surprise
-  nabaztag_stop:
-    alias: Stop
-    sequence:
-      - service: shell_command.nab_stop
-  nabaztag_info_off:
-    alias: Info Off
-    sequence:
-      - service: shell_command.nab_clear
-#*************************************************************
 automation:
 #*************************************************************
   - alias: "Hide Locale Setup"
@@ -524,12 +523,12 @@ automation:
       entity_id: input_select.nabaztag_weather
     action:
     - service_template: >
-        {% if is_state("input_select.nabaztag_weather", "sun") %} shell_command.nab_weather_0
-        {% elif is_state("input_select.nabaztag_weather", "clouds") %} shell_command.nab_weather_1
-        {% elif is_state("input_select.nabaztag_weather", "fog") %} shell_command.nab_weather_2
-        {% elif is_state("input_select.nabaztag_weather", "rain") %} shell_command.nab_weather_3
-        {% elif is_state("input_select.nabaztag_weather", "snow") %} shell_command.nab_weather_4
-        {% elif is_state("input_select.nabaztag_weather", "storm") %} shell_command.nab_weather_5
+        {% if is_state("input_select.nabaztag_weather", "Sun") %} shell_command.nab_weather_0
+        {% elif is_state("input_select.nabaztag_weather", "Clouds") %} shell_command.nab_weather_1
+        {% elif is_state("input_select.nabaztag_weather", "Fog") %} shell_command.nab_weather_2
+        {% elif is_state("input_select.nabaztag_weather", "Rain") %} shell_command.nab_weather_3
+        {% elif is_state("input_select.nabaztag_weather", "Snow") %} shell_command.nab_weather_4
+        {% elif is_state("input_select.nabaztag_weather", "Storm") %} shell_command.nab_weather_5
         {% else %}
           shell_command.nab_abort
         {% endif %}
