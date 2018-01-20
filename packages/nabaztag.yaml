@@ -118,6 +118,11 @@ switch:
       command_off: "curl http://192.168.1.180/nose?v=0"
       friendly_name: Nose
 #*************************************************************
+media_player:
+#*************************************************************
+  - platform: universal
+    name: nabaztag
+#*************************************************************
 input_select:
 #*************************************************************
   nabaztag_taichi:
@@ -422,7 +427,7 @@ automation:
       entity_id: input_text.nabaztag_voice
     action:
     - service: tts.google_say
-#      entity_id: media_player.nabaztag
+      entity_id: media_player.nabaztag
       data_template: 
         message: >
           '{{ states('input_text.nabaztag_voice') }}'
