@@ -32,7 +32,7 @@ group:
       - switch.nabaztaglife
       - script.nabaztag_surprise
       - script.nabaztag_stop
-      - input_select.nabaztag_utils
+      - input_select.nabaztag_sounds
 #      - input_select.nabaztag_radio
       - input_text.nabaztag_voice
       - input_boolean.show_nabaztag_locales
@@ -42,6 +42,8 @@ group:
     entities:
       - input_select.nabaztag_language
       - input_select.nabaztag_time_zone
+      - script.nabaztag_update
+      - script.nabaztag_reboot
 #*************************************************************
 input_boolean:
 #*************************************************************
@@ -79,17 +81,25 @@ input_text:
 script:
 #*************************************************************
   nabaztag_surprise:
-    alias: Surprise!
+    alias: Talk!
     sequence:
       - service: shell_command.nab_surprise
   nabaztag_stop:
-    alias: Stop
+    alias: Shut Up!
     sequence:
       - service: shell_command.nab_stop
   nabaztag_info_off:
     alias: Lights Off
     sequence:
       - service: shell_command.nab_clear
+  nabaztag_update:
+    alias: Sync Time
+    sequence:
+      - service: shell_command.nab_gettime
+  nabaztag_reboot:
+    alias: Reboot
+    sequence:
+      - service: shell_command.nab_reboot
 #*************************************************************
 switch:
 #*************************************************************
@@ -114,18 +124,18 @@ input_select:
     name: Taichi Intensity
     options:
       - " "
-      - Taichi min
-      - Taichi medium
-      - Taichi max
+      - "Taichi min"
+      - "Taichi medium"
+      - "Taichi max"
     initial: " "
     icon: mdi:nintendo-switch
   nabaztag_nose:
     name: Nose Speed
     options:
       - " "
-      - todo
-      - urgent
-      - panic
+      - "Todo"
+      - "Urgent"
+      - "Panic"
     initial: " "
     icon: mdi:star-circle
   nabaztag_weather:
@@ -157,13 +167,13 @@ input_select:
     name: Traffic
     options:
       - " "
-      - free
-      - okay
-      - moderate
-      - normal
-      - heavy
-      - congested
-      - extreme
+      - "Free"
+      - "Okay"
+      - "Moderate"
+      - "Normal"
+      - "Heavy"
+      - "Congested"
+      - "Extreme"
     initial: " "
     icon: mdi:traffic-light
   nabaztag_pollution:
@@ -183,18 +193,16 @@ input_select:
       - 10
     initial: " "
     icon: mdi:factory
-  nabaztag_utils:
-    name: Utility
+  nabaztag_sounds:
+    name: Sounds
     options:
       - " "
-      - update time from timeserver
-      - reboot
-      - communication
-      - ack
-      - abort
-      - ministop
+      - "Communication"
+      - "Ack"
+      - "Abort"
+      - "Ministop"
     initial: " "
-    icon: mdi:comment-text-outline
+    icon: mdi:voice
   nabaztag_radio:
     name: Radio Station
     options:
@@ -211,10 +219,10 @@ input_select:
     name: Language
     options:
       - " "
-      - English
-      - Italian
-      - French
-      - Spanish
+      - "English"
+      - "Italian"
+      - "French"
+      - "Spanish"
     initial: " "
     icon: mdi:earth
   nabaztag_time_zone:
@@ -311,7 +319,8 @@ shell_command:
   nab_ear_right_14: curl http://192.168.1.180/right?p=14&d=0
   nab_ear_right_15: curl http://192.168.1.180/right?p=15&d=0
   nab_ear_right_16: curl http://192.168.1.180/right?p=16&d=0
-  nab_talk: curl http://192.168.1.180/say?t={{ states.input_text.nabaztag_voice.state }}
+  nab_talk: curl http://192.168.1.180/play?u=http://192.168.1.100:8123/local/securityauthorisationaccepted_clean.mp3
+#  nab_talk: curl http://192.168.1.180/say?t={{ states.input_text.nabaztag_voice.state }}
   nab_weather_0: curl http://192.168.1.180/weather?v=0
   nab_weather_1: curl http://192.168.1.180/weather?v=1
   nab_weather_2: curl http://192.168.1.180/weather?v=2
@@ -432,20 +441,16 @@ automation:
           shell_command.nab_surprise
         {% endif %}
 
-  - alias: "Nabaztag Utility"
+  - alias: "Nabaztag Sounds"
     trigger:
     - platform: state
-      entity_id: input_select.nabaztag_utils
+      entity_id: input_select.nabaztag_sounds
     action:
     - service_template: >
-        {% if is_state("input_select.nabaztag_utils", "update time from timeserver") %} shell_command.nab_gettime
-        {% elif is_state("input_select.nabaztag_utils", "reboot") %} shell_command.nab_reboot
-        {% elif is_state("input_select.nabaztag_utils", "stop everything") %} shell_command.nab_stop
-        {% elif is_state("input_select.nabaztag_utils", "info off") %} shell_command.nab_clear
-        {% elif is_state("input_select.nabaztag_utils", "communication") %} shell_command.nab_communication
-        {% elif is_state("input_select.nabaztag_utils", "ack") %} shell_command.nab_ack
-        {% elif is_state("input_select.nabaztag_utils", "abort") %} shell_command.nab_abort
-        {% elif is_state("input_select.nabaztag_utils", "ministop") %} shell_command.nab_ministop
+        {% if is_state("input_select.nabaztag_sounds", "Communication") %} shell_command.nab_communication
+        {% elif is_state("input_select.nabaztag_sounds", "Ack") %} shell_command.nab_ack
+        {% elif is_state("input_select.nabaztag_sounds", "Abort") %} shell_command.nab_abort
+        {% elif is_state("input_select.nabaztag_sounds", "Ministop") %} shell_command.nab_ministop
         {% else %}
           shell_command.nab_abort
         {% endif %}
@@ -456,9 +461,9 @@ automation:
       entity_id: input_select.nabaztag_nose
     action:
     - service_template: >
-        {% if is_state("input_select.nabaztag_nose", "todo") %} shell_command.nab_nose_2
-        {% elif is_state("input_select.nabaztag_nose", "urgent") %} shell_command.nab_nose_3
-        {% elif is_state("input_select.nabaztag_nose", "panic") %} shell_command.nab_nose_4
+        {% if is_state("input_select.nabaztag_nose", "Todo") %} shell_command.nab_nose_2
+        {% elif is_state("input_select.nabaztag_nose", "Urgent") %} shell_command.nab_nose_3
+        {% elif is_state("input_select.nabaztag_nose", "Panic") %} shell_command.nab_nose_4
         {% else %}
           shell_command.nab_abort
         {% endif %}
@@ -556,13 +561,13 @@ automation:
       entity_id: input_select.nabaztag_traffic
     action:
     - service_template: >
-        {% if is_state("input_select.nabaztag_traffic", "free") %} shell_command.nab_traffic_0
-        {% elif is_state("input_select.nabaztag_traffic", "okay") %} shell_command.nab_traffic_1
-        {% elif is_state("input_select.nabaztag_traffic", "moderate") %} shell_command.nab_traffic_2
-        {% elif is_state("input_select.nabaztag_traffic", "normal") %} shell_command.nab_traffic_3
-        {% elif is_state("input_select.nabaztag_traffic", "heavy") %} shell_command.nab_traffic_4
-        {% elif is_state("input_select.nabaztag_traffic", "congested") %} shell_command.nab_traffic_5
-        {% elif is_state("input_select.nabaztag_traffic", "extreme") %} shell_command.nab_traffic_6
+        {% if is_state("input_select.nabaztag_traffic", "Free") %} shell_command.nab_traffic_0
+        {% elif is_state("input_select.nabaztag_traffic", "Okay") %} shell_command.nab_traffic_1
+        {% elif is_state("input_select.nabaztag_traffic", "Moderate") %} shell_command.nab_traffic_2
+        {% elif is_state("input_select.nabaztag_traffic", "Normal") %} shell_command.nab_traffic_3
+        {% elif is_state("input_select.nabaztag_traffic", "Heavy") %} shell_command.nab_traffic_4
+        {% elif is_state("input_select.nabaztag_traffic", "Congested") %} shell_command.nab_traffic_5
+        {% elif is_state("input_select.nabaztag_traffic", "Extreme") %} shell_command.nab_traffic_6
         {% else %}
           shell_command.nab_abort
         {% endif %}
