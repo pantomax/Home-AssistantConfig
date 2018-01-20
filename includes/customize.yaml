@@ -483,3 +483,7 @@
       icon: mdi:circle-outline
     switch.nabaztaglife:
       icon: mdi:power
+    script.nabaztag_update:
+      icon: mdi:restore
+    script.nabaztag_reboot:
+      icon: mdi:refresh
