@@ -424,7 +424,7 @@ automation:
     - service: tts.google_say
       data:
         message: 'Buongiorno.'
-          language: 'it'
+        language: 'it'
     - service: shell_command.nab_talk
 
   - alias: "Nabaztag Taichi"
