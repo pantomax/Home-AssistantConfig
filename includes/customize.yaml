@@ -470,10 +470,13 @@
     script.ocean:
       friendly_name: "Ocean"
       entity_picture: /local/oceano.jpg
+#********************************************NABAZTAG*********************************
     script.nabaztag_surprise:
       icon: mdi:emoticon-excited
     script.nabaztag_stop:
       icon: mdi:emoticon-neutral
+    script.nabaztag_info_off:
+      icon: mdi:information-outline
     switch.nabaztag_taichi:
       icon: mdi:yin-yang
     switch.nabaztag_nose:
