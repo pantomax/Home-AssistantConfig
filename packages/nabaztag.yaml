@@ -33,7 +33,7 @@ group:
       - script.nabaztag_surprise
       - script.nabaztag_stop
       - input_select.nabaztag_utils
-      - input_select.nabaztag_radio
+#      - input_select.nabaztag_radio
       - input_text.nabaztag_voice
       - input_boolean.show_nabaztag_locales
   nabaztag_locale_setup:
