@@ -75,7 +75,7 @@ input_text:
     name: TTS
     initial: Say Something...
     min: 1
-    max: 40
+    max: 200
     pattern: '[a-fA-F0-9]*'
 #*************************************************************
 script:
