@@ -20,15 +20,16 @@ group:
     name: Nabaztag Lights
     control: hidden
     entities:
-      - switch.nabaztaglife
       - input_select.nabaztag_weather
       - input_select.nabaztag_stocks
       - input_select.nabaztag_traffic
       - input_select.nabaztag_pollution
+      - switch.nabaztag_info_off
   nabaztag_utils:
     name: Nabaztag Utils
     control: hidden
     entities:
+      - switch.nabaztaglife
       - script.nabaztag_surprise
       - script.nabaztag_stop
       - input_select.nabaztag_utils
@@ -377,6 +378,10 @@ script:
     alias: Stop
     sequence:
       - service: shell_command.nab_stop
+  nabaztag_info_off:
+    alias: Info Off
+    sequence:
+      - service: shell_command.nab_clear
 #*************************************************************
 automation:
 #*************************************************************
