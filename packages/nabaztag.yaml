@@ -426,7 +426,7 @@ automation:
       data:
         message: {{ states('input_text.nabaztag_voice') }}
         language: 'it'
-    - service: shell_command.nab_talk
+#    - service: shell_command.nab_talk
 
   - alias: "Nabaztag Taichi"
     trigger:
