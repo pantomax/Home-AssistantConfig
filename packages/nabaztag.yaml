@@ -127,11 +127,7 @@ media_player:
         service: shell_command.nab_talk
       turn_off:
         service: shell_command.nab_stop
-media_extractor:
-  default_query: worst
-  customize:
-    media_player.nabaztag:
-      music: bestaudio[ext=mp3]
+
 #*************************************************************
 input_select:
 #*************************************************************
@@ -334,7 +330,7 @@ shell_command:
   nab_ear_right_14: curl http://192.168.1.180/right?p=14&d=0
   nab_ear_right_15: curl http://192.168.1.180/right?p=15&d=0
   nab_ear_right_16: curl http://192.168.1.180/right?p=16&d=0
-  nab_talk: curl http://192.168.1.180/play?u=http://192.168.1.100:8123/local/securityauthorisationaccepted_clean.mp3
+  nab_talk: bash /config/www/vl/voice/talk.sh
 #  nab_talk: curl http://192.168.1.180/say?t={{ states.input_text.nabaztag_voice.state }}
   nab_weather_0: curl http://192.168.1.180/weather?v=0
   nab_weather_1: curl http://192.168.1.180/weather?v=1
@@ -442,6 +438,7 @@ automation:
         message: >
           '{{ states('input_text.nabaztag_voice') }}'
         language: 'it'
+    - service: shell_command.nab_talk
 
   - alias: "Nabaztag Taichi"
     trigger:
