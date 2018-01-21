@@ -127,9 +127,6 @@ media_player:
         service: shell_command.nab_talk
       turn_off:
         service: shell_command.nab_stop
-  - platform: cast
-    host: 192.168.1.180
-    name: nabaztagcast
 #*************************************************************
 input_select:
 #*************************************************************
@@ -435,7 +432,7 @@ automation:
       entity_id: input_text.nabaztag_voice
     action:
     - service: tts.google_say
-      entity_id: media_player.nabaztagcast
+      entity_id: media_player.nabaztag
       data_template: 
         message: >
           '{{ states('input_text.nabaztag_voice') }}'
