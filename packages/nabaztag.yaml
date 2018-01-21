@@ -127,6 +127,9 @@ media_player:
         service: shell_command.nab_talk
       turn_off:
         service: shell_command.nab_stop
+  - platform: cast
+    host: 192.168.1.199
+    name: nabaztagcast
 #*************************************************************
 input_select:
 #*************************************************************
@@ -432,12 +435,11 @@ automation:
       entity_id: input_text.nabaztag_voice
     action:
     - service: tts.google_say
-      entity_id: media_player.nabaztag
+      entity_id: media_player.nabaztagcast
       data_template: 
         message: >
           '{{ states('input_text.nabaztag_voice') }}'
         language: 'it'
-#    - service: shell_command.nab_talk
 
   - alias: "Nabaztag Taichi"
     trigger:
