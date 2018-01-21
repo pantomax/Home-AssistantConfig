@@ -128,6 +128,10 @@ media_player:
       turn_off:
         service: shell_command.nab_stop
 media_extractor:
+  default_query: worst
+  customize:
+    media_player.nabaztag:
+      music: bestaudio[ext=mp3]
 #*************************************************************
 input_select:
 #*************************************************************
