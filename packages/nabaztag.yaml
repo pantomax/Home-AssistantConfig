@@ -127,6 +127,7 @@ media_player:
         service: shell_command.nab_talk
       turn_off:
         service: shell_command.nab_stop
+media_extractor:
 #*************************************************************
 input_select:
 #*************************************************************
