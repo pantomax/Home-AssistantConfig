@@ -19,6 +19,15 @@ switch:
           service: homeassistant.turn_off
           data:
             entity_id: input_boolean.guarda_tv
+      tv_volume:
+        turn_on:
+          service: script.turn_on
+          data:
+            entity_id: script.tv_volume_up
+        turn_off:
+          service: script.turn_on
+          data:
+            entity_id: script.tv_volume_down
 #*****************************************************
 group:
 #*****************************************************
@@ -193,6 +202,41 @@ script:
       - service: switch.turn_off
         entity_id:
           - switch.sky_power
+#*****************************************************
+  tv_volume_up:
+    alias: Turn Up the volume of 3 steps
+    sequence:
+      - service: switch.turn_on
+        entity_id:
+          - switch.volume_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id:
+          - switch.volume_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id:
+          - switch.volume_up
+#*****************************************************
+  tv_volume_down:
+    alias: Turn Down the volume of 3 steps
+    sequence:
+      - service: switch.turn_on
+        entity_id:
+          - switch.volume_down
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_down
+        entity_id:
+          - switch.volume_up
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_down
+        entity_id:
+          - switch.volume_up
+
 #*****************************************************
 automation:
 #*****************************************************
