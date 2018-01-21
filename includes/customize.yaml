@@ -279,6 +279,15 @@
         - warm up the bedroom
         - warm up the bedroom
         - entity s 44
+    switch.tv_volume:
+      friendly_name: "Alza il volume" 
+      icon: mdi:satellite-variant
+      google_assistant: true
+      google_assistant_name: tv volume
+      aliases:
+        - television volume
+        - volume on the tv
+        - entity s 45
     script.apricancello:
       friendly_name : "Apri Cancello"
       icon: mdi:gate
