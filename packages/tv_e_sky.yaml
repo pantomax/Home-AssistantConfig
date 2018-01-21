@@ -19,6 +19,8 @@ switch:
           service: homeassistant.turn_off
           data:
             entity_id: input_boolean.guarda_tv
+  - platform: template
+    switches:
       tv_volume:
         turn_on:
           service: script.turn_on
