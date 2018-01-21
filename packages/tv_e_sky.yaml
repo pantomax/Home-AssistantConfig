@@ -22,6 +22,7 @@ switch:
   - platform: template
     switches:
       tv_volume:
+        value_template: "{{ is_state('switch.volume', 'on') }}"
         turn_on:
           service: script.turn_on
           data:
