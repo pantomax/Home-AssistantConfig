@@ -438,8 +438,8 @@ automation:
         message: >
           '{{ states('input_text.nabaztag_voice') }}'
         language: 'it'
-    - delay:
-          seconds: 2
+#    - delay:
+#          seconds: 2
     - service: shell_command.nab_talk
 
   - alias: "Nabaztag Taichi"
