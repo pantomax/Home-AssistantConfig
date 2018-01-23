@@ -447,7 +447,7 @@ automation:
     action:
     - service: script.turn_on
       entity_id: script.nabaztag_talk
-      data:
+      data_template:
         variables:
           message: '{{ states('input_text.nabaztag_voice') }}'
     - delay:
