@@ -211,34 +211,34 @@ script:
     sequence:
       - service: switch.turn_on
         entity_id:
-          - switch.volume_up
+          - switch.volume
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.volume_up
+          - switch.volume
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.volume_up
+          - switch.volume
 #*****************************************************
   tv_volume_down:
     alias: Turn Down the volume of 3 steps
     sequence:
-      - service: switch.turn_on
+      - service: switch.turn_off
         entity_id:
           - switch.volume_down
       - delay:
             milliseconds: 100
-      - service: switch.turn_down
+      - service: switch.turn_off
         entity_id:
-          - switch.volume_up
+          - switch.volume
       - delay:
             milliseconds: 100
-      - service: switch.turn_down
+      - service: switch.turn_off
         entity_id:
-          - switch.volume_up
+          - switch.volume
 
 #*****************************************************
 automation:
