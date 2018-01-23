@@ -48,7 +48,7 @@ automation:
           hours: 0
           minutes: 0
           seconds: 5
-    conditions:
+    condition:
       - condition: state
         entity_id: input_boolean.nabaztag_esclama
         state: 'off'
