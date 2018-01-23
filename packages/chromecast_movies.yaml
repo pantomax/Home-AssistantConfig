@@ -3,6 +3,10 @@
 # Luci salotto con film su chromecast
 #
 ############################################################
+input_boolean:
+  input_boolean.nabaztag_esclama:
+    name: Nabaztag Esclama in Chromecast
+    initial: off
 automation:
   - alias: "Chromecast in partenza"
     trigger:
@@ -27,8 +31,28 @@ automation:
           entity_id: input_boolean.scene
           state: 'off'
     action:
-        service: scene.turn_on
+      - service: scene.turn_on
         entity_id: scene.film
+  - alias: "Nabaztag esclama con Chromecast in partenza"
+    trigger:
+      - platform: state
+        entity_id: media_player.living_room
+        from: 'idle'
+        to: 'playing'
+        for:
+          hours: 0
+          minutes: 0
+          seconds: 5
+    conditions:
+      - condition: state
+        entity_id: input_boolean.nabaztag_esclama
+        state: 'off'
+    action:
+      - service: script.nabaztag_talk
+        data_template:
+          message: "Cosa c'è di bello in tv stasera?"
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.nabaztag_esclama
 #***********************************************************************************
   - alias: "Chromecast in stop"
     trigger:
