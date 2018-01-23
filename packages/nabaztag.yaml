@@ -454,7 +454,7 @@ automation:
     - service: input_text.set_value
       data_template:
         entity_id: input_text.nabaztag_voice
-        value: ''
+        value: " "
   - alias: "Nabaztag Taichi"
     trigger:
     - platform: state
@@ -481,6 +481,11 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_sounds
+        option: " "
+
 
   - alias: "Nabaztag Nose"
     trigger:
