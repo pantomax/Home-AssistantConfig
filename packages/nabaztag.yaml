@@ -80,6 +80,16 @@ input_text:
 #*************************************************************
 script:
 #*************************************************************
+  nabaztag_talk:
+    alias: Nabaztag talk
+    sequence:
+      - alias: Nabaztag Google TTS
+        service: tts.google_say
+        entity_id: media_player.nabaztag
+        data_template: 
+          message: >
+            '{{ message }}'
+          language: 'it'
   nabaztag_surprise:
     alias: Talk!
     sequence:
@@ -447,17 +457,7 @@ automation:
       data_template:
         entity_id: input_text.nabaztag_voice
         value: ''
-script:
-  nabaztag_talk:
-    alias: Nabaztag talk
-    sequence:
-      - alias: Nabaztag Google TTS
-        service: tts.google_say
-        entity_id: media_player.nabaztag
-        data_template: 
-          message: >
-            '{{ message }}'
-          language: 'it'
+
   - alias: "Nabaztag Taichi"
     trigger:
     - platform: state
