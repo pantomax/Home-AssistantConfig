@@ -449,7 +449,7 @@ automation:
       entity_id: script.nabaztag_talk
       data_template:
         variables:
-          message: '{{ states('input_text.nabaztag_voice') }}'
+        message: '{{ states('input_text.nabaztag_voice') }}'
     - delay:
           seconds: 1
     - service: shell_command.nab_talk
@@ -457,7 +457,6 @@ automation:
       data_template:
         entity_id: input_text.nabaztag_voice
         value: ''
-
   - alias: "Nabaztag Taichi"
     trigger:
     - platform: state
