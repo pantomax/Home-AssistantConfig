@@ -485,8 +485,6 @@ automation:
       data:
         entity_id: input_select.nabaztag_sounds
         option: " "
-
-
   - alias: "Nabaztag Nose"
     trigger:
     - platform: state
