@@ -9,6 +9,7 @@ input_boolean:
   nabaztag_esclama:
     name: Nabaztag Esclama in Chromecast
     initial: off
+
 #*************************************************************
 automation:
 #*************************************************************
