@@ -3,11 +3,15 @@
 # Luci salotto con film su chromecast
 #
 ############################################################
+#*************************************************************
 input_boolean:
-  input_boolean.nabaztag_esclama:
+#*************************************************************
+  nabaztag_esclama:
     name: Nabaztag Esclama in Chromecast
     initial: off
+#*************************************************************
 automation:
+#*************************************************************
   - alias: "Chromecast in partenza"
     trigger:
       - platform: state
