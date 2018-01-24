@@ -446,19 +446,17 @@ automation:
     trigger:
     - platform: state
       entity_id: input_text.nabaztag_voice
-#    condition:
-#      condition: template
-#      value_template: "{{ not is_state('input_text.nabaztag_voice', ' ') }}"
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_text.nabaztag_voice', ' ') }}"
     action:
     - service: script.nabaztag_talk
       data_template:
         message: "{{ states('input_text.nabaztag_voice') }}"
-#    - delay:
-#          seconds: 1
-#    - service: input_text.set_value
-#      data_template:
-#        entity_id: input_text.nabaztag_voice
-#        value: '' ''
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.nabaztag_voice
+        value: ' '
 
   - alias: "Nabaztag Taichi"
     trigger:
