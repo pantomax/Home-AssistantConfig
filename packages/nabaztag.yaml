@@ -90,6 +90,7 @@ script:
           message: >
             '{{ message }}'
           language: 'it'
+          cache: True
       - alias: Call bash script with curl command
         service: shell_command.nab_talk
       - alias: Clearing Google TTS
@@ -445,9 +446,9 @@ automation:
     trigger:
     - platform: state
       entity_id: input_text.nabaztag_voice
-    condition:
-      condition: template
-      value_template: "{{ not is_state('input_text.nabaztag_voice', '') }}"
+#    condition:
+#      condition: template
+#      value_template: "{{ not is_state('input_text.nabaztag_voice', ' ') }}"
     action:
     - service: script.nabaztag_talk
       data_template:
@@ -457,7 +458,7 @@ automation:
 #    - service: input_text.set_value
 #      data_template:
 #        entity_id: input_text.nabaztag_voice
-#        value: " "
+#        value: '' ''
 
   - alias: "Nabaztag Taichi"
     trigger:
