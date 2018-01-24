@@ -701,3 +701,50 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
+  - alias: "Wake up time for the Nabaztag"
+    trigger:
+    - platform: time
+      at: '7:30:00'
+      at: '16:59:00'
+    action:
+    - service: switch.turn_on
+      entity_id: switch.nabaztaglife
+    - delay:
+          seconds: 5
+    - service: script.nabaztag_talk
+      data:
+        message: "Buongiorno mondo!"
+
+  - alias: "Sleep time for the Nabaztag during the night"
+    trigger:
+    - platform: time
+      at: '23:30:00'
+    action:
+    - service: script.nabaztag_talk
+      data:
+        message: "Buonanotte a tutti."
+    - delay:
+          seconds: 5
+    - service: switch.turn_off
+      entity_id: switch.nabaztaglife
+
+  - alias: "Sleep time for the Nabaztag during the day"
+    trigger:
+    - platform: time
+      at: '13:40:00'
+    condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+    - service: script.nabaztag_talk
+      data:
+        message: "Credo che mi farò un riposino."
+    - delay:
+          seconds: 5
+    - service: switch.turn_off
+      entity_id: switch.nabaztaglife  
