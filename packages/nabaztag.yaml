@@ -705,6 +705,7 @@ automation:
     trigger:
     - platform: time
       at: '7:30:00'
+    - platform: time
       at: '16:59:00'
     action:
     - service: switch.turn_on
