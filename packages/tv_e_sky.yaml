@@ -174,7 +174,7 @@ script:
         entity_id:
           - switch.tv_power
       - delay:
-            milliseconds: 00
+            milliseconds: 200
       - service: switch.turn_on
         entity_id:
           - switch.sky_power
@@ -207,39 +207,58 @@ script:
           - switch.sky_power
 #*****************************************************
   tv_volume_up:
-    alias: Turn Up the volume of 3 steps
+    alias: Turn Up the volume of 5 steps
     sequence:
       - service: switch.turn_on
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 100
+            milliseconds: 200
       - service: switch.turn_on
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 100
+            milliseconds: 200
+      - service: switch.turn_on
+        entity_id:
+          - switch.volume
+      - delay:
+            milliseconds: 200
+      - service: switch.turn_on
+        entity_id:
+          - switch.volume
+      - delay:
+            milliseconds: 200
       - service: switch.turn_on
         entity_id:
           - switch.volume
 #*****************************************************
   tv_volume_down:
-    alias: Turn Down the volume of 3 steps
+    alias: Turn Down the volume of 5 steps
     sequence:
       - service: switch.turn_off
         entity_id:
           - switch.volume_down
       - delay:
-            milliseconds: 100
+            milliseconds: 200
       - service: switch.turn_off
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 100
+            milliseconds: 200
       - service: switch.turn_off
         entity_id:
           - switch.volume
-
+      - delay:
+            milliseconds: 200
+      - service: switch.turn_off
+        entity_id:
+          - switch.volume
+      - delay:
+            milliseconds: 200
+      - service: switch.turn_off
+        entity_id:
+          - switch.volume
 #*****************************************************
 automation:
 #*****************************************************
