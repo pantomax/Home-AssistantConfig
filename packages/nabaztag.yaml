@@ -455,6 +455,7 @@ automation:
       data_template:
         entity_id: input_text.nabaztag_voice
         value: " "
+
   - alias: "Nabaztag Taichi"
     trigger:
     - platform: state
