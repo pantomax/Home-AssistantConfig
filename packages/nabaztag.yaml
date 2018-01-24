@@ -90,10 +90,12 @@ script:
           message: >
             '{{ message }}'
           language: 'it'
+      - delay:
+          seconds: 2
       - alias: Call bash script with curl command
         service: shell_command.nab_talk
       - delay:
-          seconds: 2
+          seconds: 5
       - alias: Clearing Google TTS
         service: tts.clear_cache
   nabaztag_surprise:
