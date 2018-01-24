@@ -455,10 +455,10 @@ automation:
     - delay:
           seconds: 1
     - service: shell_command.nab_talk
-    - service: input_text.set_value
-      data_template:
-        entity_id: input_text.nabaztag_voice
-        value: " "
+#    - service: input_text.set_value
+#      data_template:
+#        entity_id: input_text.nabaztag_voice
+#        value: " "
 
   - alias: "Nabaztag Taichi"
     trigger:
