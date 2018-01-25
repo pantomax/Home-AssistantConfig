@@ -33,7 +33,7 @@ group:
       - script.nabaztag_surprise
       - script.nabaztag_stop
       - input_select.nabaztag_sounds
-#      - input_select.nabaztag_radio
+      - input_select.nabaztag_radio
       - input_text.nabaztag_voice
       - input_boolean.show_nabaztag_locales
   nabaztag_locale_setup:
@@ -233,12 +233,9 @@ input_select:
     name: Radio Station
     options:
       - " "
-      - Antenna Bayern Workout
-      - Flaixa FM
-      - Miki FM
-      - Oosumi FM
-      - SmoothFM
-      - SBS Chill
+      - Radio 1
+      - Radio 2
+      - Radio 3
     initial: " "
     icon: mdi:radio
   nabaztag_language:
@@ -346,7 +343,6 @@ shell_command:
   nab_ear_right_15: curl http://192.168.1.180/right?p=15&d=0
   nab_ear_right_16: curl http://192.168.1.180/right?p=16&d=0
   nab_talk: bash /config/www/vl/voice/talk.sh
-#  nab_talk: curl http://192.168.1.180/say?t={{ states.input_text.nabaztag_voice.state }}
   nab_weather_0: curl http://192.168.1.180/weather?v=0
   nab_weather_1: curl http://192.168.1.180/weather?v=1
   nab_weather_2: curl http://192.168.1.180/weather?v=2
@@ -413,9 +409,9 @@ shell_command:
   nab_time_zone_1000: curl http://192.168.1.180/time?v=600
   nab_time_zone_1100: curl http://192.168.1.180/time?v=660
   nab_time_zone_1200: curl http://192.168.1.180/time?v=720
-#******************************************************************************
-#curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac                                                                          'submit' value='Say text'/></form></li>
-#******************************************************************************
+  nab_radio_1: curl http://192.168.1.180/play?u=http://edge.radiomontecarlo.net/MC2.mp3
+  nab_radio_2: curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac
+  nab_radio_3: curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac
 #*************************************************************
 automation:
 #*************************************************************
@@ -428,6 +424,7 @@ automation:
         entity_id: group.nabaztag_locale_setup
         data:
           visible: False
+#*************************************************************
   - alias: "Change Locale Setup"
     trigger:
     - platform: state
@@ -442,6 +439,7 @@ automation:
           {% else %}
             False
           {% endif %}
+#*************************************************************
   - alias: "Nabaztag Talk"
     trigger:
     - platform: state
@@ -457,7 +455,7 @@ automation:
       data:
         entity_id: input_text.nabaztag_voice
         value: ' '
-
+#*************************************************************
   - alias: "Nabaztag Taichi"
     trigger:
     - platform: state
@@ -470,7 +468,7 @@ automation:
         {% else %}
           shell_command.nab_surprise
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Sounds"
     trigger:
     - platform: state
@@ -488,6 +486,20 @@ automation:
       data:
         entity_id: input_select.nabaztag_sounds
         option: " "
+#*************************************************************
+  - alias: "Nabaztag Radio"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_radio
+    action:
+    - service_template: >
+        {% if is_state("input_select.nabaztag_radio", "Radio 1") %} shell_command.nab_radio_1
+        {% elif is_state("input_select.nabaztag_radio", "Radio 2") %} shell_command.nab_radio_2
+        {% elif is_state("input_select.nabaztag_radio", "Radio 3") %} shell_command.nab_radio_3
+        {% else %}
+          shell_command.nab_abort
+        {% endif %}
+#*************************************************************
   - alias: "Nabaztag Nose"
     trigger:
     - platform: state
@@ -500,7 +512,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Left Ear"
     trigger:
     - platform: state
@@ -527,7 +539,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Right Ear"
     trigger:
     - platform: state
@@ -554,7 +566,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Weather"
     trigger:
     - platform: state
@@ -570,7 +582,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Darksky Weather"
     trigger:
     - platform: state
@@ -593,6 +605,7 @@ automation:
         {% else %}
           script.nabaztag_info_off
         {% endif %}
+#*************************************************************
   - alias: "Nabaztag Stock"
     trigger:
     - platform: state
@@ -609,7 +622,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Traffic"
     trigger:
     - platform: state
@@ -626,7 +639,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Pollution"
     trigger:
     - platform: state
@@ -647,7 +660,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#*************************************************************
   - alias: "Nabaztag Language"
     trigger:
     - platform: state
@@ -661,6 +674,7 @@ automation:
         {% else %}
           shell_command.nab_surprise
         {% endif %}
+#*************************************************************
   - alias: "Nabaztag Time Zone"
     trigger:
     - platform: state
@@ -715,7 +729,7 @@ automation:
     - service: script.nabaztag_talk
       data:
         message: "Buongiorno mondo!"
-
+#*************************************************************
   - alias: "Sleep time for the Nabaztag during the night"
     trigger:
     - platform: time
@@ -728,7 +742,7 @@ automation:
           seconds: 5
     - service: switch.turn_off
       entity_id: switch.nabaztaglife
-
+#*************************************************************
   - alias: "Sleep time for the Nabaztag during the day"
     trigger:
     - platform: time
