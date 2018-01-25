@@ -591,10 +591,8 @@ automation:
         {% elif is_state("sensor.dark_sky_icon", "thunderstorm") %} shell_command.nab_weather_5
         {% elif is_state("sensor.dark_sky_icon", "tornado") %} shell_command.nab_weather_5
         {% else %}
-          script.nabaztag_talk
+          script.nabaztag_info_off
         {% endif %}
-      data:
-        message: "Dati di Darksky non pervenuti"
   - alias: "Nabaztag Stock"
     trigger:
     - platform: state
