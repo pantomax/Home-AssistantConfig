@@ -137,11 +137,11 @@ media_player:
 #*************************************************************
   - platform: universal
     name: nabaztag
-    commands:
-      turn_on:
-        service: shell_command.nab_talk
-      turn_off:
-        service: shell_command.nab_stop
+#    commands:
+#      turn_on:
+#        service: shell_command.nab_talk
+#      turn_off:
+#        service: shell_command.nab_stop
 
 #*************************************************************
 input_select:
