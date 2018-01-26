@@ -33,6 +33,9 @@
       - thu
       - fri
     action:
+      - service: notify.notify
+        data:
+          message: "Home Assistant in riavvio automatico giornaliero."
       - service: homeassistant.restart
   - alias: Restart HA Weekend
     trigger: 
@@ -53,14 +56,6 @@
       - service: notify.notify
         data:
           message: "Home Assistant è attivo."
-#      - service: hassio.addon_stdin
-#        data:
-#          addon: local_audio_player
-#          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
-#      - service: hassio.addon_stdin
-#        data:
-#          addon: local_audio_player
-#          input: "http://192.168.1.100:8123/local/power_up1_clean.mp3"
       - service: hassio.addon_stdin
         data:
           addon: local_audio_player
