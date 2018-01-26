@@ -9,29 +9,15 @@ sensor:
   - platform: google_travel_time
     api_key: !secret google_distance_matrix_api_key
     name: Home To Work
-    origin: via aVerona, Italy
+    origin: Verona, Italy
     destination: Modena, Italy
     options:
       mode: driving
       units: metric
-# Pollution Sensor - World Air Quality Index
-#  - platform: waqi
-#    token: cfdaa74f75fb658e9d3bd8db8764a60812825d02
-#    locations:
-#      - Modena
-#    stations:
-#      - Parco Ferrari, Emilia Romagna
-#0 - 50	Good	
-#51 - 100	Moderate	
-#101 - 150	Unhealthy for Sensitive Groups	
-#151 - 200	Unhealthy	
-#201 - 300	Very unhealthy	
-#301+	Hazardous
-  - platform: luftdaten
-    sensorid: 4372
-    monitored_conditions:
-      - P1
-      - P2
+# Bitcoin Sensor
+  - platform: bitcoin
+    display_options:
+      - exchangerate
 #*************************************************************
 group:
 #*************************************************************
@@ -261,6 +247,7 @@ input_select:
       - Radio 1
       - Radio 2
       - Radio 3
+      - No radio
     initial: " "
     icon: mdi:radio
   nabaztag_language:
@@ -461,6 +448,22 @@ shell_command:
 #*************************************************************
 automation:
 #*************************************************************
+  - alias: "Nabaztag Talk"
+    trigger:
+    - platform: state
+      entity_id: input_text.nabaztag_voice
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_text.nabaztag_voice', ' ') }}"
+    action:
+    - service: script.nabaztag_talk
+      data_template:
+        message: "{{ states('input_text.nabaztag_voice') }}"
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.nabaztag_voice
+        value: ' '
+#*************************************************************
   - alias: "Hide Locale Setup"
     trigger:
       - platform: homeassistant
@@ -485,22 +488,6 @@ automation:
           {% else %}
             False
           {% endif %}
-#*************************************************************
-  - alias: "Nabaztag Talk"
-    trigger:
-    - platform: state
-      entity_id: input_text.nabaztag_voice
-    condition:
-      condition: template
-      value_template: "{{ not is_state('input_text.nabaztag_voice', ' ') }}"
-    action:
-    - service: script.nabaztag_talk
-      data_template:
-        message: "{{ states('input_text.nabaztag_voice') }}"
-    - service: input_text.set_value
-      data:
-        entity_id: input_text.nabaztag_voice
-        value: ' '
 #*************************************************************
   - alias: "Nabaztag Taichi"
     trigger:
@@ -537,11 +524,15 @@ automation:
     trigger:
     - platform: state
       entity_id: input_select.nabaztag_radio
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_text.nabaztag_radio', ' ') }}"
     action:
     - service_template: >
         {% if is_state("input_select.nabaztag_radio", "Radio 1") %} shell_command.nab_radio_1
         {% elif is_state("input_select.nabaztag_radio", "Radio 2") %} shell_command.nab_radio_2
         {% elif is_state("input_select.nabaztag_radio", "Radio 3") %} shell_command.nab_radio_3
+        {% elif is_state("input_select.nabaztag_radio", "No Radio") %} shell_command.nab_abort
         {% else %}
           shell_command.nab_abort
         {% endif %}
@@ -791,10 +782,13 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
+#*************************************************************
   - alias: "Wake up time for the Nabaztag"
     trigger:
     - platform: time
       at: '7:30:00'
+    - platform: time
+      at: '11:59:00'
     - platform: time
       at: '16:59:00'
     action:
@@ -806,21 +800,10 @@ automation:
       data:
         message: "Buongiorno mondo!"
 #*************************************************************
-  - alias: "Sleep time for the Nabaztag during the night"
-    trigger:
-    - platform: time
-      at: '23:30:00'
-    action:
-    - service: script.nabaztag_talk
-      data:
-        message: "Buonanotte a tutti."
-    - delay:
-          seconds: 5
-    - service: switch.turn_off
-      entity_id: switch.nabaztaglife
-#*************************************************************
   - alias: "Sleep time for the Nabaztag during the day"
     trigger:
+    - platform: time
+      at: '8:00:00'
     - platform: time
       at: '13:40:00'
     condition:
@@ -839,3 +822,40 @@ automation:
           seconds: 5
     - service: switch.turn_off
       entity_id: switch.nabaztaglife  
+#*************************************************************
+  - alias: "Sleep time for the Nabaztag during the night"
+    trigger:
+    - platform: time
+      at: '23:30:00'
+    action:
+    - service: script.nabaztag_talk
+      data:
+        message: "Buonanotte a tutti."
+    - delay:
+          seconds: 5
+    - service: switch.turn_off
+      entity_id: switch.nabaztaglife
+
+
+
+
+
+
+# Pollution Sensor - World Air Quality Index
+#  - platform: waqi
+#    token: !secret aqicn_api_token
+#    locations:
+#      - Modena
+#    stations:
+#      - Parco Ferrari, Emilia Romagna
+# Nabaztag 0 - 0 - 50	Good	
+# Nabaztag 2 - 51 - 100	Moderate	
+# Nabaztag 4 - 101 - 150	Unhealthy for Sensitive Groups	
+# Nabaztag 6 - 151 - 200	Unhealthy	
+# Nabaztag 8 - 201 - 300	Very unhealthy	
+# Nabaztag 10 - 301+	Hazardous
+#  - platform: luftdaten
+#    sensorid: 4372
+#    monitored_conditions:
+#      - P1
+#      - P2
