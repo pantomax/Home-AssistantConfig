@@ -294,21 +294,17 @@ input_select:
       - "Scared"
       - "Sad"
     initial: " "
-    icon: mdi:earth
+    icon: mdi:heart-pulse
   nabaztag_show_info:
     name: Show Info
     options:
       - " "
-      - "weather"
-      - "stocks"
-      - "traffic"
-      - "pollution"
-    initial: " "
-    icon: mdi:earth
-      - input_select.nabaztag_weather
-      - input_select.nabaztag_stocks
-      - input_select.nabaztag_traffic
-      - input_select.nabaztag_pollution
+      - "Weather"
+      - "Stocks"
+      - "Traffic"
+      - "Pollution"
+    initial: "Weather"
+    icon: mdi:format-list-bulleted-type
 #*************************************************************
 shell_command:
 #*************************************************************
