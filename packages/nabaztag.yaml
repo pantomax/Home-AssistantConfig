@@ -321,6 +321,8 @@ input_select:
       - "Crazy"
       - "Scared"
       - "Sad"
+      - "Up"
+      - "Down"
       - "Left"
       - "Right"
     initial: " "
@@ -640,8 +642,10 @@ automation:
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} 2.0
           {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 16.0
           {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 3.0
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 14.0
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 12.0
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 13.0
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11.0
+          {% elif is_state("input_select.nabaztag_body_language", "Up") %} 0.0
+          {% elif is_state("input_select.nabaztag_body_language", "Down") %} 10.0
           {% elif is_state("input_select.nabaztag_body_language", "Left") %} 11.0
           {% elif is_state("input_select.nabaztag_body_language", "Right") %} 0.0
           {% endif %}
@@ -652,8 +656,10 @@ automation:
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} 2.0
           {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 2.0
           {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 14.0
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 14.0
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 12.0
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 13.0
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11.0
+          {% elif is_state("input_select.nabaztag_body_language", "Up") %} 0.0
+          {% elif is_state("input_select.nabaztag_body_language", "Down") %} 10.0
           {% elif is_state("input_select.nabaztag_body_language", "Left") %} 0.0
           {% elif is_state("input_select.nabaztag_body_language", "Right") %} 11.0
           {% endif %}
@@ -742,17 +748,32 @@ automation:
       state: 'Stocks'
     action:
     - service_template: >
-        {% if states("input_number.bitcoin_value_difference") | float < -100 %} shell_command.nab_stock_0
-        {% elif states("input_number.bitcoin_value_difference") | float < -50 %} shell_command.nab_stock_1
-        {% elif states("input_number.bitcoin_value_difference") | float < -10 %} shell_command.nab_stock_2
-        {% elif states("input_number.bitcoin_value_difference") | float < 2 %} shell_command.nab_stock_3
-        {% elif states("input_number.bitcoin_value_difference") | float > 2 %} shell_command.nab_stock_3
-        {% elif states("input_number.bitcoin_value_difference") | float > 10 %} shell_command.nab_stock_4
-        {% elif states("input_number.bitcoin_value_difference") | float > 50 %} shell_command.nab_stock_5
-        {% elif states("input_number.bitcoin_value_difference") | float > 100 %} shell_command.nab_stock_6
+        {% if (states("input_number.bitcoin_value_difference") | float) < -100 %} shell_command.nab_stock_0
+        {% elif (states("input_number.bitcoin_value_difference") | float) < -50 %} shell_command.nab_stock_1
+        {% elif (states("input_number.bitcoin_value_difference") | float) < -10 %} shell_command.nab_stock_2
+        {% elif (states("input_number.bitcoin_value_difference") | float) < 2 %} shell_command.nab_stock_3
+        {% elif (states("input_number.bitcoin_value_difference") | float) > 2 %} shell_command.nab_stock_3
+        {% elif (states("input_number.bitcoin_value_difference") | float) > 10 %} shell_command.nab_stock_4
+        {% elif (states("input_number.bitcoin_value_difference") | float) > 50 %} shell_command.nab_stock_5
+        {% elif (states("input_number.bitcoin_value_difference") | float) > 100 %} shell_command.nab_stock_6
         {% else %}
-          shell_command.nab_abort
+          shell_command.nab_nose_4
         {% endif %}
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.nabaztag_body_language
+        option: >
+          {% if (states("input_number.bitcoin_value_difference") | float) < -100 %} "Left"
+          {% elif (states("input_number.bitcoin_value_difference") | float) < -50 %} "Left"
+          {% elif (states("input_number.bitcoin_value_difference") | float) < -10 %} "Left"
+          {% elif (states("input_number.bitcoin_value_difference") | float) < 2 %} "Up"
+          {% elif (states("input_number.bitcoin_value_difference") | float) > 2 %} "Down"
+          {% elif (states("input_number.bitcoin_value_difference") | float) > 10 %} "Right"
+          {% elif (states("input_number.bitcoin_value_difference") | float) > 50 %} "Right"
+          {% elif (states("input_number.bitcoin_value_difference") | float) > 100 %} "Right"
+          {% else %}
+            "Crazy"
+          {% endif %}
 #*************************************************************
   - alias: "Nabaztag Traffic"
     trigger:
