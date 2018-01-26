@@ -726,7 +726,11 @@ automation:
     - service: input_number.set_value
       data_template:
         entity_id: input_number.bitcoin_value_difference
-        value: "{{ states('sensor.exchange_rate_1_btc') | float -states('input_number.bitcoin_previous_exchange_rate') | float }}"
+        value: {{ states('sensor.exchange_rate_1_btc') | float - states('input_number.bitcoin_previous_exchange_rate') | float }}
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.bitcoin_previous_exchange_rate
+        value: {{ states('sensor.exchange_rate_1_btc') }}
 
   - alias: "Nabaztag Bitcoin Exchange"
     trigger:
