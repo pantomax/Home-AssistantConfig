@@ -758,7 +758,7 @@ automation:
           shell_command.nab_stock_3
         {% endif %}
     - service: input_select.select_option
-      data_template:s
+      data_template:
         entity_id: input_select.nabaztag_body_language
         option: >
           {% if (states("input_number.bitcoin_value_difference") | float) < -100 %} "Left"
