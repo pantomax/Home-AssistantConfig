@@ -637,25 +637,25 @@ automation:
       data_template:
         entity_id: input_number.nabaztag_left_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "2.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "16.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "3.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "14.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "12.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Left") %} "11.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Right") %} "0.0"
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} 2.0
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 16.0
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 3.0
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 14.0
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 12.0
+          {% elif is_state("input_select.nabaztag_body_language", "Left") %} 11.0
+          {% elif is_state("input_select.nabaztag_body_language", "Right") %} 0.0
           {% endif %}
     - service: input_number.set_value
       data_template:
         entity_id: input_number.nabaztag_right_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "2.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "2.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "14.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "14.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "12.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Left") %} "0.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Right") %} "11.0"
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} 2.0
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 2.0
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 14.0
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 14.0
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 12.0
+          {% elif is_state("input_select.nabaztag_body_language", "Left") %} 0.0
+          {% elif is_state("input_select.nabaztag_body_language", "Right") %} 11.0
           {% endif %}
 #*************************************************************
   - alias: "Nabaztag Weather"
