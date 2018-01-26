@@ -178,18 +178,18 @@ script:
       - service: switch.turn_on
         entity_id:
           - switch.sky_power
+      - delay:
+            milliseconds: 200
       - service: switch.turn_on
         entity_id:
           - switch.tv_power
-      - delay:
-            milliseconds: 200
       - delay:
             milliseconds: 200
       - service: switch.turn_on
         entity_id:
           - switch.ok_esc
       - delay:
-            milliseconds: 100
+            milliseconds: 200
       - service: switch.turn_on
         entity_id:
           - switch.ok_esc
