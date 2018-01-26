@@ -18,7 +18,7 @@ group:
       - input_number.nabaztag_right_ear
       - input_select.nabaztag_body_language
   nabaztag_lights:
-    name: Nabaztag Lights
+    name: Nabaztag Info
     control: hidden
     entities:
       - script.nabaztag_info_off
@@ -597,30 +597,22 @@ automation:
       data:
         entity_id: input_number.nabaztag_left_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} '1'
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} '5'
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} '5'
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} '9'
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} '11'
-          {% else %}
-            '15'
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} 1
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 5
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 7
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 9
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11
           {% endif %}
     - service: input_number.set_value
       data:
         entity_id: input_number.nabaztag_right_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} '1'
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} '5'
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} '5'
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} '9'
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} '11'
-          {% else %}
-            '15'
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} 1
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 5
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 7
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 9
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11
           {% endif %}
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.nabaztag_body_language
-        option: " "
 #*************************************************************
   - alias: "Nabaztag Weather"
     trigger:
