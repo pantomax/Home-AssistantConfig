@@ -14,6 +14,11 @@ sensor:
     options:
       mode: driving
       units: metric
+  - platform: template
+    sensors:
+      traffic_status:
+        value_template: >-
+          {{ states.sensor.home_to_work.attributes.status }}
 # Bitcoin Sensor
 # {{ states('sensor.exchange_rate_1_btc') }}
   - platform: bitcoin
@@ -804,10 +809,8 @@ automation:
       state: 'Traffic'
     action:
     - service_template: >
-        {% if is_state("sensor.home_to_work.attributes.status", "OK") %} shell_command.nab_traffic_0
-        {% elif is_state("sensor.home_to_work.attributes.status", "OK") %} shell_command.nab_traffic_1
-        {% else %}
-          script.nabaztag_info_off
+        {% if is_state("sensor.traffic_status", "OK") %} shell_command.nab_traffic_0
+        {% elif is_state("sensor.traffic_status", "OK") %} shell_command.nab_traffic_1
         {% endif %}
 #*************************************************************
   - alias: "Nabaztag Pollution"
