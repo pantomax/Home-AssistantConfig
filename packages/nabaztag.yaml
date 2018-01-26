@@ -39,11 +39,11 @@ group:
     control: hidden
     entities:
       - script.nabaztag_info_off
+      - input_select.nabaztag_show_info
       - input_select.nabaztag_weather
       - input_select.nabaztag_stocks
       - input_select.nabaztag_traffic
       - input_select.nabaztag_pollution
-      - input_select.nabaztag_show_info
   nabaztag_utils:
     name: Nabaztag Utils
     control: hidden
@@ -328,7 +328,7 @@ input_select:
     initial: " "
     icon: mdi:heart-pulse
   nabaztag_show_info:
-    name: Show Info
+    name: Info to Show
     options:
       - " "
       - "Weather"
@@ -684,6 +684,8 @@ automation:
     trigger:
     - platform: state
       entity_id: sensor.dark_sky_icon
+    - platform: state
+      entity_id: input_select.nabaztag_show_info
     condition:
     - condition: state
       entity_id: 'input_select.nabaztag_show_info'
@@ -742,6 +744,8 @@ automation:
     trigger:
     - platform: state
       entity_id: input_number.bitcoin_value_difference
+    - platform: state
+      entity_id: input_select.nabaztag_show_info
     condition:
     - condition: state
       entity_id: 'input_select.nabaztag_show_info'
@@ -786,6 +790,24 @@ automation:
         {% elif is_state("input_select.nabaztag_traffic", "Extreme") %} shell_command.nab_traffic_6
         {% else %}
           shell_command.nab_abort
+        {% endif %}
+
+  - alias: "Nabaztag Google Traffic"
+    trigger:
+    - platform: state
+      entity_id: sensor.home_to_work
+    - platform: state
+      entity_id: input_select.nabaztag_show_info
+    condition:
+    - condition: state
+      entity_id: 'input_select.nabaztag_show_info'
+      state: 'Traffic'
+    action:
+    - service_template: >
+        {% if is_state("sensor.home_to_work.attributes.status", "OK") %} shell_command.nab_weather_0
+        {% elif is_state("sensor.home_to_work.attributes.status", "OK") %} shell_command.nab_weather_0
+        {% else %}
+          script.nabaztag_info_off
         {% endif %}
 #*************************************************************
   - alias: "Nabaztag Pollution"
