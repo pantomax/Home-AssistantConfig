@@ -26,6 +26,7 @@ group:
       - input_select.nabaztag_stocks
       - input_select.nabaztag_traffic
       - input_select.nabaztag_pollution
+      - input_select.nabaztag_show_info
   nabaztag_utils:
     name: Nabaztag Utils
     control: hidden
