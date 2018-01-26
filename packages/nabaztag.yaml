@@ -448,6 +448,43 @@ shell_command:
 #*************************************************************
 automation:
 #*************************************************************
+  - alias: "Nabaztag Sounds"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_sounds
+    action:
+    - service_template: >
+        {% if is_state("input_select.nabaztag_sounds", "Communication") %} shell_command.nab_communication
+        {% elif is_state("input_select.nabaztag_sounds", "Ack") %} shell_command.nab_ack
+        {% elif is_state("input_select.nabaztag_sounds", "Abort") %} shell_command.nab_abort
+        {% elif is_state("input_select.nabaztag_sounds", "Ministop") %} shell_command.nab_ministop
+        {% else %}
+          shell_command.nab_abort
+        {% endif %}
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_sounds
+        option: " "
+#*************************************************************
+  - alias: "Nabaztag Radio"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_radio
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_text.nabaztag_radio', ' ') }}"
+    action:
+    - service_template: >
+        {% if is_state("input_select.nabaztag_radio", "Radio 1") %} shell_command.nab_radio_1
+        {% elif is_state("input_select.nabaztag_radio", "Radio 2") %} shell_command.nab_radio_2
+        {% elif is_state("input_select.nabaztag_radio", "Radio 3") %} shell_command.nab_radio_3
+        {% elif is_state("input_select.nabaztag_radio", "No Radio") %} shell_command.nab_abort
+        {% endif %}
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_radio
+        option: " "
+#*************************************************************
   - alias: "Nabaztag Talk"
     trigger:
     - platform: state
@@ -501,45 +538,6 @@ automation:
         {% else %}
           shell_command.nab_surprise
         {% endif %}
-#*************************************************************
-  - alias: "Nabaztag Sounds"
-    trigger:
-    - platform: state
-      entity_id: input_select.nabaztag_sounds
-    action:
-    - service_template: >
-        {% if is_state("input_select.nabaztag_sounds", "Communication") %} shell_command.nab_communication
-        {% elif is_state("input_select.nabaztag_sounds", "Ack") %} shell_command.nab_ack
-        {% elif is_state("input_select.nabaztag_sounds", "Abort") %} shell_command.nab_abort
-        {% elif is_state("input_select.nabaztag_sounds", "Ministop") %} shell_command.nab_ministop
-        {% else %}
-          shell_command.nab_abort
-        {% endif %}
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.nabaztag_sounds
-        option: " "
-#*************************************************************
-  - alias: "Nabaztag Radio"
-    trigger:
-    - platform: state
-      entity_id: input_select.nabaztag_radio
-    condition:
-      condition: template
-      value_template: "{{ not is_state('input_text.nabaztag_radio', ' ') }}"
-    action:
-    - service_template: >
-        {% if is_state("input_select.nabaztag_radio", "Radio 1") %} shell_command.nab_radio_1
-        {% elif is_state("input_select.nabaztag_radio", "Radio 2") %} shell_command.nab_radio_2
-        {% elif is_state("input_select.nabaztag_radio", "Radio 3") %} shell_command.nab_radio_3
-        {% elif is_state("input_select.nabaztag_radio", "No Radio") %} shell_command.nab_abort
-        {% else %}
-          shell_command.nab_abort
-        {% endif %}
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.nabaztag_radio
-        option: " "
 #*************************************************************
   - alias: "Nabaztag Nose"
     trigger:
@@ -674,6 +672,23 @@ automation:
         {% endif %}
 #*************************************************************
   - alias: "Nabaztag Stock"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_stock
+    action:
+    - service_template: >
+        {% if is_state("input_select.nabaztag_stock", "---") %} shell_command.nab_stock_0
+        {% elif is_state("input_select.nabaztag_stock", "--") %} shell_command.nab_stock_1
+        {% elif is_state("input_select.nabaztag_stock", "-") %} shell_command.nab_stock_2
+        {% elif is_state("input_select.nabaztag_stock", "0") %} shell_command.nab_stock_3
+        {% elif is_state("input_select.nabaztag_stock", "+") %} shell_command.nab_stock_4
+        {% elif is_state("input_select.nabaztag_stock", "++") %} shell_command.nab_stock_5
+        {% elif is_state("input_select.nabaztag_stock", "+++") %} shell_command.nab_stock_6
+        {% else %}
+          shell_command.nab_abort
+        {% endif %}
+#*************************************************************
+  - alias: "Nabaztag Bitcoin"
     trigger:
     - platform: state
       entity_id: input_select.nabaztag_stock
