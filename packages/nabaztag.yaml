@@ -3,6 +3,15 @@
 # Nabaztag
 # 
 ############################################################
+sensor:
+  - platform: google_travel_time
+    api_key: !secret google_distance_matrix_api_key
+    name: Home To Work
+    origin: Verona, Italy
+    destination: Modena, Italy
+    options:
+      mode: driving
+      units: metric
 #*************************************************************
 group:
 #*************************************************************
