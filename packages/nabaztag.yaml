@@ -4,6 +4,7 @@
 # 
 ############################################################
 sensor:
+# Traffic Sensor - Google Distance Matrix Api Key
   - platform: google_travel_time
     api_key: !secret google_distance_matrix_api_key
     name: Home To Work
@@ -12,6 +13,19 @@ sensor:
     options:
       mode: driving
       units: metric
+# Pollution Sensor - World Air Quality Index
+  - platform: waqi
+    token: !secret aqicn_api_token
+    locations:
+      - Parco Ferrari
+    stations:
+      - Parco Ferrari, Emilia Romagna
+#0 - 50	Good	
+#51 - 100	Moderate	
+#101 - 150	Unhealthy for Sensitive Groups	
+#151 - 200	Unhealthy	
+#201 - 300	Very unhealthy	
+#301+	Hazardous
 #*************************************************************
 group:
 #*************************************************************
