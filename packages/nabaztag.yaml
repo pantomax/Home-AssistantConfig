@@ -139,12 +139,6 @@ media_player:
 #*************************************************************
   - platform: universal
     name: nabaztag
-#    commands:
-#      turn_on:
-#        service: shell_command.nab_talk
-#      turn_off:
-#        service: shell_command.nab_stop
-
 #*************************************************************
 input_select:
 #*************************************************************
@@ -601,25 +595,25 @@ automation:
     - service: input_number.set_value
       data:
         entity_id: input_number.nabaztag_left_ear
-    - value: >
-        {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
-        {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
-        {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
-        {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
-        {% else %}
-          shell_command.nab_abort
-        {% endif %}
+        value: >
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
+          {% else %}
+            shell_command.nab_abort
+          {% endif %}
     - service: input_number.set_value
       data:
         entity_id: input_number.nabaztag_right_ear
-    - value: >
-        {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
-        {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
-        {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
-        {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
-        {% else %}
-          shell_command.nab_abort
-        {% endif %}
+        value: >
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
+          {% else %}
+            shell_command.nab_abort
+          {% endif %}
     - service: input_select.select_option
       data:
         entity_id: input_select.nabaztag_body_language
