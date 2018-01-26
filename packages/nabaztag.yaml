@@ -295,6 +295,20 @@ input_select:
       - "Sad"
     initial: " "
     icon: mdi:earth
+  nabaztag_show_info:
+    name: Show Info
+    options:
+      - " "
+      - "weather"
+      - "stocks"
+      - "traffic"
+      - "pollution"
+    initial: " "
+    icon: mdi:earth
+      - input_select.nabaztag_weather
+      - input_select.nabaztag_stocks
+      - input_select.nabaztag_traffic
+      - input_select.nabaztag_pollution
 #*************************************************************
 shell_command:
 #*************************************************************
@@ -590,7 +604,7 @@ automation:
     - service: input_number.set_value
       data:
         entity_id: input_number.nabaztag_left_ear
-    - value_template: >
+    - value: >
         {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
         {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
         {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
@@ -601,7 +615,7 @@ automation:
     - service: input_number.set_value
       data:
         entity_id: input_number.nabaztag_right_ear
-    - value_template: >
+    - value: >
         {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
         {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
         {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
