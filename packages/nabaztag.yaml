@@ -696,6 +696,7 @@ automation:
       entity_id: 'input_select.nabaztag_show_info'
       state: 'Weather'
     action:
+    - service: shell_command.nab_clear
     - service_template: >
         {% if is_state("sensor.dark_sky_icon", "clear-day") %} shell_command.nab_weather_0
         {% elif is_state("sensor.dark_sky_icon", "clear-night") %} shell_command.nab_weather_0
@@ -756,6 +757,7 @@ automation:
       entity_id: 'input_select.nabaztag_show_info'
       state: 'Stocks'
     action:
+    - service: shell_command.nab_clear
     - service_template: >
         {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
         {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
@@ -808,6 +810,7 @@ automation:
       entity_id: 'input_select.nabaztag_show_info'
       state: 'Traffic'
     action:
+    - service: shell_command.nab_clear
     - service_template: >
         {% if is_state("sensor.traffic_status", "OK") %} shell_command.nab_traffic_0
         {% elif is_state("sensor.traffic_status", "OK") %} shell_command.nab_traffic_1
