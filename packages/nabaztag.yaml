@@ -767,7 +767,7 @@ automation:
           {% elif (states("input_number.bitcoin_value_difference") | float) < -50 %} "Left"
           {% elif (states("input_number.bitcoin_value_difference") | float) < -10 %} "Left"
           {% elif (states("input_number.bitcoin_value_difference") | float) < 2 %} "Up"
-          {% elif (states("input_number.bitcoin_value_difference") | float) > 2 %} "Down"
+          {% elif (states("input_number.bitcoin_value_difference") | float) > 2 %} "Up"
           {% elif (states("input_number.bitcoin_value_difference") | float) > 10 %} "Right"
           {% elif (states("input_number.bitcoin_value_difference") | float) > 50 %} "Right"
           {% elif (states("input_number.bitcoin_value_difference") | float) > 100 %} "Right"
