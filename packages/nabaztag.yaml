@@ -321,6 +321,8 @@ input_select:
       - "Crazy"
       - "Scared"
       - "Sad"
+      - "Left"
+      - "Right"
     initial: " "
     icon: mdi:heart-pulse
   nabaztag_show_info:
@@ -635,31 +637,31 @@ automation:
       data_template:
         entity_id: input_number.nabaztag_left_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "3.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "1.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "2.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "16.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "3.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "14.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "12.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Left") %} "11.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Right") %} "0.0"
           {% endif %}
     - service: input_number.set_value
       data_template:
         entity_id: input_number.nabaztag_right_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "15.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "8.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "2.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "2.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "14.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "14.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "12.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Left") %} "0.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Right") %} "11.0"
           {% endif %}
 #*************************************************************
   - alias: "Nabaztag Weather"
     trigger:
     - platform: state
       entity_id: input_select.nabaztag_weather
-    condition:
-    - condition: state
-      entity_id: 'input_select.nabaztag_show_info'
-      state: 'Weather'
     action:
     - service_template: >
         {% if is_state("input_select.nabaztag_weather", "Sun") %} shell_command.nab_weather_0
@@ -671,11 +673,15 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+
   - alias: "Nabaztag Darksky Weather"
     trigger:
     - platform: state
       entity_id: sensor.dark_sky_icon
+    condition:
+    - condition: state
+      entity_id: 'input_select.nabaztag_show_info'
+      state: 'Weather'
     action:
     - service_template: >
         {% if is_state("sensor.dark_sky_icon", "clear-day") %} shell_command.nab_weather_0
@@ -711,7 +717,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+
   - alias: "Nabaztag Bitcoin Difference"
     trigger:
     - platform: state
@@ -720,7 +726,7 @@ automation:
     - service: input_number.set_value
       data_template:
         entity_id: input_number.bitcoin_value_difference
-        value: "{{ states('sensor.exchange_rate_1_btc') }} - {{ states('input_number.bitcoin_previous_exchange_rate') }}"
+        value: "{{ states('sensor.exchange_rate_1_btc') | float -states('input_number.bitcoin_previous_exchange_rate') | float }}"
 
   - alias: "Nabaztag Bitcoin Exchange"
     trigger:
