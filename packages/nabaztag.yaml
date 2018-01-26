@@ -759,6 +759,8 @@ automation:
     - condition: state
       entity_id: 'input_select.nabaztag_show_info'
       state: 'Stocks'
+    - condition: template
+      value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
     action:
     - service: shell_command.nab_clear
     - service_template: >
