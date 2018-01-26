@@ -748,14 +748,14 @@ automation:
       state: 'Stocks'
     action:
     - service_template: >
-        {% if (states("input_number.bitcoin_value_difference") | float) < -100 %} shell_command.nab_stock_0
-        {% elif (states("input_number.bitcoin_value_difference") | float) < -50 %} shell_command.nab_stock_1
-        {% elif (states("input_number.bitcoin_value_difference") | float) < -10 %} shell_command.nab_stock_2
-        {% elif (states("input_number.bitcoin_value_difference") | float) < 2 %} shell_command.nab_stock_3
-        {% elif (states("input_number.bitcoin_value_difference") | float) > 2 %} shell_command.nab_stock_3
-        {% elif (states("input_number.bitcoin_value_difference") | float) > 10 %} shell_command.nab_stock_4
-        {% elif (states("input_number.bitcoin_value_difference") | float) > 50 %} shell_command.nab_stock_5
-        {% elif (states("input_number.bitcoin_value_difference") | float) > 100 %} shell_command.nab_stock_6
+        {% if states("input_number.bitcoin_value_difference") | float < -100 %} shell_command.nab_stock_0
+        {% elif states("input_number.bitcoin_value_difference") | float < -50 %} shell_command.nab_stock_1
+        {% elif states("input_number.bitcoin_value_difference") | float < -10 %} shell_command.nab_stock_2
+        {% elif states("input_number.bitcoin_value_difference") | float < 2 %} shell_command.nab_stock_3
+        {% elif states("input_number.bitcoin_value_difference") | float > 2 %} shell_command.nab_stock_3
+        {% elif states("input_number.bitcoin_value_difference") | float > 10 %} shell_command.nab_stock_4
+        {% elif states("input_number.bitcoin_value_difference") | float > 50 %} shell_command.nab_stock_5
+        {% elif states("input_number.bitcoin_value_difference") | float > 100 %} shell_command.nab_stock_6
         {% else %}
           shell_command.nab_nose_4
         {% endif %}
