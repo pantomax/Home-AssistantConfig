@@ -9,24 +9,29 @@ sensor:
   - platform: google_travel_time
     api_key: !secret google_distance_matrix_api_key
     name: Home To Work
-    origin: Verona, Italy
+    origin: via aVerona, Italy
     destination: Modena, Italy
     options:
       mode: driving
       units: metric
 # Pollution Sensor - World Air Quality Index
-  - platform: waqi
-    token: cfdaa74f75fb658e9d3bd8db8764a60812825d02
-    locations:
-      - beijing
-    stations:
-      - Beijing US Embassy
+#  - platform: waqi
+#    token: cfdaa74f75fb658e9d3bd8db8764a60812825d02
+#    locations:
+#      - Modena
+#    stations:
+#      - Parco Ferrari, Emilia Romagna
 #0 - 50	Good	
 #51 - 100	Moderate	
 #101 - 150	Unhealthy for Sensitive Groups	
 #151 - 200	Unhealthy	
 #201 - 300	Very unhealthy	
 #301+	Hazardous
+  - platform: luftdaten
+    sensorid: 4372
+    monitored_conditions:
+      - P1
+      - P2
 #*************************************************************
 group:
 #*************************************************************
