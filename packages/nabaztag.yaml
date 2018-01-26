@@ -656,6 +656,10 @@ automation:
     trigger:
     - platform: state
       entity_id: input_select.nabaztag_weather
+    condition:
+    - condition: state
+      entity_id: 'input_select.nabaztag_show_info'
+      state: 'Weather'
     action:
     - service_template: >
         {% if is_state("input_select.nabaztag_weather", "Sun") %} shell_command.nab_weather_0
@@ -722,6 +726,10 @@ automation:
     trigger:
     - platform: state
       entity_id: sensor.timestamp
+    condition:
+    - condition: state
+      entity_id: 'input_select.nabaztag_show_info'
+      state: 'Stock'
     action:
     - service_template: >
         {% if states("input_number.bitcoin_value_difference") | float < -100 %} shell_command.nab_stock_0
