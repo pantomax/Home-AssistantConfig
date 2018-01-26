@@ -765,14 +765,14 @@ automation:
       data_template:
         entity_id: input_select.nabaztag_body_language
         option: >
-          {% if states('input_number.bitcoin_value_difference') | float < -100 %} "Crazy"
-          {% elif states('input_number.bitcoin_value_difference') | float < -50 %} "Left"
-          {% elif states('input_number.bitcoin_value_difference') | float < -5 %} "Left"
-          {% elif states('input_number.bitcoin_value_difference') | float > 5 %} "Right"
-          {% elif states('input_number.bitcoin_value_difference') | float > 50 %} "Right"
-          {% elif states('input_number.bitcoin_value_difference') | float > 100 %} "Crazy"
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %} 'Crazy'
+          {% elif states('input_number.bitcoin_value_difference') | float < -50 %} 'Left'
+          {% elif states('input_number.bitcoin_value_difference') | float < -5 %} 'Left'
+          {% elif states('input_number.bitcoin_value_difference') | float > 5 %} 'Right'
+          {% elif states('input_number.bitcoin_value_difference') | float > 50 %} 'Right'
+          {% elif states('input_number.bitcoin_value_difference') | float > 100 %} 'Crazy'
           {% else %}
-            "Up"
+            'Up'
           {% endif %}
 #*************************************************************
   - alias: "Nabaztag Traffic"
