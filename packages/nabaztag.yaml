@@ -739,7 +739,7 @@ automation:
     condition:
     - condition: state
       entity_id: 'input_select.nabaztag_show_info'
-      state: 'Stock'
+      state: 'Stocks'
     action:
     - service_template: >
         {% if states("input_number.bitcoin_value_difference") | float < -100 %} shell_command.nab_stock_0
