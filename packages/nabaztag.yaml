@@ -15,9 +15,11 @@ sensor:
       mode: driving
       units: metric
 # Bitcoin Sensor
+# {{ states('sensor.exchange_rate_1_btc') }}
   - platform: bitcoin
     display_options:
       - exchangerate
+      - timestamp
 #*************************************************************
 group:
 #*************************************************************
@@ -85,6 +87,13 @@ input_number:
     min: 0
     max: 16
     step: 1
+  bitcoin_previous_exchange_rate:
+    icon: mdi:currency-btc
+    name: Previous Bitcoin Exchange Rate
+    initial: 0
+    min: 0
+    max: 100000
+    step: 0.01
 #*************************************************************
 input_text:
 #*************************************************************
@@ -448,6 +457,20 @@ shell_command:
 #*************************************************************
 automation:
 #*************************************************************
+  - alias: "Startup setup"
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: group.set_visibility
+        entity_id: group.nabaztag_locale_setup
+        data:
+          visible: False
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.bitcoin_previous_exchange_rate
+          value: "{{ states('sensor.exchange_rate_1_btc') }}"
+#*************************************************************
   - alias: "Nabaztag Sounds"
     trigger:
     - platform: state
@@ -500,16 +523,6 @@ automation:
       data:
         entity_id: input_text.nabaztag_voice
         value: ' '
-#*************************************************************
-  - alias: "Hide Locale Setup"
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - service: group.set_visibility
-        entity_id: group.nabaztag_locale_setup
-        data:
-          visible: False
 #*************************************************************
   - alias: "Change Locale Setup"
     trigger:
@@ -691,7 +704,10 @@ automation:
   - alias: "Nabaztag Bitcoin"
     trigger:
     - platform: state
-      entity_id: input_select.nabaztag_stock
+      entity_id: sensor.exchange_rate_1_btc
+#cambiare con timestamp
+#calcolare differenza
+# in base alla differenza attivare il nabazstock giusto
     action:
     - service_template: >
         {% if is_state("input_select.nabaztag_stock", "---") %} shell_command.nab_stock_0
