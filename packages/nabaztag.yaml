@@ -597,21 +597,21 @@ automation:
       data_template:
         entity_id: input_number.nabaztag_left_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} 1
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 3
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 1
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 9
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "3.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "1.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
           {% endif %}
     - service: input_number.set_value
       data_template:
         entity_id: input_number.nabaztag_right_ear
         value: >
-          {% if is_state("input_select.nabaztag_body_language", "Listening") %} 1
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 15
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 8
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 9
-          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11
+          {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} "15.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "8.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
+          {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
           {% endif %}
 #*************************************************************
   - alias: "Nabaztag Weather"
