@@ -38,12 +38,12 @@ group:
     name: Nabaztag Info
     control: hidden
     entities:
-      - script.nabaztag_info_off
       - input_select.nabaztag_show_info
       - input_select.nabaztag_weather
       - input_select.nabaztag_stocks
       - input_select.nabaztag_traffic
       - input_select.nabaztag_pollution
+      - script.nabaztag_info_off
   nabaztag_utils:
     name: Nabaztag Utils
     control: hidden
