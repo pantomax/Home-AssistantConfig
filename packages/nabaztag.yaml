@@ -16,6 +16,7 @@ group:
       - input_select.nabaztag_nose
       - input_number.nabaztag_left_ear
       - input_number.nabaztag_right_ear
+      - input_select.nabaztag_body_language
   nabaztag_lights:
     name: Nabaztag Lights
     control: hidden
@@ -284,6 +285,16 @@ input_select:
       - "GMT +12:00"
     initial: "GMT"
     icon: mdi:clock
+  nabaztag_body_language:
+    name: Body Language
+    options:
+      - " "
+      - "Listening"
+      - "Crazy"
+      - "Scared"
+      - "Sad"
+    initial: " "
+    icon: mdi:earth
 #*************************************************************
 shell_command:
 #*************************************************************
@@ -499,6 +510,10 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_radio
+        option: " "
 #*************************************************************
   - alias: "Nabaztag Nose"
     trigger:
@@ -566,6 +581,38 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
+#*************************************************************
+  - alias: "Nabaztag Body Language"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_body_language
+    action:
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.nabaztag_left_ear
+    - value_template: >
+        {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
+        {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
+        {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
+        {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
+        {% else %}
+          shell_command.nab_abort
+        {% endif %}
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.nabaztag_right_ear
+    - value_template: >
+        {% if is_state("input_select.nabaztag_body_language", "Listening") %} "1.0"
+        {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} "5.0"
+        {% elif is_state("input_select.nabaztag_body_language", "Scared") %} "9.0"
+        {% elif is_state("input_select.nabaztag_body_language", "Sad") %} "11.0"
+        {% else %}
+          shell_command.nab_abort
+        {% endif %}
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_body_language
+        option: " "
 #*************************************************************
   - alias: "Nabaztag Weather"
     trigger:
