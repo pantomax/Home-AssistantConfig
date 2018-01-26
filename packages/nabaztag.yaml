@@ -443,7 +443,7 @@ shell_command:
   nab_time_zone_1100: curl http://192.168.1.180/time?v=660
   nab_time_zone_1200: curl http://192.168.1.180/time?v=720
   nab_radio_1: curl http://192.168.1.180/play?u=http://37.247.50.30/MC2.mp3
-  nab_radio_2: curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac
+  nab_radio_2: curl http://192.168.1.180/play?u=http://194.97.151.135/workout-hits.aac
   nab_radio_3: curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac
 #*************************************************************
 automation:
