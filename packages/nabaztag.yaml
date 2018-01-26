@@ -285,6 +285,7 @@ input_select:
     options:
       - " "
       - "Listening"
+      - "Curious"
       - "Crazy"
       - "Scared"
       - "Sad"
@@ -597,6 +598,7 @@ automation:
         entity_id: input_number.nabaztag_left_ear
         value: >
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} '1'
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} '5'
           {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} '5'
           {% elif is_state("input_select.nabaztag_body_language", "Scared") %} '9'
           {% elif is_state("input_select.nabaztag_body_language", "Sad") %} '11'
@@ -608,6 +610,7 @@ automation:
         entity_id: input_number.nabaztag_right_ear
         value: >
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} '1'
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} '5'
           {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} '5'
           {% elif is_state("input_select.nabaztag_body_language", "Scared") %} '9'
           {% elif is_state("input_select.nabaztag_body_language", "Sad") %} '11'
