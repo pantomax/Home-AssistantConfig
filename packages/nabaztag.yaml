@@ -137,7 +137,7 @@ script:
     sequence:
       - service: shell_command.nab_stop
   nabaztag_info_off:
-    alias: Lights Off
+    alias: Info Off
     sequence:
       - service: shell_command.nab_clear
   nabaztag_update:
