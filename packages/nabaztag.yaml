@@ -5,6 +5,7 @@
 ############################################################
 sensor:
 # Traffic Sensor - Google Distance Matrix Api Key
+# {{ states.sensor.home_to_work.attributes.status }}
   - platform: google_travel_time
     api_key: !secret google_distance_matrix_api_key
     name: Home To Work
@@ -15,11 +16,11 @@ sensor:
       units: metric
 # Pollution Sensor - World Air Quality Index
   - platform: waqi
-    token: !secret aqicn_api_token
+    token: cfdaa74f75fb658e9d3bd8db8764a60812825d02
     locations:
-      - Parco Ferrari
+      - beijing
     stations:
-      - Parco Ferrari, Emilia Romagna
+      - Beijing US Embassy
 #0 - 50	Good	
 #51 - 100	Moderate	
 #101 - 150	Unhealthy for Sensitive Groups	
