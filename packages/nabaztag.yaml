@@ -741,26 +741,24 @@ automation:
   - alias: "Nabaztag Bitcoin Exchange"
     trigger:
     - platform: state
-      entity_id: sensor.timestamp
+      entity_id: input_number.bitcoin_value_difference
     condition:
     - condition: state
       entity_id: 'input_select.nabaztag_show_info'
       state: 'Stocks'
     action:
     - service_template: >
-        {% if states("input_number.bitcoin_value_difference") | float < -100 %} shell_command.nab_stock_0
-        {% elif states("input_number.bitcoin_value_difference") | float < -50 %} shell_command.nab_stock_1
-        {% elif states("input_number.bitcoin_value_difference") | float < -10 %} shell_command.nab_stock_2
-        {% elif states("input_number.bitcoin_value_difference") | float < 2 %} shell_command.nab_stock_3
-        {% elif states("input_number.bitcoin_value_difference") | float > 2 %} shell_command.nab_stock_3
-        {% elif states("input_number.bitcoin_value_difference") | float > 10 %} shell_command.nab_stock_4
-        {% elif states("input_number.bitcoin_value_difference") | float > 50 %} shell_command.nab_stock_5
-        {% elif states("input_number.bitcoin_value_difference") | float > 100 %} shell_command.nab_stock_6
-        {% else %}
-          shell_command.nab_nose_4
+        {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
+        {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
+        {% elif states('input_number.bitcoin_value_difference') | float < -10 %} shell_command.nab_stock_2
+        {% elif states('input_number.bitcoin_value_difference') | float < 2 %} shell_command.nab_stock_3
+        {% elif states('input_number.bitcoin_value_difference') | float > 2 %} shell_command.nab_stock_3
+        {% elif states('input_number.bitcoin_value_difference') | float > 10 %} shell_command.nab_stock_4
+        {% elif states('input_number.bitcoin_value_difference') | float > 50 %} shell_command.nab_stock_5
+        {% elif states('input_number.bitcoin_value_difference') | float > 100 %} shell_command.nab_stock_6
         {% endif %}
     - service: input_select.select_option
-      data_template:
+      data_template:s
         entity_id: input_select.nabaztag_body_language
         option: >
           {% if (states("input_number.bitcoin_value_difference") | float) < -100 %} "Left"
