@@ -317,7 +317,14 @@
       - scene.hdmi_1
       - scene.hdmi_2
       - scene.hdmi_3
-
+  bitcoin:
+    name: Bitcoin
+    control: hidden
+    entities:
+      - sensor.timestamp
+      - input_number.bitcoin_previous_exchange_rate
+      - sensor.exchange_rate_1_btc
+      - input_number.bitcoin_value_difference
 ############################################################
 #
 # Tabs
@@ -414,7 +421,7 @@
       - group.home_switches
       - group.links
       - group.rf_receivers
-
+      - group.bitcoin
   Tab_Cam:
     name: Webcam
     view: yes
@@ -442,7 +449,7 @@
       - camera.raggiolo
       - camera.raccordo_a1
       - camera.piazza_bra
-  Tab_Temp:
+  Tab_Nabaztag:
     name: Nabaztag
     view: yes
     icon: mdi:carrot
