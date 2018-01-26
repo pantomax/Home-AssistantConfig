@@ -594,22 +594,22 @@ automation:
       entity_id: input_select.nabaztag_body_language
     action:
     - service: input_number.set_value
-      data:
+      data_template:
         entity_id: input_number.nabaztag_left_ear
         value: >
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} 1
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 5
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 7
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 3
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 1
           {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 9
           {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11
           {% endif %}
     - service: input_number.set_value
-      data:
+      data_template:
         entity_id: input_number.nabaztag_right_ear
         value: >
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} 1
-          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 5
-          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 7
+          {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 15
+          {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 8
           {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 9
           {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11
           {% endif %}
