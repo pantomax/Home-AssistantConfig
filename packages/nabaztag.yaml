@@ -93,6 +93,7 @@ input_number:
     max: 16
     step: 1
   bitcoin_previous_exchange_rate:
+    mode: box
     icon: mdi:currency-btc
     name: Previous Bitcoin Exchange Rate
     initial: 0
@@ -100,6 +101,7 @@ input_number:
     max: 100000
     step: 0.01
   bitcoin_value_difference:
+    mode: box
     icon: mdi:currency-btc
     name: Bitcoin Value Difference
     initial: 0
