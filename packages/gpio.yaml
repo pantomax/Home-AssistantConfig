@@ -13,14 +13,13 @@ binary_sensor:
       17: PIR Desk
   - platform: template
     sensors:
-      motion_sensor_rf_1:
+      wired_motion_sensor_desktop:
         friendly_name: "Wired Motion Sensor Desktop"
         device_class: motion
         delay_off:
           seconds: 20
         value_template: >-
           {{ is_state('binary_sensor.pir_desk', 'on') }}
-
 switch:
 #************** APRI CANCELLO ********************
   - platform: rpi_gpio
