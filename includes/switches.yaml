@@ -8,10 +8,11 @@
       home_assistant_system_shutdown:
         command_off: "hassio ha restart"
 #************** APRI CANCELLO ********************
-  - platform: rpi_gpio
-    invert_logic: true
-    ports:
-      22: Cancello
+#************ spostato in gpio.yaml **************
+#  - platform: rpi_gpio
+#    invert_logic: true
+#    ports:
+#      22: Cancello
 #************** PRESA INSETTIVORO ********************
   - platform: broadlink
     host: 192.168.1.68
