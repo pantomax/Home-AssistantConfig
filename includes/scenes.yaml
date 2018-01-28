@@ -9,17 +9,21 @@
 #******************************************************************************
   - name: Buona notte
     entities:
+#^^^^^^^^^SALOTTO^^^^^^^^^^^^^^^^^^^^^^
       light.tavolino: off
       light.libreria: off
       light.soffitto: off
       light.mobile_tv: off
       light.retro_tv: off
       light.light_desk: off
-      light.light_kitchen: off
-      light.corridoio_bagno: off
-      light.corridoio_porta: off
       light.led_strip:
         state: off
+#^^^^^^^^^CORRIDOIO^^^^^^^^^^^^^^^^^^^^^^
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+#^^^^^^^^^CUCINA^^^^^^^^^^^^^^^^^^^^^^
+      light.light_kitchen: off
+      light.light_kitchen_2: off
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       media_player.allmediaplayers:
         state: off
@@ -30,18 +34,24 @@
 #******************************************************************************
   - name: Buona notte PC
     entities:
+#^^^^^^^^^SALOTTO^^^^^^^^^^^^^^^^^^^^^^
       light.tavolino: off
       light.libreria: off
       light.soffitto: off
       light.mobile_tv: off
       light.retro_tv: off
       light.light_desk: off
-      light.light_kitchen: off
-      light.corridoio_bagno: off
-      light.corridoio_porta: off
       light.led_strip:
         state: off
+#^^^^^^^^^CORRIDOIO^^^^^^^^^^^^^^^^^^^^^^
+      light.corridoio_bagno: off
+      light.corridoio_porta: off
+#^^^^^^^^^CUCINA^^^^^^^^^^^^^^^^^^^^^^
+      light.light_kitchen: off
+      light.light_kitchen_2: off
 #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      media_player.allmediaplayers:
+        state: off
       input_boolean.guarda_tv: off
       switch.salotto_off: on
       switch.insettivoro: off
