@@ -34,7 +34,7 @@ sensor:
   - platform: dht
     sensor: DHT11
     name: dht
-    pin: 4
+    pin: 17
 #    temperature_offset: 2.1
 #    humidity_offset: -3.2
     monitored_conditions:
