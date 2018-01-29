@@ -4,21 +4,21 @@
 # 
 ####################################################################################
 #*************************************************************
-binary_sensor:
+#binary_sensor:
 #*************************************************************
-  - platform: rpi_gpio
-    ports:
-      17: PIR Desk
-    invert_logic: true
-  - platform: template
-    sensors:
-      wired_motion_sensor_desktop:
-        friendly_name: "Wired Motion Sensor Desktop"
-        device_class: motion
-        delay_off:
-          seconds: 20
-        value_template: >-
-          {{ is_state('binary_sensor.pir_desk', 'on') }}
+#  - platform: rpi_gpio
+#    ports:
+#      17: PIR Desk
+#    invert_logic: true
+#  - platform: template
+#    sensors:
+#      wired_motion_sensor_desktop:
+#        friendly_name: "Wired Motion Sensor Desktop"
+#        device_class: motion
+#        delay_off:
+#          seconds: 20
+#        value_template: >-
+#          {{ is_state('binary_sensor.pir_desk', 'on') }}
 #*************************************************************
 switch:
 #*************************************************************
@@ -27,3 +27,12 @@ switch:
     invert_logic: true
     ports:
       22: Cancello
+#*************************************************************
+sensor:
+#*************************************************************
+  platform: dht
+  sensor: DHT11
+  pin: 17
+  monitored_conditions:
+    - temperature
+    - humidity
