@@ -69,6 +69,8 @@
     entities:
       - sensor.rf_receiver
       - sensor.rf_receiver_2
+      - binary_sensor.wired_motion_sensor_desktop
+      - binary_sensor.pir_desk
   Webcam_Salotto:
     name: Salotto
     entities:
