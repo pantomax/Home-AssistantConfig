@@ -267,7 +267,6 @@
         entity_id: >
          {{ trigger.event.data.data["entityName"] }}
 
-#2017-11-03 20:59:49 DEBUG (MainThread) [homeassistant.components.api] STREAM 1938801152 WRITING data: {"event_type": "html5_notification.clicked", "data": {"tag": "e1cf64cd-eb8f-44a4-890e-a794c2d464d3", "type": "clicked", "target": "Smartphone Max", "action": "button2"}, "origin": "LOCAL", "time_fired": "2017-11-03T19:59:49.786210+00:00"}
   - alias: HTML5 push notification action button clicked Turn on lights
     trigger:
       platform: event

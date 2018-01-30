@@ -52,7 +52,7 @@
 
 # Meteo Wundergroud
   - platform: wunderground
-    api_key: ***REMOVED***
+    api_key: !secret secret_wunderground_api_key
     monitored_conditions:
       - alerts
       - weather_1d_metric
@@ -136,7 +136,7 @@
         value_template: "{{ 'Online' if is_state('device_tracker.smartphonesalotto3', 'home') else 'Offline' }}"
 # Meteo Darksky
   - platform: darksky
-    api_key: 25cccbe6d32dae9543bb2e0a05f03958
+    api_key: !secret secret_darksky_api_key
     update_interval: 300
     monitored_conditions:
       - summary
