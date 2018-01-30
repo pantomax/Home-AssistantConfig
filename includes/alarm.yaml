@@ -1,6 +1,11 @@
+############################################################
+#
+# Alarms
+#
+############################################################
   - platform: manual
     name: Home Alarm
-    code: ***REMOVED***
+    code: !secret secret_alarm_code
     pending_time: 30
     armed_home:
       pending_time: 0
@@ -8,3 +13,4 @@
       pending_time: 20
     trigger_time: 300
     disarm_after_trigger: true
+#******************************************************************************
