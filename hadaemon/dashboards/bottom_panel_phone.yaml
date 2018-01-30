@@ -1,0 +1,22 @@
+load_home:
+    widget_type: navigate
+    title: Home 
+    icon_inactive: mdi-home
+    url: /Phone
+load_media_scene:
+    widget_type: navigate
+    title: Media & Scene 
+    icon_inactive: mdi-sofa
+    url: /Phone2
+load_telecomando:
+    widget_type: navigate
+    title: Telecomando 
+    icon_inactive: mdi-remote
+    url: /Phone3
+
+reload:
+    widget_type: reload
+    title: Reload
+    
+layout: 
+    - load_home, load_media_scene, load_telecomando
