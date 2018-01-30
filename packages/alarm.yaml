@@ -178,7 +178,7 @@ automation:
           message: "Allarme attivato"
           data:
             tag: 'front-door-motion'
-            url: "http://2.234.144.242:8082/video"
+            url: !secret video_alarm
       - service: ifttt.trigger
         data: {"event":"Alarm_Trigger", "value1":"Attivato allarme"}
       - alias: call_flash

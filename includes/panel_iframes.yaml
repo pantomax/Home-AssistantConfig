@@ -6,12 +6,12 @@
   editor:
     title: Editor
     icon: mdi:file-document
-    url: http://2.234.144.242:3218
+    url: !secret editor_url
   terminal:
     title: Terminal
     icon: mdi:console-line
-    url: http://2.234.144.242:7681
+    url: !secret terminal_url
   kodi:
     title: Kodi
     icon: mdi:movie
-    url: http://2.234.144.242:8800
+    url: !secret kodi_url

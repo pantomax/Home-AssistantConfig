@@ -18,14 +18,7 @@
       - ping
       - download
       - upload
-#  - platform: date_countdown
-#    name: Wedding Countdown
-#    date: "20-05-2018 18:00"
-#  - platform: template
-#    sensors:
-#      wedding_countdown_days:
-#        value_template: >-
-#          {{ states.sensor.wedding_countdown.attributes.days }}
+
 # Sensore Broadlink A1 in bagno
   - platform: broadlink
     update_interval: 10
@@ -180,5 +173,3 @@
         arg: eth0
 # Informazioni di sistema della Raspberry Pi
   - platform: dnsip
-
-
