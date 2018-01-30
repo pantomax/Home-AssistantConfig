@@ -1,4 +1,11 @@
+###############################################################################
+#
+#                              GENERIC COUNTDOWN 
+#
+###############################################################################
+#------------------------------------------------------------------------------
 group:
+#------------------------------------------------------------------------------
   countdown:
     name: Countdown
     entities:
@@ -12,22 +19,25 @@ group:
       - automation.start_countdown_2
       - automation.stop_countdown
       - automation.stop_countdown_2
-
+#------------------------------------------------------------------------------
 input_boolean:
+#------------------------------------------------------------------------------
   countdown:
     name: Countdown
     initial: off
     icon: mdi:timelapse
-
+#------------------------------------------------------------------------------
 input_number:
+#------------------------------------------------------------------------------
   countdown:
     name: countdown
     min: 0
     max: 18000
     step: 1
     initial: 0
-
+#------------------------------------------------------------------------------
 sensor:
+#------------------------------------------------------------------------------
   - platform: template
     sensors:
       countdown:
@@ -64,8 +74,9 @@ sensor:
     sensors:
       countdown_meno_1:
         value_template: "{{( states('input_number.countdown') | int - 1 ) | int}}"
-
+#------------------------------------------------------------------------------
 automation:
+#------------------------------------------------------------------------------
   - alias: 'Start Countdown'
     trigger:
       platform: numeric_state
@@ -78,7 +89,7 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.scala
-
+#******************************************************************************
   - alias: 'Start Countdown 2'
     trigger:
       platform: state
@@ -91,7 +102,7 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.scala
-
+#******************************************************************************
   - alias: 'Stop Countdown'
     trigger:
       platform: numeric_state
@@ -100,7 +111,7 @@ automation:
     action:
       service: homeassistant.turn_off
       entity_id: input_boolean.countdown
-
+#******************************************************************************
   - alias: 'Stop Countdown 2'
     trigger:
       platform: state
@@ -111,8 +122,9 @@ automation:
       data_template:
         entity_id: 'input_number.countdown'
         value: "0"
-
+#------------------------------------------------------------------------------
 script:
+#------------------------------------------------------------------------------
   scala:
     sequence:
       - service: input_number.set_value
@@ -122,7 +134,7 @@ script:
       - service: script.turn_on
         data:
           entity_id: script.attendi_e_ripeti
-
+#******************************************************************************
   attendi_e_ripeti:
     sequence:
       - condition: and
@@ -138,3 +150,4 @@ script:
       - service: script.turn_on
         data:
           entity_id: script.scala
+#******************************************************************************
