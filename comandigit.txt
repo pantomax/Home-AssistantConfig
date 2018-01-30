@@ -1,0 +1,6 @@
+aggiungi tutto quello che manca 
+git add -A && git commit -m "nabaz sh"
+
+copia un branch in master
+git push origin master2:master
+
