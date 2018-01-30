@@ -300,7 +300,7 @@
         - entity s 60
     sensor.dht_humidity:
       friendly_name : "Umidità DHT"
-      icon: mdi:gate
+      icon: mdi:water-percent
       google_assistant: true
       google_assistant_name: humidity
       type: climate
@@ -309,7 +309,7 @@
         - entity s 70
     sensor.dht_temperature:
       friendly_name : "Temperatura DHT"
-      icon: mdi:gate
+      icon: mdi:thermometer-lines
       google_assistant: true
       google_assistant_name: temperature
       type: climate
