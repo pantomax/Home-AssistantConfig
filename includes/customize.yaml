@@ -298,7 +298,24 @@
         - open sesame
         - stargate
         - entity s 60
-
+    sensor.dht_humidity:
+      friendly_name : "Umidità DHT"
+      icon: mdi:gate
+      google_assistant: true
+      google_assistant_name: humidity
+      type: climate
+      aliases:
+        - humidity near the server
+        - entity s 70
+    sensor.dht_temperature:
+      friendly_name : "Temperatura DHT"
+      icon: mdi:gate
+      google_assistant: true
+      google_assistant_name: temperature
+      type: climate
+      aliases:
+        - temperature near the server
+        - entity s 71
 #********************************************SCENES*********************************
     scene.luci_sala_accese:
       friendly_name: "Luci Sala Accese"
