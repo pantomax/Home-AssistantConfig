@@ -11,5 +11,6 @@
 !.gitignore
 !*.sh
 !*.dash
+!comandigit.txt
 secrets.yaml
 known_devices.yaml
