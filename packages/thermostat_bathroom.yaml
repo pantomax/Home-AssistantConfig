@@ -1,16 +1,16 @@
-############################################################
+###############################################################################
 #
-# Termostato per scaldare il bagno
+#                                 BATHROOM THERMOSTAT 
 #
-############################################################
+###############################################################################
+#------------------------------------------------------------------------------
 timer:
+#------------------------------------------------------------------------------
   termostato_bagno:
     duration: '00:30:00'
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
 group:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   termostato_bagno:
     name: Termostato Bagno
     control: hidden
@@ -25,23 +25,21 @@ group:
       - sensor.countdown_bagno
       - switch.bagno_scalda
       - input_boolean.visualizza_telecomando_termoventilatore
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
 sensor:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   - platform: template
     sensors:
       temperatura_corretta_bagno_per_termostato:
         friendly_name: "Temperatura Bagno"
         unit_of_measurement: '°C'
         value_template: "{{ states('sensor.sensore_temperature')|float - 0.2 }}"
-#***********************************************************************************
+#******************************************************************************
   - platform: template
     sensors:
       tempo_spegnimento_bagno:
         value_template: "{{ ( ( states.input_number.termostato_bagno_timer.state | int) * 60 ) | int }}"
-#***********************************************************************************
+#******************************************************************************
 # Termostato Bagno
   - platform: template
     sensors:
@@ -53,10 +51,7 @@ sensor:
         friendly_name: 'Tempo Impostato'
         value_template: '{{ states.input_number.termostato_bagno_timer.state | int }}'
         unit_of_measurement: 'min'
-
-        
-        
-#***********************************************************************************
+#******************************************************************************
   - platform: template
     sensors:
       countdown_bagno:
@@ -93,19 +88,9 @@ sensor:
     sensors:
       countdown_bagno_meno_1:
         value_template: "{{( states('input_number.countdown_bagno') | int - 1 ) | int}}"
-
-
-
-
-
-
-
-
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
 switch:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   - platform: broadlink
     host: 192.168.1.96
     mac: '34:ea:34:41:2f:bd'
@@ -115,8 +100,7 @@ switch:
       bagno_scalda:
         command_on: 'JgBQAAABKpUSExIUEhQRFBEUEhMSFBEVETgSNxI4EjgSOBE4EjgSOBI4ERQSFRAUExISExIUExISExI4EjgSOBE4EjgSOBI3EgAFIwABK0kSAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABKpUSExIUEhQRFBEUEhMSFBEVETgSNxI4EjgSOBE4EjgSOBI4ERQSFRAUExISExIUExISExI4EjgSOBE4EjgSOBI3EgAFIwABK0kSAA0FAAAAAAAAAAA='
-
-
+#******************************************************************************
   - platform: template
     switches:
       accendi_termostato_dashboard_bagno:
@@ -135,6 +119,7 @@ switch:
           - service: homeassistant.turn_off
             data:
               entity_id: input_boolean.termostato_bagno_timer_interruttore
+#******************************************************************************
       spegni_timer_dashboard_bagno:
         value_template: "{{ is_state('input_boolean.termostato_bagno_timer_interruttore', 'on') }}"
         turn_on:
@@ -145,11 +130,9 @@ switch:
           - service: homeassistant.turn_off
             data:
               entity_id: input_boolean.termostato_bagno_timer_interruttore
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
 climate:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   - platform: generic_thermostat
     name: Termostato Bagno
     heater: switch.bagno_scalda
@@ -160,55 +143,77 @@ climate:
     tolerance: 0.3
     min_cycle_duration:
       seconds: 5
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
 input_number:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   termostato_bagno_target_temp:
     name: Imposta Temp
     min: 16
     max: 30
     step: 1
     initial: 30
-#***********************************************************************************
+#******************************************************************************
   termostato_bagno_timer:
     name: Tempo
     min: 0
     max: 120
     step: 1
     initial: 30
-#***********************************************************************************
+#******************************************************************************
   countdown_bagno:
     name: Countdown Bagno
     min: 0
     max: 7200
     step: 1
     initial: 1800
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
 input_boolean:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   termostato_bagno_interruttore:
     name: Accendi
     initial: off
     icon: mdi:thermometer-lines
-#***********************************************************************************
+#******************************************************************************
   termostato_bagno_timer_interruttore:
     name: Timer
     initial: off
     icon: mdi:timer
-#***********************************************************************************
+#******************************************************************************
   countdown_bagno:
     name: Countdown Bagno
     initial: off
     icon: mdi:timelapse
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
+script:
+#------------------------------------------------------------------------------
+  scala_countdown_bagno:
+    sequence:
+      - service: input_number.set_value
+        data_template:
+          entity_id: 'input_number.countdown_bagno'
+          value: "{{ states.sensor.countdown_bagno_meno_1.state | int }}"
+      - service: script.turn_on
+        data:
+          entity_id: script.attendi_e_ripeti_countdown_bagno
+#******************************************************************************
+  attendi_e_ripeti_countdown_bagno:
+    sequence:
+      - condition: and
+        conditions:
+           - condition: state
+             entity_id: input_boolean.countdown_bagno
+             state: 'on'
+           - condition: numeric_state
+             entity_id: input_number.countdown_bagno
+             above: '0'
+      - delay:
+          milliseconds: 9
+      - service: script.turn_on
+        data:
+          entity_id: script.scala_countdown_bagno
+#------------------------------------------------------------------------------
 automation:
-#***********************************************************************************
-#***********************************************************************************
+#------------------------------------------------------------------------------
   - alias: "Termostato Bagno Attiva Riscaldamento, basculante e limite massimo di 2 ore"
     trigger:
       platform: state
@@ -273,7 +278,7 @@ automation:
             milliseconds: 100
       - service: switch.turn_on
         entity_id: switch.timer
-#***********************************************************************************
+#******************************************************************************
   - alias: "Termostato Bagno Accensione Manuale"
     trigger:
       platform: state
@@ -284,7 +289,7 @@ automation:
         data_template:
           entity_id: "climate.termostato_bagno"
           temperature: '{{ float(states.input_number.termostato_bagno_target_temp.state) }}'
-#***********************************************************************************
+#******************************************************************************
   - alias: "Termostato Bagno Spegnimento Manuale"
     trigger:
       platform: state
@@ -295,7 +300,7 @@ automation:
         data:
           entity_id: climate.termostato_bagno
           temperature: 0
-#***********************************************************************************
+#******************************************************************************
   - alias: "Termostato Bagno Regola Temperatura"
     trigger:
       platform: state
@@ -309,7 +314,7 @@ automation:
         data_template:
           entity_id: "climate.termostato_bagno"
           temperature: '{{ float(states.input_number.termostato_bagno_target_temp.state) }}'
-#***********************************************************************************
+#******************************************************************************
   - alias: "Termostato Bagno Spegni con timer"
     trigger:
       platform: state
@@ -327,7 +332,7 @@ automation:
         data_template:
           entity_id: 'input_number.termostato_bagno_timer'
           value: "1800"
-#***********************************************************************************
+#******************************************************************************
   - alias: "Termostato Bagno disattiva timer in caso di spegnimento manuale"
     trigger:
       platform: state
@@ -340,7 +345,7 @@ automation:
         data_template:
           entity_id: 'input_number.termostato_bagno_timer'
           value: "1800"
-#***********************************************************************************
+#******************************************************************************
   - alias: 'Start Countdown'
     trigger:
       platform: numeric_state
@@ -353,7 +358,7 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.scala_countdown_bagno
-
+#******************************************************************************
   - alias: 'Start Countdown 2'
     trigger:
       platform: state
@@ -366,7 +371,7 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.scala_countdown_bagno
-
+#******************************************************************************
   - alias: 'Stop Countdown'
     trigger:
       platform: numeric_state
@@ -375,7 +380,7 @@ automation:
     action:
       service: homeassistant.turn_off
       entity_id: input_boolean.countdown_bagno
-
+#******************************************************************************
   - alias: 'Stop Countdown 2'
     trigger:
       platform: state
@@ -394,9 +399,7 @@ automation:
         data_template:
           entity_id: 'input_number.termostato_bagno_timer'
           value: "1800"
-#***********************************************************************************
-#***********************************************************************************
-#***********************************************************************************
+#******************************************************************************
   - alias: "Sincronizza Accensione countdown con accensione termostato"
     trigger:
       platform: state
@@ -405,7 +408,7 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.countdown_bagno
-#***********************************************************************************
+#******************************************************************************
   - alias: "Sincronizza Spegnimento countdown con spegnimento termostato"
     trigger:
       platform: state
@@ -422,7 +425,7 @@ automation:
         data_template:
           entity_id: 'input_number.countdown_bagno'
           value: "{{ ( ( states.input_number.termostato_bagno_timer.state | int) * 60 ) | int }}"
-#***********************************************************************************
+#******************************************************************************
   - alias: "Sincronizza tempo timer con countdown"
     trigger:
       platform: state
@@ -432,32 +435,4 @@ automation:
         data_template:
           entity_id: 'input_number.countdown_bagno'
           value: "{{ ( ( states.input_number.termostato_bagno_timer.state | int) * 60 ) | int }}"
-#***********************************************************************************
-#***********************************************************************************
-#***********************************************************************************
-script:
-  scala_countdown_bagno:
-    sequence:
-      - service: input_number.set_value
-        data_template:
-          entity_id: 'input_number.countdown_bagno'
-          value: "{{ states.sensor.countdown_bagno_meno_1.state | int }}"
-      - service: script.turn_on
-        data:
-          entity_id: script.attendi_e_ripeti_countdown_bagno
-
-  attendi_e_ripeti_countdown_bagno:
-    sequence:
-      - condition: and
-        conditions:
-           - condition: state
-             entity_id: input_boolean.countdown_bagno
-             state: 'on'
-           - condition: numeric_state
-             entity_id: input_number.countdown_bagno
-             above: '0'
-      - delay:
-          milliseconds: 9
-      - service: script.turn_on
-        data:
-          entity_id: script.scala_countdown_bagno
+#******************************************************************************
