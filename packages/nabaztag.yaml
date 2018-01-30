@@ -1,9 +1,11 @@
-############################################################
+###############################################################################
 #
-# Nabaztag
-# 
-############################################################
+#                                 NABAZTAG PACKAGE
+#
+###############################################################################
+#------------------------------------------------------------------------------
 sensor:
+#------------------------------------------------------------------------------
 # Traffic Sensor - Google Distance Matrix Api Key
 # {{ states.sensor.home_to_work.attributes.status }}
   - platform: google_travel_time
@@ -25,9 +27,9 @@ sensor:
     display_options:
       - exchangerate
       - timestamp
-#*************************************************************
+#------------------------------------------------------------------------------
 group:
-#*************************************************************
+#------------------------------------------------------------------------------
   nabaztag_body:
     name: Nabaztag Body
     control: hidden
@@ -68,16 +70,16 @@ group:
       - input_select.nabaztag_time_zone
       - script.nabaztag_update
       - script.nabaztag_reboot
-#*************************************************************
+#------------------------------------------------------------------------------
 input_boolean:
-#*************************************************************
+#------------------------------------------------------------------------------
   show_nabaztag_locales:
     name: Locales Setup
     initial: off
     icon: mdi:tune
-#*************************************************************
+#------------------------------------------------------------------------------
 input_number:
-#*************************************************************
+#------------------------------------------------------------------------------
   nabaztag_left_ear:
     icon: mdi:ear-hearing
     name: Left Ear
@@ -108,18 +110,18 @@ input_number:
     min: -100000
     max: 100000
     step: 0.01
-#*************************************************************
+#------------------------------------------------------------------------------
 input_text:
-#*************************************************************
+#------------------------------------------------------------------------------
   nabaztag_voice:
     name: TTS
     initial: Say Something...
     min: 1
     max: 200
     pattern: '[a-fA-F0-9]*'
-#*************************************************************
+#------------------------------------------------------------------------------
 script:
-#*************************************************************
+#------------------------------------------------------------------------------
   nabaztag_talk:
     alias: Nabaztag talk
     sequence:
@@ -135,29 +137,34 @@ script:
         service: shell_command.nab_talk
       - alias: Clearing Google TTS
         service: tts.clear_cache
+#******************************************************************************
   nabaztag_surprise:
     alias: Talk!
     sequence:
       - service: shell_command.nab_surprise
+#******************************************************************************
   nabaztag_stop:
     alias: Shut Up!
     sequence:
       - service: shell_command.nab_stop
+#******************************************************************************
   nabaztag_info_off:
     alias: Info Off
     sequence:
       - service: shell_command.nab_clear
+#******************************************************************************
   nabaztag_update:
     alias: Sync Time
     sequence:
       - service: shell_command.nab_gettime
+#******************************************************************************
   nabaztag_reboot:
     alias: Reboot
     sequence:
       - service: shell_command.nab_reboot
-#*************************************************************
+#------------------------------------------------------------------------------
 switch:
-#*************************************************************
+#------------------------------------------------------------------------------
   platform: command_line
   switches:
     nabaztaglife:
@@ -172,14 +179,14 @@ switch:
       command_on: "curl http://192.168.1.180/nose?v=1"
       command_off: "curl http://192.168.1.180/nose?v=0"
       friendly_name: Nose
-#*************************************************************
+#------------------------------------------------------------------------------
 media_player:
-#*************************************************************
+#------------------------------------------------------------------------------
   - platform: universal
     name: nabaztag
-#*************************************************************
+#------------------------------------------------------------------------------
 input_select:
-#*************************************************************
+#------------------------------------------------------------------------------
   nabaztag_taichi:
     name: Taichi Intensity
     options:
@@ -344,9 +351,9 @@ input_select:
       - "Pollution"
     initial: "Weather"
     icon: mdi:format-list-bulleted-type
-#*************************************************************
+#------------------------------------------------------------------------------
 shell_command:
-#*************************************************************
+#------------------------------------------------------------------------------
   nab_surprise: curl http://192.168.1.180/surprise
   nab_stop: curl http://192.168.1.180/stop
   nab_clear: curl http://192.168.1.180/clear
@@ -472,9 +479,9 @@ shell_command:
   nab_radio_1: curl http://192.168.1.180/play?u=http://37.247.50.30/MC2.mp3
   nab_radio_2: curl http://192.168.1.180/play?u=http://194.97.151.135/workout-hits.aac
   nab_radio_3: curl http://192.168.1.180/play?u=http%3A%2F%2Fmp3channels.webradio.antenne.de%2Fworkout-hits.aac
-#*************************************************************
+#------------------------------------------------------------------------------
 automation:
-#*************************************************************
+#------------------------------------------------------------------------------
   - alias: "Startup setup"
     trigger:
       - platform: homeassistant
@@ -488,7 +495,7 @@ automation:
         data_template:
           entity_id: input_number.bitcoin_previous_exchange_rate
           value: "{{ states('sensor.exchange_rate_1_btc') }}"
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Sounds"
     trigger:
     - platform: state
@@ -509,7 +516,7 @@ automation:
       data:
         entity_id: input_select.nabaztag_sounds
         option: " "
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Radio"
     trigger:
     - platform: state
@@ -528,7 +535,7 @@ automation:
       data:
         entity_id: input_select.nabaztag_radio
         option: " "
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Talk"
     trigger:
     - platform: state
@@ -544,7 +551,7 @@ automation:
       data:
         entity_id: input_text.nabaztag_voice
         value: ' '
-#*************************************************************
+#******************************************************************************
   - alias: "Change Locale Setup"
     trigger:
     - platform: state
@@ -559,7 +566,7 @@ automation:
           {% else %}
             False
           {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Taichi"
     trigger:
     - platform: state
@@ -572,7 +579,7 @@ automation:
         {% else %}
           shell_command.nab_surprise
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Nose"
     trigger:
     - platform: state
@@ -585,7 +592,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Left Ear"
     trigger:
     - platform: state
@@ -612,7 +619,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Right Ear"
     trigger:
     - platform: state
@@ -639,7 +646,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Body Language"
     trigger:
     - platform: state
@@ -673,7 +680,7 @@ automation:
           {% elif is_state("input_select.nabaztag_body_language", "Left") %} 0.0
           {% elif is_state("input_select.nabaztag_body_language", "Right") %} 11.0
           {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Weather"
     trigger:
     - platform: state
@@ -689,7 +696,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#******************************************************************************
   - alias: "Nabaztag Darksky Weather"
     trigger:
     - platform: state
@@ -719,7 +726,7 @@ automation:
         {% else %}
           script.nabaztag_info_off
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Stock"
     trigger:
     - platform: state
@@ -736,7 +743,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#******************************************************************************
   - alias: "Nabaztag Bitcoin Difference"
     trigger:
     - platform: state
@@ -750,7 +757,7 @@ automation:
       data_template:
         entity_id: input_number.bitcoin_previous_exchange_rate
         value: "{{ states('sensor.exchange_rate_1_btc') }}"
-
+#******************************************************************************
   - alias: "Nabaztag Bitcoin Exchange"
     trigger:
     - platform: state
@@ -788,7 +795,7 @@ automation:
           {% else %}
             'Up'
           {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Traffic"
     trigger:
     - platform: state
@@ -805,7 +812,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-
+#******************************************************************************
   - alias: "Nabaztag Google Traffic"
     trigger:
     - platform: state
@@ -822,7 +829,7 @@ automation:
         {% if is_state("sensor.traffic_status", "OK") %} shell_command.nab_traffic_0
         {% elif is_state("sensor.traffic_status", "OK") %} shell_command.nab_traffic_1
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Pollution"
     trigger:
     - platform: state
@@ -843,7 +850,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Language"
     trigger:
     - platform: state
@@ -857,7 +864,7 @@ automation:
         {% else %}
           shell_command.nab_surprise
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Nabaztag Time Zone"
     trigger:
     - platform: state
@@ -898,7 +905,7 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
-#*************************************************************
+#******************************************************************************
   - alias: "Wake up time for the Nabaztag"
     trigger:
     - platform: time
@@ -915,7 +922,7 @@ automation:
     - service: script.nabaztag_talk
       data:
         message: "Buongiorno mondo!"
-#*************************************************************
+#******************************************************************************
   - alias: "Sleep time for the Nabaztag during the day"
     trigger:
     - platform: time
@@ -938,7 +945,7 @@ automation:
           seconds: 5
     - service: switch.turn_off
       entity_id: switch.nabaztaglife  
-#*************************************************************
+#******************************************************************************
   - alias: "Sleep time for the Nabaztag during the night"
     trigger:
     - platform: time
@@ -951,11 +958,7 @@ automation:
           seconds: 5
     - service: switch.turn_off
       entity_id: switch.nabaztaglife
-
-
-
-
-
+#******************************************************************************
 
 # Pollution Sensor - World Air Quality Index
 #  - platform: waqi

@@ -1,18 +1,18 @@
-############################################################
+###############################################################################
 #
-# Luci salotto con film su chromecast
+#                       LIGHTS ON/OFF WITH CHROMECAST
 #
-############################################################
-#*************************************************************
+###############################################################################
+#------------------------------------------------------------------------------
 input_boolean:
-#*************************************************************
+#------------------------------------------------------------------------------
   nabaztag_esclama:
     name: Nabaztag Esclama in Chromecast
     initial: off
 
-#*************************************************************
+#------------------------------------------------------------------------------
 automation:
-#*************************************************************
+#------------------------------------------------------------------------------
   - alias: "Chromecast in partenza"
     trigger:
       - platform: state
@@ -38,6 +38,7 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.film
+#******************************************************************************
   - alias: "Nabaztag esclama con Chromecast in partenza"
     trigger:
       - platform: state
@@ -58,7 +59,7 @@ automation:
           message: "Cosa c'è di bello in tv stasera?"
       - service: homeassistant.turn_on
         entity_id: input_boolean.nabaztag_esclama
-#***********************************************************************************
+#******************************************************************************
   - alias: "Chromecast in stop"
     trigger:
       - platform: state
@@ -73,6 +74,7 @@ automation:
     action:
         service: scene.turn_on
         entity_id: scene.luci_sala_accese
+#******************************************************************************
   - alias: "Chromecast in stop"
     trigger:
       - platform: state
@@ -90,7 +92,7 @@ automation:
     action:
         service: scene.turn_on
         entity_id: scene.luci_sala_accese
-#***********************************************************************************
+#******************************************************************************
   - alias: "Chromecast in pausa"
     trigger:
       - platform: state
@@ -111,7 +113,7 @@ automation:
     action:
         service: scene.turn_on
         entity_id: scene.luci_sala_accese
-#***********************************************************************************
+#******************************************************************************
   - alias: "Chromecast in riproduzione"
     trigger:
       - platform: state
@@ -133,3 +135,4 @@ automation:
     action:
         service: scene.turn_on
         entity_id: scene.film
+#******************************************************************************

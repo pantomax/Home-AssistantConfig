@@ -1,9 +1,11 @@
-############################################################
+###############################################################################
 #
-# Ambiance
-# 
-############################################################
+#                                AMBIANCE PACKAGE
+#
+###############################################################################
+#------------------------------------------------------------------------------
 script:
+#------------------------------------------------------------------------------
   luci_sala_accese:
     alias: Luci Sala Accese
     sequence:
@@ -23,7 +25,7 @@ script:
       - service: media_player.turn_off
         data:
           entity_id: media_player.living_room
-
+#******************************************************************************
   inverno:
     alias: Ambiance Inverno
     sequence:
@@ -74,6 +76,7 @@ script:
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+#******************************************************************************
   foresta:
     alias: Ambiance Foresta
     sequence:
@@ -124,6 +127,7 @@ script:
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+#******************************************************************************
   oceano:
     alias: Ambiance Oceano
     sequence:
@@ -174,6 +178,7 @@ script:
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+#******************************************************************************
   club:
     alias: Ambiance Club
     sequence:
@@ -224,6 +229,7 @@ script:
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+#******************************************************************************
   acquario:
     alias: Ambiance Aquario
     sequence:
@@ -274,6 +280,7 @@ script:
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
+#******************************************************************************
   black_alert:
     alias: black_alert
     sequence:
@@ -318,7 +325,7 @@ script:
           entity_id: light.led_strip
           color_name: blue
           brightness: 255
-
+#******************************************************************************
   black_alert_1:
     alias: black_alert_1
     sequence:
@@ -396,7 +403,7 @@ script:
           entity_id: media_player.living_room
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/lcars.mp4"
-
+#******************************************************************************
   red_alert:
     alias: red_alert
     sequence:
@@ -441,3 +448,4 @@ script:
           entity_id: light.led_strip
           color_name: red
           brightness: 255
+#******************************************************************************

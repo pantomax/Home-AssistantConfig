@@ -1,8 +1,8 @@
-############################################################
+###############################################################################
 #
-# Sensori
+#                                 SENSORS
 #
-############################################################
+###############################################################################
   - platform: speedtest
     minute: 30
     hour:
@@ -18,7 +18,7 @@
       - ping
       - download
       - upload
-
+#******************************************************************************
 # Sensore Broadlink A1 in bagno
   - platform: broadlink
     update_interval: 10
@@ -31,7 +31,7 @@
       - air_quality
       - light
       - noise
-
+#******************************************************************************
 # Sensore di temperatura del Broadklink RM Pro in salotto
   - platform: broadlink
     update_interval: 120
@@ -40,7 +40,7 @@
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
-
+#******************************************************************************
 # Sensore di temperatura del Broadklink RM Pro in camera
   - platform: broadlink
     update_interval: 120
@@ -49,7 +49,7 @@
     mac: '34:ea:34:d0:9f:5f'
     monitored_conditions:
       - temperature
-
+#******************************************************************************
 # Meteo Wundergroud
   - platform: wunderground
     api_key: !secret secret_wunderground_api_key
@@ -72,7 +72,7 @@
       - precip_1d_mm
       - wind_kph
       - wind_1d_kph
-
+#******************************************************************************
 # Traduzione in Presente/Assente del valore di movimento delle Android IP Webcam
   - platform: template
     sensors:
@@ -100,6 +100,7 @@
           {% else %}
             Assente
           {% endif %}
+#******************************************************************************
       temperatura_corretta_salotto:
         friendly_name: "Temperatura Salotto"
         unit_of_measurement: '°C'
@@ -134,6 +135,7 @@
       smartphonesalotto3:
         friendly_name: 'Tablet Salotto'
         value_template: "{{ 'Online' if is_state('device_tracker.smartphonesalotto3', 'home') else 'Offline' }}"
+#******************************************************************************
 # Meteo Darksky
   - platform: darksky
     api_key: !secret secret_darksky_api_key
@@ -158,6 +160,7 @@
       - minutely_summary
       - hourly_summary
       - daily_summary
+#******************************************************************************
 # Informazioni di sistema della Raspberry Pi
   - platform: systemmonitor
     resources:
@@ -171,5 +174,7 @@
         arg: eth0
       - type: network_out
         arg: eth0
+#******************************************************************************
 # Informazioni di sistema della Raspberry Pi
   - platform: dnsip
+#******************************************************************************
