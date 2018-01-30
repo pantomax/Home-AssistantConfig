@@ -4,6 +4,10 @@
 !includes
 !packages
 !hadaemon
+!dashboards
+!www
+!vl
+!voice
 !.gitignore
 !*.sh
 !*.dash

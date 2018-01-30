@@ -1,0 +1,84 @@
+title: Phone3
+widget_dimensions: [105, 105]
+widget_margins: [10, 8]
+columns: 3
+
+layout:
+    - sky_onoff, tv, tv_onoff
+    - hdmi1, hdmi2, hdmi3
+    - volumegiu, canalesu, volumesu
+    - pause, canalegiu, numeri
+    - include: bottom_panel_phone
+
+tv:
+    widget_type: switch
+    title: TV
+    icon_on: mdi-power
+    icon_off: mdi-power
+    entity: switch.tv
+tv_onoff:
+    widget_type: scene
+    title: TV
+    icon_on: mdi-television-classic
+    icon_off: mdi-television-classic
+    entity: switch.tv_power
+sky_onoff:
+    widget_type: scene
+    title: TV
+    icon_on: mdi-satellite-variant
+    icon_off: mdi-satellite-variant
+    entity: switch.sky_power
+hdmi1:
+    widget_type: scene
+    title: Hdmi 1
+    icon_on: mdi-numeric-1-box-outline
+    icon_off: mdi-numeric-1-box-outline
+    entity: switch.select_hdmi_1
+hdmi2:
+    widget_type: scene
+    title: Hdmi 2
+    icon_on: mdi-numeric-2-box-outline
+    icon_off: mdi-numeric-2-box-outline
+    entity: switch.select_hdmi_2
+hdmi3:
+    widget_type: scene
+    title: Hdmi 3
+    icon_on: mdi-numeric-3-box-outline
+    icon_off: mdi-numeric-3-box-outline
+    entity: switch.select_hdmi_3
+numeri:
+    widget_type: navigate
+    title: Numeri 
+    icon_inactive: mdi-dialpad
+    url: /Phone4
+pause:
+    widget_type: scene
+    title: Play/Pause
+    icon_on: mdi-play-pause
+    icon_off: mdi-play-pause
+    entity: switch.ok_esc
+canalesu:
+    widget_type: scene
+    title: Canale Su
+    icon_on: mdi-arrow-up-bold
+    icon_off: mdi-arrow-up-bold
+    entity: switch.canale_su
+canalegiu:
+    widget_type: scene
+    title: Canale Giù
+    icon_on: mdi-arrow-down-bold
+    icon_off: mdi-arrow-down-bold
+    entity: switch.canale_giu
+volumegiu:
+    widget_type: scene
+    title: Volume Giù
+    icon_on: mdi-minus-circle-outline
+    icon_off: mdi-minus-circle-outline
+    entity: switch.volume_giu
+volumesu:
+    widget_type: scene
+    title: Volume Su
+    icon_on: mdi-plus-circle-outline
+    icon_off: mdi-plus-circle-outline
+    entity: switch.volume_su
+
