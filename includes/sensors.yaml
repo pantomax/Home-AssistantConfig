@@ -73,6 +73,31 @@
       - wind_kph
       - wind_1d_kph
 #******************************************************************************
+# Meteo Darksky
+  - platform: darksky
+    api_key: !secret secret_darksky_api_key
+    update_interval: 300
+    monitored_conditions:
+      - summary
+      - icon
+      - nearest_storm_distance
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - apparent_temperature
+      - dew_point
+      - wind_speed
+      - wind_bearing
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility
+      - ozone
+      - minutely_summary
+      - hourly_summary
+      - daily_summary
+#******************************************************************************
 # Traduzione in Presente/Assente del valore di movimento delle Android IP Webcam
   - platform: template
     sensors:
@@ -135,31 +160,6 @@
       smartphonesalotto3:
         friendly_name: 'Tablet Salotto'
         value_template: "{{ 'Online' if is_state('device_tracker.smartphonesalotto3', 'home') else 'Offline' }}"
-#******************************************************************************
-# Meteo Darksky
-  - platform: darksky
-    api_key: !secret secret_darksky_api_key
-    update_interval: 300
-    monitored_conditions:
-      - summary
-      - icon
-      - nearest_storm_distance
-      - precip_type
-      - precip_intensity
-      - precip_probability
-      - temperature
-      - apparent_temperature
-      - dew_point
-      - wind_speed
-      - wind_bearing
-      - cloud_cover
-      - humidity
-      - pressure
-      - visibility
-      - ozone
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
 #******************************************************************************
 # Informazioni di sistema della Raspberry Pi
   - platform: systemmonitor
