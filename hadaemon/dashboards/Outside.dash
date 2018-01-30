@@ -13,30 +13,30 @@ layout:
 
 veronanord:
     widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy/camera.verona_nord?api_password=kilokilo
-    refresh: 120
-pegognaga:
-    widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy/camera.mantova_sud?api_password=kilokilo
+    entity_picture: secret veronanord_url
     refresh: 120
 nogarole:
     widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy/camera.nogarole?api_password=kilokilo
+    entity_picture: secret nogarole_url
+    refresh: 120
+pegognaga:
+    widget_type: camera
+    entity_picture: secret pegognaga_url
     refresh: 120
 reggiolo:
     widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy/camera.raggiolo?api_password=kilokilo
+    entity_picture: secret reggiolo_url
     refresh: 120
 campogalliano:
     widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy/camera.raccordo_a1?api_password=kilokilo
+    entity_picture: secret campogalliano_url
     refresh: 120
 meteocamera:
     widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy_stream/camera.meteo_infrarosso?api_password=kilokilo
+    entity_picture: !secret meteocamera_url
     refresh: 120
 meteogramma:
     widget_type: camera
-    entity_picture: https://maxhassio.duckdns.org/api/camera_proxy/camera.meteogramma?api_password=kilokilo
+    entity_picture: !secret meteogramma_url
     refresh: 120
 
