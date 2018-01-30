@@ -1,9 +1,9 @@
 ###############################################################################
 #
-# Customize
+#                                 CUSTOMIZE
 #
 ###############################################################################
-#********************************************GOOGLE****************************
+#**********************************GOOGLE**************************************
     light.tavolino:
       friendly_name: "Tavolino"
       icon: mdi:lamp
@@ -316,7 +316,7 @@
       aliases:
         - temperature near the server
         - entity s 71
-#********************************************SCENES****************************
+#*********************************SCENES***************************************
     scene.luci_sala_accese:
       friendly_name: "Luci Sala Accese"
       entity_picture: /local/lightbulbs.png
@@ -332,7 +332,7 @@
     scene.heater_off:
       friendly_name: "Spegni termoventilatore"
       icon: mdi:fire
-#********************************************DEVICE TRACKERS*******************
+#*****************************DEVICE TRACKERS**********************************
     device_tracker.a039f73be2c7:
       friendly_name: "Max"
       icon: mdi:account
@@ -342,7 +342,7 @@
     device_tracker.f823b2ea1ff1:
       friendly_name: "Mauro Lavoro"
       icon: mdi:account
-#********************************************VARIOUS***************************
+#*********************************VARIOUS**************************************
     switch.windows:
       friendly_name: "Pc Windows"
       icon: mdi:desktop-classic
@@ -358,7 +358,7 @@
       friendly_name: "Sole"
     switch.volume:
       icon: mdi:volume-high
-#********************************************SCENE*****************************
+#*********************************SCENE****************************************
     scene.luci_sala_spente:
       entity_picture: /local/lightsoff.png
     scene.sky_on:
@@ -367,7 +367,7 @@
     scene.sky_off:
       friendly_name: "Spegni Sky"
       icon: mdi:satellite-variant
-#********************************************SENSORI***************************
+#*********************************SENSORS**************************************
     sensor.movimento_cucina:
       friendly_name: "Movimento Cucina"
       icon: mdi:run-fast
@@ -476,7 +476,7 @@
     binary_sensor.luce_bagno:
       friendly_name: "Luce Bagno"
       icon: mdi:lightbulb-outline
-#********************************************AUTOMATIONS***********************
+#*********************************AUTOMATIONS**********************************
     automation.chromecast_in_stop:
       icon: mdi:stop
     automation.chromecast_in_partenza:
@@ -496,7 +496,7 @@
     script.ocean:
       friendly_name: "Ocean"
       entity_picture: /local/oceano.jpg
-#********************************************NABAZTAG**************************
+#*********************************NABAZTAG*************************************
     script.nabaztag_surprise:
       icon: mdi:emoticon-excited
     script.nabaztag_stop:
@@ -513,3 +513,4 @@
       icon: mdi:restore
     script.nabaztag_reboot:
       icon: mdi:refresh
+#******************************************************************************
