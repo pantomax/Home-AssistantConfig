@@ -1,0 +1,17 @@
+AppDaemon:
+  cert_verify: False
+  disable_apps: 0
+  app_dir: /config/hadaemon/apps
+  logfile: STDOUT
+  errorfile: STDERR
+  threads: 10
+  dash_url: http://192.168.1.100:5050
+  dash_dir: /config/hadaemon/dashboards
+  dash_ssl_certificate: !secret secret_dash_ssl_certificate
+  dash_ssl_key: !secret secret_dash_ssl_key
+HASS:
+  ha_url: http://192.168.1.100:8123
+  ha_key: !secret dash_password
+HADashboard:
+  dash_url: http://192.168.1.100
+  dash_compile_on_start: 1
