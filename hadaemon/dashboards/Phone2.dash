@@ -1,0 +1,90 @@
+title: Phone2
+widget_dimensions: [105, 105]
+widget_margins: [10, 8]
+columns: 3
+
+layout:
+    - inverno, foresta, oceano
+    - allarme_rosso, film, allarme_nero
+    - luci_sala_spente, buona_notte, luci_sala_accese
+    - skynews, skyuno, nhk
+    - include: bottom_panel_phone
+
+foresta:
+    widget_type: scene
+    title: Foresta
+    entity: scene.foresta
+    icon_on: mdi-pine-tree
+    icon_off: mdi-pine-tree
+inverno:
+    widget_type: scene
+    title: Inverno
+    entity: scene.inverno
+    icon_on: mdi-snowflake
+    icon_off: mdi-snowflake
+oceano:
+    widget_type: scene
+    title: Oceano
+    entity: scene.oceano
+    icon_on: mdi-sunglasses
+    icon_off: mdi-sunglasses
+allarme_rosso:
+    widget_type: scene
+    title: Allarme Rosso
+    entity: scene.red_alert
+    icon_on: mdi-alert-decagram
+    icon_off: mdi-alert-decagram
+
+allarme_nero:
+    widget_type: scene
+    title: Allarme Nero
+    entity: scene.black_alert
+    icon_on: mdi-alert-decagram
+    icon_off: mdi-alert-decagram
+film:
+    widget_type: scene
+    title: Film
+    entity: scene.buona_notte
+    icon_on: mdi-movie-roll
+    icon_off: mdi-movie-roll
+
+luci_sala_spente:
+    widget_type: scene
+    title: Luci Spente
+    entity: scene.luci_sala_spente
+    icon_on: mdi-lightbulb
+    icon_off: mdi-lightbulb
+
+buona_notte:
+    widget_type: scene
+    title: Spegni Casa
+    icon_on: mdi-sleep
+    icon_off: mdi-sleep
+    entity: scene.buona_notte
+
+luci_sala_accese:
+    widget_type: scene
+    title: Luci Accese
+    entity: scene.luci_sala_accese
+    icon_on: mdi-lightbulb-outline
+    icon_off: mdi-lightbulb-outline
+    entity: switch.volume_giu
+
+nhk:
+    widget_type: switch
+    title: Nhk
+    icon_on: fa-tv
+    icon_off: fa-tv
+    entity: scene.nhk
+skyuno:
+    widget_type: switch
+    title: Sky Uno
+    icon_on: fa-tv
+    icon_off: fa-tv
+    entity: scene.skyuno
+skynews:
+    widget_type: switch
+    title: Sky News
+    icon_on: fa-tv
+    icon_off: fa-tv
+    entity: scene.skynews
