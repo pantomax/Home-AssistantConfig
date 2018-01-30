@@ -327,6 +327,12 @@
       - input_number.bitcoin_previous_exchange_rate
       - sensor.exchange_rate_1_btc
       - input_number.bitcoin_value_difference
+  dhtsensor:
+    name: DHT Sensor
+    control: hidden
+    entities:
+      - sensor.dht_humidity
+      - sensor.dht_temperature
 ############################################################
 #
 # Tabs
@@ -348,6 +354,7 @@
       - group.led_strip_controller
       - group.s1c
       - history_graph.temperatura_salotto
+      - group.dhtsensor
   Tab_Cucina:
     icon: mdi:food
     name: Cucina
@@ -424,6 +431,7 @@
       - group.links
       - group.rf_receivers
       - group.bitcoin
+      - group.dhtsensor
   Tab_Cam:
     name: Webcam
     view: yes
