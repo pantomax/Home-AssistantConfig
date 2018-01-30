@@ -1,0 +1,42 @@
+garage_door_lock:
+    widget_type: lock
+    title: Garage Door
+    entity: lock.kwikset_touchpad_electronic_deadbolt_locked
+
+back_door_lock:
+    widget_type: lock
+    title: Back Door
+    entity: lock.kwikset_touchpad_electronic_deadbolt_locked_3
+    
+front_door_lock:
+    widget_type: lock
+    title: Front Door
+    entity: lock.kwikset_touchpad_electronic_deadbolt_locked_2
+
+front_door_status:
+    widget_type: binary_sensor
+    title: Front Door
+    entity: binary_sensor.front_door
+
+back_door_status:
+    widget_type: binary_sensor
+    title: Back Door
+    entity: binary_sensor.back_door
+
+garage_door_status:
+    widget_type: binary_sensor
+    title: Garage Door
+    entity: binary_sensor.garage_door
+
+megan_garage:
+    widget_type: cover
+    title: Garage Megan
+    entity: cover.megan_overhead_garage_door
+
+chris_garage:
+    widget_type: cover
+    title: Garage Chris
+    entity: cover.megan_overhead_garage_door
+
+layout: 
+    - front_door_lock, back_door_lock, garage_door_lock, megan_garage, chris_garage, garage_door_status, back_door_status, front_door_status

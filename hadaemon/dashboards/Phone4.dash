@@ -1,0 +1,131 @@
+title: Phone4
+widget_dimensions: [87, 92]
+widget_margins: [2, 3]
+columns: 4
+
+layout:
+    - registra, giallo, blu, demand-my
+    - uno, due, tre, su
+    - quattro, cinque, sei, giu
+    - sette, otto, nove, sinistra
+    - ok, zero, esc, destra
+    - include: bottom_panel_phone
+tv:
+    widget_type: switch
+    title: TV
+    icon_on: mdi-power
+    icon_off: mdi-power
+    entity: switch.tv_power
+tv_onoff:
+    widget_type: scene
+    title: TV
+    icon_on: mdi-television-classic
+    icon_off: mdi-television-classic
+    entity: switch.tv_power
+
+zero:
+    widget_type: scene
+    icon_on: mdi-numeric-0-box
+    icon_off: mdi-numeric-0-box
+    entity: switch.canale_0
+uno:
+    widget_type: scene
+    icon_on: mdi-numeric-1-box
+    icon_off: mdi-numeric-1-box
+    entity: switch.canale_1
+due:
+    widget_type: scene
+    icon_on: mdi-numeric-2-box
+    icon_off: mdi-numeric-2-box
+    entity: switch.canale_2
+tre:
+    widget_type: scene
+    icon_on: mdi-numeric-3-box
+    icon_off: mdi-numeric-3-box
+    entity: switch.canale_3
+quattro:
+    widget_type: scene
+    icon_on: mdi-numeric-4-box
+    icon_off: mdi-numeric-4-box
+    entity: switch.canale_4
+cinque:
+    widget_type: scene
+    icon_on: mdi-numeric-5-box
+    icon_off: mdi-numeric-5-box
+    entity: switch.canale_5
+sei:
+    widget_type: scene
+    icon_on: mdi-numeric-6-box
+    icon_off: mdi-numeric-6-box
+    entity: switch.canale_6
+sette:
+    widget_type: scene
+    icon_on: mdi-numeric-7-box
+    icon_off: mdi-numeric-7-box
+    entity: switch.canale_7
+otto:
+    widget_type: scene
+    icon_on: mdi-numeric-8-box
+    icon_off: mdi-numeric-8-box
+    entity: switch.canale_8
+nove:
+    widget_type: scene
+    icon_on: mdi-numeric-9-box
+    icon_off: mdi-numeric-9-box
+    entity: switch.canale_9
+su:
+    widget_type: scene
+    icon_on: mdi-arrow-up-bold
+    icon_off: mdi-arrow-up-bold
+    entity: switch.canale_9
+giu:
+    widget_type: scene
+    icon_on: mdi-arrow-down-bold
+    icon_off: mdi-arrow-down-bold
+    entity: switch.canale_9
+sinistra:
+    widget_type: scene
+    icon_on: mdi-arrow-left-bold
+    icon_off: mdi-arrow-left-bold
+    entity: switch.canale_9
+destra:
+    widget_type: scene
+    icon_on: mdi-arrow-right-bold
+    icon_off: mdi-arrow-right-bold
+    entity: switch.canale_9
+ok:
+    widget_type: scene
+    title: ok
+    icon_on: mdi-checkbox-marked
+    icon_off: mdi-checkbox-marked
+    entity: switch.canale_9
+esc:
+    widget_type: scene
+    title: esc
+    icon_on: mdi-close-box
+    icon_off: mdi-close-box
+    entity: switch.canale_9
+registra:
+    widget_type: scene
+    title: Rec
+    icon_on: mdi-record-rec
+    icon_off: mdi-record-rec
+    entity: switch.canale_9
+giallo:
+    widget_type: scene
+    title: Giallo
+    icon_on: mdi-record
+    icon_off: mdi-record
+    entity: switch.canale_9
+blu:
+    widget_type: scene
+    title: Blu
+    icon_on: mdi-record
+    icon_off: mdi-record
+    entity: switch.canale_9
+demand-my:
+    widget_type: scene
+    title: MySky
+    icon_on: mdi-play-circle
+    icon_off: mdi-play-circle
+    entity: switch.canale_9

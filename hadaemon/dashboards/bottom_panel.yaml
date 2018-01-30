@@ -1,0 +1,53 @@
+load_principale:
+    widget_type: navigate
+    title: Home
+    icon_inactive: fa-home
+    url: /Home
+    #background_color: "#00f"
+    #icon_color: green
+    #icon_size: 200%
+    #title_color: red
+    #title_size: 200%
+
+load_salotto:
+    widget_type: navigate
+    title: Salotto
+    icon_inactive: mdi-sofa
+    url: /Office
+
+load_cucina:
+    widget_type: navigate
+    title: Cucina
+    icon_inactive: mdi-coffee
+    url: /Main
+
+load_bagno:
+    widget_type: navigate
+    title: Bagno
+    icon_inactive: mdi-tshirt-crew
+    url: /Laundry
+
+load_camera:
+    widget_type: navigate
+    title: Camera
+    icon_inactive: fa-bed
+    url: /Bedrooms
+
+load_sensori:
+    widget_type: navigate
+    title: Sensori
+    icon_inactive: fa-lock
+    url: /Doors
+
+load_webcams:
+    widget_type: navigate
+    title: Webcams
+    icon_inactive: mdi-cctv
+    url: /Outside
+
+reload:
+    widget_type: reload
+    title: Reload
+    
+layout: 
+    - load_principale, load_salotto, load_cucina, load_bagno, load_camera, load_webcams, reload
