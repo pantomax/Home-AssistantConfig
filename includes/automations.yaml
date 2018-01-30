@@ -19,7 +19,6 @@
         data:
           message: "E' saltata la luce."
 #dopo tot minuti spegnere hassio
-# restart HA to keep it fresh
 #******************************************************************************
   - alias: "Restart HA during the weekdays"
     trigger: 

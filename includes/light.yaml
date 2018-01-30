@@ -1,9 +1,9 @@
-############################################################
+###############################################################################
 #
-# Lights
+#                                  LIGHT
 #
-############################################################
-#************************ SALOTTO ************************
+###############################################################################
+#*********************************SALOTTO**************************************
   - platform: flux_led
     devices:
       192.168.1.103:
@@ -87,7 +87,7 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.insettivoro
-#************************ CUCINA ************************
+#*********************************CUCINA***************************************
   - platform: template
     lights:
       light_kitchen:
@@ -110,7 +110,7 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.cucina_2
-#************************ CORRIDOIO ************************
+#*********************************CORRIDOIO************************************
   - platform: template
     lights:
       corridoio_porta:
@@ -133,7 +133,7 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.corridoio_bagno
-#************************ CAMERA DA LETTO ************************
+#*********************************CAMERA DA LETTO *****************************
   - platform: template
     lights:
       camera:
@@ -145,7 +145,7 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.camera
-#************************ BAGNO ************************
+#*********************************BAGNO****************************************
   - platform: template
     lights:
       bagno:
@@ -157,7 +157,7 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.bagno
-#************************ GIARDINO ************************
+#*********************************GIARDINO*************************************
   - platform: template
     lights:
       giardino:
@@ -169,3 +169,4 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.giardino
+#******************************************************************************
