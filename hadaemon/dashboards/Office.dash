@@ -1,0 +1,35 @@
+title: Study
+widget_dimensions: [122, 120]
+widget_margins: [5, 5]
+columns: 8
+
+layout:
+    - study_window(2x1), spacer(6x1)
+    - study_cans, study_overhead, spacer(6x1)
+    - spacer(8x1)
+    - spacer(8x1)
+    - spacer(8x1)
+    - include: bottom_panel
+
+study_window:
+    widget_type: binary_sensor
+    title: Office Window
+    entity: binary_sensor.study_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+study_cans:
+    widget_type: light
+    title: Study Cans
+    entity: light.ge_12724_3way_dimmer_switch_level
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    on_attributes:
+        brightness: 100
+
+study_overhead:
+    widget_type: switch
+    title: Study Overhead
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: switch.ge_14291_inwall_smart_switch_switch  
