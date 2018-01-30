@@ -4,3 +4,9 @@ git add -A && git commit -m "nabaz sh"
 copia un branch in master
 git push origin master2:master
 
+Rimozione dati sensibili:
+git clone --mirror https://github.com/pantomax/Home-AssistantConfig.git
+./bfg-1.12.16.jar --replace-text passwords.txt  Home-AssistantConfig.git/
+cd ./Home-AssistantConfig.git
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+git push
