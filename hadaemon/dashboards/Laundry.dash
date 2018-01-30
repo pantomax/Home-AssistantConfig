@@ -1,0 +1,153 @@
+title: Laundry
+widget_dimensions: [122, 120]
+widget_margins: [13, 10]
+columns: 8
+
+layout:
+    - luce_bagno, laundry_overhead_switch, clock(2x1), laundry_humidity,  power_manuale, ecocomfort_manuale 
+    - luce_cucina, buona_notte, power_termostato, temperatura_impostata_termostato, laundry_temp, piu_manuale, meno_manuale
+    - radio_successiva, radio_spenta, spegni_timer, tempo_impostato_termostato, tempo_rimanenente, timer_manuale, basculante_manuale
+    - include: bottom_panel
+
+clock:
+    widget_type: clock
+
+laundry_humidity:
+    widget_type: gauge
+    title: Umidità
+    units: "%"
+    max: 100
+    min: 0
+    entity: sensor.sensore_humidity
+
+laundry_temp:
+    widget_type: sensor
+    title: Temperatura Attuale
+    units: "&deg;C"
+    entity: sensor.sensore_temperature
+
+laundry_lux:
+    widget_type: sensor
+    title: Lux
+    entity: sensor.sensore_light
+
+luce_bagno:
+    widget_type: binary_sensor
+    title: Luce Bagno
+    entity: binary_sensor.luce_bagno
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+
+laundry_overhead_switch:
+    widget_type: switch
+    title: Luce Corridoio
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: group.luci_corridoio_e_bagno
+
+luce_cucina:
+    widget_type: switch
+    title: Luce Cucina
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.light_kitchen
+
+radio_successiva:
+    widget_type: scene
+    title: Radio Successiva
+    icon_on: mdi-music
+    icon_off: mdi-music
+    entity: scene.radio_successiva
+
+radio_spenta:
+    widget_type: scene
+    title: Radio Spenta
+    icon_on: mdi-music-off
+    icon_off: mdi-music-off
+    entity: scene.spegni_musica
+
+power_manuale:
+    widget_type: switch
+    title: Power(M)
+    icon_on: mdi-power
+    icon_off: mdi-power
+    entity: switch.power
+
+ecocomfort_manuale:
+    widget_type: switch
+    title: Eco/Comfort(M)
+    icon_on: mdi-leaf
+    icon_off: mdi-leaf
+    entity: switch.ecocomfort
+
+timer_manuale:
+    widget_type: switch
+    title: Timer(M)
+    icon_on: mdi-timer
+    icon_off: mdi-timer
+    entity: switch.timer
+
+basculante_manuale:
+    widget_type: switch
+    title: Basculante(M)
+    icon_on: mdi-stackoverflow
+    icon_off: mdi-stackoverflow
+    entity: switch.basculante
+
+piu_manuale:
+    widget_type: switch
+    title: Più(M)
+    icon_on: mdi-plus-circle-outline
+    icon_off: mdi-plus-circle-outline
+    entity: switch.piu
+
+canc_manuale:
+    widget_type: switch
+    title: Canc(M)
+    icon_on: mdi-cancel
+    icon_off: mdi-cancel
+    entity: switch.canc
+
+meno_manuale:
+    widget_type: switch
+    title: Meno(M)
+    icon_on: mdi-minus-circle-outline
+    icon_off: mdi-minus-circle-outline
+    entity: switch.meno
+
+power_termostato:
+    widget_type: switch
+    title: Termoventilatore
+    icon_on: mdi-power
+    icon_off: mdi-power
+    entity: switch.accendi_termostato_dashboard_bagno
+
+spegni_timer:
+    widget_type: switch
+    title: Spegni Timer
+    icon_on: mdi-timer
+    icon_off: mdi-timer
+    entity: switch.spegni_timer_dashboard_bagno
+
+temperatura_impostata_termostato:
+    widget_type: input_number
+    title: Temperatura Desiderata
+    entity: input_number.termostato_bagno_target_temp
+
+tempo_rimanenente:
+    widget_type: sensor
+    title: Tempo Rimanente
+    units: "min"
+    entity: sensor.countdown_bagno_minutes
+
+tempo_impostato_termostato:
+    widget_type: input_number
+    title: Tempo Impostato
+    entity: input_number.termostato_bagno_timer
+
+buona_notte:
+    widget_type: scene
+    title: Spegni Casa
+    icon_on: mdi-sleep
+    icon_off: mdi-sleep
+    entity: scene.buona_notte
