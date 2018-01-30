@@ -1,0 +1,102 @@
+title: Doors and Locks
+widget_dimensions: [122, 120]
+widget_margins: [5, 5]
+columns: 8
+
+layout:
+    - office_window, guest_window, child_window, master_bathroom_window, master_bedroom_window
+    - front_window_one, front_window_two, front_right_window, back_right_window, back_window_one, back_window_two, back_window_three,kitchen_sink_window
+    - spacer(8x1)
+    - include: locks
+    - include: bottom_panel
+
+kitchen_sink_window:
+    widget_type: binary_sensor
+    title: Kitchen Sink Window
+    entity: binary_sensor.kitchen_sink_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+office_window:
+    widget_type: binary_sensor
+    title: Office Window
+    entity: binary_sensor.study_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+guest_window:
+    widget_type: binary_sensor
+    title: Guest Window
+    entity: binary_sensor.guest_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+child_window:
+    widget_type: binary_sensor
+    title: Child Window
+    entity: binary_sensor.child_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+front_window_one:
+    widget_type: binary_sensor
+    title: Front Window One
+    entity: binary_sensor.front_window_one
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+front_window_two:
+    widget_type: binary_sensor
+    title: Front Window Two
+    entity: binary_sensor.front_window_two
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+front_right_window:
+    widget_type: binary_sensor
+    title: Front Right Window
+    entity: binary_sensor.front_right_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+back_right_window:
+    widget_type: binary_sensor
+    title: Back Right Window
+    entity: binary_sensor.back_right_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+back_window_one:
+    widget_type: binary_sensor
+    title: Back Window 1
+    entity: binary_sensor.back_window_one
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+back_window_two:
+    widget_type: binary_sensor
+    title: Back Window 2
+    entity: binary_sensor.back_window_two
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+back_window_three:
+    widget_type: binary_sensor
+    title: Back Window 3
+    entity: binary_sensor.back_window_three
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+master_bathroom_window:
+    widget_type: binary_sensor
+    title: Master Bathroom Window
+    entity: binary_sensor.master_bathroom_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
+
+master_bedroom_window:
+    widget_type: binary_sensor
+    title: Master Bedroom Window
+    entity: binary_sensor.master_bedroom_window
+    icon_on: mdi-window-open
+    icon_off: mdi-window-closed
