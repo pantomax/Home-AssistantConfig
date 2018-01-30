@@ -3,7 +3,7 @@
       url: http://192.168.1.254/
       icon: mdi:router-wireless
     - name: Router da fuori
-      url: https://2.234.144.242:***REMOVED***/login.lp
+      url: !secret router_url
       icon: mdi:router-wireless
     - name: Home Assistant
       url: https://home-assistant.io
