@@ -1,9 +1,9 @@
-####################################################################################
+###############################################################################
 #
 # Automation
 #
-####################################################################################
-  - alias: 'Spegne il pc in caso salti la luce e manda una notifica'
+###############################################################################
+  - alias: "Spegne il pc in caso salti la luce e manda una notifica"
     trigger:
       - platform: state
         entity_id: binary_sensor.zidoo
@@ -20,7 +20,8 @@
           message: "E' saltata la luce."
 #dopo tot minuti spegnere hassio
 # restart HA to keep it fresh
-  - alias: Restart HA
+#******************************************************************************
+  - alias: "Restart HA during the weekdays"
     trigger: 
       platform: time
       at: "16:30:00"
@@ -37,7 +38,8 @@
         data:
           message: "Home Assistant in riavvio automatico giornaliero."
       - service: homeassistant.restart
-  - alias: Restart HA Weekend
+#******************************************************************************
+  - alias: "Restart HA during the weekend"
     trigger: 
       platform: time
       at: "08:00:00"
@@ -89,8 +91,8 @@
         data:
           visible: False
       - service: google_assistant.request_sync
-#***********************************************************************************
-  - alias: Shutdown/Reboot Notification
+#******************************************************************************
+  - alias: "Shutdown/Reboot Notification"
     trigger:
       - platform: homeassistant
         event: shutdown
@@ -102,8 +104,8 @@
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off.mp3"
-#***********************************************************************************
-  - alias: Togli Visibilita Gruppo Webcam
+#******************************************************************************
+  - alias: "Togli Visibilita Gruppo Webcam"
     trigger:
       - platform: homeassistant
         event: start
@@ -116,8 +118,8 @@
       data:
         addon: local_audio_player
         input: "http://192.168.1.100:8123/local/tos-redalert.wav"
-#***********************************************************************************
-  - alias: Cambia Visibilita Gruppo Webcam
+#******************************************************************************
+  - alias: "Cambia Visibilita Gruppo Webcam"
     trigger:
     - platform: state
       entity_id: input_number.visibilita_gruppo
@@ -131,8 +133,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Telecomando Condizionatori
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando Condizionatori"
     trigger:
     - platform: state
       entity_id: input_boolean.telecomando_visibile
@@ -146,8 +148,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Telecomando Termoventilatore
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando Termoventilatore"
     trigger:
     - platform: state
       entity_id: input_boolean.visualizza_telecomando_termoventilatore
@@ -161,8 +163,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Telecomando MEDIA
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando MEDIA"
     trigger:
     - platform: state
       entity_id: input_boolean.visualizza_telecomando_tv
@@ -176,8 +178,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Telecomando Radio
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando Radio"
     trigger:
     - platform: state
       entity_id: input_boolean.visualizza_telecomando_radio
@@ -191,8 +193,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Telecomando TV
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando TV"
     trigger:
     - platform: state
       entity_id: input_boolean.visualizza_telecomando_televisione
@@ -206,8 +208,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Tastierino SKY
+#******************************************************************************
+  - alias: "Cambia Visibilita Tastierino SKY"
     trigger:
     - platform: state
       entity_id: input_boolean.visualizza_tastierino_sky
@@ -221,8 +223,8 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
-  - alias: Cambia Visibilita Telecomando SKY
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando SKY"
     trigger:
     - platform: state
       entity_id: input_boolean.visualizza_telecomando_sky
@@ -236,7 +238,7 @@
           {% else %}
             False
           {% endif %}
-#***********************************************************************************
+#******************************************************************************
   - alias: "Notify I am home"
     trigger:
     - platform: state
@@ -253,8 +255,8 @@
               title: "Luce cucina"
             - action: "button2"
               title: "Luci cucina e salotto"
-#***********************************************************************************
-  - alias: HTML5 push notification action button clicked
+#******************************************************************************
+  - alias: "HTML5 push notification action button clicked"
     trigger:
     - platform: event
       event_type: html5_notification.clicked
@@ -266,8 +268,8 @@
       data_template:
         entity_id: >
          {{ trigger.event.data.data["entityName"] }}
-
-  - alias: HTML5 push notification action button clicked Turn on lights
+#******************************************************************************
+  - alias: "HTML5 push notification action button clicked Turn on lights"
     trigger:
       platform: event
       event_type: html5_notification.clicked
@@ -276,7 +278,8 @@
     action:
       - service: light.turn_on
         entity_id: group.kitchen
-  - alias: HTML5 push notification action button clicked Turn on lights 2
+#******************************************************************************
+  - alias: "HTML5 push notification action button clicked Turn on lights 2"
     trigger:
       platform: event
       event_type: html5_notification.clicked
@@ -287,4 +290,4 @@
         entity_id: group.kitchen
       - service: light.turn_on
         entity_id: group.living_room
-        
+#******************************************************************************        
