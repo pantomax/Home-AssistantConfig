@@ -12,17 +12,7 @@
       - battery_voltage
       - light
       - motion
-#    switches:
-#      - exposure_lock
-#      - ffc
-#      - focus
-#      - gps_active
-#      - night_vision
-#      - overlay
-#      - torch
-#      - whitebalance_lock
-#      - video_recording
-#-----------------------------------------------------------
+#***********************************************************************************
   - name: 'Bagno'
     username: !secret cam_user
     password: !secret cam_password
@@ -32,17 +22,7 @@
       - battery_voltage
       - light
       - motion
-#-----------------------------------------------------------
-#  - name: 'Salotto'
-#    username: !secret cam_user
-#    password: !secret cam_password
-#    host: 192.168.1.94
-#    scan_interval: 10
-#    sensors:
-#      - battery_voltage
-#      - light
-#      - motion
-#-----------------------------------------------------------
+#******************************************************************************
   - name: 'Salotto 2'
     username: !secret cam_user
     password: !secret cam_password
@@ -53,7 +33,7 @@
       - battery_voltage
       - light
       - motion
-#-----------------------------------------------------------
+#******************************************************************************
   - name: 'Salotto 3'
     username: !secret cam_user
     password: !secret cam_password
@@ -63,7 +43,7 @@
       - battery_voltage
       - light
       - motion
-#-----------------------------------------------------------
+#******************************************************************************
   - name: 'Camera da letto'
     username: !secret cam_user
     password: !secret cam_password
@@ -75,3 +55,4 @@
       - motion
       - battery_temp
       - pressure
+#******************************************************************************
