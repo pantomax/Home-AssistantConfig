@@ -3,9 +3,9 @@
 #                              MANUAL THERMOSTAT
 #
 ###############################################################################
-#*****************************************************
+#------------------------------------------------------------------------------
 group:
-#*****************************************************
+#------------------------------------------------------------------------------
   airconditioner:
     name: Impianto Condizionamento
     entities:
@@ -18,7 +18,7 @@ group:
       - sensor.temperatura_corretta_salotto_per_termostato_manuale
       - sensor.temperatura_corretta_camera_per_termostato_manuale
       - input_boolean.telecomando_visibile
-#*****************************************************
+
   provacondizionatore:
     name: pulsanti ac 
     entities:
@@ -61,9 +61,9 @@ group:
       - switch.salotto_deumidifica_auto_fisso_28
       - switch.salotto_deumidifica_auto_fisso_29
       - switch.salotto_deumidifica_auto_fisso_30
-#*****************************************************
+#------------------------------------------------------------------------------
 input_select:
-#*****************************************************
+#------------------------------------------------------------------------------
   select_splitter:
     name: Condizionatore
     options:
@@ -71,7 +71,6 @@ input_select:
       - CAMERA
     initial: SALOTTO
     icon: mdi:air-conditioner
-#*****************************************************
   ac_operation_mode:
     name: Operating Mode
     options:
@@ -83,7 +82,6 @@ input_select:
       - Spento
     initial: Spento
     icon: mdi:settings
-#*****************************************************
   ac_fan_mode:
     name: Fan Mode
     options:
@@ -94,7 +92,6 @@ input_select:
       - TURBO
     initial: AUTO
     icon: mdi:fan
-#*****************************************************
   ac_swing_mode:
     name: Swing Mode
     options:
@@ -102,25 +99,25 @@ input_select:
      - VERTICALE
     initial: FISSO
     icon: mdi:arrow-expand
-#*****************************************************
+#------------------------------------------------------------------------------
 input_number:
-#*****************************************************
+#------------------------------------------------------------------------------
   ac_target_temp:
     name: Imposta Temp
     min: 16
     max: 30
     step: 1
     initial: 21
-#*****************************************************
+#------------------------------------------------------------------------------
 input_boolean:
-#*****************************************************
+#------------------------------------------------------------------------------
   telecomando_visibile:
     name: Condizionatori
     initial: off
     icon: mdi:air-conditioner
-#*****************************************************
+#------------------------------------------------------------------------------
 intent_script:
-#*****************************************************
+#------------------------------------------------------------------------------
   TurnACOnOff:
     speech:
       text: Turning the {{ Stanze }} air conditioner {{ OnOff }}
@@ -133,9 +130,9 @@ intent_script:
               {%- else -%}
                 switch.{{ Stanze }}_off
               {%- endif -%}
-#*****************************************************
+#------------------------------------------------------------------------------
 sensor:
-#*****************************************************
+#------------------------------------------------------------------------------
 # Termostato Manuale Impianto di condizionamento
   - platform: template
     sensors:
@@ -149,7 +146,7 @@ sensor:
         friendly_name: 'Target Temperature'
         value_template: '{{ states.input_number.ac_target_temp.state | int }}'
         unit_of_measurement: '°C'
-#*****************************************************
+
   - platform: broadlink
     update_interval: 120
     name: Temperatura Salotto per termostato manuale
@@ -157,7 +154,7 @@ sensor:
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
-#*****************************************************
+
   - platform: broadlink
     update_interval: 120
     name: Temperatura Bagno per termostato manuale
@@ -165,7 +162,7 @@ sensor:
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
-#*****************************************************
+
   - platform: broadlink
     update_interval: 120
     name: Temperatura Camera per termostato manuale
@@ -173,30 +170,30 @@ sensor:
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
-#*****************************************************
+
   - platform: template
     sensors:
       temperatura_corretta_salotto_per_termostato_manuale:
         friendly_name: "Temperatura Salotto"
         unit_of_measurement: '°C'
         value_template: "{{ states('sensor.temperatura_salotto_per_termostato_manuale_temperature')|float - 2 }}"
-#*****************************************************
+
   - platform: template
     sensors:
       temperatura_corretta_bagno_per_termostato_manuale:
         friendly_name: "Temperatura Bagno"
         unit_of_measurement: '°C'
         value_template: "{{ states('sensor.temperatura_bagno_per_termostato__manuale_temperature')|float - 2 }}"
-#*****************************************************
+
   - platform: template
     sensors:
       temperatura_corretta_camera_per_termostato_manuale:
         friendly_name: "Temperatura Camera"
         unit_of_measurement: '°C'
         value_template: "{{ states('sensor.temperatura_camera_per_termostato_manuale_temperature')|float - 2 }}"
-#*****************************************************
+#------------------------------------------------------------------------------
 automation:
-#*****************************************************
+#------------------------------------------------------------------------------
   - alias: Cambia Velocità Condizionatore
     trigger:
     - platform: state
@@ -206,7 +203,7 @@ automation:
       data_template:
         entity_id: >
               switch.{{ states.sensor.ac_setting_fan.state }}
-#*****************************************************
+#******************************************************************************
   - alias: Cambia modalità Condizionatore
     trigger:
     - platform: state
@@ -216,7 +213,7 @@ automation:
       data_template:
         entity_id: >
               switch.{{ states.sensor.ac_setting_cool.state }}
-#*****************************************************
+#******************************************************************************
   - alias: Spegni Condizionatore
     trigger:
     - platform: state
@@ -227,4 +224,4 @@ automation:
       data_template:
         entity_id: >
             switch.{{ states.input_select.select_splitter.state }}_off
-#*****************************************************
+#******************************************************************************

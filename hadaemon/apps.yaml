@@ -1,0 +1,14 @@
+hello_world:
+  module: hello
+  class: HelloWorld
+home:
+  module: Home
+  class: HelloWorld
+  
+laundry:
+  module: Laundry
+  class: HelloWorld
+  
+principale:
+  module: Principale
+  class: HelloWorld

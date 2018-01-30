@@ -1,26 +1,26 @@
-############################################################
+###############################################################################
 #
-# Musica in bagno quando si accende la luce
+#                 MUSIC IN THE BATHROOM WHEN THE LIGHT COMES UP
 #
-############################################################
+###############################################################################
+#------------------------------------------------------------------------------
 scene:
+#------------------------------------------------------------------------------
   - name: Spegni Musica 
     entities:
       script.arresta_musica_con_dash_button: on
-#******************************************************************************
   - name: Radio Successiva
     entities:
       script.radio_successiva_con_dash_button: on
-#******************************************************************************
   - name: Spegni Musica Cucina
     entities:
       script.arresta_musica_con_dash_button_cucina: on
-#******************************************************************************
   - name: Radio Successiva Cucina
     entities:
       script.radio_successiva_con_dash_button_cucina: on
-#******************************************************************************
+#------------------------------------------------------------------------------
 sensor:
+#------------------------------------------------------------------------------
   - platform: template
     sensors:
       luce_accesa_bagno:
@@ -31,7 +31,9 @@ sensor:
           {% else %}
             Spenta
           {% endif %}
+#------------------------------------------------------------------------------
 input_number:
+#------------------------------------------------------------------------------
   numero_radio:
     name: numero_radio
     min: 1
@@ -44,16 +46,16 @@ input_number:
     max: 5
     step: 1
     initial: 1
-#***********************************************************************************
+#------------------------------------------------------------------------------
 script:
-#***********************************************************************************
+#------------------------------------------------------------------------------
   arresta_musica_con_dash_button:
     alias: Arresta Musica con Dash Button
     sequence:
       - service: media_player.turn_off
         data:
           entity_id: media_player.bathroom
-#***********************************************************************************
+#******************************************************************************
   radio_successiva_con_dash_button:
     alias: Radio Successiva con Dash Button
     sequence:
@@ -79,14 +81,14 @@ script:
       data_template:
         entity_id: input_number.numero_radio
         value: '{{ states.input_number.numero_radio.state | int + 1.0 }}'
-#***********************************************************************************#***********************************************************************************
+#******************************************************************************
   arresta_musica_con_dash_button_cucina:
     alias: Arresta Musica con Dash Button Cucina
     sequence:
       - service: media_player.turn_off
         data:
           entity_id: media_player.kitchen
-#***********************************************************************************
+#******************************************************************************
   radio_successiva_con_dash_button_cucina:
     alias: Radio Successiva con Dash Button Cucina
     sequence:
@@ -112,9 +114,9 @@ script:
       data_template:
         entity_id: input_number.numero_radio_cucina
         value: '{{ states.input_number.numero_radio_cucina.state | int + 1.0 }}'
-#***********************************************************************************
+#------------------------------------------------------------------------------
 automation:
-#***********************************************************************************
+#------------------------------------------------------------------------------
 #  - alias: Lancia musica se viene accesa la luce
 #    trigger:
 #    - platform: state
@@ -137,7 +139,7 @@ automation:
 #      data_template:
 #        entity_id: input_number.numero_radio
 #        value: '2.0'
-##***********************************************************************************
+#******************************************************************************
 #  - alias: Ferma musica se viene spenta la luce
 #    trigger:
 #    - platform: state
@@ -151,7 +153,7 @@ automation:
 #      data_template:
 #        entity_id: input_number.numero_radio
 #        value: '1.0'
-#***********************************************************************************
+#******************************************************************************
   - alias: Resetta numero radio
     trigger:
     - platform: state
@@ -162,3 +164,4 @@ automation:
       data_template:
         entity_id: input_number.numero_radio
         value: '1.0'
+#******************************************************************************

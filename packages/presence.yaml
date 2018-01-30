@@ -1,13 +1,11 @@
-############################################################
+###############################################################################
 #
-# Automazioni legate alla presenza
+#                           DEVICE TRACKERS AUTOMATIONS
 #
-############################################################
-#*******************************************************************************
-#*******************************************************************************
+###############################################################################
+#------------------------------------------------------------------------------
 binary_sensor:
-#*******************************************************************************
-#*******************************************************************************
+#------------------------------------------------------------------------------
   - platform: template
     sensors:
       mauro:
@@ -34,7 +32,9 @@ binary_sensor:
              or is_state('device_tracker.28c671063a1f', 'home')
              or is_state('device_tracker.maxpersonale', 'home')
              or is_state('device_tracker.maxlavoro', 'home') }}
+#------------------------------------------------------------------------------
 input_boolean:
+#------------------------------------------------------------------------------
   mxhome:
     name: Mx
     initial: off
@@ -43,8 +43,9 @@ input_boolean:
     name: Mu
     initial: off
     icon: mdi:account
-
+#------------------------------------------------------------------------------
 automation:
+#------------------------------------------------------------------------------
   - alias: Max Away
     trigger:
       - platform: state
@@ -59,7 +60,7 @@ automation:
     action:
         service: homeassistant.turn_off
         entity_id: input_boolean.mxhome
-#***********************************************************************************
+#******************************************************************************
   - alias: Max Home
     trigger:
       - platform: state
@@ -72,7 +73,7 @@ automation:
     action:
         service: homeassistant.turn_on
         entity_id: input_boolean.mxhome
-#***********************************************************************************
+#******************************************************************************
   - alias: Mauro Away
     trigger:
       - platform: state
@@ -87,7 +88,7 @@ automation:
     action:
         service: homeassistant.turn_off
         entity_id: input_boolean.muhome
-#***********************************************************************************
+#******************************************************************************
   - alias: Mauro Home
     trigger:
       - platform: state
@@ -100,7 +101,7 @@ automation:
     action:
         service: homeassistant.turn_on
         entity_id: input_boolean.muhome
-#***********************************************************************************
+#******************************************************************************
 #  - alias: Arriving home Max
 #    trigger:
 #      - platform: state
@@ -118,7 +119,7 @@ automation:
 #    action:
 #        service: switch.turn_on
 #        entity_id: switch.light_kitchen
-#***********************************************************************************
+#******************************************************************************
 #  - alias: Arriving home Max - Welcome
 #    trigger:
 #      - platform: state
@@ -129,7 +130,7 @@ automation:
 #    action:
 #        service: script.turn_on
 #        entity_id: script.welcome_home
-#***********************************************************************************
+#******************************************************************************
 #  - alias: Arriving home Mauro
 #    trigger:
 #      - platform: state
@@ -147,7 +148,7 @@ automation:
 #    action:
 #        service: switch.turn_on
 #        entity_id: switch.light_kitchen
-#***********************************************************************************
+#******************************************************************************
 #  - alias: Leaving home Max
 #    trigger:
 #      - platform: state
@@ -160,7 +161,7 @@ automation:
 #    action:
 #        service: scene.turn_on
 #        entity_id: scene.buona_notte
-#***********************************************************************************
+#******************************************************************************
 #  - alias: Leaving home Mauro
 #    trigger:
 #      - platform: state
@@ -173,7 +174,7 @@ automation:
 #    action:
 #        service: scene.turn_on
 #        entity_id: scene.buona_notte
-#***********************************************************************************
+#******************************************************************************
   - alias: Mu at Home Ringer
     trigger:
       - platform: state
@@ -188,7 +189,7 @@ automation:
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/tng-doorbell.wav"
-
+#******************************************************************************
   - alias: Mu at Home Notification
     trigger:
       - platform: state
@@ -197,8 +198,7 @@ automation:
     action:
       - service: ifttt.trigger
         data: {"event":"TestHA_Trigger", "value1":"M@Home"}
-
-#***********************************************************************************
+#******************************************************************************
   - alias: Pc Acceso
     trigger:
       - platform: state
@@ -207,4 +207,4 @@ automation:
     action:
         service: ifttt.trigger
         data: {"event":"TestHA_Trigger", "value1":"Il pc è stato avviato"}
-#***********************************************************************************
+#******************************************************************************
