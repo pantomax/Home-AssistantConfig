@@ -13,23 +13,23 @@ layout:
 
 veronanord:
     widget_type: camera
-    entity_picture: secret veronanord_url
+    entity_picture: !secret veronanord_url
     refresh: 120
 nogarole:
     widget_type: camera
-    entity_picture: secret nogarole_url
+    entity_picture: !secret nogarole_url
     refresh: 120
 pegognaga:
     widget_type: camera
-    entity_picture: secret pegognaga_url
+    entity_picture: !secret pegognaga_url
     refresh: 120
 reggiolo:
     widget_type: camera
-    entity_picture: secret reggiolo_url
+    entity_picture: !secret reggiolo_url
     refresh: 120
 campogalliano:
     widget_type: camera
-    entity_picture: secret campogalliano_url
+    entity_picture: !secret campogalliano_url
     refresh: 120
 meteocamera:
     widget_type: camera
