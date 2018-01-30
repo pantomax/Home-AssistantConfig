@@ -1,0 +1,70 @@
+title: Phone
+widget_dimensions: [105, 105]
+widget_margins: [10, 8]
+columns: 3
+
+layout:
+    - allarme, weather(2x2)
+    - buona_notte
+    - luci_cucina, scalda_bagno, scalda_camera
+    - luci_salotto, luci_corridoio, scalda_salotto
+    - include: bottom_panel_phone
+allarme:
+    title: Allarme
+    widget_type: alarm
+    entity: alarm_control_panel.home_alarm
+weather:
+    widget_type: weather
+    units: "&deg;C"
+buona_notte:
+    widget_type: scene
+    title: Spegni Casa
+    icon_on: mdi-sleep
+    icon_off: mdi-sleep
+    entity: scene.buona_notte
+luci_cucina:
+    widget_type: switch
+    title: Luce Cucina
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: group.kitchen
+luci_salotto:
+    widget_type: switch
+    title: Luci Salotto
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: group.living_room
+luci_corridoio:
+    widget_type: switch
+    title: Luci Corridoio
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: group.luci_corridoio_e_bagno
+scalda_salotto: 
+    widget_type: switch
+    title: Scalda Salotto
+    icon_on: mdi-fire
+    icon_off: mdi-fire
+    entity: switch.accendi_termostato_dashboard_salotto
+scalda_camera:
+    widget_type: switch
+    title: Scalda Camera
+    icon_on: mdi-fire
+    icon_off: mdi-fire
+    entity: switch.accendi_termostato_dashboard_camera
+scalda_bagno:
+    widget_type: switch
+    title: Scalda Bagno
+    icon_on: mdi-fire
+    icon_off: mdi-fire
+    entity: switch.accendi_termostato_dashboard_bagno
+laundry_lux:
+    widget_type: sensor
+    title: Lux
+    entity: sensor.sensore_light
+stato_allarme:
+    widget_type: binary_sensor
+    title: A
+    entity: binary_sensor.stato_allarme
+    icon_on: mdi-alarm-light
+    icon_off: mdi-alarm-light
