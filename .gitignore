@@ -3,7 +3,9 @@
 !scenes
 !includes
 !packages
+!hadaemon
 !.gitignore
 !*.sh
+!*.dash
 secrets.yaml
 known_devices.yaml
