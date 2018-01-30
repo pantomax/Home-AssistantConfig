@@ -4,6 +4,6 @@
 !includes
 !packages
 !.gitignore
-!talk.sh
+!*.sh
 secrets.yaml
 known_devices.yaml
