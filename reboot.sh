@@ -1,0 +1,1 @@
+hassio host reboot
