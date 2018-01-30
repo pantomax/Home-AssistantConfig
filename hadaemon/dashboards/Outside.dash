@@ -1,0 +1,42 @@
+title: Webcams
+widget_dimensions: [122, 120]
+widget_margins: [5, 5]
+columns: 10
+
+layout:
+    - meteocamera(4x3), meteogramma(6x3)
+    - spacer
+    - spacer
+    - veronanord(2x2), nogarole (2x2), pegognaga(2x2), reggiolo(2x2), campogalliano(2x2)
+    - spacer
+    - include: bottom_panel
+
+veronanord:
+    widget_type: camera
+    entity_picture: secret veronanord_url
+    refresh: 120
+nogarole:
+    widget_type: camera
+    entity_picture: secret nogarole_url
+    refresh: 120
+pegognaga:
+    widget_type: camera
+    entity_picture: secret pegognaga_url
+    refresh: 120
+reggiolo:
+    widget_type: camera
+    entity_picture: secret reggiolo_url
+    refresh: 120
+campogalliano:
+    widget_type: camera
+    entity_picture: secret campogalliano_url
+    refresh: 120
+meteocamera:
+    widget_type: camera
+    entity_picture: !secret meteocamera_url
+    refresh: 120
+meteogramma:
+    widget_type: camera
+    entity_picture: !secret meteogramma_url
+    refresh: 120
+
