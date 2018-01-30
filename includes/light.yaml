@@ -169,9 +169,3 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.giardino
-  - platform: mqtt_json
-    name: mqtt_json_light_1
-    state_topic: "home/rgb1"
-    command_topic: "home/rgb1/set"
-    brightness: true
-    rgb: true

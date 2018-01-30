@@ -11,3 +11,16 @@ google_assistant:
   api_key: !secret google_api_key
   exposed_domains:
     - light
+  entity_config:
+    sensor.dht_temperature:
+      name: temperature
+      type: climate
+      aliases:
+        - temperature near the server
+        - temperature in the living room
+    sensor.dht_humidity:
+      name: humidity
+      type: climate
+      aliases:
+        - humidity near the server
+        - humidity in the living room
