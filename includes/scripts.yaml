@@ -1,8 +1,8 @@
-############################################################
+###############################################################################
 #
-# Script
+#                                 SCRIPTS
 #
-############################################################
+###############################################################################
   check_tv_status:
     alias: check tv status
     sequence:
@@ -11,66 +11,75 @@
         entity_id: >
             {% if is_state("sensor.livingroomchromecast", "Online") %} input_boolean.guarda_tv
             {% endif %}
+#******************************************************************************
   reboot:
     alias: Reboot HA
     sequence:
       - service: homeassistant.restart
+#******************************************************************************
   alert:
     alias: alert
     sequence:
       - service: shell_command.alarm_sound_doorchime
         data_template:
           message: Current temperature is {{ states.sensor.temperature.state }}
-
+#******************************************************************************
   welcome_home:
     sequence:
       - service: tts.google_say
         data:
           entity_id: media_player.mpd
           message: "Welcome home"
-
+#******************************************************************************
   power_down:
     sequence:
       - service: hassio.addon_stdin
         data:
           addon: local_audio_player
           input: "http://192.168.1.100:8123/local/power_down.mp3"
+#******************************************************************************
   normal_mode:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
           option: "Normal"
+#******************************************************************************
   dog_mode:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
           option: "Dog Mode"
+#******************************************************************************
   night_mode:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
           option: "Night Mode"
+#******************************************************************************
   weekend_mode:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
           option: "Weekend Mode"
+#******************************************************************************
   athome_mode:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
           option: "At home"
+#******************************************************************************
   vacation_mode:
     sequence:
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
           option: "Vacation Mode"
+#******************************************************************************
   apricancello:
     sequence:
       - service: switch.turn_on
@@ -80,6 +89,7 @@
       - service: switch.turn_off
         data:
           entity_id: switch.cancello
+#******************************************************************************
   stereomax:
     sequence:
       - service: switch.turn_on
@@ -202,4 +212,4 @@
           entity_id: switch.stereo_vol_down
       - delay:
             milliseconds: 100
-
+#******************************************************************************

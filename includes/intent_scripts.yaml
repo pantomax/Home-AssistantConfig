@@ -21,7 +21,7 @@
           {%- else -%}
             scene.luci_sala_accese
           {%- endif -%}
-
+#******************************************************************************
   TurnLights:
     speech:
       text: Turning {{ Room }} lights {{ OnOff }}
@@ -35,7 +35,7 @@
         {%- endif -%}
       data_template:
           entity_id: "group.{{ Room | replace(' ', '_') }}"
-
+#******************************************************************************
   Temperature:
     speech:
       text: A casa ci sono {{ states('sensor.sensore_temperature') }} gradi
@@ -48,11 +48,11 @@
 #          Sorry I don't speak your language {{ trigger.lang }}
 #        {%- endif -%}
 
-
+#******************************************************************************
   ComputerOn:
     speech:
       text: Il computer è {{ states('sensor.computersalotto') }}
-
+#******************************************************************************
   LocateIntent:
     speech:
       text: >
@@ -65,7 +65,7 @@
         {%- else -%}
           Sorry, I don't have any trackers registered.
         {%- endfor -%}
-
+#******************************************************************************
   SetTemperature:
     speech:
       text: Ok, {{ Room }} s temperature set to {{ degrees }} degrees, {{ Room }} s temperature is {{ states('sensor.temperatura_salotto_temperature') }} degrees right now
@@ -78,7 +78,7 @@
         {%- endif -%}
       data_template:
           entity_id: "switch.salotto_automatico_auto_fisso_{{ degrees }}" 
-
+#******************************************************************************
   WhereAreWeIntent:
     speech:
       text: >
@@ -89,7 +89,7 @@
           Max is {{ states("device_tracker.28c671063a1f") }}
           and Mauro is {{ states("device_tracker.ec9bf3074845") }}
         {% endif %}
-
+#******************************************************************************
   GetHomeTemperature:
     speech: 
       text: The temperature at home is {{ states('sensor.sensore_temperature') }} degrees
@@ -98,7 +98,7 @@
       service: notify.notify
       data_template:
         message: Api.ai has send a request
-
+#******************************************************************************
   buonanottepc:
     speech: 
       text: Yes captain, computer is shutting down. Deactivation complete. 
@@ -107,7 +107,7 @@
       service: scene.turn_on
       data_template:
         entity_id: scene.buona_notte_pc
-
+#******************************************************************************
   buonanotte:
     speech: 
       text: Yes captain, deactivation complete
@@ -116,3 +116,4 @@
       service: scene.turn_on
       data_template:
         entity_id: scene.buona_notte
+#******************************************************************************
