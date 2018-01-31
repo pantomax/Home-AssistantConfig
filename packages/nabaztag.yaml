@@ -28,14 +28,15 @@ sensor:
       - exchangerate
       - timestamp
 # AirVisual Sensor
-# {{ states('sensor.exchange_rate_1_btc') }}
+# {{ states('sensor.us_air_quality_index') }}
   - platform: airvisual
-    api_key: abc123
+    api_key: !secret airvisual_api_key
+#Scade il 31/01/2019
     monitored_conditions:
       - us
     latitude: 44.650180
     longitude: 10.930217
-    radius: 500
+    radius: 1000
     show_on_map: false
 #------------------------------------------------------------------------------
 group:
@@ -878,6 +879,49 @@ automation:
         {% else %}
           shell_command.nab_abort
         {% endif %}
+#******************************************************************************
+  - alias: "Nabaztag Airvisual Pollution"
+    trigger:
+    - platform: state
+      entity_id: sensor.us_air_quality_index
+    - platform: state
+      entity_id: input_select.nabaztag_show_info
+    condition:
+    - condition: state
+      entity_id: 'input_select.nabaztag_show_info'
+      state: 'Pollution'
+    action:
+    - service: shell_command.nab_clear
+    - service_template: >
+        {% if states('sensor.us_air_quality_index') | float > 30 %} shell_command.nab_pollution_1
+        {% elif states('sensor.us_air_quality_index') | float > 60 %} shell_command.nab_pollution_2
+        {% elif states('sensor.us_air_quality_index') | float > 90 %} shell_command.nab_pollution_3
+        {% elif states('sensor.us_air_quality_index') | float > 120 %} shell_command.nab_pollution_4
+        {% elif states('sensor.us_air_quality_index') | float > 150 %} shell_command.nab_pollution_5
+        {% elif states('sensor.us_air_quality_index') | float > 180 %} shell_command.nab_pollution_6
+        {% elif states('sensor.us_air_quality_index') | float > 210 %} shell_command.nab_pollution_7
+        {% elif states('sensor.us_air_quality_index') | float > 240 %} shell_command.nab_pollution_8
+        {% elif states('sensor.us_air_quality_index') | float > 270 %} shell_command.nab_pollution_9
+        {% elif states('sensor.us_air_quality_index') | float > 300 %} shell_command.nab_pollution_10
+        {% else %}
+           shell_command.nab_pollution_0
+        {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.nabaztag_body_language
+      data_template:
+        option: >
+          {% if states('sensor.us_air_quality_index') | float > 30 %}Up
+          {% elif states('sensor.us_air_quality_index') | float > 60 %}Listening
+          {% elif states('sensor.us_air_quality_index') | float > 90 %}Listening
+          {% elif states('sensor.us_air_quality_index') | float > 120 %}Curious
+          {% elif states('sensor.us_air_quality_index') | float > 150 %}Curious
+          {% elif states('sensor.us_air_quality_index') | float > 180 %}Scared
+          {% elif states('sensor.us_air_quality_index') | float > 210 %}Scared
+          {% elif states('sensor.us_air_quality_index') | float > 240 %}Sad
+          {% elif states('sensor.us_air_quality_index') | float > 270 %}Sad
+          {% elif states('sensor.us_air_quality_index') | float > 300 %}Crazy
+          {% else %}Up
+          {% endif %}
 #******************************************************************************
   - alias: "Nabaztag Language"
     trigger:
