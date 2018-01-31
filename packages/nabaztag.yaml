@@ -792,8 +792,7 @@ automation:
           {% elif states('input_number.bitcoin_value_difference') | float > 5 %}'Right'
           {% elif states('input_number.bitcoin_value_difference') | float > 50 %}'Right'
           {% elif states('input_number.bitcoin_value_difference') | float > 100 %}'Crazy'
-          {% else %}
-           'Up'
+          {% else %}'Up'
           {% endif %}
 #******************************************************************************
   - alias: "Nabaztag Traffic"
