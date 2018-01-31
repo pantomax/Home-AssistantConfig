@@ -3,49 +3,25 @@
 #                                  GROUPS
 #
 ###############################################################################
-  living_room:
-    name: Luci Sala
-    entities:
-      - light.tavolino
-      - light.libreria
-      - light.soffitto
-      - light.mobile_tv
-      - light.light_desk
-      - light.led_strip
-  varie_default:
-    name: Varie
+  grupposcene:
+    name: Scene e Media
     control: hidden
     entities:
-      - input_boolean.guarda_tv
-      - switch.windows
-      - switch.accendi_termostato_dashboard_bagno
-      - switch.accendi_termostato_dashboard_salotto
-      - switch.accendi_termostato_dashboard_camera
-      - light.camera
-      - light.bagno
-  kitchen:
-    name: Luci Cucina
-    entities:
-      - light.light_kitchen
-      - light.light_kitchen_2
-  Luci_Corridoio_e_Bagno:
-    name: Luci Corridorio
-    entities:
-      - light.corridoio_bagno
-      - light.corridoio_porta
-  bedroom:
-    name: Luci Camera
-    entities:
-      - light.camera
-  sensore_bagno:
-    name: Sensore
-    entities:
-      - sensor.sensore_air_quality
-      - sensor.sensore_humidity
-      - sensor.sensore_noise
-      - sensor.sensore_light
-      - sensor.sensore_temperature
-      - sensor.luce_accesa_bagno
+      - scene.black_alert
+      - scene.red_alert
+      - scene.foresta
+      - scene.inverno
+      - scene.oceano
+      - scene.acquario
+      - scene.club
+      - scene.film
+      - scene.stereo_max
+      - scene.luci_sala_accese
+      - scene.luci_sala_spente
+      - scene.buona_notte
+      - input_boolean.visualizza_telecomando_radio
+      - input_boolean.visualizza_telecomando_tv
+      - input_boolean.telecomando_visibile
   riepilogo_dati:
     name: Telemetria
     entities:
@@ -64,67 +40,103 @@
       - binary_sensor.finestra_salotto_s1c
       - sensor.rf_receiver
       - sun.sun
-  rf_receivers:
-    name: RF Receivers
+  living_room:
+    name: Luci Sala
     entities:
-      - sensor.rf_receiver
-      - sensor.rf_receiver_2
-      - binary_sensor.wired_motion_sensor_desktop
-      - binary_sensor.pir_desk
-  Webcam_Salotto:
-    name: Salotto
+      - light.tavolino
+      - light.libreria
+      - light.soffitto
+      - light.mobile_tv
+      - light.light_desk
+      - light.led_strip
+  kitchen:
+    name: Luci Cucina
     entities:
-      - sensor.salotto_battery_voltage
-      - sensor.salotto_light_level
-      - sensor.salotto_motion
-  Webcam_Salotto_2:
-    name: Salotto 2
+      - light.light_kitchen
+      - light.light_kitchen_2
+  Luci_Corridoio_e_Bagno:
+    name: Luci Corridorio
     entities:
-      - sensor.salotto_2_battery_voltage
-      - sensor.salotto_2_light_level
-      - sensor.salotto_2_motion
-  Webcam_Salotto_3:
-    name: Salotto 3
+      - light.corridoio_bagno
+      - light.corridoio_porta
+  varie_default:
+    name: Varie
+    control: hidden
     entities:
-      - sensor.salotto_3_battery_voltage
-      - sensor.salotto_3_light_level
-      - sensor.salotto_3_motion
-  Webcam_Cucina:
-    name: Cucina
+      - input_boolean.guarda_tv
+      - switch.windows
+      - switch.accendi_termostato_dashboard_bagno
+      - switch.accendi_termostato_dashboard_salotto
+      - switch.accendi_termostato_dashboard_camera
+      - light.camera
+      - light.bagno
+  alarm:
+    name: Allarme
+    control: hidden
     entities:
-      - sensor.cucina_battery_voltage
-      - sensor.cucina_light_level
-      - sensor.cucina_motion
-  Webcam_Bagno:
-    name: Bagno
+      - alarm_control_panel.home_alarm
+      - input_select.house_mode
+      - sensor.ring_front_door_battery
+      - script.apricancello
+      - light.giardino
+      - input_select.tv_channel_pick
+#******************************************************************************
+  dhtsensor:
+    name: DHT Sensor
+    control: hidden
     entities:
-      - sensor.bagno_battery_voltage
-      - sensor.bagno_light_level
-      - sensor.bagno_motion
-  Webcam_Camera:
-    name: Camera
+      - sensor.dht_humidity
+      - sensor.dht_temperature
+#******************************************************************************
+  media_cucina:
+    name: Musica Cucina
+    control: hidden
     entities:
-      - sensor.camera_da_letto_battery_voltage
-      - sensor.camera_da_letto_light_level
-      - sensor.camera_da_letto_motion
-      - sensor.camera_da_letto_battery_temp
-      - sensor.camera_da_letto_pressure
-  Rete:
-    name: Rete Casa
+      - scene.spegni_musica_cucina
+      - scene.radio_successiva_cucina
+#******************************************************************************
+  sensore_bagno:
+    name: Sensore
     entities:
-      - sensor.speedtest_ping
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
-      - binary_sensor.livingroomchromecast
-      - binary_sensor.bathroomchromecast
-      - binary_sensor.kitchenchromecast
-      - binary_sensor.computersalotto
-      - binary_sensor.zidoo
-      - binary_sensor.tabletbagno
-      - binary_sensor.tabletcucina
-      - binary_sensor.tabletcucina2
-      - binary_sensor.smartphonesalotto
-      - binary_sensor.smartphonesalotto3
+      - sensor.sensore_air_quality
+      - sensor.sensore_humidity
+      - sensor.sensore_noise
+      - sensor.sensore_light
+      - sensor.sensore_temperature
+      - sensor.luce_accesa_bagno
+  media_bagno:
+    name: Musica Bagno
+    control: hidden
+    entities:
+      - media_player.bathroom
+      - scene.spegni_musica
+      - scene.radio_successiva
+  termoventilatore_bagno:
+    name: Termoventilatore
+    control: hidden
+    entities:
+      - switch.power
+      - switch.ecocomfort
+      - switch.timer
+      - switch.basculante
+      - switch.canc
+      - switch.piu
+      - switch.meno
+      - input_boolean.visualizza_telecomando_termoventilatore
+#******************************************************************************
+  bedroom:
+    name: Luci Camera
+    entities:
+      - light.camera
+#******************************************************************************
+  hdmi:
+    name: Hdmi
+    control: hidden
+    entities:
+      - scene.hdmi_1
+      - scene.hdmi_2
+      - scene.hdmi_3
+#******************************************************************************
   Meteo_Wunderground:
     name: Meteo
     entities:
@@ -175,12 +187,23 @@
       - sensor.dark_sky_minutely_summary
       - sensor.dark_sky_hourly_summary
       - sensor.dark_sky_daily_summary
-  presence:
-    name: Attivazione
+#******************************************************************************
+  Rete:
+    name: Rete Casa
     entities:
-      - input_boolean.muhome
-      - input_boolean.mxhome
-      - input_number.visibilita_gruppo
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - binary_sensor.livingroomchromecast
+      - binary_sensor.bathroomchromecast
+      - binary_sensor.kitchenchromecast
+      - binary_sensor.computersalotto
+      - binary_sensor.zidoo
+      - binary_sensor.tabletbagno
+      - binary_sensor.tabletcucina
+      - binary_sensor.tabletcucina2
+      - binary_sensor.smartphonesalotto
+      - binary_sensor.smartphonesalotto3
   dev_pi:
     name: Pi
     entities:
@@ -193,36 +216,73 @@
       - sensor.sent_eth0
       - sensor.received_eth0
       - switch.windows
-  termoventilatore_bagno:
-    name: Termoventilatore
+  links:
+    name: Links
+    entities:
+      - weblink.router
+      - weblink.router_da_fuori
+      - weblink.home_assistant
+      - weblink.ha_community
+  rf_receivers:
+    name: RF Receivers
+    entities:
+      - sensor.rf_receiver
+      - sensor.rf_receiver_2
+      - binary_sensor.wired_motion_sensor_desktop
+      - binary_sensor.pir_desk
+  bitcoin:
+    name: Bitcoin
     control: hidden
     entities:
-      - switch.power
-      - switch.ecocomfort
-      - switch.timer
-      - switch.basculante
-      - switch.canc
-      - switch.piu
-      - switch.meno
-      - input_boolean.visualizza_telecomando_termoventilatore
-  media_bagno:
-    name: Musica Bagno
-    control: hidden
+      - sensor.timestamp
+      - input_number.bitcoin_previous_exchange_rate
+      - sensor.exchange_rate_1_btc
+      - input_number.bitcoin_value_difference
+#******************************************************************************
+  Webcam_Salotto:
+    name: Salotto
     entities:
-      - media_player.bathroom
-      - scene.spegni_musica
-      - scene.radio_successiva
-  media_cucina:
-    name: Musica Cucina
-    control: hidden
+      - sensor.salotto_battery_voltage
+      - sensor.salotto_light_level
+      - sensor.salotto_motion
+  Webcam_Salotto_2:
+    name: Salotto 2
     entities:
-      - scene.spegni_musica_cucina
-      - scene.radio_successiva_cucina
-  home_switches:
-    name: Home Switches
+      - sensor.salotto_2_battery_voltage
+      - sensor.salotto_2_light_level
+      - sensor.salotto_2_motion
+  Webcam_Salotto_3:
+    name: Salotto 3
     entities:
-      - sensor.motion_timer
-      - input_boolean.motion_timer
+      - sensor.salotto_3_battery_voltage
+      - sensor.salotto_3_light_level
+      - sensor.salotto_3_motion
+  Webcam_Cucina:
+    name: Cucina
+    entities:
+      - sensor.cucina_battery_voltage
+      - sensor.cucina_light_level
+      - sensor.cucina_motion
+  Webcam_Bagno:
+    name: Bagno
+    entities:
+      - sensor.bagno_battery_voltage
+      - sensor.bagno_light_level
+      - sensor.bagno_motion
+  Webcam_Camera:
+    name: Camera
+    entities:
+      - sensor.camera_da_letto_battery_voltage
+      - sensor.camera_da_letto_light_level
+      - sensor.camera_da_letto_motion
+      - sensor.camera_da_letto_battery_temp
+      - sensor.camera_da_letto_pressure
+  presence:
+    name: Attivazione
+    entities:
+      - input_boolean.muhome
+      - input_boolean.mxhome
+      - input_number.visibilita_gruppo
   webcam_casa:
     name: webcam_casa
     entities:
@@ -232,13 +292,23 @@
       - camera.webcam_salotto_3
       - camera.webcam_bagno
       - camera.webcam_camera_da_letto
-  links:
-    name: Links
+  ring_doorbell:
+    name: Ring Doorbell
+    control: hidden
     entities:
-      - weblink.router
-      - weblink.router_da_fuori
-      - weblink.home_assistant
-      - weblink.ha_community
+      - sensor.ring_front_door_battery
+      - sensor.ring_front_door_last_activity
+      - sensor.ring_front_door_last_ding
+      - sensor.ring_front_door_last_motion
+      - sensor.ring_front_door_volume
+      - sensor.ring_front_door_wifi_signal_category
+      - sensor.ring_front_door_wifi_signal_strength
+#******************************************************************************
+  home_switches:
+    name: Home Switches
+    entities:
+      - sensor.motion_timer
+      - input_boolean.motion_timer
   google_assistant:
     name: Links
     entities:
@@ -265,35 +335,6 @@
       - scene.heater_off
       - scene.corridoio_spento
       - scene.film
-  alarm:
-    name: Allarme
-    control: hidden
-    entities:
-      - alarm_control_panel.home_alarm
-      - input_select.house_mode
-      - sensor.ring_front_door_battery
-      - script.apricancello
-      - light.giardino
-      - input_select.tv_channel_pick
-  grupposcene:
-    name: Scene e Media
-    control: hidden
-    entities:
-      - scene.black_alert
-      - scene.red_alert
-      - scene.foresta
-      - scene.inverno
-      - scene.oceano
-      - scene.acquario
-      - scene.club
-      - scene.film
-      - scene.stereo_max
-      - scene.luci_sala_accese
-      - scene.luci_sala_spente
-      - scene.buona_notte
-      - input_boolean.visualizza_telecomando_radio
-      - input_boolean.visualizza_telecomando_tv
-      - input_boolean.telecomando_visibile
   rf_sensor:
     name: RF Sensor
     control: hidden
@@ -301,38 +342,6 @@
       - input_boolean.motion_rf_sensor_1
       - sensor.countdown_rf_sensor_1
       - input_number.countdown_rf_sensor_1
-  ring_doorbell:
-    name: Ring Doorbell
-    control: hidden
-    entities:
-      - sensor.ring_front_door_battery
-      - sensor.ring_front_door_last_activity
-      - sensor.ring_front_door_last_ding
-      - sensor.ring_front_door_last_motion
-      - sensor.ring_front_door_volume
-      - sensor.ring_front_door_wifi_signal_category
-      - sensor.ring_front_door_wifi_signal_strength
-  hdmi:
-    name: Hdmi
-    control: hidden
-    entities:
-      - scene.hdmi_1
-      - scene.hdmi_2
-      - scene.hdmi_3
-  bitcoin:
-    name: Bitcoin
-    control: hidden
-    entities:
-      - sensor.timestamp
-      - input_number.bitcoin_previous_exchange_rate
-      - sensor.exchange_rate_1_btc
-      - input_number.bitcoin_value_difference
-  dhtsensor:
-    name: DHT Sensor
-    control: hidden
-    entities:
-      - sensor.dht_humidity
-      - sensor.dht_temperature
 #******************************************************************************
 #                                 Tabs
 #******************************************************************************
@@ -466,7 +475,6 @@
       - group.nabaztag_body
       - group.nabaztag_lights
       - group.nabaztag_locale_setup
-
 #******************************************************************************
 #                                   Default View
 #******************************************************************************
