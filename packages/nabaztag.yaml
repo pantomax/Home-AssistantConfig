@@ -736,7 +736,7 @@ automation:
         {% else %}
           script.nabaztag_info_off
         {% endif %}
-   - service: input_select.select_option
+    - service: input_select.select_option
       entity_id: input_select.nabaztag_body_language
       data_template:
         option: >
