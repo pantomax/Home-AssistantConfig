@@ -79,7 +79,7 @@
     update_interval: 300
     monitored_conditions:
       - summary
-      - icon
+#      - icon spostata in nabaztag package
       - nearest_storm_distance
       - precip_type
       - precip_intensity

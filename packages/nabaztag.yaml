@@ -31,13 +31,19 @@ sensor:
 # {{ states('sensor.us_air_quality_index') }}
   - platform: airvisual
     api_key: !secret airvisual_api_key
-#Scade il 31/01/2019
     monitored_conditions:
       - us
     latitude: !secret airvisual_latitude
     longitude: !secret airvisual_longitude
     radius: 1000
     show_on_map: false
+# Meteo Darksky
+#{{ states('sensor.dark_sky_icon') }}
+  - platform: darksky
+    api_key: !secret secret_darksky_api_key
+    update_interval: 300
+    monitored_conditions:
+      - icon
 #------------------------------------------------------------------------------
 group:
 #------------------------------------------------------------------------------
