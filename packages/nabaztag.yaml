@@ -893,7 +893,8 @@ automation:
     action:
     - service: shell_command.nab_clear
     - service_template: >
-        {% if states('sensor.us_air_quality_index') | float > 30 %} shell_command.nab_pollution_1
+        {% if states('sensor.us_air_quality_index') | float < 30 %} shell_command.nab_pollution_0
+        {% elif states('sensor.us_air_quality_index') | float > 30 %} shell_command.nab_pollution_1
         {% elif states('sensor.us_air_quality_index') | float > 60 %} shell_command.nab_pollution_2
         {% elif states('sensor.us_air_quality_index') | float > 90 %} shell_command.nab_pollution_3
         {% elif states('sensor.us_air_quality_index') | float > 120 %} shell_command.nab_pollution_4
@@ -903,14 +904,13 @@ automation:
         {% elif states('sensor.us_air_quality_index') | float > 240 %} shell_command.nab_pollution_8
         {% elif states('sensor.us_air_quality_index') | float > 270 %} shell_command.nab_pollution_9
         {% elif states('sensor.us_air_quality_index') | float > 300 %} shell_command.nab_pollution_10
-        {% else %}
-           shell_command.nab_pollution_0
         {% endif %}
     - service: input_select.select_option
       entity_id: input_select.nabaztag_body_language
       data_template:
         option: >
-          {% if states('sensor.us_air_quality_index') | float > 30 %}Up
+          {% if states('sensor.us_air_quality_index') | float < 30 %}Up
+          {% elif states('sensor.us_air_quality_index') | float > 30 %}Up
           {% elif states('sensor.us_air_quality_index') | float > 60 %}Listening
           {% elif states('sensor.us_air_quality_index') | float > 90 %}Listening
           {% elif states('sensor.us_air_quality_index') | float > 120 %}Curious
@@ -920,7 +920,6 @@ automation:
           {% elif states('sensor.us_air_quality_index') | float > 240 %}Sad
           {% elif states('sensor.us_air_quality_index') | float > 270 %}Sad
           {% elif states('sensor.us_air_quality_index') | float > 300 %}Crazy
-          {% else %}Up
           {% endif %}
 #******************************************************************************
   - alias: "Nabaztag Language"
