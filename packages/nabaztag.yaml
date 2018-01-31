@@ -785,7 +785,8 @@ automation:
     - service: input_select.select_option
       entity_id: input_select.nabaztag_body_language
       data_template:
-        option: {% if states('input_number.bitcoin_value_difference') | float < -100 %}'Crazy'
+        option: 
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %}'Crazy'
           {% elif states('input_number.bitcoin_value_difference') | float < -50 %}'Left'
           {% elif states('input_number.bitcoin_value_difference') | float < -5 %}'Left'
           {% elif states('input_number.bitcoin_value_difference') | float > 5 %}'Right'
