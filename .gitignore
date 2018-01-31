@@ -52,6 +52,7 @@
 !*.sh
 !*.dash
 !*.mp3
+!*.jsp
 !comandigit.txt
 secrets.yaml
 known_devices.yaml
