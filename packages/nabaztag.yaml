@@ -34,8 +34,8 @@ sensor:
 #Scade il 31/01/2019
     monitored_conditions:
       - us
-    latitude: 44.650180
-    longitude: 10.930217
+    latitude: !secret airvisual_latitude
+    longitude: !secret airvisual_longitude
     radius: 1000
     show_on_map: false
 #------------------------------------------------------------------------------
@@ -1030,22 +1030,3 @@ automation:
     - service: switch.turn_off
       entity_id: switch.nabaztaglife
 #******************************************************************************
-
-# Pollution Sensor - World Air Quality Index
-#  - platform: waqi
-#    token: !secret aqicn_api_token
-#    locations:
-#      - Modena
-#    stations:
-#      - Parco Ferrari, Emilia Romagna
-# Nabaztag 0 - 0 - 50	Good	
-# Nabaztag 2 - 51 - 100	Moderate	
-# Nabaztag 4 - 101 - 150	Unhealthy for Sensitive Groups	
-# Nabaztag 6 - 151 - 200	Unhealthy	
-# Nabaztag 8 - 201 - 300	Very unhealthy	
-# Nabaztag 10 - 301+	Hazardous
-#  - platform: luftdaten
-#    sensorid: 4372
-#    monitored_conditions:
-#      - P1
-#      - P2
