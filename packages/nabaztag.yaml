@@ -726,8 +726,6 @@ automation:
       state: 'Weather'
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
     - service_template: >
         {% if is_state("sensor.dark_sky_icon", "clear-day") %} shell_command.nab_weather_0
         {% elif is_state("sensor.dark_sky_icon", "clear-night") %} shell_command.nab_weather_0
@@ -745,8 +743,6 @@ automation:
         {% else %}
           script.nabaztag_info_off
         {% endif %}
-    - delay:
-          seconds: 1
     - service: input_select.select_option
       entity_id: input_select.nabaztag_body_language
       data_template:
@@ -812,8 +808,6 @@ automation:
       value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
     - service_template: >
         {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
         {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
@@ -824,8 +818,6 @@ automation:
         {% else %}
           shell_command.nab_stock_3
         {% endif %}
-    - delay:
-          seconds: 1
     - service: input_select.select_option
       entity_id: input_select.nabaztag_body_language
       data_template:
@@ -906,8 +898,6 @@ automation:
       state: 'Pollution'
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
     - service_template: >
         {% if states('sensor.us_air_quality_index') > 300 %} shell_command.nab_pollution_10
         {% elif states('sensor.us_air_quality_index') > 270 %} shell_command.nab_pollution_9
@@ -921,8 +911,6 @@ automation:
         {% elif states('sensor.us_air_quality_index') > 30 %} shell_command.nab_pollution_1
         {% elif states('sensor.us_air_quality_index') < 30 %} shell_command.nab_pollution_0
         {% endif %}
-    - delay:
-          seconds: 1
     - service: input_select.select_option
       entity_id: input_select.nabaztag_body_language
       data_template:
