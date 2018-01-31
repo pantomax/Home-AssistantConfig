@@ -27,6 +27,16 @@ sensor:
     display_options:
       - exchangerate
       - timestamp
+# AirVisual Sensor
+# {{ states('sensor.exchange_rate_1_btc') }}
+  - platform: airvisual
+    api_key: abc123
+    monitored_conditions:
+      - us
+    latitude: 44.650180
+    longitude: 10.930217
+    radius: 500
+    show_on_map: false
 #------------------------------------------------------------------------------
 group:
 #------------------------------------------------------------------------------
@@ -659,7 +669,7 @@ automation:
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} 2.0
           {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 16.0
           {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 3.0
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 13.0
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 14.0
           {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11.0
           {% elif is_state("input_select.nabaztag_body_language", "Up") %} 0.0
           {% elif is_state("input_select.nabaztag_body_language", "Down") %} 10.0
@@ -673,7 +683,7 @@ automation:
           {% if is_state("input_select.nabaztag_body_language", "Listening") %} 2.0
           {% elif is_state("input_select.nabaztag_body_language", "Curious") %} 2.0
           {% elif is_state("input_select.nabaztag_body_language", "Crazy") %} 14.0
-          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 13.0
+          {% elif is_state("input_select.nabaztag_body_language", "Scared") %} 14.0
           {% elif is_state("input_select.nabaztag_body_language", "Sad") %} 11.0
           {% elif is_state("input_select.nabaztag_body_language", "Up") %} 0.0
           {% elif is_state("input_select.nabaztag_body_language", "Down") %} 10.0
@@ -726,6 +736,25 @@ automation:
         {% else %}
           script.nabaztag_info_off
         {% endif %}
+   - service: input_select.select_option
+      entity_id: input_select.nabaztag_body_language
+      data_template:
+        option: >
+          {% if is_state("sensor.dark_sky_icon", "clear-day") %}Up
+          {% elif is_state("sensor.dark_sky_icon", "clear-night") %}Up
+          {% elif is_state("sensor.dark_sky_icon", "cloudy") %}Sad
+          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-day") %}Curious
+          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-night") %}Curious
+          {% elif is_state("sensor.dark_sky_icon", "fog") %}Down
+          {% elif is_state("sensor.dark_sky_icon", "rain") %}Down
+          {% elif is_state("sensor.dark_sky_icon", "sleet") %}Listening
+          {% elif is_state("sensor.dark_sky_icon", "snow") %}Listening
+          {% elif is_state("sensor.dark_sky_icon", "wind") %}Scared
+          {% elif is_state("sensor.dark_sky_icon", "hail") %}Scared
+          {% elif is_state("sensor.dark_sky_icon", "thunderstorm") %}Scared
+          {% elif is_state("sensor.dark_sky_icon", "tornado") %}Scared
+          {% else %}Crazy
+          {% endif %}
 #******************************************************************************
   - alias: "Nabaztag Stock"
     trigger:
