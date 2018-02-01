@@ -351,6 +351,8 @@ input_select:
       - Radio 1
       - Radio 2
       - Radio 3
+      - Radio 4
+      - Radio 5
       - No radio
     initial: " "
     icon: mdi:radio
@@ -605,6 +607,8 @@ automation:
         {% if is_state("input_select.nabaztag_radio", "Radio 1") %} shell_command.nab_radio_1
         {% elif is_state("input_select.nabaztag_radio", "Radio 2") %} shell_command.nab_radio_2
         {% elif is_state("input_select.nabaztag_radio", "Radio 3") %} shell_command.nab_radio_3
+        {% elif is_state("input_select.nabaztag_radio", "Radio 4") %} shell_command.nab_radio_4
+        {% elif is_state("input_select.nabaztag_radio", "Radio 5") %} shell_command.nab_radio_5
         {% elif is_state("input_select.nabaztag_radio", "No Radio") %} shell_command.nab_abort
         {% endif %}
     - service: input_select.select_option
