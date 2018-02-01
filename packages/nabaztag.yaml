@@ -59,6 +59,7 @@ sensor:
     show_on_map: false
 
 # A few other customization
+# 
 # Change the tts language into the nabaztag_talk script:
 # ...
 #        data_template: 
@@ -174,6 +175,11 @@ input_text:
     min: 1
     max: 500
     pattern: '[a-fA-F0-9]*'
+  nabaztag_ip_address:
+    name: Nabaztag Ip Address
+    initial: http://192.168.1.180/
+    min: 1
+    max: 50
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
@@ -227,8 +233,8 @@ switch:
       command_off: "curl http://192.168.1.180/sleep"
       friendly_name: Nabaztag Switch
     nabaztag_taichi:
-      command_on: "curl http://192.168.1.180/taichi?v=1000"
-      command_off: "curl http://192.168.1.180/taichi?v=0"
+      command_on: "curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=1000" 
+      command_off: "curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=0"
       friendly_name: Let's Taichi
     nabaztag_nose:
       command_on: "curl http://192.168.1.180/nose?v=1"
