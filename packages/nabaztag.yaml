@@ -6,8 +6,27 @@
 #------------------------------------------------------------------------------
 sensor:
 #------------------------------------------------------------------------------
+# Meteo Sensor
+# {{ states('sensor.dark_sky_icon') }} >>> Darksky summary
+# set up your personal Darksky sensor before using this
+  - platform: darksky
+    api_key: !secret secret_darksky_api_key
+    update_interval: 300
+    monitored_conditions:
+      - icon
+
+# Stocks Sensor
+# {{ states('sensor.exchange_rate_1_btc') }} >>> Bitcoin exchange value
+# just a blink into bitcoin exchange rate
+  - platform: bitcoin
+    display_options:
+      - exchangerate
+      - timestamp
+
 # Traffic Sensor - Google Distance Matrix Api Key
 # {{ states('sensor.home_to_work') }} >>> minutes to work
+# change input_number.time_to_work initial value to set your regular time 
+# to work
   - platform: google_travel_time
     api_key: !secret google_distance_matrix_api_key
     name: Home To Work
@@ -21,14 +40,9 @@ sensor:
       traffic_status:
         value_template: >-
           {{ states.sensor.home_to_work.attributes.status }}
-# Bitcoin Sensor
-# {{ states('sensor.exchange_rate_1_btc') }}
-  - platform: bitcoin
-    display_options:
-      - exchangerate
-      - timestamp
-# AirVisual Sensor
-# {{ states('sensor.us_air_quality_index') }}
+
+# Pollution Sensor
+# {{ states('sensor.us_air_quality_index') }} >>> AirVisual index
 # 0 - 50	Good	
 # 51 - 100	Moderate	
 # 101 - 150	Unhealthy for Sensitive Groups
@@ -43,13 +57,23 @@ sensor:
     longitude: !secret airvisual_longitude
     radius: 1000
     show_on_map: false
-# Meteo Darksky
-#{{ states('sensor.dark_sky_icon') }}
-  - platform: darksky
-    api_key: !secret secret_darksky_api_key
-    update_interval: 300
-    monitored_conditions:
-      - icon
+
+# A few other customization
+# Change the tts language into the nabaztag_talk script:
+# ...
+#        data_template: 
+#          message: >
+#            '{{ message }}'
+#          language: 'it'     <<< here
+# ...
+# Change your favourites web radio stations into shell_command:
+# ...
+#  nab_radio_1: curl http://192.168.1.180/play?u=http://37.247.50.30/MC2.mp3
+#  nab_radio_2: curl http://192.168.1.180/play?u=http://icecast.vrtcdn.be/mnm_hits-high.mp3
+#  nab_radio_3: curl http://192.168.1.180/play?u=http://shoutcast.rtl.it:3010/stream/1/
+# ...
+# Change when you want to receive automatically weather, stocks, traffic and pollution information in the 
+# NABAZTAG TIME MANAGEMENT section at the end of the file
 #------------------------------------------------------------------------------
 group:
 #------------------------------------------------------------------------------
