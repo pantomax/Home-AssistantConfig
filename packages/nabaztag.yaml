@@ -237,18 +237,21 @@ switch:
   - platform: template
     switches:
       nabaztaglife:
+        friendly_name: Nabaztag Switch
         value_template: "{{ is_state('input_boolean.nabaztaglife', 'on') }}"
         turn_on:
           service: shell_command.nab_wakeup
         turn_off:
           service: shell_command.nab_sleep
       nabaztag_taichi:
+        friendly_name: Let's Taichi
         value_template: "{{ is_state('input_boolean.nabaztag_taichi', 'on') }}"
         turn_on:
           service: shell_command.nab_do_taichi_now
         turn_off:
           service: shell_command.nab_taichi_off
       nabaztag_nose:
+        friendly_name: Nose
         value_template: "{{ is_state('input_boolean.nabaztag_nose', 'on') }}"
         turn_on:
           service: shell_command.nab_nose_1
