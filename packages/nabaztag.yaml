@@ -1,16 +1,31 @@
 ###############################################################################
 #                                                                             #
-#                                 NABAZTAG PACKAGE                            #
+#                             NABAZTAG PACKAGE                                #
 #                                                                             #
 ###############################################################################
-# Change your Nabaztag IP, tts language and your favourite radio stations url # 
+# Change your Nabaztag ip, tts language and your favourite radio stations url # 
 # in the input_text section.                                                  #
+#                                                                             #
 # Change when you want to receive automatically weather, stocks, traffic and  #
 # pollution informations in the NABAZTAG TIME MANAGEMENT section.             #
+#                                                                             #
+# Here is the tab for your HA main page:                                      #
+#                                                                             #
+#  Tab_Nabaztag:                                                              #
+#    name: Nabaztag                                                           #
+#    view: yes                                                                #
+#    icon: mdi:carrot                                                         #
+#    entities:                                                                #
+#      - group.nabaztag_utils                                                 #
+#      - group.nabaztag_body                                                  #
+#      - group.nabaztag_lights                                                #
+#      - group.nabaztag_locale_setup                                          #
+#                                                                             #
 #------------------------------------------------------------------------------
 sensor:
 #------------------------------------------------------------------------------
-# Weather Sensor - Dark Sky Sensor (https://home-assistant.io/components/sensor.darksky/)
+# Weather Sensor
+# Dark Sky Sensor (https://home-assistant.io/components/sensor.darksky/)
 # {{ states('sensor.dark_sky_icon') }} >>> Darksky summary
 # set up your personal Darksky sensor before using this
   - platform: darksky
@@ -19,7 +34,8 @@ sensor:
     monitored_conditions:
       - icon
 
-# Stocks Sensor - Bitcoin (https://home-assistant.io/components/sensor.bitcoin/)
+# Stocks Sensor
+# Bitcoin (https://home-assistant.io/components/sensor.bitcoin/)
 # {{ states('sensor.exchange_rate_1_btc') }} >>> Bitcoin exchange value
 # just a blink into bitcoin exchange rate
   - platform: bitcoin
@@ -27,7 +43,8 @@ sensor:
       - exchangerate
       - timestamp
 
-# Traffic Sensor - Google Maps Travel Time (https://home-assistant.io/components/sensor.google_travel_time/)
+# Traffic Sensor
+# Google Maps Travel Time (https://home-assistant.io/components/sensor.google_travel_time/)
 # {{ states('sensor.home_to_work') }} >>> minutes to work
 # change input_number.time_to_work initial value to set your regular time 
 # to work
@@ -45,7 +62,8 @@ sensor:
         value_template: >-
           {{ states.sensor.home_to_work.attributes.status }}
 
-# Pollution Sensor - AirVisual (https://home-assistant.io/components/sensor.airvisual/)
+# Pollution Sensor
+# AirVisual (https://home-assistant.io/components/sensor.airvisual/)
 # {{ states('sensor.us_air_quality_index') }} >>> AirVisual index
 # 0 - 50	Good	
 # 51 - 100	Moderate	
@@ -134,17 +152,6 @@ group:
       - input_select.nabaztag_time_zone
       - script.nabaztag_update
       - script.nabaztag_reboot
-# Here is the tab for your HA main page:
-#      
-#  Tab_Nabaztag:
-#    name: Nabaztag
-#    view: yes
-#    icon: mdi:carrot
-#    entities:
-#      - group.nabaztag_utils
-#      - group.nabaztag_body
-#      - group.nabaztag_lights
-#      - group.nabaztag_locale_setup
 #------------------------------------------------------------------------------
 input_boolean:
 #------------------------------------------------------------------------------
