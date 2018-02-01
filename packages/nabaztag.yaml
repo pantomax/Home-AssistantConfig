@@ -835,6 +835,19 @@ automation:
 #******************************************************************************
 
 #******************************************************************************
+#*************************** NABAZTAG CLEAR INFO ******************************
+#******************************************************************************
+  - alias: "Nabaztag No Info"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_show_info
+    condition:
+    - condition: state
+      entity_id: 'input_select.nabaztag_show_info'
+      state: ' '
+    action:
+    - service: shell_command.nab_clear
+#******************************************************************************
 #****************************** NABAZTAG WEATHER ******************************
 #******************************************************************************
   - alias: "Nabaztag Weather"
@@ -1121,7 +1134,10 @@ automation:
     - platform: time
       at: '21:30:00'
     action:
-    - service: shell_command.nab_clear
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_show_info
+        option: ' '
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1138,7 +1154,10 @@ automation:
     - platform: time
       at: '20:30:00'
     action:
-    - service: shell_command.nab_clear
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_show_info
+        option: ' '
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1155,7 +1174,10 @@ automation:
     - platform: time
       at: '7:30:00'
     action:
-    - service: shell_command.nab_clear
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_show_info
+        option: ' '
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1174,7 +1196,10 @@ automation:
     - platform: time
       at: '17:30:00'
     action:
-    - service: shell_command.nab_clear
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.nabaztag_show_info
+        option: ' '
     - delay:
           seconds: 1
     - service: input_select.select_option
