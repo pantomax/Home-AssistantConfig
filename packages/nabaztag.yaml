@@ -885,12 +885,12 @@ automation:
     - delay:
           seconds: 1
     - service_template: >
-        {% if states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  30 }} %} shell_command.nab_traffic_6
-        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  25 }} %} shell_command.nab_traffic_5
-        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  20 }} %} shell_command.nab_traffic_4
-        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  15 }} %} shell_command.nab_traffic_3
-        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  10 }} %} shell_command.nab_traffic_2
-        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  5 }} %} shell_command.nab_traffic_1
+        {% if states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 30 ) %} shell_command.nab_traffic_6
+        {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 25 ) %} shell_command.nab_traffic_5
+        {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 20 ) %} shell_command.nab_traffic_4
+        {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 15 ) %} shell_command.nab_traffic_3
+        {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 10 ) %} shell_command.nab_traffic_2
+        {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 5 ) %} shell_command.nab_traffic_1
         {% else %}
           shell_command.nab_traffic_0
         {% endif %}
@@ -900,12 +900,12 @@ automation:
       entity_id: input_select.nabaztag_body_language
       data_template:
         option: >
-          {% if states('sensor.home_to_work') | int > 110 %}Crazy
-          {% elif states('sensor.home_to_work') | int > 105 %}Left
-          {% elif states('sensor.home_to_work') | int > 100 %}Sad
-          {% elif states('sensor.home_to_work') | int > 95 %}Scared
-          {% elif states('sensor.home_to_work') | int > 90 %}Curious
-          {% elif states('sensor.home_to_work') | int > 85 %}Listening
+          {% if states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 30 ) %}Crazy
+          {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 25 ) %}Left
+          {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 20 ) %}Sad
+          {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 15 ) %}Scared
+          {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 10 ) %}Curious
+          {% elif states('sensor.home_to_work') | int > ( (states('input_number.time_to_work') | int / 100 ) * 5 ) %}Listening
           {% else %}
             Up
           {% endif %}
