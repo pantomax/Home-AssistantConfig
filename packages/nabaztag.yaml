@@ -200,7 +200,7 @@ script:
         data_template: 
           message: >
             '{{ message }}'
-          language: '{{ states('input_text.nabaztag_tts_language')}}'
+          language: {{ states('input_text.nabaztag_tts_language')}}
           cache: True
       - alias: Call bash script with curl command
         service: shell_command.nab_talk
