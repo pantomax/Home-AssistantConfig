@@ -67,6 +67,9 @@ input_text:
   nabaztag_ip_address:
     name: Nabaztag Ip Address
     initial: http://192.168.1.180/
+  nabaztag_tts_language:
+    name: Nabaztag Tts Language
+    initial: it
   nabaztag_radio_1_ip_address:
     name: Nabaztag Radio 1 Ip Address
     initial: http://37.247.50.30/MC2.mp3
@@ -82,9 +85,6 @@ input_text:
   nabaztag_radio_5_ip_address:
     name: Nabaztag Radio 5 Ip Address
     initial: http://shoutcast.rtl.it:3010/stream/1/
-  nabaztag_tts_language:
-    name: Nabaztag Tts Language
-    initial: it
   nabaztag_voice:
     name: TTS
     initial: Say Something...
