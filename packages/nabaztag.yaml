@@ -1,8 +1,12 @@
 ###############################################################################
-#
-#                                 NABAZTAG PACKAGE
-#
+#                                                                             #
+#                                 NABAZTAG PACKAGE                            #
+#                                                                             #
 ###############################################################################
+# Change your Nabaztag IP, tts language and your favourite radio stations url # 
+# in the input_text section.                                                  #
+# Change when you want to receive automatically weather, stocks, traffic and  #
+# pollution informations in the NABAZTAG TIME MANAGEMENT section.             #
 #------------------------------------------------------------------------------
 sensor:
 #------------------------------------------------------------------------------
@@ -57,24 +61,36 @@ sensor:
     longitude: !secret airvisual_longitude
     radius: 1000
     show_on_map: false
-
-# A few other customization
-# 
-# Change the tts language into the nabaztag_talk script:
-# ...
-#        data_template: 
-#          message: >
-#            '{{ message }}'
-#          language: 'it'     <<< here
-# ...
-# Change your favourites web radio stations into shell_command:
-# ...
-#  nab_radio_1: curl http://192.168.1.180/play?u=http://37.247.50.30/MC2.mp3
-#  nab_radio_2: curl http://192.168.1.180/play?u=http://icecast.vrtcdn.be/mnm_hits-high.mp3
-#  nab_radio_3: curl http://192.168.1.180/play?u=http://shoutcast.rtl.it:3010/stream/1/
-# ...
-# Change when you want to receive automatically weather, stocks, traffic and pollution information in the 
-# NABAZTAG TIME MANAGEMENT section at the end of the file
+#------------------------------------------------------------------------------
+input_text:
+#------------------------------------------------------------------------------
+  nabaztag_ip_address:
+    name: Nabaztag Ip Address
+    initial: http://192.168.1.180/
+  nabaztag_radio_1_ip_address:
+    name: Nabaztag Radio 1 Ip Address
+    initial: http://37.247.50.30/MC2.mp3
+  nabaztag_radio_2_ip_address:
+    name: Nabaztag Radio 2 Ip Address
+    initial: http://icecast.vrtcdn.be/mnm_hits-high.mp3
+  nabaztag_radio_3_ip_address:
+    name: Nabaztag Radio 3 Ip Address
+    initial: http://shoutcast.rtl.it:3010/stream/1/
+  nabaztag_radio_4_ip_address:
+    name: Nabaztag Radio 4 Ip Address
+    initial: http://shoutcast.rtl.it:3010/stream/1/
+  nabaztag_radio_5_ip_address:
+    name: Nabaztag Radio 5 Ip Address
+    initial: http://shoutcast.rtl.it:3010/stream/1/
+  nabaztag_tts_language:
+    name: Nabaztag Tts Language
+    initial: it
+  nabaztag_voice:
+    name: TTS
+    initial: Say Something...
+    min: 1
+    max: 500
+    pattern: '[a-fA-F0-9]*'
 #------------------------------------------------------------------------------
 group:
 #------------------------------------------------------------------------------
@@ -125,6 +141,12 @@ input_boolean:
     name: Locales Setup
     initial: off
     icon: mdi:tune
+  input_boolean.nabaztaglife:
+    initial: off
+  input_boolean.nabaztag_taichi:
+    initial: off
+  input_boolean.nabaztag_nose:
+    initial: off       
 #------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
@@ -167,33 +189,6 @@ input_number:
     max: 240
     step: 1
 #------------------------------------------------------------------------------
-input_text:
-#------------------------------------------------------------------------------
-  nabaztag_voice:
-    name: TTS
-    initial: Say Something...
-    min: 1
-    max: 500
-    pattern: '[a-fA-F0-9]*'
-  nabaztag_ip_address:
-    name: Nabaztag Ip Address
-    initial: http://192.168.1.180/
-  nabaztag_radio_1_ip_address:
-    name: Nabaztag Radio 1 Ip Address
-    initial: http://37.247.50.30/MC2.mp3
-  nabaztag_radio_2_ip_address:
-    name: Nabaztag Radio 2 Ip Address
-    initial: http://icecast.vrtcdn.be/mnm_hits-high.mp3
-  nabaztag_radio_3_ip_address:
-    name: Nabaztag Radio 3 Ip Address
-    initial: http://shoutcast.rtl.it:3010/stream/1/
-  nabaztag_radio_4_ip_address:
-    name: Nabaztag Radio 4 Ip Address
-    initial: http://shoutcast.rtl.it:3010/stream/1/
-  nabaztag_radio_5_ip_address:
-    name: Nabaztag Radio 5 Ip Address
-    initial: http://shoutcast.rtl.it:3010/stream/1/
-#------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
   nabaztag_talk:
@@ -205,7 +200,7 @@ script:
         data_template: 
           message: >
             '{{ message }}'
-          language: 'it'
+          language: '{{ states('input_text.nabaztag_tts_language')}}'
           cache: True
       - alias: Call bash script with curl command
         service: shell_command.nab_talk
@@ -239,20 +234,26 @@ script:
 #------------------------------------------------------------------------------
 switch:
 #------------------------------------------------------------------------------
-  platform: command_line
-  switches:
-    nabaztaglife:
-      command_on: "curl http://192.168.1.180/wakeup"
-      command_off: "curl http://192.168.1.180/sleep"
-      friendly_name: Nabaztag Switch
-    nabaztag_taichi:
-      command_on: "curl http://192.168.1.180/taichi?v=1000" 
-      command_off: "curl http://192.168.1.180/taichi?v=0"
-      friendly_name: Let's Taichi
-    nabaztag_nose:
-      command_on: "curl http://192.168.1.180/nose?v=1"
-      command_off: "curl http://192.168.1.180/nose?v=0"
-      friendly_name: Nose
+  - platform: template
+    switches:
+      nabaztaglife:
+        value_template: "{{ is_state('input_boolean.nabaztaglife', 'on') }}"
+        turn_on:
+          service: shell_command.nab_wakeup
+        turn_off:
+          service: shell_command.nab_sleep
+      nabaztag_taichi:
+        value_template: "{{ is_state('input_boolean.nabaztag_taichi', 'on') }}"
+        turn_on:
+          service: shell_command.nab_do_taichi_now
+        turn_off:
+          service: shell_command.nab_taichi_off
+      nabaztag_nose:
+        value_template: "{{ is_state('input_boolean.nabaztag_nose', 'on') }}"
+        turn_on:
+          service: shell_command.nab_nose_1
+        turn_off:
+          service: shell_command.nab_nose_0
 #------------------------------------------------------------------------------
 media_player:
 #------------------------------------------------------------------------------
