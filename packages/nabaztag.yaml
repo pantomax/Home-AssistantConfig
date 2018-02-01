@@ -712,6 +712,67 @@ automation:
           {% elif is_state("input_select.nabaztag_body_language", "Right") %} 11.0
           {% endif %}
 #******************************************************************************
+  - alias: "Nabaztag Language"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_language
+    action:
+    - service_template: >
+        {% if is_state("input_select.nabaztag_language", "English") %} shell_command.nab_lang_uk
+        {%-elif is_state("input_select.nabaztag_language", "Italian") %} shell_command.nab_lang_it
+        {%-elif is_state("input_select.nabaztag_language", "French") %} shell_command.nab_lang_fr
+        {%-elif is_state("input_select.nabaztag_language", "Spanish") %} shell_command.nab_lang_es
+        {% else %}
+          shell_command.nab_surprise
+        {% endif %}
+#******************************************************************************
+  - alias: "Nabaztag Time Zone"
+    trigger:
+    - platform: state
+      entity_id: input_select.nabaztag_time_zone
+    action:
+    - service_template: >
+        {% if is_state("input_select.nabaztag_time_zone", "GMT -12:00") %} shell_command.nab_time_zone_B1200
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -11:00") %} shell_command.nab_time_zone_B1100
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -10:00") %} shell_command.nab_time_zone_B1000
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -9:00") %} shell_command.nab_time_zone_B900
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -8:00") %} shell_command.nab_time_zone_B800
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -7:00") %} shell_command.nab_time_zone_B700
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -6:00") %} shell_command.nab_time_zone_B600
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -5:00") %} shell_command.nab_time_zone_B500
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -4:00") %} shell_command.nab_time_zone_B400
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -3:30") %} shell_command.nab_time_zone_B330
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -3:00") %} shell_command.nab_time_zone_B300
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -2:00") %} shell_command.nab_time_zone_B200
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT -1:00") %} shell_command.nab_time_zone_B100
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT") %} shell_command.nab_time_zone_0
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +1:00") %} shell_command.nab_time_zone_100
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +2:00") %} shell_command.nab_time_zone_200
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +3:00") %} shell_command.nab_time_zone_300
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +3:30") %} shell_command.nab_time_zone_330
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +4:00") %} shell_command.nab_time_zone_400
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +4:30") %} shell_command.nab_time_zone_430
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +5:00") %} shell_command.nab_time_zone_500
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +5:30") %} shell_command.nab_time_zone_530
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +5:45") %} shell_command.nab_time_zone_545
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +6:00") %} shell_command.nab_time_zone_600
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +7:00") %} shell_command.nab_time_zone_700
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +8:00") %} shell_command.nab_time_zone_800
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +9:00") %} shell_command.nab_time_zone_900
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +9:30") %} shell_command.nab_time_zone_930
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +10:00") %} shell_command.nab_time_zone_1000
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +11:00") %} shell_command.nab_time_zone_1100
+        {% elif is_state("input_select.nabaztag_time_zone", "GMT +12:00") %} shell_command.nab_time_zone_1200
+        {% else %}
+          shell_command.nab_abort
+        {% endif %}
+#******************************************************************************
+#*************************** NABAZTAG INFO CENTER *****************************
+#******************************************************************************
+
+#******************************************************************************
+#****************************** NABAZTAG WEATHER ******************************
+#******************************************************************************
   - alias: "Nabaztag Weather"
     trigger:
     - platform: state
@@ -780,6 +841,8 @@ automation:
           {% elif is_state("sensor.dark_sky_icon", "tornado") %}Scared
           {% else %}Crazy
           {% endif %}
+#******************************************************************************
+#***************************** NABAZTAG STOCKS ********************************
 #******************************************************************************
   - alias: "Nabaztag Stock"
     trigger:
@@ -853,6 +916,8 @@ automation:
           {% else %}Up
           {% endif %}
 #******************************************************************************
+#***************************** NABAZTAG TRAFFIC *******************************
+#******************************************************************************
   - alias: "Nabaztag Traffic"
     trigger:
     - platform: state
@@ -909,6 +974,8 @@ automation:
           {% else %}
             Up
           {% endif %}
+#******************************************************************************
+#*************************** NABAZTAG POLLUTION *******************************
 #******************************************************************************
   - alias: "Nabaztag Pollution"
     trigger:
@@ -977,113 +1044,7 @@ automation:
           {% elif states('sensor.us_air_quality_index') | int < 30 %}Up
           {% endif %}
 #******************************************************************************
-  - alias: "Nabaztag Language"
-    trigger:
-    - platform: state
-      entity_id: input_select.nabaztag_language
-    action:
-    - service_template: >
-        {% if is_state("input_select.nabaztag_language", "English") %} shell_command.nab_lang_uk
-        {%-elif is_state("input_select.nabaztag_language", "Italian") %} shell_command.nab_lang_it
-        {%-elif is_state("input_select.nabaztag_language", "French") %} shell_command.nab_lang_fr
-        {%-elif is_state("input_select.nabaztag_language", "Spanish") %} shell_command.nab_lang_es
-        {% else %}
-          shell_command.nab_surprise
-        {% endif %}
-#******************************************************************************
-  - alias: "Nabaztag Time Zone"
-    trigger:
-    - platform: state
-      entity_id: input_select.nabaztag_time_zone
-    action:
-    - service_template: >
-        {% if is_state("input_select.nabaztag_time_zone", "GMT -12:00") %} shell_command.nab_time_zone_B1200
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -11:00") %} shell_command.nab_time_zone_B1100
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -10:00") %} shell_command.nab_time_zone_B1000
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -9:00") %} shell_command.nab_time_zone_B900
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -8:00") %} shell_command.nab_time_zone_B800
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -7:00") %} shell_command.nab_time_zone_B700
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -6:00") %} shell_command.nab_time_zone_B600
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -5:00") %} shell_command.nab_time_zone_B500
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -4:00") %} shell_command.nab_time_zone_B400
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -3:30") %} shell_command.nab_time_zone_B330
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -3:00") %} shell_command.nab_time_zone_B300
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -2:00") %} shell_command.nab_time_zone_B200
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT -1:00") %} shell_command.nab_time_zone_B100
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT") %} shell_command.nab_time_zone_0
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +1:00") %} shell_command.nab_time_zone_100
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +2:00") %} shell_command.nab_time_zone_200
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +3:00") %} shell_command.nab_time_zone_300
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +3:30") %} shell_command.nab_time_zone_330
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +4:00") %} shell_command.nab_time_zone_400
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +4:30") %} shell_command.nab_time_zone_430
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +5:00") %} shell_command.nab_time_zone_500
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +5:30") %} shell_command.nab_time_zone_530
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +5:45") %} shell_command.nab_time_zone_545
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +6:00") %} shell_command.nab_time_zone_600
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +7:00") %} shell_command.nab_time_zone_700
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +8:00") %} shell_command.nab_time_zone_800
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +9:00") %} shell_command.nab_time_zone_900
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +9:30") %} shell_command.nab_time_zone_930
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +10:00") %} shell_command.nab_time_zone_1000
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +11:00") %} shell_command.nab_time_zone_1100
-        {% elif is_state("input_select.nabaztag_time_zone", "GMT +12:00") %} shell_command.nab_time_zone_1200
-        {% else %}
-          shell_command.nab_abort
-        {% endif %}
-#******************************************************************************
-  - alias: "Wake up time for the Nabaztag"
-    trigger:
-    - platform: time
-      at: '7:30:00'
-    - platform: time
-      at: '11:59:00'
-    - platform: time
-      at: '16:59:00'
-    action:
-    - service: switch.turn_on
-      entity_id: switch.nabaztaglife
-    - delay:
-          seconds: 5
-    - service: script.nabaztag_talk
-      data:
-        message: "Buongiorno mondo!"
-#******************************************************************************
-  - alias: "Sleep time for the Nabaztag during the day"
-    trigger:
-    - platform: time
-      at: '8:00:00'
-    - platform: time
-      at: '13:40:00'
-    condition:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-    action:
-    - service: script.nabaztag_talk
-      data:
-        message: "Credo che mi farò un riposino."
-    - delay:
-          seconds: 5
-    - service: switch.turn_off
-      entity_id: switch.nabaztaglife  
-#******************************************************************************
-  - alias: "Sleep time for the Nabaztag during the night"
-    trigger:
-    - platform: time
-      at: '23:30:00'
-    action:
-    - service: script.nabaztag_talk
-      data:
-        message: "Buonanotte a tutti."
-    - delay:
-          seconds: 5
-    - service: switch.turn_off
-      entity_id: switch.nabaztaglife
+#*********************** NABAZTAG TIME MANAGEMENT *****************************
 #******************************************************************************
   - alias: "Weather info times"
     trigger:
@@ -1160,4 +1121,57 @@ automation:
       data:
         entity_id: input_select.nabaztag_show_info
         option: 'Pollution'
+#******************************************************************************
+  - alias: "Wake up times for the Nabaztag"
+    trigger:
+    - platform: time
+      at: '7:30:00'
+    - platform: time
+      at: '11:59:00'
+    - platform: time
+      at: '16:59:00'
+    action:
+    - service: switch.turn_on
+      entity_id: switch.nabaztaglife
+    - delay:
+          seconds: 5
+    - service: script.nabaztag_talk
+      data:
+        message: "Buongiorno mondo!"
+#******************************************************************************
+  - alias: "Sleep times for the Nabaztag during the day"
+    trigger:
+    - platform: time
+      at: '8:00:00'
+    - platform: time
+      at: '13:40:00'
+    condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    action:
+    - service: script.nabaztag_talk
+      data:
+        message: "Credo che mi farò un riposino."
+    - delay:
+          seconds: 5
+    - service: switch.turn_off
+      entity_id: switch.nabaztaglife  
+#******************************************************************************
+  - alias: "Sleep time for the Nabaztag during the night"
+    trigger:
+    - platform: time
+      at: '23:30:00'
+    action:
+    - service: script.nabaztag_talk
+      data:
+        message: "Buonanotte a tutti."
+    - delay:
+          seconds: 5
+    - service: switch.turn_off
+      entity_id: switch.nabaztaglife
 #******************************************************************************
