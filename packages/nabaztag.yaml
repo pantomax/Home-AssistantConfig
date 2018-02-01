@@ -249,6 +249,54 @@ script:
     alias: Reboot
     sequence:
       - service: shell_command.nab_reboot
+#******************************************************************************
+  nabaztag_wakeup:
+    alias: Wake Up
+    sequence:
+      - service: shell_command.nab_wakeup
+      - service: homeassistant.turn_on
+         data:
+          entity_id: input_boolean.nabaztaglife
+#******************************************************************************
+  nabaztag_sleep:
+    alias: Sleep
+    sequence:
+      - service: shell_command.nab_sleep
+      - service: homeassistant.turn_off
+         data:
+          entity_id: input_boolean.nabaztaglife
+#******************************************************************************
+  nabaztag_taichi:
+    alias: Taichi
+    sequence:
+      - service: shell_command.nab_do_taichi_now
+      - service: homeassistant.turn_on
+         data:
+          entity_id: input_boolean.nabaztag_taichi
+#******************************************************************************
+  nabaztag_no_taichi:
+    alias: No Taichi
+    sequence:
+      - service: shell_command.nab_taichi_off
+      - service: homeassistant.turn_off
+         data:
+          entity_id: input_boolean.nabaztag_taichi
+#******************************************************************************
+  nabaztag_nose_on:
+    alias: Nose On
+    sequence:
+      - service: shell_command.nab_nose_1
+      - service: homeassistant.turn_on
+         data:
+          entity_id: input_boolean.nabaztag_nose
+#******************************************************************************
+  nabaztag_nose_off:
+    alias: Nose Off
+    sequence:
+      - service: shell_command.nab_nose_0
+      - service: homeassistant.turn_off
+         data:
+          entity_id: input_boolean.nabaztag_nose
 #------------------------------------------------------------------------------
 switch:
 #------------------------------------------------------------------------------
@@ -258,23 +306,29 @@ switch:
         friendly_name: Nabaztag Switch
         value_template: "{{ is_state('input_boolean.nabaztaglife', 'on') }}"
         turn_on:
-          service: shell_command.nab_wakeup
+        - service: script.turn_on
+          entity_id: script.nabaztag_wakeup
         turn_off:
-          service: shell_command.nab_sleep
+        - service: script.turn_on
+          entity_id: script.nabaztag_sleep
       nabaztag_taichi:
         friendly_name: Let's Taichi
         value_template: "{{ is_state('input_boolean.nabaztag_taichi', 'on') }}"
         turn_on:
-          service: shell_command.nab_do_taichi_now
+        - service: script.turn_on
+          entity_id: script.nabaztag_taichi
         turn_off:
-          service: shell_command.nab_taichi_off
+        - service: script.turn_on
+          entity_id: script.nabaztag_no_taichi
       nabaztag_nose:
         friendly_name: Nose
         value_template: "{{ is_state('input_boolean.nabaztag_nose', 'on') }}"
         turn_on:
-          service: shell_command.nab_nose_1
+        - service: script.turn_on
+          entity_id: script.nose_on
         turn_off:
-          service: shell_command.nab_nose_0
+        - service: script.turn_on
+          entity_id: script.nose_off
 #------------------------------------------------------------------------------
 media_player:
 #------------------------------------------------------------------------------
