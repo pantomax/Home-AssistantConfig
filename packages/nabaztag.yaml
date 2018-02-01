@@ -133,6 +133,14 @@ input_number:
     min: -100000
     max: 100000
     step: 0.01
+  time_to_work:
+    mode: box
+    icon: mdi:clock
+    name: Time to work
+    initial: 80
+    min: 1
+    max: 240
+    step: 1
 #------------------------------------------------------------------------------
 input_text:
 #------------------------------------------------------------------------------
@@ -140,7 +148,7 @@ input_text:
     name: TTS
     initial: Say Something...
     min: 1
-    max: 200
+    max: 500
     pattern: '[a-fA-F0-9]*'
 #------------------------------------------------------------------------------
 script:
@@ -824,9 +832,9 @@ automation:
         {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
         {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
         {% elif states('input_number.bitcoin_value_difference') | float < -5 %} shell_command.nab_stock_2
-        {% elif states('input_number.bitcoin_value_difference') | float > 5 %} shell_command.nab_stock_4
-        {% elif states('input_number.bitcoin_value_difference') | float > 50 %} shell_command.nab_stock_5
         {% elif states('input_number.bitcoin_value_difference') | float > 100 %} shell_command.nab_stock_6
+        {% elif states('input_number.bitcoin_value_difference') | float > 50 %} shell_command.nab_stock_5
+        {% elif states('input_number.bitcoin_value_difference') | float > 5 %} shell_command.nab_stock_4
         {% else %}
           shell_command.nab_stock_3
         {% endif %}
@@ -877,12 +885,12 @@ automation:
     - delay:
           seconds: 1
     - service_template: >
-        {% if states('sensor.home_to_work') | int > 110 %} shell_command.nab_traffic_6
-        {% elif states('sensor.home_to_work') | int > 105 %} shell_command.nab_traffic_5
-        {% elif states('sensor.home_to_work') | int > 100 %} shell_command.nab_traffic_4
-        {% elif states('sensor.home_to_work') | int > 95 %} shell_command.nab_traffic_3
-        {% elif states('sensor.home_to_work') | int > 90 %} shell_command.nab_traffic_2
-        {% elif states('sensor.home_to_work') | int > 85 %} shell_command.nab_traffic_1
+        {% if states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  30 }} %} shell_command.nab_traffic_6
+        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  25 }} %} shell_command.nab_traffic_5
+        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  20 }} %} shell_command.nab_traffic_4
+        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  15 }} %} shell_command.nab_traffic_3
+        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  10 }} %} shell_command.nab_traffic_2
+        {% elif states('sensor.home_to_work') | int > {{ (states('input_number.time_to_work') | int / 100 ) *  5 }} %} shell_command.nab_traffic_1
         {% else %}
           shell_command.nab_traffic_0
         {% endif %}
