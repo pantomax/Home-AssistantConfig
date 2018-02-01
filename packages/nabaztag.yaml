@@ -187,7 +187,12 @@ input_text:
   nabaztag_radio_3_ip_address:
     name: Nabaztag Radio 3 Ip Address
     initial: http://shoutcast.rtl.it:3010/stream/1/
-#"curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=1000"
+  nabaztag_radio_4_ip_address:
+    name: Nabaztag Radio 4 Ip Address
+    initial: http://shoutcast.rtl.it:3010/stream/1/
+  nabaztag_radio_5_ip_address:
+    name: Nabaztag Radio 5 Ip Address
+    initial: http://shoutcast.rtl.it:3010/stream/1/
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
@@ -545,9 +550,11 @@ shell_command:
   nab_time_zone_1000: curl {{ states('input_text.nabaztag_ip_address')}}time?v=600
   nab_time_zone_1100: curl {{ states('input_text.nabaztag_ip_address')}}time?v=660
   nab_time_zone_1200: curl {{ states('input_text.nabaztag_ip_address')}}time?v=720
-  nab_radio_1: curl {{ states('input_text.nabaztag_ip_address')}}play?u=http://37.247.50.30/MC2.mp3
-  nab_radio_2: curl {{ states('input_text.nabaztag_ip_address')}}play?u=http://icecast.vrtcdn.be/mnm_hits-high.mp3
-  nab_radio_3: curl {{ states('input_text.nabaztag_ip_address')}}play?u=http://shoutcast.rtl.it:3010/stream/1/
+  nab_radio_1: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_1_ip_address')}}
+  nab_radio_2: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_2_ip_address')}}
+  nab_radio_3: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_3_ip_address')}}
+  nab_radio_4: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_4_ip_address')}}
+  nab_radio_5: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_5_ip_address')}}
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
