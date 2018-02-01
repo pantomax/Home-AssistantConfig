@@ -254,48 +254,48 @@ script:
     alias: Wake Up
     sequence:
       - service: shell_command.nab_wakeup
-      - service: homeassistant.turn_on
-         data:
+      - service: input_boolean.turn_on
+        data:
           entity_id: input_boolean.nabaztaglife
 #******************************************************************************
   nabaztag_sleep:
     alias: Sleep
     sequence:
       - service: shell_command.nab_sleep
-      - service: homeassistant.turn_off
-         data:
+      - service: input_boolean.turn_off
+        data:
           entity_id: input_boolean.nabaztaglife
 #******************************************************************************
   nabaztag_taichi:
     alias: Taichi
     sequence:
       - service: shell_command.nab_do_taichi_now
-      - service: homeassistant.turn_on
-         data:
+      - service: input_boolean.turn_on
+        data:
           entity_id: input_boolean.nabaztag_taichi
 #******************************************************************************
   nabaztag_no_taichi:
     alias: No Taichi
     sequence:
       - service: shell_command.nab_taichi_off
-      - service: homeassistant.turn_off
-         data:
+      - service: input_boolean.turn_off
+        data:
           entity_id: input_boolean.nabaztag_taichi
 #******************************************************************************
   nabaztag_nose_on:
     alias: Nose On
     sequence:
       - service: shell_command.nab_nose_1
-      - service: homeassistant.turn_on
-         data:
+      - service: input_boolean.turn_on
+        data:
           entity_id: input_boolean.nabaztag_nose
 #******************************************************************************
   nabaztag_nose_off:
     alias: Nose Off
     sequence:
       - service: shell_command.nab_nose_0
-      - service: homeassistant.turn_off
-         data:
+      - service: input_boolean.turn_off
+        data:
           entity_id: input_boolean.nabaztag_nose
 #------------------------------------------------------------------------------
 switch:
