@@ -7,315 +7,115 @@
     light.tavolino:
       friendly_name: "Tavolino"
       icon: mdi:lamp
-      google_assistant: true
-      google_assistant_name: table
-      aliases:
-        - light on the small table
-        - entity s 1
     light.libreria:
       friendly_name: "Libreria"
       icon: mdi:spotlight-beam
-      google_assistant: true
-      google_assistant_name: library
-      aliases:
-        - light on the library
-        - entity s 2
     light.mobile_tv:
       friendly_name: "Mobile TV"
       icon: mdi:ceiling-light
-      google_assistant: true
-      google_assistant_name: spot
-      aliases:
-        - lights on the black library
-        - entity s 3
     light.retro_tv:
       friendly_name: "Retro TV"
       icon: mdi:spotlight
-      google_assistant: true
-      google_assistant_name: tv light
-      aliases:
-        - light over the tv
-        - entity s 4
     light.light_desk:
       friendly_name: "Scrivania"
       icon: mdi:lava-lamp
-      google_assistant: true
-      google_assistant_name: desk
-      aliases:
-        - light on the desk
-        - entity s 5
     light.led_strip:
       friendly_name: "Striscia Led"
       icon: mdi:led-strip
-      google_assistant: true
-      google_assistant_name: led strip
-      aliases:
-        - led strip light
-        - entity s 6
     light.light_kitchen:
       friendly_name: "Lavello"
       icon: mdi:water-pump
-      google_assistant: true
-      google_assistant_name: sink
-      aliases:
-        - sink light
-        - entity s 7
     light.light_kitchen_2:
       friendly_name: "Ingresso"
       icon: mdi:glassdoor
-      google_assistant: true
-      google_assistant_name: entrance
-      aliases:
-        - entrance light
-        - entity s 8
     light.corridoio_bagno:
       friendly_name: "Corridoio Bagno"
       icon: mdi:ceiling-light
-      google_assistant: true
-      google_assistant_name: white
-      aliases:
-        - white bulb light in the hallway
-        - entity s 9
     light.corridoio_porta:
       friendly_name: "Corridoio Porta"
       icon: mdi:ceiling-light
-      google_assistant: true
-      google_assistant_name: blue
-      aliases:
-        - small blue lamp in the hallway
-        - entity s 10
     light.tv:
       friendly_name: "Tv"
       icon: mdi:television-classic
-      google_assistant: true
-      google_assistant_name: on the back of tv 
-      aliases:
-        - light on the back of tv
-        - entity s 11
     light.soffitto:
       friendly_name: "Soffitto"
       icon: mdi:format-vertical-align-top
-      google_assistant: true
-      google_assistant_name: ceiling
-      aliases:
-        - light toward the ceiling
-        - entity s 12
     light.giardino:
       friendly_name: "Luce Giardino"
       icon: mdi:flower
-      google_assistant: true
-      google_assistant_name: garden
-      aliases:
-        - light in the garden
-        - entity s 13
     light.camera:
       friendly_name: "Luce Camera"
       icon: mdi:hotel
-      google_assistant: true
-      google_assistant_name: bedroom
-      aliases:
-        - light under the bed
-        - entity s 14
     light.bagno:
       friendly_name: "Luce Bagno"
       icon: mdi:human-male-female
-      google_assistant: true
-      google_assistant_name: bathroom
-      aliases:
-        - light in the bathroom
-        - entity s 15
     scene.buona_notte:
       entity_picture: /local/goodnight.png
-      google_assistant: true
-      google_assistant_name: night
-      aliases:
-        - a sweet sweet good night
-        - good night
-        - good night scene
-        - entity s 20
     scene.corridoio_spento:
       friendly_name: Spegni Corridoio
       icon: mdi:lightbulb
-      google_assistant: true
-      google_assistant_name: hallway
-      aliases:
-        - hallway lights
-        - entity s 21
     scene.film:
       friendly_name: "Film"
       entity_picture: /local/film.png
-      google_assistant: true
-      google_assistant_name: movie
-      aliases:
-        - movie lights
-        - movie scene
-        - movie 1
-        - entity s 22
     scene.black_alert:
       friendly_name: "Allarme Nero"
       entity_picture: /local/bluealert.png
       icon: mdi:chemical-weapon
-      google_assistant: true
-      google_assistant_name: black alert
-      aliases:
-        - black alert immediatly
-        - entity s 23
     scene.red_alert:
       friendly_name: "Allarme Rosso"
       entity_picture: /local/redalert.png
       icon: mdi:chemical-weapon
-      google_assistant: true
-      google_assistant_name: red alert
-      aliases:
-        - red alert immediatly
-        - entity s 24
     scene.foresta:
       friendly_name: "Ambiance Foresta"
       entity_picture: /local/foresta.png
-      google_assistant: true
-      google_assistant_name: forest
-      aliases:
-        - forest scene
-        - entity s 25
     scene.inverno:
       friendly_name: "Ambiance Inverno"
       entity_picture: /local/fuoco.png
-      google_assistant: true
-      google_assistant_name: winter
-      aliases:
-        - winter scene
-        - entity s 26
     scene.oceano:
       friendly_name: "Ambiance Oceano"
       entity_picture: /local/oceano.png
-      google_assistant: true
-      google_assistant_name: ocean
-      aliases:
-        - ocean scene
-        - entity s 27
     scene.club:
       friendly_name: "Ambiance Club"
       entity_picture: /local/club.png
-      google_assistant: true
-      google_assistant_name: club
-      aliases:
-        - club scene
-        - entity s 28
     scene.acquario:
       friendly_name: "Ambiance Acquario"
       entity_picture: /local/acquario.png
-      google_assistant: true
-      google_assistant_name: aquarium
-      aliases:
-        - aquarium scene
-        - entity s 29
     scene.hdmi_1:
       friendly_name: "HDMI 1"
       icon: mdi:numeric-1-box-multiple-outline
-      google_assistant: true
-      google_assistant_name: channel 1
-      aliases:
-        - hdmi 1
-        - entity s 29
     scene.hdmi_2:
       friendly_name: "HDMI 2"
       icon: mdi:numeric-2-box-multiple-outline
-      google_assistant: true
-      google_assistant_name: channel 2
-      aliases:
-        - hdmi 2
-        - entity s 30
     scene.hdmi_3:
       friendly_name: "HDMI 3"
       icon: mdi:numeric-3-box-multiple-outline
-      google_assistant: true
-      google_assistant_name: channel 3
-      aliases:
-        - hdmi 3
-        - entity s 31
     switch.insettivoro:
       friendly_name: "Insettivoro"
       icon: mdi:bug
-      google_assistant: true
-      google_assistant_name: bug eater
-      aliases:
-        - bug eater on the library
-        - entity s 40
     switch.tv:
       friendly_name: "Accendi TV" 
       icon: mdi:satellite-variant
-      google_assistant: true
-      google_assistant_name: tv
-      aliases:
-        - television
-        - entity s 41
     switch.accendi_termostato_dashboard_bagno:
       friendly_name: "Scalda bagno"
       icon: mdi:fire
-      google_assistant: true
-      google_assistant_name: warm up bathroom
-      aliases:
-        - the heater in the bathroom
-        - warm up the bathroom
-        - warm up the toilet
-        - entity s 42
     switch.accendi_termostato_dashboard_salotto:
       friendly_name: "Scalda salotto"
       icon: mdi:fire
-      google_assistant: true
-      google_assistant_name: warm up living room
-      aliases:
-        - the heater in the living room
-        - warm up the livin
-        - warm up the living room
-        - entity s 43
     switch.accendi_termostato_dashboard_camera:
       friendly_name: "Scalda camera"
       icon: mdi:fire
-      google_assistant: true
-      google_assistant_name: warm up bed room
-      aliases:
-        - the heater in the master bedroom
-        - warm up the bedroom
-        - warm up the bedroom
-        - entity s 44
     switch.tv_volume:
       friendly_name: "Alza il volume" 
       icon: mdi:satellite-variant
-      google_assistant: true
-      google_assistant_name: tv volume
-      aliases:
-        - television volume
-        - volume on the tv
-        - entity s 45
     script.apricancello:
       friendly_name : "Apri Cancello"
       icon: mdi:gate
-      google_assistant: true
-      google_assistant_name: gate
-      aliases:
-        - gate opener
-        - open sesame
-        - stargate
-        - entity s 60
     sensor.dht_humidity:
       friendly_name : "Umidità DHT"
       icon: mdi:water-percent
-      google_assistant: true
-      google_assistant_name: humidity
-      type: climate
-      aliases:
-        - humidity near the server
-        - entity s 70
     sensor.dht_temperature:
       friendly_name : "Temperatura DHT"
       icon: mdi:thermometer-lines
-      google_assistant: true
-      google_assistant_name: temperature
-      type: climate
-      aliases:
-        - temperature near the server
-        - entity s 71
 #*********************************SCENES***************************************
     scene.luci_sala_accese:
       friendly_name: "Luci Sala Accese"
