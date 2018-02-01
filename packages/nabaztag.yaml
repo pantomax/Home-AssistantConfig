@@ -200,7 +200,7 @@ script:
         data_template: 
           message: >
             '{{ message }}'
-          language: 'it'
+          language: '{{ states('input_text.nabaztag_tts_language') }}'
           cache: True
       - alias: Call bash script with curl command
         service: shell_command.nab_talk
@@ -431,133 +431,133 @@ input_select:
 #------------------------------------------------------------------------------
 shell_command:
 #------------------------------------------------------------------------------
-  nab_surprise: curl {{ states('input_text.nabaztag_ip_address')}}surprise
-  nab_stop: curl {{ states('input_text.nabaztag_ip_address')}}stop
-  nab_clear: curl {{ states('input_text.nabaztag_ip_address')}}clear
-  nab_sleep: curl {{ states('input_text.nabaztag_ip_address')}}sleep
-  nab_wakeup: curl {{ states('input_text.nabaztag_ip_address')}}wakeup
-  nab_gettime: curl {{ states('input_text.nabaztag_ip_address')}}gettime
-  nab_reboot: curl {{ states('input_text.nabaztag_ip_address')}}reboot
-  nab_communication: curl {{ states('input_text.nabaztag_ip_address')}}communication
-  nab_ack: curl {{ states('input_text.nabaztag_ip_address')}}ack
-  nab_abort: curl {{ states('input_text.nabaztag_ip_address')}}abort
-  nab_ministop: curl {{ states('input_text.nabaztag_ip_address')}}ministop
-  nab_do_taichi_now: curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=1000
-  nab_taichi_off: curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=0
-  nab_taichi_min: curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=40
-  nab_taichi_medium: curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=80
-  nab_taichi_max: curl {{ states('input_text.nabaztag_ip_address')}}taichi?v=255
-  nab_nose_0: curl {{ states('input_text.nabaztag_ip_address')}}nose?v=0
-  nab_nose_1: curl {{ states('input_text.nabaztag_ip_address')}}nose?v=1
-  nab_nose_2: curl {{ states('input_text.nabaztag_ip_address')}}nose?v=2
-  nab_nose_3: curl {{ states('input_text.nabaztag_ip_address')}}nose?v=3
-  nab_nose_4: curl {{ states('input_text.nabaztag_ip_address')}}nose?v=4
-  nab_ear_left_0: curl {{ states('input_text.nabaztag_ip_address')}}left?p=0&d=0
-  nab_ear_left_1: curl {{ states('input_text.nabaztag_ip_address')}}left?p=1&d=0
-  nab_ear_left_2: curl {{ states('input_text.nabaztag_ip_address')}}left?p=2&d=0
-  nab_ear_left_3: curl {{ states('input_text.nabaztag_ip_address')}}left?p=3&d=0
-  nab_ear_left_4: curl {{ states('input_text.nabaztag_ip_address')}}left?p=4&d=0
-  nab_ear_left_5: curl {{ states('input_text.nabaztag_ip_address')}}left?p=5&d=0
-  nab_ear_left_6: curl {{ states('input_text.nabaztag_ip_address')}}left?p=6&d=0
-  nab_ear_left_7: curl {{ states('input_text.nabaztag_ip_address')}}left?p=7&d=0
-  nab_ear_left_8: curl {{ states('input_text.nabaztag_ip_address')}}left?p=8&d=0
-  nab_ear_left_9: curl {{ states('input_text.nabaztag_ip_address')}}left?p=9&d=0
-  nab_ear_left_10: curl {{ states('input_text.nabaztag_ip_address')}}left?p=10&d=0
-  nab_ear_left_11: curl {{ states('input_text.nabaztag_ip_address')}}left?p=11&d=0
-  nab_ear_left_12: curl {{ states('input_text.nabaztag_ip_address')}}left?p=12&d=0
-  nab_ear_left_13: curl {{ states('input_text.nabaztag_ip_address')}}left?p=13&d=0
-  nab_ear_left_14: curl {{ states('input_text.nabaztag_ip_address')}}left?p=14&d=0
-  nab_ear_left_15: curl {{ states('input_text.nabaztag_ip_address')}}left?p=15&d=0
-  nab_ear_left_16: curl {{ states('input_text.nabaztag_ip_address')}}left?p=16&d=0
-  nab_ear_right_0: curl {{ states('input_text.nabaztag_ip_address')}}right?p=0&d=0
-  nab_ear_right_1: curl {{ states('input_text.nabaztag_ip_address')}}right?p=1&d=0
-  nab_ear_right_2: curl {{ states('input_text.nabaztag_ip_address')}}right?p=2&d=0
-  nab_ear_right_3: curl {{ states('input_text.nabaztag_ip_address')}}right?p=3&d=0
-  nab_ear_right_4: curl {{ states('input_text.nabaztag_ip_address')}}right?p=4&d=0
-  nab_ear_right_5: curl {{ states('input_text.nabaztag_ip_address')}}right?p=5&d=0
-  nab_ear_right_6: curl {{ states('input_text.nabaztag_ip_address')}}right?p=6&d=0
-  nab_ear_right_7: curl {{ states('input_text.nabaztag_ip_address')}}right?p=7&d=0
-  nab_ear_right_8: curl {{ states('input_text.nabaztag_ip_address')}}right?p=8&d=0
-  nab_ear_right_9: curl {{ states('input_text.nabaztag_ip_address')}}right?p=9&d=0
-  nab_ear_right_10: curl {{ states('input_text.nabaztag_ip_address')}}right?p=10&d=0
-  nab_ear_right_11: curl {{ states('input_text.nabaztag_ip_address')}}right?p=11&d=0
-  nab_ear_right_12: curl {{ states('input_text.nabaztag_ip_address')}}right?p=12&d=0
-  nab_ear_right_13: curl {{ states('input_text.nabaztag_ip_address')}}right?p=13&d=0
-  nab_ear_right_14: curl {{ states('input_text.nabaztag_ip_address')}}right?p=14&d=0
-  nab_ear_right_15: curl {{ states('input_text.nabaztag_ip_address')}}right?p=15&d=0
-  nab_ear_right_16: curl {{ states('input_text.nabaztag_ip_address')}}right?p=16&d=0
+  nab_surprise: curl {{ states('input_text.nabaztag_ip_address') }}surprise
+  nab_stop: curl {{ states('input_text.nabaztag_ip_address') }}stop
+  nab_clear: curl {{ states('input_text.nabaztag_ip_address') }}clear
+  nab_sleep: curl {{ states('input_text.nabaztag_ip_address') }}sleep
+  nab_wakeup: curl {{ states('input_text.nabaztag_ip_address') }}wakeup
+  nab_gettime: curl {{ states('input_text.nabaztag_ip_address') }}gettime
+  nab_reboot: curl {{ states('input_text.nabaztag_ip_address') }}reboot
+  nab_communication: curl {{ states('input_text.nabaztag_ip_address') }}communication
+  nab_ack: curl {{ states('input_text.nabaztag_ip_address') }}ack
+  nab_abort: curl {{ states('input_text.nabaztag_ip_address') }}abort
+  nab_ministop: curl {{ states('input_text.nabaztag_ip_address') }}ministop
+  nab_do_taichi_now: curl {{ states('input_text.nabaztag_ip_address') }}taichi?v=1000
+  nab_taichi_off: curl {{ states('input_text.nabaztag_ip_address') }}taichi?v=0
+  nab_taichi_min: curl {{ states('input_text.nabaztag_ip_address') }}taichi?v=40
+  nab_taichi_medium: curl {{ states('input_text.nabaztag_ip_address') }}taichi?v=80
+  nab_taichi_max: curl {{ states('input_text.nabaztag_ip_address') }}taichi?v=255
+  nab_nose_0: curl {{ states('input_text.nabaztag_ip_address') }}nose?v=0
+  nab_nose_1: curl {{ states('input_text.nabaztag_ip_address') }}nose?v=1
+  nab_nose_2: curl {{ states('input_text.nabaztag_ip_address') }}nose?v=2
+  nab_nose_3: curl {{ states('input_text.nabaztag_ip_address') }}nose?v=3
+  nab_nose_4: curl {{ states('input_text.nabaztag_ip_address') }}nose?v=4
+  nab_ear_left_0: curl {{ states('input_text.nabaztag_ip_address') }}left?p=0&d=0
+  nab_ear_left_1: curl {{ states('input_text.nabaztag_ip_address') }}left?p=1&d=0
+  nab_ear_left_2: curl {{ states('input_text.nabaztag_ip_address') }}left?p=2&d=0
+  nab_ear_left_3: curl {{ states('input_text.nabaztag_ip_address') }}left?p=3&d=0
+  nab_ear_left_4: curl {{ states('input_text.nabaztag_ip_address') }}left?p=4&d=0
+  nab_ear_left_5: curl {{ states('input_text.nabaztag_ip_address') }}left?p=5&d=0
+  nab_ear_left_6: curl {{ states('input_text.nabaztag_ip_address') }}left?p=6&d=0
+  nab_ear_left_7: curl {{ states('input_text.nabaztag_ip_address') }}left?p=7&d=0
+  nab_ear_left_8: curl {{ states('input_text.nabaztag_ip_address') }}left?p=8&d=0
+  nab_ear_left_9: curl {{ states('input_text.nabaztag_ip_address') }}left?p=9&d=0
+  nab_ear_left_10: curl {{ states('input_text.nabaztag_ip_address') }}left?p=10&d=0
+  nab_ear_left_11: curl {{ states('input_text.nabaztag_ip_address') }}left?p=11&d=0
+  nab_ear_left_12: curl {{ states('input_text.nabaztag_ip_address') }}left?p=12&d=0
+  nab_ear_left_13: curl {{ states('input_text.nabaztag_ip_address') }}left?p=13&d=0
+  nab_ear_left_14: curl {{ states('input_text.nabaztag_ip_address') }}left?p=14&d=0
+  nab_ear_left_15: curl {{ states('input_text.nabaztag_ip_address') }}left?p=15&d=0
+  nab_ear_left_16: curl {{ states('input_text.nabaztag_ip_address') }}left?p=16&d=0
+  nab_ear_right_0: curl {{ states('input_text.nabaztag_ip_address') }}right?p=0&d=0
+  nab_ear_right_1: curl {{ states('input_text.nabaztag_ip_address') }}right?p=1&d=0
+  nab_ear_right_2: curl {{ states('input_text.nabaztag_ip_address') }}right?p=2&d=0
+  nab_ear_right_3: curl {{ states('input_text.nabaztag_ip_address') }}right?p=3&d=0
+  nab_ear_right_4: curl {{ states('input_text.nabaztag_ip_address') }}right?p=4&d=0
+  nab_ear_right_5: curl {{ states('input_text.nabaztag_ip_address') }}right?p=5&d=0
+  nab_ear_right_6: curl {{ states('input_text.nabaztag_ip_address') }}right?p=6&d=0
+  nab_ear_right_7: curl {{ states('input_text.nabaztag_ip_address') }}right?p=7&d=0
+  nab_ear_right_8: curl {{ states('input_text.nabaztag_ip_address') }}right?p=8&d=0
+  nab_ear_right_9: curl {{ states('input_text.nabaztag_ip_address') }}right?p=9&d=0
+  nab_ear_right_10: curl {{ states('input_text.nabaztag_ip_address') }}right?p=10&d=0
+  nab_ear_right_11: curl {{ states('input_text.nabaztag_ip_address') }}right?p=11&d=0
+  nab_ear_right_12: curl {{ states('input_text.nabaztag_ip_address') }}right?p=12&d=0
+  nab_ear_right_13: curl {{ states('input_text.nabaztag_ip_address') }}right?p=13&d=0
+  nab_ear_right_14: curl {{ states('input_text.nabaztag_ip_address') }}right?p=14&d=0
+  nab_ear_right_15: curl {{ states('input_text.nabaztag_ip_address') }}right?p=15&d=0
+  nab_ear_right_16: curl {{ states('input_text.nabaztag_ip_address') }}right?p=16&d=0
   nab_talk: bash /config/www/vl/voice/talk.sh
-  nab_weather_0: curl {{ states('input_text.nabaztag_ip_address')}}weather?v=0
-  nab_weather_1: curl {{ states('input_text.nabaztag_ip_address')}}weather?v=1
-  nab_weather_2: curl {{ states('input_text.nabaztag_ip_address')}}weather?v=2
-  nab_weather_3: curl {{ states('input_text.nabaztag_ip_address')}}weather?v=3
-  nab_weather_4: curl {{ states('input_text.nabaztag_ip_address')}}weather?v=4
-  nab_weather_5: curl {{ states('input_text.nabaztag_ip_address')}}weather?v=5
-  nab_stock_0: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=0
-  nab_stock_1: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=1
-  nab_stock_2: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=2
-  nab_stock_3: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=3
-  nab_stock_4: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=4
-  nab_stock_5: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=5
-  nab_stock_6: curl {{ states('input_text.nabaztag_ip_address')}}stock?v=6
-  nab_traffic_0: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=0
-  nab_traffic_1: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=1
-  nab_traffic_2: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=2
-  nab_traffic_3: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=3
-  nab_traffic_4: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=4
-  nab_traffic_5: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=5
-  nab_traffic_6: curl {{ states('input_text.nabaztag_ip_address')}}traffic?v=6
-  nab_pollution_0: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=0
-  nab_pollution_1: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=1
-  nab_pollution_2: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=2
-  nab_pollution_3: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=3
-  nab_pollution_4: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=4
-  nab_pollution_5: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=5
-  nab_pollution_6: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=6
-  nab_pollution_7: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=7
-  nab_pollution_8: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=8
-  nab_pollution_9: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=9
-  nab_pollution_10: curl {{ states('input_text.nabaztag_ip_address')}}pollution?v=10
-  nab_lang_uk: curl {{ states('input_text.nabaztag_ip_address')}}lang?v=uk
-  nab_lang_it: curl {{ states('input_text.nabaztag_ip_address')}}lang?v=it
-  nab_lang_fr: curl {{ states('input_text.nabaztag_ip_address')}}lang?v=fr
-  nab_lang_es: curl {{ states('input_text.nabaztag_ip_address')}}lang?v=es
-  nab_time_zone_b1200: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-720
-  nab_time_zone_b1100: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-660
-  nab_time_zone_b1000: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-600
-  nab_time_zone_b900: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-540
-  nab_time_zone_b800: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-480
-  nab_time_zone_b700: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-420
-  nab_time_zone_b600: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-360
-  nab_time_zone_b500: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-300
-  nab_time_zone_b400: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-240
-  nab_time_zone_b330: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-210
-  nab_time_zone_b300: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-180
-  nab_time_zone_b200: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-120
-  nab_time_zone_b100: curl {{ states('input_text.nabaztag_ip_address')}}time?v=-60
-  nab_time_zone_0: curl {{ states('input_text.nabaztag_ip_address')}}time?v=0
-  nab_time_zone_100: curl {{ states('input_text.nabaztag_ip_address')}}time?v=60
-  nab_time_zone_200: curl {{ states('input_text.nabaztag_ip_address')}}time?v=120
-  nab_time_zone_300: curl {{ states('input_text.nabaztag_ip_address')}}time?v=180
-  nab_time_zone_330: curl {{ states('input_text.nabaztag_ip_address')}}time?v=210
-  nab_time_zone_400: curl {{ states('input_text.nabaztag_ip_address')}}time?v=240
-  nab_time_zone_430: curl {{ states('input_text.nabaztag_ip_address')}}time?v=270
-  nab_time_zone_500: curl {{ states('input_text.nabaztag_ip_address')}}time?v=300
-  nab_time_zone_530: curl {{ states('input_text.nabaztag_ip_address')}}time?v=330
-  nab_time_zone_545: curl {{ states('input_text.nabaztag_ip_address')}}time?v=345
-  nab_time_zone_600: curl {{ states('input_text.nabaztag_ip_address')}}time?v=260
-  nab_time_zone_700: curl {{ states('input_text.nabaztag_ip_address')}}time?v=420
-  nab_time_zone_800: curl {{ states('input_text.nabaztag_ip_address')}}time?v=480
-  nab_time_zone_900: curl {{ states('input_text.nabaztag_ip_address')}}time?v=540
-  nab_time_zone_930: curl {{ states('input_text.nabaztag_ip_address')}}time?v=570
-  nab_time_zone_1000: curl {{ states('input_text.nabaztag_ip_address')}}time?v=600
-  nab_time_zone_1100: curl {{ states('input_text.nabaztag_ip_address')}}time?v=660
-  nab_time_zone_1200: curl {{ states('input_text.nabaztag_ip_address')}}time?v=720
-  nab_radio_1: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_1_ip_address')}}
-  nab_radio_2: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_2_ip_address')}}
-  nab_radio_3: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_3_ip_address')}}
-  nab_radio_4: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_4_ip_address')}}
-  nab_radio_5: curl {{ states('input_text.nabaztag_ip_address')}}play?u={{ states('input_text.nabaztag_radio_5_ip_address')}}
+  nab_weather_0: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=0
+  nab_weather_1: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=1
+  nab_weather_2: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=2
+  nab_weather_3: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=3
+  nab_weather_4: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=4
+  nab_weather_5: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=5
+  nab_stock_0: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=0
+  nab_stock_1: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=1
+  nab_stock_2: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=2
+  nab_stock_3: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=3
+  nab_stock_4: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=4
+  nab_stock_5: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=5
+  nab_stock_6: curl {{ states('input_text.nabaztag_ip_address') }}stock?v=6
+  nab_traffic_0: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=0
+  nab_traffic_1: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=1
+  nab_traffic_2: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=2
+  nab_traffic_3: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=3
+  nab_traffic_4: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=4
+  nab_traffic_5: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=5
+  nab_traffic_6: curl {{ states('input_text.nabaztag_ip_address') }}traffic?v=6
+  nab_pollution_0: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=0
+  nab_pollution_1: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=1
+  nab_pollution_2: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=2
+  nab_pollution_3: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=3
+  nab_pollution_4: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=4
+  nab_pollution_5: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=5
+  nab_pollution_6: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=6
+  nab_pollution_7: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=7
+  nab_pollution_8: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=8
+  nab_pollution_9: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=9
+  nab_pollution_10: curl {{ states('input_text.nabaztag_ip_address') }}pollution?v=10
+  nab_lang_uk: curl {{ states('input_text.nabaztag_ip_address') }}lang?v=uk
+  nab_lang_it: curl {{ states('input_text.nabaztag_ip_address') }}lang?v=it
+  nab_lang_fr: curl {{ states('input_text.nabaztag_ip_address') }}lang?v=fr
+  nab_lang_es: curl {{ states('input_text.nabaztag_ip_address') }}lang?v=es
+  nab_time_zone_b1200: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-720
+  nab_time_zone_b1100: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-660
+  nab_time_zone_b1000: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-600
+  nab_time_zone_b900: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-540
+  nab_time_zone_b800: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-480
+  nab_time_zone_b700: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-420
+  nab_time_zone_b600: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-360
+  nab_time_zone_b500: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-300
+  nab_time_zone_b400: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-240
+  nab_time_zone_b330: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-210
+  nab_time_zone_b300: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-180
+  nab_time_zone_b200: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-120
+  nab_time_zone_b100: curl {{ states('input_text.nabaztag_ip_address') }}time?v=-60
+  nab_time_zone_0: curl {{ states('input_text.nabaztag_ip_address') }}time?v=0
+  nab_time_zone_100: curl {{ states('input_text.nabaztag_ip_address') }}time?v=60
+  nab_time_zone_200: curl {{ states('input_text.nabaztag_ip_address') }}time?v=120
+  nab_time_zone_300: curl {{ states('input_text.nabaztag_ip_address') }}time?v=180
+  nab_time_zone_330: curl {{ states('input_text.nabaztag_ip_address') }}time?v=210
+  nab_time_zone_400: curl {{ states('input_text.nabaztag_ip_address') }}time?v=240
+  nab_time_zone_430: curl {{ states('input_text.nabaztag_ip_address') }}time?v=270
+  nab_time_zone_500: curl {{ states('input_text.nabaztag_ip_address') }}time?v=300
+  nab_time_zone_530: curl {{ states('input_text.nabaztag_ip_address') }}time?v=330
+  nab_time_zone_545: curl {{ states('input_text.nabaztag_ip_address') }}time?v=345
+  nab_time_zone_600: curl {{ states('input_text.nabaztag_ip_address') }}time?v=260
+  nab_time_zone_700: curl {{ states('input_text.nabaztag_ip_address') }}time?v=420
+  nab_time_zone_800: curl {{ states('input_text.nabaztag_ip_address') }}time?v=480
+  nab_time_zone_900: curl {{ states('input_text.nabaztag_ip_address') }}time?v=540
+  nab_time_zone_930: curl {{ states('input_text.nabaztag_ip_address') }}time?v=570
+  nab_time_zone_1000: curl {{ states('input_text.nabaztag_ip_address') }}time?v=600
+  nab_time_zone_1100: curl {{ states('input_text.nabaztag_ip_address') }}time?v=660
+  nab_time_zone_1200: curl {{ states('input_text.nabaztag_ip_address') }}time?v=720
+  nab_radio_1: curl {{ states('input_text.nabaztag_ip_address') }}play?u={{ states('input_text.nabaztag_radio_1_ip_address')}}
+  nab_radio_2: curl {{ states('input_text.nabaztag_ip_address') }}play?u={{ states('input_text.nabaztag_radio_2_ip_address')}}
+  nab_radio_3: curl {{ states('input_text.nabaztag_ip_address') }}play?u={{ states('input_text.nabaztag_radio_3_ip_address')}}
+  nab_radio_4: curl {{ states('input_text.nabaztag_ip_address') }}play?u={{ states('input_text.nabaztag_radio_4_ip_address')}}
+  nab_radio_5: curl {{ states('input_text.nabaztag_ip_address') }}play?u={{ states('input_text.nabaztag_radio_5_ip_address')}}
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
