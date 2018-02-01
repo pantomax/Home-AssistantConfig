@@ -141,11 +141,11 @@ input_boolean:
     name: Locales Setup
     initial: off
     icon: mdi:tune
-  input_boolean.nabaztaglife:
+  nabaztaglife:
     initial: off
-  input_boolean.nabaztag_taichi:
+  nabaztag_taichi:
     initial: off
-  input_boolean.nabaztag_nose:
+  nabaztag_nose:
     initial: off       
 #------------------------------------------------------------------------------
 input_number:
