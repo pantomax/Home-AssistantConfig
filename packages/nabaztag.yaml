@@ -325,10 +325,10 @@ switch:
         value_template: "{{ is_state('input_boolean.nabaztag_nose', 'on') }}"
         turn_on:
         - service: script.turn_on
-          entity_id: script.nose_on
+          entity_id: script.nabaztag_nose_on
         turn_off:
         - service: script.turn_on
-          entity_id: script.nose_off
+          entity_id: script.nabaztag_nose_off
 #------------------------------------------------------------------------------
 media_player:
 #------------------------------------------------------------------------------
