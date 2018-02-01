@@ -21,93 +21,111 @@ google_assistant:
   entity_config:
     light.tavolino:
       name: table
+      expose: true
       aliases:
         - light on the small table
         - entity s 1
     light.libreria:
       name: library
+      expose: true
       aliases:
         - light on the library
         - entity s 2
     light.mobile_tv:
       name: spot
+      expose: true
       aliases:
         - lights on the black library
         - entity s 3
     light.retro_tv:
       name: tv light
+      expose: true
       aliases:
         - light over the tv
         - entity s 4
     light.light_desk:
       name: desk
+      expose: true
       aliases:
         - light on the desk
         - entity s 5
     light.led_strip:
       name: led strip
+      expose: true
       aliases:
         - led strip light
         - entity s 6
     light.light_kitchen:
       name: sink
+      expose: true
       aliases:
         - sink light
         - entity s 7
     light.light_kitchen_2:
       name: entrance
+      expose: true
       aliases:
         - entrance light
         - entity s 8
     light.corridoio_bagno:
       name: white
+      expose: true
       aliases:
         - white bulb light in the hallway
         - entity s 9
     light.corridoio_porta:
       name: blue
+      expose: true
       aliases:
         - small blue lamp in the hallway
         - entity s 10
     light.tv:
       name: on the back of tv 
+      expose: true
       aliases:
         - light on the back of tv
         - entity s 11
     light.soffitto:
       name: ceiling
+      expose: true
       aliases:
         - light toward the ceiling
         - entity s 12
     light.giardino:
       name: garden
+      expose: true
       aliases:
         - light in the garden
         - entity s 13
     light.camera:
       name: bedroom
+      expose: true
       aliases:
         - light under the bed
         - entity s 14
     light.bagno:
       name: bathroom
+      expose: true
       aliases:
         - light in the bathroom
         - entity s 15
     scene.buona_notte:
       name: night
+      expose: true
       aliases:
         - a sweet sweet good night
         - good night
         - good night scene
         - entity s 20
     scene.corridoio_spento:
+      expose: true
       name: hallway
       aliases:
         - hallway lights
         - entity s 21
     scene.film:
       name: movie
+      expose: true
       aliases:
         - movie lights
         - movie scene
@@ -115,66 +133,79 @@ google_assistant:
         - entity s 22
     scene.black_alert:
       name: black alert
+      expose: true
       aliases:
         - black alert immediatly
         - entity s 23
     scene.red_alert:
       name: red alert
+      expose: true
       aliases:
         - red alert immediatly
         - entity s 24
     scene.foresta:
       name: forest
+      expose: true
       aliases:
         - forest scene
         - entity s 25
     scene.inverno:
       name: winter
+      expose: true
       aliases:
         - winter scene
         - entity s 26
     scene.oceano:
       name: ocean
+      expose: true
       aliases:
         - ocean scene
         - entity s 27
     scene.club:
       name: club
+      expose: true
       aliases:
         - club scene
         - entity s 28
     scene.acquario:
       name: aquarium
+      expose: true
       aliases:
         - aquarium scene
         - entity s 29
     scene.hdmi_1:
       name: channel 1
+      expose: true
       aliases:
         - hdmi 1
         - entity s 29
     scene.hdmi_2:
       name: channel 2
+      expose: true
       aliases:
         - hdmi 2
         - entity s 30
     scene.hdmi_3:
       name: channel 3
+      expose: true
       aliases:
         - hdmi 3
         - entity s 31
     switch.insettivoro:
       name: bug eater
+      expose: true
       aliases:
         - bug eater on the library
         - entity s 40
     switch.tv:
       name: tv
+      expose: true
       aliases:
         - television
         - entity s 41
     switch.accendi_termostato_dashboard_bagno:
       name: warm up bathroom
+      expose: true
       aliases:
         - the heater in the bathroom
         - warm up the bathroom
@@ -182,6 +213,7 @@ google_assistant:
         - entity s 42
     switch.accendi_termostato_dashboard_salotto:
       name: warm up living room
+      expose: true
       aliases:
         - the heater in the living room
         - warm up the livin
@@ -189,6 +221,7 @@ google_assistant:
         - entity s 43
     switch.accendi_termostato_dashboard_camera:
       name: warm up bed room
+      expose: true
       aliases:
         - the heater in the master bedroom
         - warm up the bedroom
@@ -196,12 +229,14 @@ google_assistant:
         - entity s 44
     switch.tv_volume:
       name: tv volume
+      expose: true
       aliases:
         - television volume
         - volume on the tv
         - entity s 45
     script.apricancello:
       name: gate
+      expose: true
       aliases:
         - gate opener
         - open sesame
@@ -210,12 +245,14 @@ google_assistant:
     sensor.dht_humidity:
       name: humidity
       type: climate
+      expose: true
       aliases:
         - humidity near the server
         - entity s 70
     sensor.dht_temperature:
       name: temperature
       type: climate
+      expose: true
       aliases:
         - temperature near the server
         - entity s 71
