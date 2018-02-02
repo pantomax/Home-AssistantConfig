@@ -15,4 +15,4 @@ HASS:
 HADashboard:
   dash_url: http://192.168.1.100
   dash_compile_on_start: 1
-  dash_password: !secret dash_password
+  #dash_password: !secret dash_password
