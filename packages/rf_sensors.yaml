@@ -64,34 +64,34 @@ binary_sensor:
 #************************* Telecomando Luci Posizione D************************
   - platform: template
     sensors:
+# luci salotto spente
       telecomando_rf_1d_off:
         friendly_name: "Telecomando RF 1D Off"
-        device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5755907') }}
+# luci salotto accese
       telecomando_rf_1d_on:
         friendly_name: "Telecomando RF 1D On"
-        device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5755916') }}
+# blu
       telecomando_rf_2d_off:
         friendly_name: "Telecomando RF 2D Off"
-        device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5731331') }}
+# modalità film
       telecomando_rf_2d_on:
         friendly_name: "Telecomando RF 2D On"
-        device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5731340') }}
+# arancio
       telecomando_rf_3d_off:
         friendly_name: "Telecomando RF 3D Off"
-        device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5725187') }}
+# azzurro
       telecomando_rf_3d_on:
         friendly_name: "Telecomando RF 3D On"
-        device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5725196') }}
 
@@ -204,6 +204,69 @@ automation:
           retain: 'true'
       - service: timer.start
         entity_id: timer.spegnimento_bagno
+#******************************************************************************
+  - alias: 'Spegne luci salotto'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_1d_off
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_spente
+#******************************************************************************
+  - alias: 'Accende luci salotto'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_1d_on
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+#******************************************************************************
+  - alias: 'Striscia led aliceblue'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_2d_off
+        to: 'on'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip
+          color_name: "aliceblue"
+          brightness_pct: "100"
+#******************************************************************************
+  - alias: 'Modalità film'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_2d_on
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.film
+#******************************************************************************
+  - alias: 'Striscia Led chocolate'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_3d_off
+        to: 'on'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip
+          color_name: "chocolate"
+          brightness_pct: "100"
+#******************************************************************************
+  - alias: 'Striscia led lavender'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_3d_on
+        to: 'on'
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip
+          color_name: "lavender"
+          brightness_pct: "100"
 #******************************************************************************
 timer:
   spegnimento_automatico_bagno:

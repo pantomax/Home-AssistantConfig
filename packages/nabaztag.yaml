@@ -1187,7 +1187,7 @@ automation:
   - alias: "Weather info times"
     trigger:
     - platform: time
-      at: '7:50:00'
+      at: '7:30:00'
     - platform: time
       at: '12:30:00'
     - platform: time
@@ -1233,7 +1233,7 @@ automation:
   - alias: "Traffic info times"
     trigger:
     - platform: time
-      at: '7:30:00'
+      at: '7:50:00'
     action:
     - service: input_select.select_option
       data:

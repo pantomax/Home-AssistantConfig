@@ -60,7 +60,6 @@
   - name: Film
     entities:
       input_boolean.scene: off
-      switch.select_hdmi_2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: off
