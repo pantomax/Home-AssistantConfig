@@ -61,7 +61,40 @@ binary_sensor:
         device_class: motion
         value_template: >-
           {{ is_state('sensor.rf_receiver', '12916060') }}
- 
+#************************* Telecomando Luci Posizione D************************
+  - platform: template
+    sensors:
+      telecomando_rf_1d_off:
+        friendly_name: "Telecomando RF 1D Off"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '5755907') }}
+      telecomando_rf_1d_on:
+        friendly_name: "Telecomando RF 1D On"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '5755916') }}
+      telecomando_rf_2d_off:
+        friendly_name: "Telecomando RF 2D Off"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '5731331') }}
+      telecomando_rf_2d_on:
+        friendly_name: "Telecomando RF 2D On"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '5731340') }}
+      telecomando_rf_3d_off:
+        friendly_name: "Telecomando RF 3D Off"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '5725187') }}
+      telecomando_rf_3d_on:
+        friendly_name: "Telecomando RF 3D On"
+        device_class: motion
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '5725196') }}
+
 #-------------------------------------------------------------------------------
 automation:
 #-------------------------------------------------------------------------------
