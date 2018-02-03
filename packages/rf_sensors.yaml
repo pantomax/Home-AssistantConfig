@@ -256,7 +256,7 @@ automation:
           color_name: "chocolate"
           brightness_pct: "100"
 #******************************************************************************
-  - alias: 'Striscia led lavender'
+  - alias: 'Striscia led orchid'
     trigger:
       - platform: state
         entity_id: binary_sensor.telecomando_rf_3d_on
@@ -265,7 +265,7 @@ automation:
       - service: light.turn_on
         data_template:
           entity_id: light.led_strip
-          color_name: "lavender"
+          color_name: "orchid"
           brightness_pct: "100"
 #******************************************************************************
 timer:
