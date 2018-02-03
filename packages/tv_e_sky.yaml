@@ -262,6 +262,30 @@ script:
       - service: switch.turn_off
         entity_id:
           - switch.volume
+#******************************************************************************
+  script.nhk:
+    alias: Change channel on NHK
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.tv_channel_pick
+          option: "NHK"
+#******************************************************************************
+  script.skyuno:
+    alias: Change channel on Sky Uno
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.tv_channel_pick
+          option: "Sky 1"
+#******************************************************************************
+  script.skynews:
+    alias: Change channel on Sky News
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.tv_channel_pick
+          option: "Sky News"
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
@@ -380,13 +404,13 @@ scene:
 #------------------------------------------------------------------------------
   - name: nhk
     entities:
-      input_select.tv_channel_pick: "NHK"
+      script.nhk: "NHK"
   - name: skyuno
     entities:
-      input_select.tv_channel_pick: "Sky News"
+      script.skyuno: "Sky News"
   - name: skynews
     entities:
-      input_select.tv_channel_pick: "Sky 1"
+      script.skynews: "Sky 1"
   - name: hdmi 1
     entities:
       switch.select_hdmi_1: on
