@@ -404,13 +404,13 @@ scene:
 #------------------------------------------------------------------------------
   - name: nhk
     entities:
-      script.nhk: "NHK"
+      script.nhk: on
   - name: skyuno
     entities:
-      script.skyuno: "Sky News"
+      script.skyuno: on
   - name: skynews
     entities:
-      script.skynews: "Sky 1"
+      script.skynews: on
   - name: hdmi 1
     entities:
       switch.select_hdmi_1: on
