@@ -195,6 +195,7 @@ google_assistant:
       name: nhk
       expose: true
       aliases:
+        - nhk channel
         - nhk japanese news channel
         - entity s 32
     scene.skyuno:
