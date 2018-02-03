@@ -263,7 +263,7 @@ script:
         entity_id:
           - switch.volume
 #******************************************************************************
-  script.nhk:
+  nhk:
     alias: Change channel on NHK
     sequence:
       - service: input_select.select_option
@@ -271,7 +271,7 @@ script:
           entity_id: input_select.tv_channel_pick
           option: "NHK"
 #******************************************************************************
-  script.skyuno:
+  skyuno:
     alias: Change channel on Sky Uno
     sequence:
       - service: input_select.select_option
@@ -279,7 +279,7 @@ script:
           entity_id: input_select.tv_channel_pick
           option: "Sky 1"
 #******************************************************************************
-  script.skynews:
+  skynews:
     alias: Change channel on Sky News
     sequence:
       - service: input_select.select_option
