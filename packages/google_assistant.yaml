@@ -191,6 +191,24 @@ google_assistant:
       aliases:
         - hdmi 3
         - entity s 31
+    scene.nhk:
+      name: nhk
+      expose: true
+      aliases:
+        - nhk japanese news channel
+        - entity s 32
+    scene.skyuno:
+      name: sky one
+      expose: true
+      aliases:
+        - sky one channel
+        - entity s 33
+    scene.skynews:
+      name: sky news
+      expose: true
+      aliases:
+        - sky news channel
+        - entity s 34
     switch.insettivoro:
       name: bug eater
       expose: true
