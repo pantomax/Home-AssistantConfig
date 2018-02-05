@@ -253,6 +253,12 @@ google_assistant:
         - television volume
         - volume on the tv
         - entity s 45
+    switch.nabaztaglife:
+      name: rabbit
+      expose: true
+      aliases:
+        - nabaztag
+        - entity s 46
     script.apricancello:
       name: gate
       expose: true
