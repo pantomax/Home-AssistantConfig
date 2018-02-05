@@ -979,6 +979,25 @@ automation:
           {% elif is_state("sensor.dark_sky_icon", "tornado") %}Scared
           {% else %}Crazy
           {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.nabaztag_weather
+      data_template:
+        option: >
+          {% if is_state("sensor.dark_sky_icon", "clear-day") %}Sun
+          {% elif is_state("sensor.dark_sky_icon", "clear-night") %}Sun
+          {% elif is_state("sensor.dark_sky_icon", "cloudy") %}Clouds
+          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-day") %}Clouds
+          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-night") %}Clouds
+          {% elif is_state("sensor.dark_sky_icon", "fog") %}Fog
+          {% elif is_state("sensor.dark_sky_icon", "rain") %}Rain
+          {% elif is_state("sensor.dark_sky_icon", "sleet") %}Snow
+          {% elif is_state("sensor.dark_sky_icon", "snow") %}Snow
+          {% elif is_state("sensor.dark_sky_icon", "wind") %}Storm
+          {% elif is_state("sensor.dark_sky_icon", "hail") %}Storm
+          {% elif is_state("sensor.dark_sky_icon", "thunderstorm") %}Storm
+          {% elif is_state("sensor.dark_sky_icon", "tornado") %}Storm
+          {% else %}' '
+          {% endif %}
 #******************************************************************************
 #***************************** NABAZTAG STOCKS ********************************
 #******************************************************************************
@@ -1053,6 +1072,18 @@ automation:
           {% elif states('input_number.bitcoin_value_difference') | float > 100 %}Crazy
           {% else %}Up
           {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.nabaztag_stock
+      data_template:
+        option: >
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %}---
+          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}--
+          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}-
+          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}+
+          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}++
+          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}+++
+          {% else %}'0'
+          {% endif %}
 #******************************************************************************
 #***************************** NABAZTAG TRAFFIC *******************************
 #******************************************************************************
@@ -1111,6 +1142,19 @@ automation:
           {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 5 ) %}Listening
           {% else %}
             Up
+          {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.nabaztag_traffic
+      data_template:
+        option: >
+          {% if states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 30 ) %}Extreme
+          {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 25 ) %}Congested
+          {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 20 ) %}Heavy
+          {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 15 ) %}Normal
+          {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 10 ) %}Moderate
+          {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 5 ) %}Okay
+          {% else %}
+            Free
           {% endif %}
 #******************************************************************************
 #*************************** NABAZTAG POLLUTION *******************************
@@ -1180,6 +1224,22 @@ automation:
           {% elif states('sensor.us_air_quality_index') | int > 60 %}Listening
           {% elif states('sensor.us_air_quality_index') | int > 30 %}Up
           {% elif states('sensor.us_air_quality_index') | int < 30 %}Up
+          {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.nabaztag_body_language
+      data_template:
+        option: >
+          {% if states('sensor.us_air_quality_index') | int > 300 %}'10'
+          {% elif states('sensor.us_air_quality_index') | int > 270 %}'9'
+          {% elif states('sensor.us_air_quality_index') | int > 240 %}'8'
+          {% elif states('sensor.us_air_quality_index') | int > 210 %}'7'
+          {% elif states('sensor.us_air_quality_index') | int > 180 %}'6'
+          {% elif states('sensor.us_air_quality_index') | int > 150 %}'5'
+          {% elif states('sensor.us_air_quality_index') | int > 120 %}'4'
+          {% elif states('sensor.us_air_quality_index') | int > 90 %}'3'
+          {% elif states('sensor.us_air_quality_index') | int > 60 %}'2'
+          {% elif states('sensor.us_air_quality_index') | int > 30 %}'1'
+          {% elif states('sensor.us_air_quality_index') | int < 30 %}'0'
           {% endif %}
 #******************************************************************************
 #*********************** NABAZTAG TIME MANAGEMENT *****************************
