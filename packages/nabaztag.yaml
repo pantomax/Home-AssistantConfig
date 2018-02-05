@@ -955,7 +955,7 @@ automation:
       seconds: 00
     condition:
       condition: or
-      condition:
+      conditions:
       - condition: state
         entity_id: 'input_select.nabaztag_show_info'
         state: 'Weather'
@@ -1070,7 +1070,7 @@ automation:
       - condition: template
         value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
       - condition: or
-        condition:
+        conditions:
         - condition: state
           entity_id: 'input_select.nabaztag_show_info'
           state: 'Stocks'
@@ -1153,7 +1153,7 @@ automation:
       seconds: 00
     condition:
       condition: or
-      condition:
+      conditions:
       - condition: state
         entity_id: 'input_select.nabaztag_show_info'
         state: 'Traffic'
@@ -1242,7 +1242,7 @@ automation:
       seconds: 00
     condition:
       condition: or
-      condition:
+      conditions:
       - condition: state
         entity_id: 'input_select.nabaztag_show_info'
         state: 'Pollution'
