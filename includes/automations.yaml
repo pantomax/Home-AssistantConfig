@@ -49,6 +49,7 @@
       - sun
     action:
       - service: homeassistant.restart
+#******************************************************************************
   - alias: Startup Notification
     trigger:
       - platform: homeassistant
