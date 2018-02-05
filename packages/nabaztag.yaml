@@ -638,6 +638,13 @@ shell_command:
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
+  - alias: Reboot Nabaztag at start
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: shell_command.nab_reboot
+#******************************************************************************
   - alias: "Startup setup"
     trigger:
       - platform: homeassistant
