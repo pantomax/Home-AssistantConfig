@@ -58,6 +58,7 @@
 !*.png
 !*.wav
 !*.html
+!*.md
 !comandigit.txt
 secrets.yaml
 known_devices.yaml
