@@ -497,6 +497,7 @@ input_select:
     name: Info to Show
     options:
       - " "
+      - "All"
       - "Weather"
       - "Stocks"
       - "Traffic"
