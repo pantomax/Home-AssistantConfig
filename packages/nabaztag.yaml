@@ -935,10 +935,33 @@ automation:
       entity_id: sensor.dark_sky_icon
     - platform: state
       entity_id: input_select.nabaztag_show_info
+    - platform: time
+      minutes: 8
+      seconds: 00
+    - platform: time
+      minutes: 18
+      seconds: 00
+    - platform: time
+      minutes: 28
+      seconds: 00
+    - platform: time
+      minutes: 38
+      seconds: 00
+    - platform: time
+      minutes: 48
+      seconds: 00
+    - platform: time
+      minutes: 58
+      seconds: 00
     condition:
-    - condition: state
-      entity_id: 'input_select.nabaztag_show_info'
-      state: 'Weather'
+      condition: or
+      condition:
+      - condition: state
+        entity_id: 'input_select.nabaztag_show_info'
+        state: 'Weather'
+      - condition: state
+        entity_id: 'input_select.nabaztag_show_info'
+        state: 'All'
     action:
     - service: shell_command.nab_clear
     - delay:
@@ -1023,12 +1046,37 @@ automation:
       entity_id: input_number.bitcoin_value_difference
     - platform: state
       entity_id: input_select.nabaztag_show_info
+    - platform: time
+      minutes: 2
+      seconds: 00
+    - platform: time
+      minutes: 12
+      seconds: 00
+    - platform: time
+      minutes: 22
+      seconds: 00
+    - platform: time
+      minutes: 32
+      seconds: 00
+    - platform: time
+      minutes: 42
+      seconds: 00
+    - platform: time
+      minutes: 52
+      seconds: 00
     condition:
-    - condition: state
-      entity_id: 'input_select.nabaztag_show_info'
-      state: 'Stocks'
-    - condition: template
-      value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
+      condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
+      - condition: or
+        condition:
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'Stocks'
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'All'
     action:
     - service: shell_command.nab_clear
     - delay:
@@ -1051,13 +1099,13 @@ automation:
       entity_id: input_select.nabaztag_stock
       data_template:
         option: >
-          {% if states('input_number.bitcoin_value_difference') | float < -100 %}"---"
-          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}"--"
-          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}"-"
-          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}"+"
-          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}"++"
-          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}"+++"
-          {% else %}"0"
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %} ---
+          {% elif states('input_number.bitcoin_value_difference') | float < -50 %} --
+          {% elif states('input_number.bitcoin_value_difference') | float < -5 %} -
+          {% elif states('input_number.bitcoin_value_difference') | float > 5 %} +
+          {% elif states('input_number.bitcoin_value_difference') | float > 50 %} ++
+          {% elif states('input_number.bitcoin_value_difference') | float > 100 %} +++
+          {% else %} 0
           {% endif %}
 #******************************************************************************
 #***************************** NABAZTAG TRAFFIC *******************************
@@ -1085,10 +1133,33 @@ automation:
       entity_id: sensor.home_to_work
     - platform: state
       entity_id: input_select.nabaztag_show_info
+    - platform: time
+      minutes: 4
+      seconds: 00
+    - platform: time
+      minutes: 14
+      seconds: 00
+    - platform: time
+      minutes: 24
+      seconds: 00
+    - platform: time
+      minutes: 34
+      seconds: 00
+    - platform: time
+      minutes: 44
+      seconds: 00
+    - platform: time
+      minutes: 54
+      seconds: 00
     condition:
-    - condition: state
-      entity_id: 'input_select.nabaztag_show_info'
-      state: 'Traffic'
+      condition: or
+      condition:
+      - condition: state
+        entity_id: 'input_select.nabaztag_show_info'
+        state: 'Traffic'
+      - condition: state
+        entity_id: 'input_select.nabaztag_show_info'
+        state: 'All'
     action:
     - service: shell_command.nab_clear
     - delay:
@@ -1151,10 +1222,33 @@ automation:
       entity_id: sensor.us_air_quality_index
     - platform: state
       entity_id: input_select.nabaztag_show_info
+    - platform: time
+      minutes: 6
+      seconds: 00
+    - platform: time
+      minutes: 16
+      seconds: 00
+    - platform: time
+      minutes: 26
+      seconds: 00
+    - platform: time
+      minutes: 36
+      seconds: 00
+    - platform: time
+      minutes: 46
+      seconds: 00
+    - platform: time
+      minutes: 56
+      seconds: 00
     condition:
-    - condition: state
-      entity_id: 'input_select.nabaztag_show_info'
-      state: 'Pollution'
+      condition: or
+      condition:
+      - condition: state
+        entity_id: 'input_select.nabaztag_show_info'
+        state: 'Pollution'
+      - condition: state
+        entity_id: 'input_select.nabaztag_show_info'
+        state: 'All'
     action:
     - service: shell_command.nab_clear
     - delay:
