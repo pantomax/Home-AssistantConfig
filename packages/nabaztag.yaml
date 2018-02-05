@@ -1015,13 +1015,13 @@ automation:
       entity_id: input_select.nabaztag_stock
     action:
     - service_template: >
-        {% if is_state("input_select.nabaztag_stock", "---") %} shell_command.nab_stock_0
-        {% elif is_state("input_select.nabaztag_stock", "--") %} shell_command.nab_stock_1
-        {% elif is_state("input_select.nabaztag_stock", "-") %} shell_command.nab_stock_2
+        {% if is_state("input_select.nabaztag_stock", "<<<") %} shell_command.nab_stock_0
+        {% elif is_state("input_select.nabaztag_stock", "<<") %} shell_command.nab_stock_1
+        {% elif is_state("input_select.nabaztag_stock", "<") %} shell_command.nab_stock_2
         {% elif is_state("input_select.nabaztag_stock", "0") %} shell_command.nab_stock_3
-        {% elif is_state("input_select.nabaztag_stock", "+") %} shell_command.nab_stock_4
-        {% elif is_state("input_select.nabaztag_stock", "++") %} shell_command.nab_stock_5
-        {% elif is_state("input_select.nabaztag_stock", "+++") %} shell_command.nab_stock_6
+        {% elif is_state("input_select.nabaztag_stock", ">") %} shell_command.nab_stock_4
+        {% elif is_state("input_select.nabaztag_stock", ">>") %} shell_command.nab_stock_5
+        {% elif is_state("input_select.nabaztag_stock", ">>>") %} shell_command.nab_stock_6
         {% else %}
           shell_command.nab_abort
         {% endif %}
