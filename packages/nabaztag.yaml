@@ -1117,7 +1117,7 @@ automation:
           {% elif states('input_number.bitcoin_value_difference') | float > 5 %}>
           {% elif states('input_number.bitcoin_value_difference') | float > 50 %}>>
           {% elif states('input_number.bitcoin_value_difference') | float > 100 %}>>>
-          {% else %} 0
+          {% else %}0
           {% endif %}
 #******************************************************************************
 #***************************** NABAZTAG TRAFFIC *******************************
