@@ -371,13 +371,13 @@ input_select:
     name: Stocks
     options:
       - " "
-      - "---"
-      - "--"
-      - "-"
+      - "<<<"
+      - "<<"
+      - "<"
       - "0"
-      - "+"
-      - "++"
-      - "+++"
+      - ">"
+      - ">>"
+      - ">>>"
     initial: " "
     icon: mdi:currency-btc
   nabaztag_traffic:
@@ -1079,6 +1079,18 @@ automation:
           state: 'All'
     action:
     - service: shell_command.nab_clear
+#    - delay:
+#          seconds: 1
+#    - service_template: >
+#        {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
+#        {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
+#        {% elif states('input_number.bitcoin_value_difference') | float < -5 %} shell_command.nab_stock_2
+#        {% elif states('input_number.bitcoin_value_difference') | float > 100 %} shell_command.nab_stock_6
+#        {% elif states('input_number.bitcoin_value_difference') | float > 50 %} shell_command.nab_stock_5
+#        {% elif states('input_number.bitcoin_value_difference') | float > 5 %} shell_command.nab_stock_4
+#        {% else %}
+#          shell_command.nab_stock_3
+#        {% endif %}
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1099,12 +1111,12 @@ automation:
       entity_id: input_select.nabaztag_stock
       data_template:
         option: >
-          {% if states('input_number.bitcoin_value_difference') | float < -100 %} ---
-          {% elif states('input_number.bitcoin_value_difference') | float < -50 %} --
-          {% elif states('input_number.bitcoin_value_difference') | float < -5 %} -
-          {% elif states('input_number.bitcoin_value_difference') | float > 5 %} +
-          {% elif states('input_number.bitcoin_value_difference') | float > 50 %} ++
-          {% elif states('input_number.bitcoin_value_difference') | float > 100 %} +++
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %}<<< 
+          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}<<
+          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}<
+          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}>
+          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}>>
+          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}>>>
           {% else %} 0
           {% endif %}
 #******************************************************************************
