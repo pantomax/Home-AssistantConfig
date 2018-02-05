@@ -939,25 +939,25 @@ automation:
       state: 'Weather'
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
-    - service_template: >
-        {% if is_state("sensor.dark_sky_icon", "clear-day") %} shell_command.nab_weather_0
-        {% elif is_state("sensor.dark_sky_icon", "clear-night") %} shell_command.nab_weather_0
-        {% elif is_state("sensor.dark_sky_icon", "cloudy") %} shell_command.nab_weather_1
-        {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-day") %} shell_command.nab_weather_1
-        {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-night") %} shell_command.nab_weather_1
-        {% elif is_state("sensor.dark_sky_icon", "fog") %} shell_command.nab_weather_2
-        {% elif is_state("sensor.dark_sky_icon", "rain") %} shell_command.nab_weather_3
-        {% elif is_state("sensor.dark_sky_icon", "sleet") %} shell_command.nab_weather_4
-        {% elif is_state("sensor.dark_sky_icon", "snow") %} shell_command.nab_weather_4
-        {% elif is_state("sensor.dark_sky_icon", "wind") %} shell_command.nab_weather_5
-        {% elif is_state("sensor.dark_sky_icon", "hail") %} shell_command.nab_weather_5
-        {% elif is_state("sensor.dark_sky_icon", "thunderstorm") %} shell_command.nab_weather_5
-        {% elif is_state("sensor.dark_sky_icon", "tornado") %} shell_command.nab_weather_5
-        {% else %}
-          script.nabaztag_info_off
-        {% endif %}
+#    - delay:
+#          seconds: 1
+#    - service_template: >
+#        {% if is_state("sensor.dark_sky_icon", "clear-day") %} shell_command.nab_weather_0
+#        {% elif is_state("sensor.dark_sky_icon", "clear-night") %} shell_command.nab_weather_0
+#        {% elif is_state("sensor.dark_sky_icon", "cloudy") %} shell_command.nab_weather_1
+#        {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-day") %} shell_command.nab_weather_1
+#        {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-night") %} shell_command.nab_weather_1
+#        {% elif is_state("sensor.dark_sky_icon", "fog") %} shell_command.nab_weather_2
+#        {% elif is_state("sensor.dark_sky_icon", "rain") %} shell_command.nab_weather_3
+#        {% elif is_state("sensor.dark_sky_icon", "sleet") %} shell_command.nab_weather_4
+#        {% elif is_state("sensor.dark_sky_icon", "snow") %} shell_command.nab_weather_4
+#        {% elif is_state("sensor.dark_sky_icon", "wind") %} shell_command.nab_weather_5
+#        {% elif is_state("sensor.dark_sky_icon", "hail") %} shell_command.nab_weather_5
+#        {% elif is_state("sensor.dark_sky_icon", "thunderstorm") %} shell_command.nab_weather_5
+#        {% elif is_state("sensor.dark_sky_icon", "tornado") %} shell_command.nab_weather_5
+#        {% else %}
+#          script.nabaztag_info_off
+#        {% endif %}
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -979,6 +979,8 @@ automation:
           {% elif is_state("sensor.dark_sky_icon", "tornado") %}Scared
           {% else %}Crazy
           {% endif %}
+    - delay:
+          seconds: 1
     - service: input_select.select_option
       entity_id: input_select.nabaztag_weather
       data_template:
@@ -1046,18 +1048,18 @@ automation:
       value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
-    - service_template: >
-        {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
-        {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
-        {% elif states('input_number.bitcoin_value_difference') | float < -5 %} shell_command.nab_stock_2
-        {% elif states('input_number.bitcoin_value_difference') | float > 100 %} shell_command.nab_stock_6
-        {% elif states('input_number.bitcoin_value_difference') | float > 50 %} shell_command.nab_stock_5
-        {% elif states('input_number.bitcoin_value_difference') | float > 5 %} shell_command.nab_stock_4
-        {% else %}
-          shell_command.nab_stock_3
-        {% endif %}
+#    - delay:
+#          seconds: 1
+#    - service_template: >
+#        {% if states('input_number.bitcoin_value_difference') | float < -100 %} shell_command.nab_stock_0
+#        {% elif states('input_number.bitcoin_value_difference') | float < -50 %} shell_command.nab_stock_1
+#        {% elif states('input_number.bitcoin_value_difference') | float < -5 %} shell_command.nab_stock_2
+#        {% elif states('input_number.bitcoin_value_difference') | float > 100 %} shell_command.nab_stock_6
+#        {% elif states('input_number.bitcoin_value_difference') | float > 50 %} shell_command.nab_stock_5
+#        {% elif states('input_number.bitcoin_value_difference') | float > 5 %} shell_command.nab_stock_4
+#        {% else %}
+#          shell_command.nab_stock_3
+#        {% endif %}
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1072,16 +1074,18 @@ automation:
           {% elif states('input_number.bitcoin_value_difference') | float > 100 %}Crazy
           {% else %}Up
           {% endif %}
+    - delay:
+          seconds: 1
     - service: input_select.select_option
       entity_id: input_select.nabaztag_stock
       data_template:
         option: >
-          {% if states('input_number.bitcoin_value_difference') | float < -100 %}---
-          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}--
-          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}-
-          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}+
-          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}++
-          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}+++
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %}'---'
+          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}'--'
+          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}'-'
+          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}'+'
+          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}'++'
+          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}'+++'
           {% else %}'0'
           {% endif %}
 #******************************************************************************
@@ -1116,18 +1120,18 @@ automation:
       state: 'Traffic'
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
-    - service_template: >
-        {% if states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 30 ) %} shell_command.nab_traffic_6
-        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 25 ) %} shell_command.nab_traffic_5
-        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 20 ) %} shell_command.nab_traffic_4
-        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 15 ) %} shell_command.nab_traffic_3
-        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 10 ) %} shell_command.nab_traffic_2
-        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 5 ) %} shell_command.nab_traffic_1
-        {% else %}
-          shell_command.nab_traffic_0
-        {% endif %}
+#    - delay:
+#          seconds: 1
+#    - service_template: >
+#        {% if states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 30 ) %} shell_command.nab_traffic_6
+#        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 25 ) %} shell_command.nab_traffic_5
+#        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 20 ) %} shell_command.nab_traffic_4
+#        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 15 ) %} shell_command.nab_traffic_3
+#        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 10 ) %} shell_command.nab_traffic_2
+#        {% elif states('sensor.home_to_work') | int > ( states('input_number.time_to_work') | int + (states('input_number.time_to_work') | int / 100 ) * 5 ) %} shell_command.nab_traffic_1
+#        {% else %}
+#          shell_command.nab_traffic_0
+#        {% endif %}
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1143,6 +1147,8 @@ automation:
           {% else %}
             Up
           {% endif %}
+    - delay:
+          seconds: 1
     - service: input_select.select_option
       entity_id: input_select.nabaztag_traffic
       data_template:
@@ -1192,21 +1198,21 @@ automation:
       state: 'Pollution'
     action:
     - service: shell_command.nab_clear
-    - delay:
-          seconds: 1
-    - service_template: >
-        {% if states('sensor.us_air_quality_index') | int > 300 %} shell_command.nab_pollution_10
-        {% elif states('sensor.us_air_quality_index') | int > 270 %} shell_command.nab_pollution_9
-        {% elif states('sensor.us_air_quality_index') | int > 240 %} shell_command.nab_pollution_8
-        {% elif states('sensor.us_air_quality_index') | int > 210 %} shell_command.nab_pollution_7
-        {% elif states('sensor.us_air_quality_index') | int > 180 %} shell_command.nab_pollution_6
-        {% elif states('sensor.us_air_quality_index') | int > 150 %} shell_command.nab_pollution_5
-        {% elif states('sensor.us_air_quality_index') | int > 120 %} shell_command.nab_pollution_4
-        {% elif states('sensor.us_air_quality_index') | int > 90 %} shell_command.nab_pollution_3
-        {% elif states('sensor.us_air_quality_index') | int > 60 %} shell_command.nab_pollution_2
-        {% elif states('sensor.us_air_quality_index') | int > 30 %} shell_command.nab_pollution_1
-        {% elif states('sensor.us_air_quality_index') | int < 30 %} shell_command.nab_pollution_0
-        {% endif %}
+#    - delay:
+#          seconds: 1
+#    - service_template: >
+#        {% if states('sensor.us_air_quality_index') | int > 300 %} shell_command.nab_pollution_10
+#        {% elif states('sensor.us_air_quality_index') | int > 270 %} shell_command.nab_pollution_9
+#        {% elif states('sensor.us_air_quality_index') | int > 240 %} shell_command.nab_pollution_8
+#        {% elif states('sensor.us_air_quality_index') | int > 210 %} shell_command.nab_pollution_7
+#        {% elif states('sensor.us_air_quality_index') | int > 180 %} shell_command.nab_pollution_6
+#        {% elif states('sensor.us_air_quality_index') | int > 150 %} shell_command.nab_pollution_5
+#        {% elif states('sensor.us_air_quality_index') | int > 120 %} shell_command.nab_pollution_4
+#        {% elif states('sensor.us_air_quality_index') | int > 90 %} shell_command.nab_pollution_3
+#        {% elif states('sensor.us_air_quality_index') | int > 60 %} shell_command.nab_pollution_2
+#        {% elif states('sensor.us_air_quality_index') | int > 30 %} shell_command.nab_pollution_1
+#        {% elif states('sensor.us_air_quality_index') | int < 30 %} shell_command.nab_pollution_0
+#        {% endif %}
     - delay:
           seconds: 1
     - service: input_select.select_option
@@ -1226,7 +1232,7 @@ automation:
           {% elif states('sensor.us_air_quality_index') | int < 30 %}Up
           {% endif %}
     - service: input_select.select_option
-      entity_id: input_select.nabaztag_body_language
+      entity_id: input_select.nabaztag_pollution
       data_template:
         option: >
           {% if states('sensor.us_air_quality_index') | int > 300 %}'10'
