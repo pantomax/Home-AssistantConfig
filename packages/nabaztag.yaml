@@ -502,7 +502,7 @@ input_select:
       - "Stocks"
       - "Traffic"
       - "Pollution"
-    initial: "Weather"
+    initial: "All"
     icon: mdi:format-list-bulleted-type
 
 #------------------------------------------------------------------------------
