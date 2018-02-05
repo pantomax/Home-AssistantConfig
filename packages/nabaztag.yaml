@@ -1111,13 +1111,13 @@ automation:
       entity_id: input_select.nabaztag_stock
       data_template:
         option: >
-          {% if states('input_number.bitcoin_value_difference') | float < -100 %}---
-          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}--
-          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}-
-          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}+
-          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}++
-          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}+++
-          {% else %}0
+          {% if states('input_number.bitcoin_value_difference') | float < -100 %}"---"
+          {% elif states('input_number.bitcoin_value_difference') | float < -50 %}--"
+          {% elif states('input_number.bitcoin_value_difference') | float < -5 %}"-"
+          {% elif states('input_number.bitcoin_value_difference') | float > 5 %}"+"
+          {% elif states('input_number.bitcoin_value_difference') | float > 50 %}"++"
+          {% elif states('input_number.bitcoin_value_difference') | float > 100 %}"+++"
+          {% else %}"0"
           {% endif %}
 #******************************************************************************
 #***************************** NABAZTAG TRAFFIC *******************************
