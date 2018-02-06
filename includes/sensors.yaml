@@ -50,29 +50,6 @@
     monitored_conditions:
       - temperature
 #******************************************************************************
-# Meteo Wundergroud
-  - platform: wunderground
-    api_key: !secret secret_wunderground_api_key
-    monitored_conditions:
-      - alerts
-      - weather_1d_metric
-      - weather_1n_metric
-      - weather_2d_metric
-      - weather_2n_metric
-      - weather_3d_metric
-      - weather_3n_metric
-      - weather_4d_metric
-      - weather_4n_metric
-      - temp_high_record_c
-      - temp_high_1d_c
-      - temp_c
-      - temp_low_1d_c
-      - temp_low_record_c
-      - precip_1d
-      - precip_1d_mm
-      - wind_kph
-      - wind_1d_kph
-#******************************************************************************
 # Meteo Darksky
   - platform: darksky
     api_key: !secret secret_darksky_api_key
