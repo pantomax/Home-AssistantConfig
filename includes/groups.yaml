@@ -447,17 +447,17 @@
     icon: mdi:server-network
     entities:
       - group.rete
-      - group.ring_network
       - group.broadlink_network
       - group.nabaztag
       - group.dev_pi
+      - group.ring_network
+      - group.links
+      - automation.chromecast_in_stop
+      - group.rf_receivers
       - script.reboot
       - script.reboot_pi
-      - group.home_switches
-      - group.links
-      - group.rf_receivers
-      - group.bitcoin
-      - automation.chromecast_in_stop
+#      - group.home_switches
+#      - group.bitcoin
   Tab_Cam:
     name: Webcam
     view: yes
