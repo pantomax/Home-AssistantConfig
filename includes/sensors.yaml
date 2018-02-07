@@ -21,7 +21,7 @@
 #******************************************************************************
 # Sensore Broadlink A1 in bagno
   - platform: broadlink
-    update_interval: 10
+    update_interval: 60
     name: Sensore
     host: 192.168.1.66
     mac: '34:EA:34:E9:BB:FA'
@@ -34,7 +34,7 @@
 #******************************************************************************
 # Sensore di temperatura del Broadklink RM Pro in salotto
   - platform: broadlink
-    update_interval: 120
+    update_interval: 60
     name: Temperatura Salotto
     host: 192.168.1.69
     mac: '34:ea:34:f4:52:ac'
@@ -43,12 +43,35 @@
 #******************************************************************************
 # Sensore di temperatura del Broadklink RM Pro in camera
   - platform: broadlink
-    update_interval: 120
+    update_interval: 60
     name: Temperatura Camera
     host: 192.168.1.104
     mac: '34:ea:34:d0:9f:5f'
     monitored_conditions:
       - temperature
+#******************************************************************************
+# Meteo Wundergroud
+#  - platform: wunderground
+#    api_key: !secret secret_wunderground_api_key
+#    monitored_conditions:
+#      - alerts
+#      - weather_1d_metric
+#      - weather_1n_metric
+#      - weather_2d_metric
+#      - weather_2n_metric
+#      - weather_3d_metric
+#      - weather_3n_metric
+#      - weather_4d_metric
+#      - weather_4n_metric
+#      - temp_high_record_c
+#      - temp_high_1d_c
+#      - temp_c
+#      - temp_low_1d_c
+#      - temp_low_record_c
+#      - precip_1d
+#      - precip_1d_mm
+#      - wind_kph
+#      - wind_1d_kph
 #******************************************************************************
 # Meteo Darksky
   - platform: darksky
@@ -107,6 +130,8 @@
         friendly_name: "Temperatura Salotto"
         unit_of_measurement: '°C'
         value_template: "{{ states('sensor.temperatura_salotto_temperature')|float - 2 }}"
+#******************************************************************************
+# Stato dispositivi in rete
       livingroomchromecast:
         friendly_name: 'Chromecast Salotto'
         value_template: "{{ 'Online' if is_state('device_tracker.chromecast_salotto', 'home') else 'Offline' }}"
