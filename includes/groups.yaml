@@ -415,6 +415,7 @@
       - camera.meteogramma
       - camera.meteo_visibile
       - camera.meteo_infrarosso
+      - camera.meteo_infrarosso_2
       - camera.meteo_pioggia
       - group.meteo_wunderground
       - group.daily_forecast
