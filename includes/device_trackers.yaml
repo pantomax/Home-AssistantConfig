@@ -50,20 +50,20 @@
       maxlavoro: 192.168.1.90
 #******************************************************************************
       nabaztag: 192.168.1.180
-      repeater: 192.168.1.250
+      netgear_repeater: 192.168.1.250
 #******************************************************************************
       ring: 192.168.1.150
       ring_chime_pro: 192.168.1.151
-      tp-link: 192.168.1.252
+      tp_link: 192.168.1.252
 #******************************************************************************
-      Broadlink-RM-PRO: 192.168.1.69
-      Broadlink-RM-PRO-2: 192.168.1.104
-      Broadlink-RM-MINI: 192.168.1.104
-      BroadLink_SPmini_1: 192.168.1.68
-      BroadLink_SPmini_2: 192.168.1.83
-      BroadLink_SPmini_3: 192.168.1.84
-      BroadLink_SPmini_4: 192.168.1.87
-      Broadlink-Outlet: 192.168.1.113
-      BroadLink_A1: 192.168.1.66
-      BroadLink_S1: 192.168.1.107
+      broadlink_rm_pro: 192.168.1.69
+      broadlink_rm_pro_2: 192.168.1.104
+      broadlink_rm_mini: 192.168.1.96
+      broadlink_sp_mini_1: 192.168.1.68
+      broadlink_sp_mini_2: 192.168.1.83
+      broadlink_sp_mini_3: 192.168.1.84
+      broadlink_sp_mini_4: 192.168.1.87
+      broadlink_outlet: 192.168.1.113
+      broadlink_a1: 192.168.1.66
+      broadlink_s1: 192.168.1.107
 #******************************************************************************

@@ -276,6 +276,51 @@
     binary_sensor.luce_bagno:
       friendly_name: "Luce Bagno"
       icon: mdi:lightbulb-outline
+    binary_sensor.nabaztag:
+      friendly_name: "Nabaztag/Tag"
+      icon: mdi:carrot
+    binary_sensor.netgear_repeater:
+      friendly_name: "Router Netgear"
+      icon: mdi:router-wireless
+    binary_sensor.ring:
+      friendly_name: "Ring Doorbell"
+      icon: mdi:bell-ring-outline
+    binary_sensor.ring_chime_pro:
+      friendly_name: "Ring Chime"
+      icon: mdi:bell-ring
+    binary_sensor.tp_link:
+      friendly_name: "TP-Link Repeater"
+      icon: mdi:router-wireless
+    binary_sensor.broadlink_rm_pro:
+      friendly_name: "Broadlink RM Pro 1"
+      icon: mdi:remote
+    binary_sensor.broadlink_rm_pro_2:
+      friendly_name: "Broadlink RM Pro 2"
+      icon: mdi:remote
+    binary_sensor.broadlink_rm_mini:
+      friendly_name: "Broadlink RM MINI"
+      icon: mdi:remote
+    binary_sensor.broadlink_sp_mini_1:
+      friendly_name: "Broadlink SP 1"
+      icon: mdi:power-socket-eu
+    binary_sensor.broadlink_sp_mini_2:
+      friendly_name: "Broadlink SP 2"
+      icon: mdi:power-socket-eu
+    binary_sensor.broadlink_sp_mini_3:
+      friendly_name: "Broadlink SP 3"
+      icon: mdi:power-socket-eu
+    binary_sensor.broadlink_sp_mini_4:
+      friendly_name: "Broadlink SP 4"
+      icon: mdi:power-socket-eu
+    binary_sensor.broadlink_outlet:
+      friendly_name: "Broadlink SP 5"
+      icon: mdi:power-socket-eu
+    binary_sensor.broadlink_a1:
+      friendly_name: "Broadlink A1"
+      icon: mdi:oil-temperature
+    binary_sensor.broadlink_s1:
+      friendly_name: "Broadlink S1"
+      icon: mdi:security-home
 #*********************************AUTOMATIONS**********************************
     automation.chromecast_in_stop:
       icon: mdi:stop
