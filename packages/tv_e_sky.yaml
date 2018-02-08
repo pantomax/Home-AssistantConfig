@@ -399,18 +399,6 @@ automation:
     action:
         service: homeassistant.turn_off
         entity_id: input_boolean.guarda_tv
-#******************************************************************************
-  - alias: Cambia stato Guarda TV se Chromecast è on line alla partenza
-    trigger:
-      - platform: homeassistant
-        event: start
-    condition:
-      - condition: state
-        entity_id: sensor.livingroomchromecast
-        state: 'Online'
-    action:
-      - service: homeassistant.turn_on
-        entity_id: input_boolean.guarda_tv
 #------------------------------------------------------------------------------
 scene:
 #------------------------------------------------------------------------------
