@@ -366,10 +366,10 @@ automation:
       - platform: state
         entity_id: input_boolean.guarda_tv
         to: 'on'
-    condition:
-      - condition: state
-        entity_id: sensor.livingroomchromecast
-        state: 'Offline'
+#    condition:
+#      - condition: state
+#        entity_id: sensor.livingroomchromecast
+#        state: 'Offline'
     action:
         service: script.turn_on
         entity_id: script.sky_on
@@ -404,17 +404,17 @@ automation:
         service: homeassistant.turn_off
         entity_id: input_boolean.guarda_tv
 #******************************************************************************
-  - alias: Cambia stato Guarda TV se Chromecast è on line alla partenza
-    trigger:
-      - platform: homeassistant
-        event: start
-    condition:
-      - condition: state
-        entity_id: sensor.livingroomchromecast
-        state: 'Online'
-    action:
-      - service: homeassistant.turn_on
-        entity_id: input_boolean.guarda_tv
+#  - alias: Cambia stato Guarda TV se Chromecast è on line alla partenza
+#    trigger:
+#      - platform: homeassistant
+#        event: start
+#    condition:
+#      - condition: state
+#        entity_id: sensor.livingroomchromecast
+#        state: 'Online'
+#    action:
+#      - service: homeassistant.turn_on
+#        entity_id: input_boolean.guarda_tv
 #------------------------------------------------------------------------------
 scene:
 #------------------------------------------------------------------------------
