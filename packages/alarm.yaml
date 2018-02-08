@@ -65,7 +65,7 @@ script:
           effect: red_strobe
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/voyredalert.mp3"
       - alias: All lights On
         service: light.turn_on
@@ -92,7 +92,7 @@ script:
     sequence:
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/alarm01.mp3"
       - alias: call_loop
         service: script.turn_on

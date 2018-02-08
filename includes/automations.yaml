@@ -60,7 +60,7 @@
           message: "Home Assistant è attivo."
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/computer_activate.mp3"
       - service: group.set_visibility
         entity_id: group.airconditioner
@@ -102,7 +102,7 @@
           message: "Home Assistant è in riavvio."
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off.mp3"
 #******************************************************************************
   - alias: "Togli Visibilita Gruppo Webcam"
@@ -116,7 +116,7 @@
         visible: False
     - service: hassio.addon_stdin
       data:
-        addon: local_audio_player
+        addon: de3cd379_audio_player
         input: "http://192.168.1.100:8123/local/tos-redalert.wav"
 #******************************************************************************
   - alias: "Cambia Visibilita Gruppo Webcam"

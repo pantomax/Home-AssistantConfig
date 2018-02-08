@@ -33,7 +33,7 @@ script:
         entity_id: input_boolean.scene
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
@@ -74,7 +74,7 @@ script:
       - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   foresta:
@@ -84,7 +84,7 @@ script:
         entity_id: input_boolean.scene
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
@@ -125,7 +125,7 @@ script:
       - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   oceano:
@@ -135,7 +135,7 @@ script:
         entity_id: input_boolean.scene
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
@@ -176,7 +176,7 @@ script:
       - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   club:
@@ -186,7 +186,7 @@ script:
         entity_id: input_boolean.scene
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
@@ -227,7 +227,7 @@ script:
       - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   acquario:
@@ -237,7 +237,7 @@ script:
         entity_id: input_boolean.scene
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
@@ -278,7 +278,7 @@ script:
       - wait_template: "{{ states.media_player.living_room.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   black_alert:
@@ -308,7 +308,7 @@ script:
           effect: blue_fade
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/voybluealert.mp3"
       - service: media_player.volume_set
         data:
@@ -353,7 +353,7 @@ script:
           effect: blue_fade
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/voybluealert.mp3"
       - service: media_player.volume_set
         data:
@@ -372,15 +372,15 @@ script:
           brightness: 255
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/computer_activate.mp3"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/consolewarning.mp3"
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/intruderalertdeck8_ep.mp3"
       - service: light.turn_on
         data:
@@ -391,7 +391,7 @@ script:
           entity_id: light.light_kitchen
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/automaticdefenseproceduresinitiated.mp3"
       - delay: 00:00:20
       - service: media_player.volume_set
@@ -431,7 +431,7 @@ script:
           effect: red_fade
       - service: hassio.addon_stdin
         data:
-          addon: local_audio_player
+          addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/voyredalert.mp3"
       - service: media_player.volume_set
         data:
