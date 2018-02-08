@@ -191,30 +191,22 @@
   Rete:
     name: Rete Casa
     entities:
+      - binary_sensor.mediaaccess_tg589vn_v3
       - sensor.speedtest_ping
       - sensor.speedtest_download
       - sensor.speedtest_upload
       - binary_sensor.livingroomchromecast
       - binary_sensor.bathroomchromecast
       - binary_sensor.kitchenchromecast
-      - binary_sensor.computersalotto
+      - binary_sensor.sky_hd
+      - binary_sensor.slingbox
       - binary_sensor.zidoo
+      - binary_sensor.computersalotto
       - binary_sensor.tabletbagno
       - binary_sensor.tabletcucina
       - binary_sensor.tabletcucina2
       - binary_sensor.smartphonesalotto
-      - binary_sensor.smartphonesalotto3
-  nabaztag:
-    name: Nabaztag
-    entities:
-      - binary_sensor.nabaztag
-      - binary_sensor.netgear_repeater
-  ring_network:
-    name: Ring Network
-    entities:
-      - binary_sensor.ring
-      - binary_sensor.ring_chime_pro
-      - binary_sensor.tp_link
+#      - binary_sensor.smartphonesalotto3
   broadlink_network:
     name: Broadlink Network
     entities:
@@ -228,6 +220,36 @@
       - binary_sensor.broadlink_outlet
       - binary_sensor.broadlink_a1
       - binary_sensor.broadlink_s1
+  condizionatori:
+    name: Condizionatori
+    entities:
+      - binary_sensor.condizionatore_camera
+      - binary_sensor.condizionatore_salotto
+      - binary_sensor.led_strip
+  nabaztag:
+    name: Nabaztag
+    entities:
+      - binary_sensor.nabaztag
+      - binary_sensor.netgear_repeater
+  ring_network:
+    name: Ring Network
+    entities:
+      - binary_sensor.ring
+      - binary_sensor.ring_chime_pro
+      - binary_sensor.tp_link
+  dash_button:
+    name: Dash Button
+    entities:
+      - binary_sensor.dash_button_brabantia
+      - binary_sensor.dash_button_pellini
+      - binary_sensor.dash_button_langelica
+      - binary_sensor.dash_button_biorepair_1
+      - binary_sensor.dash_button_biorepair_2
+      - binary_sensor.dash_button_sholl_1
+      - binary_sensor.dash_button_sholl_2
+      - binary_sensor.dash_button_nescafe_1
+      - binary_sensor.dash_button_lor_1
+      - binary_sensor.dash_button_barilla_1
   dev_pi:
     name: Pi
     entities:
@@ -448,10 +470,12 @@
     entities:
       - group.rete
       - group.broadlink_network
+      - group.condizionatori
       - group.nabaztag
       - group.dev_pi
       - group.ring_network
-      - group.links
+      - group.dash_button
+#      - group.links
       - automation.chromecast_in_stop
 #      - group.rf_receivers
       - script.reboot

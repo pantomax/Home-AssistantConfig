@@ -66,4 +66,23 @@
       broadlink_outlet: 192.168.1.113
       broadlink_a1: 192.168.1.66
       broadlink_s1: 192.168.1.107
+      led_strip: 192.168.1.103
+#******************************************************************************
+      mediaaccess_tg589vn_v3: 192.168.1.254 
+      desktop_win10: 192.168.1.76
+      hassio: 192.168.1.100
+      condizionatore_camera: 192.168.1.65
+      condizionatore_salotto: 192.168.1.67
+      sky_hd: 192.168.1.74
+      slingbox: 192.168.1.64
+      dash_button_brabantia: 192.168.1.77
+      dash_button_pellini: 192.168.1.82
+      dash_button_langelica: 192.168.1.92
+      dash_button_biorepair_1: 192.168.1.97
+      dash_button_biorepair_2: 192.168.1.98
+      dash_button_sholl_1: 192.168.1.101
+      dash_button_sholl_2: 192.168.1.102
+      dash_button_nescafe_1: 192.168.1.109
+      dash_button_lor_1: 192.168.1.114
+      dash_button_barilla_1: 192.168.1.111
 #******************************************************************************

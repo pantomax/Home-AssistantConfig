@@ -321,6 +321,51 @@
     binary_sensor.broadlink_s1:
       friendly_name: "Broadlink S1"
       icon: mdi:security-home
+    binary_sensor.mediaaccess_tg589vn_v3:
+      friendly_name: "mediaaccess_tg589vn_v3"
+      icon: mdi:security-home
+    binary_sensor.condizionatore_camera:
+      friendly_name: "condizionatore_camera"
+      icon: mdi:security-home
+    binary_sensor.condizionatore_salotto:
+      friendly_name: "condizionatore_salotto"
+      icon: mdi:security-home
+    binary_sensor.sky_hd:
+      friendly_name: "sky_hd"
+      icon: mdi:security-home
+    binary_sensor.slingbox:
+      friendly_name: "slingbox"
+      icon: mdi:security-home
+    binary_sensor.dash_button_brabantia:
+      friendly_name: "dash_button_brabantia"
+      icon: mdi:security-home
+    binary_sensor.dash_button_pellini:
+      friendly_name: "dash_button_pellini"
+      icon: mdi:security-home
+    binary_sensor.dash_button_langelica:
+      friendly_name: "dash_button_langelica"
+      icon: mdi:security-home
+    binary_sensor.dash_button_biorepair_1:
+      friendly_name: "dash_button_biorepair_1"
+      icon: mdi:security-home
+    binary_sensor.dash_button_biorepair_2:
+      friendly_name: "dash_button_biorepair_2"
+      icon: mdi:security-home
+    binary_sensor.dash_button_sholl_1:
+      friendly_name: "dash_button_sholl_1"
+      icon: mdi:security-home
+    binary_sensor.dash_button_sholl_2:
+      friendly_name: "dash_button_sholl_2"
+      icon: mdi:security-home
+    binary_sensor.dash_button_nescafe_1:
+      friendly_name: "dash_button_nescafe_1"
+      icon: mdi:security-home
+    binary_sensor.dash_button_lor_1:
+      friendly_name: "dash_button_lor_1"
+      icon: mdi:security-home
+    binary_sensor.dash_button_barilla_1:
+      friendly_name: "dash_button_barilla_1"
+      icon: mdi:security-home
 #*********************************AUTOMATIONS**********************************
     automation.chromecast_in_stop:
       icon: mdi:stop
