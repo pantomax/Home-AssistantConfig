@@ -90,6 +90,10 @@
         entity_id: group.telecomando_sky
         data:
           visible: False
+      - service: group.set_visibility
+        entity_id: group.dash_buttons
+        data:
+          visible: False
       - service: google_assistant.request_sync
 #******************************************************************************
   - alias: "Shutdown/Reboot Notification"
