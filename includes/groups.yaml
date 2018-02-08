@@ -199,7 +199,7 @@
       - binary_sensor.livingroomchromecast
       - binary_sensor.bathroomchromecast
       - binary_sensor.kitchenchromecast
-      - binary_sensor.sky_hd
+#      - binary_sensor.sky_hd
       - binary_sensor.slingbox
       - binary_sensor.zidoo
       - binary_sensor.tabletbagno
@@ -447,8 +447,8 @@
     view: yes
     icon: mdi:television-classic
     entities:
-      - group.media_salotto_2
       - group.hdmi
+      - group.media_salotto_2
       - media_player.kodi
       - media_player.living_room
       - media_player.bathroom
@@ -463,7 +463,7 @@
     icon: mdi:weather-partlycloudy
     entities:
       - sun.sun
-      - camera.meteo_gramma
+      - camera.meteo Gramma
       - camera.meteo_visibile
       - camera.meteo_infrarosso
 #      - camera.meteo_infrarosso_2
@@ -499,7 +499,7 @@
       - group.webcam_salotto_3
       - group.webcam_cucina
       - group.webcam_bagno
-      - group.webcam_camera
+#      - group.webcam_camera
       - group.presence
       - group.webcam_casa
       - group.ring_doorbell

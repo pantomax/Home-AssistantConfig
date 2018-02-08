@@ -21,7 +21,7 @@
     still_image_url: http://www.autobrennero.it/WebCamImg/km313.jpg
 #******************************* METEO ****************************************
   - platform: generic
-    name: Meteo_gramma
+    name: Meteo Gramma
     still_image_url: https://www.yr.no/place/Italy/Veneto/Verona/meteogram.svg
     content_type: 'image/svg+xml'
   - platform: generic
