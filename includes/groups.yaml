@@ -201,7 +201,6 @@
       - binary_sensor.sky_hd
       - binary_sensor.slingbox
       - binary_sensor.zidoo
-      - binary_sensor.computersalotto
       - binary_sensor.tabletbagno
       - binary_sensor.tabletcucina
       - binary_sensor.tabletcucina2
@@ -221,7 +220,7 @@
       - binary_sensor.broadlink_a1
       - binary_sensor.broadlink_s1
   condizionatori:
-    name: Condizionatori
+    name: Elettrodomestici
     entities:
       - binary_sensor.condizionatore_camera
       - binary_sensor.condizionatore_salotto
@@ -261,6 +260,10 @@
       - sensor.since_last_boot
       - sensor.sent_eth0
       - sensor.received_eth0
+  pc_windows:
+    name: PC Windows
+    entities:
+      - binary_sensor.computersalotto
       - switch.windows
   links:
     name: Links
@@ -269,6 +272,8 @@
       - weblink.router_da_fuori
       - weblink.home_assistant
       - weblink.ha_community
+      - weblink.link_1
+      - weblink.link_2
   rf_receivers:
     name: RF Receivers
     entities:
@@ -481,6 +486,7 @@
       - group.links
       - group.dev_pi
       - group.ring_network
+      - group.pc_windows
       - group.check_automations
       - group.dash_buttons
 #      - group.home_switches

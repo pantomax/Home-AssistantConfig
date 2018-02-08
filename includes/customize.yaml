@@ -201,7 +201,7 @@
     sensor.ring_front_door_battery:
       friendly_name: "Batteria Campanello"
       icon: mdi:battery-charging
-    sensor.zidoo:
+    binary_sensor.zidoo:
       friendly_name: "Zidoo"
       icon: mdi:airplay
     binary_sensor.tabletbagno:
