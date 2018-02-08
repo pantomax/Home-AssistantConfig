@@ -275,17 +275,12 @@
       - weblink.router_da_fuori
       - weblink.home_assistant
       - weblink.ha_community
-#      - weblink.link_1
+      - weblink.link_1
 #      - weblink.link_2
   rf_receivers:
     name: RF Receivers
     entities:
       - sensor.rf_receiver
-  check_automations:
-    name: Automations
-    entities:
-
-
   bitcoin:
     name: Bitcoin
     control: hidden
