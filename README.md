@@ -15,6 +15,13 @@ Bedroom Tab
 
 
 
+Home Network Tab
+----------------
+
+![](/screenshots/5%20-%20Home%20Network.png "Home Network Tab")
+
+
+
 Nabaztag Tab
 ------------
 
