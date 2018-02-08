@@ -463,7 +463,7 @@
     icon: mdi:weather-partlycloudy
     entities:
       - sun.sun
-      - camera.meteo Gramma
+      - camera.meteo_gramma
       - camera.meteo_visibile
       - camera.meteo_infrarosso
 #      - camera.meteo_infrarosso_2
