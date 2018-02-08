@@ -252,6 +252,7 @@
       - binary_sensor.dash_button_barilla_1
   dev_pi:
     name: Pi
+    control: hidden
     entities:
       - sensor.cpu_used
       - sensor.cpu_temp
@@ -275,7 +276,7 @@
       - weblink.router_da_fuori
       - weblink.home_assistant
       - weblink.ha_community
-      - weblink.link_1
+      - weblink.nabaztag_(•ㅅ•)
 #      - weblink.link_2
   rf_receivers:
     name: RF Receivers
