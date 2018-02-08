@@ -417,13 +417,13 @@
     view: yes
     icon: mdi:television-classic
     entities:
+      - group.media_salotto_2
+      - group.hdmi
       - media_player.kodi
       - media_player.living_room
       - media_player.bathroom
       - media_player.kitchen
       - media_player.plex_web_chrome
-      - group.hdmi
-      - group.media_salotto_2
       - group.telecomando_tv
       - group.tastierino_sky
       - group.telecomando_sky
@@ -432,8 +432,8 @@
     view: yes
     icon: mdi:weather-partlycloudy
     entities:
-      - sun.sun
       - camera.meteogramma
+      - sun.sun
       - camera.meteo_visibile
       - camera.meteo_infrarosso
       - camera.meteo_infrarosso_2
