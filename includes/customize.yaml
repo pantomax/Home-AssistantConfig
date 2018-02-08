@@ -324,6 +324,9 @@
     binary_sensor.mediaaccess_tg589vn_v3:
       friendly_name: "Router Fastweb"
       icon: mdi:router-wireless
+    binary_sensor.google:
+      friendly_name: "Internet"
+      icon: mdi:google
     binary_sensor.condizionatore_camera:
       friendly_name: "Camera da Letto"
       icon: mdi:air-conditioner

@@ -39,6 +39,7 @@
       smartphonesalotto: 192.168.1.94
       smartphonesalotto3: 192.168.1.95
       zidoo: 192.168.1.106
+      google: 8.8.8.8
 #******************************************************************************
       chromecast_salotto: 192.168.1.73
       chromecast_cucina: 192.168.1.70

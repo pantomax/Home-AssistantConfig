@@ -131,19 +131,24 @@
 #******************************************************************************
       mediaaccess_tg589vn_v3:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.mediaaccess_tg589vn_v3', 'home') }}"    
+        value_template: "{{ is_state('device_tracker.mediaaccess_tg589vn_v3', 'home') }}"
+      google:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.google', 'home') }}"
+        delay_off:
+          seconds: 120
       condizionatore_camera:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.condizionatore_camera', 'home') }}"    
+        value_template: "{{ is_state('device_tracker.condizionatore_camera', 'home') }}"   
       condizionatore_salotto:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.condizionatore_salotto', 'home') }}"    
+        value_template: "{{ is_state('device_tracker.condizionatore_salotto', 'home') }}"
       sky_hd:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.sky_hd', 'home') }}"    
+        value_template: "{{ is_state('device_tracker.sky_hd', 'home') }}"
       slingbox:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.slingbox', 'home') }}"    
+        value_template: "{{ is_state('device_tracker.slingbox', 'home') }}"
       dash_button_brabantia:
         device_class: connectivity
         value_template: "{{ is_state('device_tracker.dash_button_brabantia', 'home') }}"    
