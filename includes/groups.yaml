@@ -407,7 +407,7 @@
       - group.media_salotto
       - group.desk
       - light.insettivoro
-      - media_player.kodi
+#      - media_player.kodi
       - media_player.living_room
       - group.termostato_salotto
       - group.led_strip_controller
@@ -463,11 +463,11 @@
     view: yes
     icon: mdi:weather-partlycloudy
     entities:
-      - camera.meteogramma
       - sun.sun
+      - camera.meteo_gramma
       - camera.meteo_visibile
       - camera.meteo_infrarosso
-      - camera.meteo_infrarosso_2
+#      - camera.meteo_infrarosso_2
       - camera.meteo_pioggia
       - group.meteo_wunderground
       - group.daily_forecast
@@ -510,12 +510,11 @@
     view: yes
     icon: mdi:traffic-light
     entities:
-      - camera.verona_nord
-      - camera.nogarole
-      - camera.mantova_sud
-      - camera.raggiolo
-      - camera.raccordo_a1
-      - camera.piazza_bra
+      - camera.1_verona_nord
+      - camera.2_nogarole
+      - camera.3_mantova_sud
+      - camera.4_raggiolo
+      - camera.5_raccordo_a1
   Tab_Nabaztag:
     name: Nabaztag
     view: yes
