@@ -478,11 +478,11 @@
       - group.broadlink_network
       - group.condizionatori
       - group.nabaztag
+      - group.links
       - group.dev_pi
       - group.ring_network
       - group.check_automations
       - group.dash_buttons
-      - group.links
 #      - group.home_switches
 #      - group.bitcoin
   Tab_Cam:
