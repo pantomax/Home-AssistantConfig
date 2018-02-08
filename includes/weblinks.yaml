@@ -16,7 +16,7 @@
     - name: HA Community
       url: https://community.home-assistant.io
       icon: mdi:forum
-    - name: Nabaztag (•ㅅ•)
+    - name: Nabaztag
       url: http://192.168.1.180
       icon: mdi:carrot
 #******************************************************************************

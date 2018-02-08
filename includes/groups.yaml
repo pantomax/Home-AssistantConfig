@@ -276,7 +276,7 @@
       - weblink.router_da_fuori
       - weblink.home_assistant
       - weblink.ha_community
-      - weblink.nabaztag_(•ㅅ•)
+      - weblink.nabaztag
 #      - weblink.link_2
   rf_receivers:
     name: RF Receivers
