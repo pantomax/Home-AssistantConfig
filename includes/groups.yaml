@@ -225,6 +225,7 @@
       - binary_sensor.condizionatore_camera
       - binary_sensor.condizionatore_salotto
       - binary_sensor.led_strip
+      - input_boolean.visualizza_gruppo_dashbutton
   nabaztag:
     name: Nabaztag
     entities:
@@ -257,9 +258,11 @@
       - sensor.disk_used_
       - sensor.ram_available
       - sensor.ram_used
-      - sensor.since_last_boot
+#      - sensor.since_last_boot
       - sensor.sent_eth0
       - sensor.received_eth0
+      - script.reboot
+      - automation.chromecast_in_stop
   pc_windows:
     name: PC Windows
     entities:
@@ -272,7 +275,7 @@
       - weblink.router_da_fuori
       - weblink.home_assistant
       - weblink.ha_community
-      - weblink.link_1
+#      - weblink.link_1
 #      - weblink.link_2
   rf_receivers:
     name: RF Receivers
@@ -281,9 +284,8 @@
   check_automations:
     name: Automations
     entities:
-      - input_boolean.visualizza_gruppo_dashbutton
-      - automation.chromecast_in_stop
-      - script.reboot
+
+
   bitcoin:
     name: Bitcoin
     control: hidden
