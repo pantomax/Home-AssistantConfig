@@ -31,6 +31,10 @@
     name: Telecomando Radio
     initial: off
     icon: mdi:remote
+    visualizza_gruppo_dashbutton:
+    name: Dash Buttons
+    initial: off
+    icon: mdi:disqus-outline
   scene:
     name: scene
     initial: off

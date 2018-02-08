@@ -239,6 +239,21 @@
             False
           {% endif %}
 #******************************************************************************
+  - alias: "Cambia Visibilita Gruppo Dash Button"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_gruppo_dashbutton
+    action:
+    - service: group.set_visibility
+      entity_id: group.dash_buttons
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_gruppo_dashbutton", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
   - alias: "Notify I am home"
     trigger:
     - platform: state

@@ -237,8 +237,8 @@
       - binary_sensor.ring
       - binary_sensor.ring_chime_pro
       - binary_sensor.tp_link
-  dash_button:
-    name: Dash Button
+  dash_buttons:
+    name: Dash Buttons
     entities:
       - binary_sensor.dash_button_brabantia
       - binary_sensor.dash_button_pellini
@@ -273,6 +273,12 @@
     name: RF Receivers
     entities:
       - sensor.rf_receiver
+  check_automations:
+    name: Automations
+    entities:
+      - input_boolean.visualizza_gruppo_dashbutton
+      - automation.chromecast_in_stop
+      - script.reboot
   bitcoin:
     name: Bitcoin
     control: hidden
@@ -474,12 +480,9 @@
       - group.nabaztag
       - group.dev_pi
       - group.ring_network
-      - group.dash_button
-#      - group.links
-      - automation.chromecast_in_stop
-#      - group.rf_receivers
-      - script.reboot
-      - script.reboot_pi
+      - group.check_automations
+      - group.dash_buttons
+      - group.links
 #      - group.home_switches
 #      - group.bitcoin
   Tab_Cam:
