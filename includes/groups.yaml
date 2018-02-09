@@ -94,6 +94,13 @@
     entities:
       - scene.spegni_musica_cucina
       - scene.radio_successiva_cucina
+  volume_media_cucina:
+    name: Volume Musica
+    control: hidden
+      - input_number.volume_radio_cucina
+      - scene.mute_volume_kitchen
+      - switch.volume_radio_mute_cucina
+      - input_boolean.volume_radio_muto_cucina
 #******************************************************************************
   sensore_bagno:
     name: Sensore
@@ -431,6 +438,7 @@
       - group.kitchen
       - media_player.kitchen
       - group.media_cucina
+      - group.volume_media_cucina
   Tab_Corridoio:
     name: Corridoio
     view: yes
