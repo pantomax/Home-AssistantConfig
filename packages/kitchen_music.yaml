@@ -91,7 +91,7 @@ script:
     - service: media_player.volume_set
       data_template:
         entity_id: media_player.kitchen
-        volume_level: {{ states('input_select.volume_radio_cucina')}}
+        volume_level: '{{ states.input_slider.volume_radio_cucina.state | float }}'
     - service: media_player.play_media
       data_template:
         entity_id: media_player.kitchen
@@ -136,4 +136,5 @@ automation:
     - service: media_player.volume_set
       data_template:
         entity_id: media_player.kitchen
-        volume_level: {{ states('input_select.volume_radio_cucina')}}
+        volume_level: '{{ states.input_slider.volume_radio_cucina.state | float }}'
+        
