@@ -9,7 +9,7 @@ sensor:
   - platform: template
     sensors:
       tipo_di_media:
-        entity_id: media_player.living_room
+#        entity_id: media_player.living_room
         value_template: '{{ states.media_player.living_room.attributes.media_content_type }}'
 #------------------------------------------------------------------------------
 script:

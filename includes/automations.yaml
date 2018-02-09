@@ -104,7 +104,10 @@
       - delay: '00:01:00'
       - service: hassio.addon_restart
         data:
-          addon: "a0d7b954_homebridge"
+          addon: "core_git_pull"
+      - service: hassio.addon_restart
+        data:
+          addon: "core_google_assistant"
 #******************************************************************************
   - alias: "Shutdown/Reboot Notification"
     trigger:
