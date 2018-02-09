@@ -143,5 +143,5 @@ automation:
     - service: media_player.volume_set
       data_template:
         entity_id: media_player.kitchen
-        volume_level: '{{ states.input_number.volume_radio_cucina.state | float }}'
+        volume_level: '{{ states.input_number.volume_radio_cucina.state | float / 10 }}'
         
