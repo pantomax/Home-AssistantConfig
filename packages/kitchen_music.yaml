@@ -30,6 +30,10 @@ script:
       - service: media_player.turn_off
         data:
           entity_id: media_player.kitchen
+      - service: input_number.set_value
+        data_template:
+          entity_id: input_number.numero_radio_cucina
+          value: '1.0'
 #******************************************************************************
   radio_successiva_con_dash_button_cucina:
     alias: Radio Successiva con Dash Button Cucina
