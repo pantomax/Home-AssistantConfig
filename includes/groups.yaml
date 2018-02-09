@@ -168,29 +168,23 @@
     entities:
       - sun.sun
       - sensor.dark_sky_uv_index
-  temperatura_dark_sky:
-    name: Temperature
+  darksky_data:
+    name: Dati Darksky
     entities:
+      - sensor.dark_sky_icon
+      - sensor.dark_sky_summary
       - sensor.dark_sky_daily_high_temperature
       - sensor.dark_sky_daily_high_apparent_temperature
       - sensor.dark_sky_temperature
       - sensor.dark_sky_apparent_temperature
       - sensor.dark_sky_daily_low_apparent_temperature
       - sensor.dark_sky_daily_low_temperature
-  precipitazioni_dark_sky:
-    name: Precipitazioni
-    entities:
       - sensor.dark_sky_cloud_coverage
       - sensor.dark_sky_precip_type
       - sensor.dark_sky_precip_intensity
       - sensor.dark_sky_precip_probability
       - sensor.dark_sky_daily_max_precip_intensity
       - sensor.dark_sky_nearest_storm_distance
-  darksky_data:
-    name: Dati Darksky
-    entities:
-      - sensor.dark_sky_icon
-      - sensor.dark_sky_summary
       - sensor.dark_sky_minutely_summary
       - sensor.dark_sky_hourly_summary
       - sensor.dark_sky_daily_summary
@@ -479,8 +473,8 @@
     icon: mdi:weather-partlycloudy
     entities:
       - group.sole
-      - group.temperatura_dark_sky
-      - group.precipitazioni_dark_sky
+#      - group.temperatura_dark_sky
+#      - group.precipitazioni_dark_sky
       - group.darksky_data
       - camera.meteo_gramma
       - camera.meteo_visibile
