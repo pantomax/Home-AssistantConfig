@@ -13,19 +13,6 @@ scene:
     entities:
       script.arresta_musica_con_dash_button: on
 #------------------------------------------------------------------------------
-sensor:
-#------------------------------------------------------------------------------
-  - platform: template
-    sensors:
-      luce_accesa_bagno:
-        friendly_name: "Luce Accesa Bagno"
-        value_template: >
-          {% if states('sensor.sensore_light') | float > 0 %}
-            Accesa
-          {% else %}
-            Spenta
-          {% endif %}
-#------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
   numero_radio:
@@ -58,6 +45,16 @@ sensor:
           {{ states.media_player.kitchen.attributes.volume_level }}
         {% else %}
           0
+        {% endif %}
+- platform: template
+  sensors:
+    luce_accesa_bagno:
+      friendly_name: "Luce Accesa Bagno"
+      value_template: >
+        {% if states('sensor.sensore_light') | float > 0 %}
+          Accesa
+        {% else %}
+          Spenta
         {% endif %}
 #------------------------------------------------------------------------------
 switch:
