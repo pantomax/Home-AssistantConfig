@@ -13,6 +13,7 @@ scene:
     entities:
       script.radio_successiva_con_dash_button_cucina: on
   - name: Mute Volume Kitchen
+    entities:
       script.mute_volume_kitchen: on
 #------------------------------------------------------------------------------
 input_number:
