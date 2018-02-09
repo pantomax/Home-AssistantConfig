@@ -22,6 +22,13 @@ Home Network Tab
 
 
 
+Weather Tab
+-----------
+
+![](/screenshots/6%20-%20Weather.png "Weather Tab")
+
+
+
 Nabaztag Tab
 ------------
 
