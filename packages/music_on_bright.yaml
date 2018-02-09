@@ -62,7 +62,7 @@ switch:
   - platform: template
     switches:
       volume_radio_mute_bagno:
-        friendly_name: Nabaztag Switch
+        friendly_name: volume radio mute bagno
         value_template: "{{ is_state('input_boolean.volume_radio_mute_bagno', 'on') }}"
         turn_on:
         - service: input_boolean.turn_on

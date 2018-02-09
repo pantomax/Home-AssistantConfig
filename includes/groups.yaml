@@ -100,7 +100,7 @@
       - input_number.volume_radio_cucina
       - scene.mute_volume_kitchen
       - switch.volume_radio_mute_cucina
-      - input_boolean.volume_radio_muto_cucina
+      - input_boolean.volume_radio_mute_cucina
 #******************************************************************************
   sensore_bagno:
     name: Sensore
