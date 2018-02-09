@@ -6,18 +6,12 @@
 #------------------------------------------------------------------------------
 scene:
 #------------------------------------------------------------------------------
-  - name: Spegni Musica 
-    entities:
-      script.arresta_musica_con_dash_button: on
   - name: Radio Successiva
     entities:
       script.radio_successiva_con_dash_button: on
-  - name: Spegni Musica Cucina
+  - name: Spegni Musica 
     entities:
-      script.arresta_musica_con_dash_button_cucina: on
-  - name: Radio Successiva Cucina
-    entities:
-      script.radio_successiva_con_dash_button_cucina: on
+      script.arresta_musica_con_dash_button: on
 #------------------------------------------------------------------------------
 sensor:
 #------------------------------------------------------------------------------
@@ -40,12 +34,6 @@ input_number:
     max: 5
     step: 1
     initial: 1
-  numero_radio_cucina:
-    name: numero_radio_cucina
-    min: 1
-    max: 5
-    step: 1
-    initial: 1
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
@@ -55,6 +43,10 @@ script:
       - service: media_player.turn_off
         data:
           entity_id: media_player.bathroom
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.numero_radio
+        value: '1.0'
 #******************************************************************************
   radio_successiva_con_dash_button:
     alias: Radio Successiva con Dash Button
@@ -81,39 +73,6 @@ script:
       data_template:
         entity_id: input_number.numero_radio
         value: '{{ states.input_number.numero_radio.state | int + 1.0 }}'
-#******************************************************************************
-  arresta_musica_con_dash_button_cucina:
-    alias: Arresta Musica con Dash Button Cucina
-    sequence:
-      - service: media_player.turn_off
-        data:
-          entity_id: media_player.kitchen
-#******************************************************************************
-  radio_successiva_con_dash_button_cucina:
-    alias: Radio Successiva con Dash Button Cucina
-    sequence:
-    - service: media_player.play_media
-      data_template:
-        entity_id: media_player.kitchen
-        media_content_id: >
-          {% if is_state("input_number.numero_radio_cucina", "1.0") %}
-            http://mp3channels.webradio.antenne.de/workout-hits.aac
-          {%-elif is_state("input_number.numero_radio_cucina", "2.0") %}
-            http://radiostream.flaixfm.cat:8002/;stream.nsv
-          {%-elif is_state("input_number.numero_radio_cucina", "3.0") %}
-            http://streaming.novaentertainment.com.au/nova100
-          {%-elif is_state("input_number.numero_radio_cucina", "4.0") %}
-            http://streaming.novaentertainment.com.au/smooth915 
-          {%-elif is_state("input_number.numero_radio_cucina", "5.0") %}
-            http://shoutcast.sbs.com.au/SBSChill
-          {% else %}
-            "None"
-          {% endif %}
-        media_content_type: 'audio/mp4'
-    - service: input_number.set_value
-      data_template:
-        entity_id: input_number.numero_radio_cucina
-        value: '{{ states.input_number.numero_radio_cucina.state | int + 1.0 }}'
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
@@ -158,7 +117,7 @@ automation:
     trigger:
     - platform: state
       entity_id: input_number.numero_radio
-      to: "5.0"
+      to: "6.0"
     action:
     - service: input_number.set_value
       data_template:

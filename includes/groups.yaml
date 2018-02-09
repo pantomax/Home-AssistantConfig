@@ -430,6 +430,7 @@
     entities:
       - group.kitchen
       - media_player.kitchen
+      - group.media_cucina
   Tab_Corridoio:
     name: Corridoio
     view: yes
