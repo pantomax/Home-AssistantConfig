@@ -97,6 +97,7 @@
   volume_media_cucina:
     name: Volume Musica
     control: hidden
+    entities:
       - input_number.volume_radio_cucina
       - scene.mute_volume_kitchen
       - switch.volume_radio_mute_cucina
