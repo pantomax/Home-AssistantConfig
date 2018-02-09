@@ -32,7 +32,7 @@ Weather Tab
 Nabaztag Tab
 ------------
 
-![](/screenshots/3%20-%20Nabaztag.png "Nabaztag Tab")
+![](/screenshots/3%20-%20Nabaztag.png "Nabaztag  Tab")
 
 
 
