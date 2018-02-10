@@ -11,6 +11,9 @@ switch:
     invert_logic: false
     ports:
       22: Cancello
+  - platform: rpi_gpio
+    invert_logic: true
+    ports:
       23: Led
 #------------------------------------------------------------------------------
 sensor:
