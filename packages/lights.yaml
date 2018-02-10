@@ -114,7 +114,7 @@ automation:
         to: 'on'
     condition:
       condition: time
-      after: '00:30:00'
+      after: '1:00:00'
       before: '04:30:00'
     action:
       service: light.turn_on
@@ -129,11 +129,27 @@ automation:
         minutes: 5
     condition:
       condition: time
-      after: '00:30:00'
+      after: '1:00:00'
       before: '04:30:00'
     action:
       service: light.turn_off
       entity_id: light.giardino
+#******************************************************************************
+- alias: "Controllo spegnimento luce giardino in caso di riavvii del server - Accensione"
+trigger:
+  platform: time
+  at: '0:58:00'
+action:
+  service: light.turn_on
+  entity_id: light.giardino
+#******************************************************************************
+- alias: "Controllo spegnimento luce giardino in caso di riavvii del server - Spegnimento"
+trigger:
+  platform: time
+  at: '00:58:03'
+action:
+  service: light.turn_off
+  entity_id: light.giardino
 #*****************************   CORRIDOIO   **********************************
   - alias: "Accendi Luci corridoio con sensore"
     trigger:
