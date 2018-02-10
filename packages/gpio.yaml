@@ -11,9 +11,6 @@ switch:
     invert_logic: false
     ports:
       22: Cancello
-  - platform: rpi_gpio
-    invert_logic: false
-    ports:
       23: led_green_light
       24: led_red_light
 #------------------------------------------------------------------------------
