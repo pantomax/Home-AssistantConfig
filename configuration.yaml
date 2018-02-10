@@ -36,7 +36,7 @@ logbook:
       - history_graph
       - panel_iframe
 logger:
-  default: critical
+  default: warning
   logs:
     homeassistant.components.dialogflow: debug
 recorder:
