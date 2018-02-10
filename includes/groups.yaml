@@ -262,8 +262,8 @@
       - binary_sensor.dash_button_nescafe_1
       - binary_sensor.dash_button_lor_1
       - binary_sensor.dash_button_barilla_1
-      - switches.led_green
-      - switches.led_red
+      - switch.led_green
+      - switch.led_red
   dev_pi:
     name: Pi
     control: hidden
