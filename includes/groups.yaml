@@ -518,12 +518,12 @@
       - group.presence
       - group.webcam_casa
       - group.ring_doorbell
-      - camera.last_ring_video
   Tab_Traffico:
     name: Traffico
     view: yes
     icon: mdi:traffic-light
     entities:
+      - camera.last_ring_video
       - camera.1_verona_nord
       - camera.2_nogarole
       - camera.3_mantova_sud
