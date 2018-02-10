@@ -19,10 +19,10 @@
     sequence:
       - service: switch.turn_on
         data:
-          entity_id: switch.led_green_light
+          entity_id: switch.led_red_light
       - service: switch.turn_on
         data:
-          entity_id: switch.led_red_light
+          entity_id: switch.led_green_light
 #******************************************************************************
   check_tv_status:
     alias: check tv status
