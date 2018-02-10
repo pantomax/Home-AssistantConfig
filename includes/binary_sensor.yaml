@@ -93,36 +93,89 @@
         value_template: "{{ is_state('device_tracker.ring_chime_pro', 'home') }}"
       tp_link:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.tp_link', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.tp_link', 'home') }}"
 #******************************************************************************
       broadlink_rm_pro:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_rm_pro', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_rm_pro', 'home') }}"
       broadlink_rm_pro_2:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_rm_pro_2', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_rm_pro_2', 'home') }}"
       broadlink_rm_mini:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_rm_mini', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_rm_mini', 'home') }}"
       broadlink_sp_mini_1:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_1', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_1', 'home') }}"
       broadlink_sp_mini_2:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_2', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_2', 'home') }}"
       broadlink_sp_mini_3:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_3', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_3', 'home') }}"
       broadlink_sp_mini_4:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_4', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_sp_mini_4', 'home') }}"
       broadlink_outlet:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_outlet', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_outlet', 'home') }}"
       broadlink_a1:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_a1', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_a1', 'home') }}"
       broadlink_s1:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.broadlink_s1', 'home') }}"      
+        value_template: "{{ is_state('device_tracker.broadlink_s1', 'home') }}"    
+      led_strip:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.led_strip', 'home') }}"    
 #******************************************************************************
+      mediaaccess_tg589vn_v3:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.mediaaccess_tg589vn_v3', 'home') }}"
+      google:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.google', 'home') }}"
+        delay_off:
+          seconds: 120
+      condizionatore_camera:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.condizionatore_camera', 'home') }}"   
+      condizionatore_salotto:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.condizionatore_salotto', 'home') }}"
+      sky_hd:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.sky_hd', 'home') }}"
+      slingbox:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.slingbox', 'home') }}"
+      dash_button_brabantia:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_brabantia', 'home') }}"    
+      dash_button_pellini:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_pellini', 'home') }}"    
+      dash_button_langelica:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_langelica', 'home') }}"    
+      dash_button_biorepair_1:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_biorepair_1', 'home') }}"    
+      dash_button_biorepair_2:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_biorepair_2', 'home') }}"    
+      dash_button_sholl_1:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_sholl_1', 'home') }}"    
+      dash_button_sholl_2:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_sholl_2', 'home') }}"    
+      dash_button_nescafe_1:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_nescafe_1', 'home') }}"    
+      dash_button_lor_1:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_lor_1', 'home') }}"    
+      dash_button_barilla_1:
+        device_class: connectivity
+        value_template: "{{ is_state('device_tracker.dash_button_barilla_1', 'home') }}"    

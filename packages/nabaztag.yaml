@@ -643,6 +643,8 @@ automation:
         event: start
     action:
       - service: shell_command.nab_reboot
+      - service: switch.turn_on
+        entity_id: switch.nabaztaglife
 #******************************************************************************
   - alias: "Startup setup"
     trigger:

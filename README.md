@@ -15,10 +15,24 @@ Bedroom Tab
 
 
 
+Home Network Tab
+----------------
+
+![](/screenshots/5%20-%20Home%20Network.png "Home Network Tab")
+
+
+
+Weather Tab
+-----------
+
+![](/screenshots/6%20-%20Weather.png "Weather Tab")
+
+
+
 Nabaztag Tab
 ------------
 
-![](/screenshots/3%20-%20Nabaztag.png "Nabaztag Tab")
+![](/screenshots/3%20-%20Nabaztag.png "Nabaztag  Tab")
 
 
 

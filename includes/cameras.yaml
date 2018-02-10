@@ -5,23 +5,23 @@
 ###############################################################################
 #**************************** AUTOSTRADA A22 **********************************
   - platform: generic
-    name: Verona Nord
+    name: 1 Verona Nord
     still_image_url: http://www.autobrennero.it/WebCamImg/km228.jpg
   - platform: generic
-    name: Nogarole
+    name: 2 Nogarole
     still_image_url: http://www.autobrennero.it/WebCamImg/km240.jpg
   - platform: generic
-    name: Mantova Sud
+    name: 3 Mantova Sud
     still_image_url: http://www.autobrennero.it/WebCamImg/km272.jpg
   - platform: generic
-    name: Raggiolo
+    name: 4 Reggiolo
     still_image_url: http://www.autobrennero.it/WebCamImg/km285.jpg
   - platform: generic
-    name: Raccordo A1
+    name: 5 Raccordo A1
     still_image_url: http://www.autobrennero.it/WebCamImg/km313.jpg
 #******************************* METEO ****************************************
   - platform: generic
-    name: Meteogramma
+    name: Meteo Gramma
     still_image_url: https://www.yr.no/place/Italy/Veneto/Verona/meteogram.svg
     content_type: 'image/svg+xml'
   - platform: generic

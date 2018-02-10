@@ -1,0 +1,61 @@
+###############################################################################
+#
+#                              STARTS ADDONS IF STOPPED
+#
+###############################################################################
+#------------------------------------------------------------------------------
+automation:
+#------------------------------------------------------------------------------
+  - alias: "Restart Addons at start"
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - delay: '00:01:00'
+      - service: hassio.addon_restart
+        data:
+          addon: "core_git_pull"
+#******************************************************************************
+  - alias: "Start Addons if stopped"
+    trigger:
+      platform: time
+      minutes: '/5'
+      seconds: 00
+    action:
+      - service: hassio.addon_start
+        data:
+          addon: "core_git_pull"
+      - service: hassio.addon_start
+        data:
+          addon: "core_google_assistant"
+      - service: hassio.addon_start
+        data:
+          addon: "ab75e4fb_s1c"
+      - service: hassio.addon_start
+        data:
+          addon: "62cc289b_dasshio"
+      - service: hassio.addon_start
+        data:
+          addon: "core_ssh"
+      - service: hassio.addon_start
+        data:
+          addon: "ab75e4fb_rfreceiver"
+      - service: hassio.addon_start
+        data:
+          addon: "f456c084_appdaemon"
+      - service: hassio.addon_start
+        data:
+          addon: "de3cd379_audio_player"
+      - service: hassio.addon_start
+        data:
+          addon: "53caca22_caddy_proxy"
+      - service: hassio.addon_start
+        data:
+          addon: "core_dnsmasq"
+      - service: hassio.addon_start
+        data:
+          addon: "core_mosquitto"
+      - service: hassio.addon_start
+        data:
+          addon: "5826d7ea_terminal"
+#******************************************************************************

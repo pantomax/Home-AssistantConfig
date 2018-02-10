@@ -201,7 +201,7 @@
     sensor.ring_front_door_battery:
       friendly_name: "Batteria Campanello"
       icon: mdi:battery-charging
-    sensor.zidoo:
+    binary_sensor.zidoo:
       friendly_name: "Zidoo"
       icon: mdi:airplay
     binary_sensor.tabletbagno:
@@ -321,6 +321,57 @@
     binary_sensor.broadlink_s1:
       friendly_name: "Broadlink S1"
       icon: mdi:security-home
+    binary_sensor.mediaaccess_tg589vn_v3:
+      friendly_name: "Router Fastweb"
+      icon: mdi:router-wireless
+    binary_sensor.google:
+      friendly_name: "Internet"
+      icon: mdi:google
+    binary_sensor.condizionatore_camera:
+      friendly_name: "Camera da Letto"
+      icon: mdi:air-conditioner
+    binary_sensor.condizionatore_salotto:
+      friendly_name: "Salotto"
+      icon: mdi:air-conditioner
+    binary_sensor.led_strip:
+      friendly_name: "Striscia LED"
+      icon: mdi:led-strip
+    binary_sensor.sky_hd:
+      friendly_name: "Sky HD"
+      icon: mdi:television
+    binary_sensor.slingbox:
+      friendly_name: "Slingbox"
+      icon: mdi:cube-send
+    binary_sensor.dash_button_brabantia:
+      friendly_name: "Brabantia"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_pellini:
+      friendly_name: "Pellini"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_langelica:
+      friendly_name: "L'Angelica"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_biorepair_1:
+      friendly_name: "Biorepair 1"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_biorepair_2:
+      friendly_name: "Biorepair 2"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_sholl_1:
+      friendly_name: "Sholl 1"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_sholl_2:
+      friendly_name: "Sholl 2"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_nescafe_1:
+      friendly_name: "Nescafe"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_lor_1:
+      friendly_name: "L'Or"
+      icon: mdi:disqus-outline
+    binary_sensor.dash_button_barilla_1:
+      friendly_name: "Barilla"
+      icon: mdi:disqus-outline
 #*********************************AUTOMATIONS**********************************
     automation.chromecast_in_stop:
       icon: mdi:stop
