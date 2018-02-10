@@ -12,6 +12,8 @@ switch:
     ports:
       22: Cancello
       24: led_red_light
+      20: ultrasonic_echo
+      21: ultrasonic_trigger
   - platform: rpi_gpio
     invert_logic: true
     ports:
