@@ -3,6 +3,27 @@
 #                                 SCRIPTS
 #
 ###############################################################################
+#******************************************************************************
+  led_green_light:
+    alias: Turn external led to green color
+    sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.led_green_light
+      - service: switch.turn_off
+        data:
+          entity_id: switch.led_red_light
+#******************************************************************************
+  led_red_light:
+    alias: Turn external led to red color
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.led_green_light
+      - service: switch.turn_on
+        data:
+          entity_id: switch.led_red_light
+#******************************************************************************
   check_tv_status:
     alias: check tv status
     sequence:
