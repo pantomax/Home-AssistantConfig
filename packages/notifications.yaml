@@ -1,0 +1,60 @@
+###############################################################################
+#
+#                                  NOTIFICATIONS
+#
+###############################################################################
+#------------------------------------------------------------------------------
+automation:
+#------------------------------------------------------------------------------
+  - alias: "Notify I am home"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.mxhome
+      to: 'on'
+    action:
+    - service: notify.notify
+      data:
+        message: "Welcome home"
+        target: "Smartphone Max"
+        data:
+          actions:
+            - action: "button1"
+              title: "Luce cucina"
+            - action: "button2"
+              title: "Luci cucina e salotto"
+#******************************************************************************
+  - alias: "HTML5 push notification action button clicked"
+    trigger:
+    - platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: manual_action
+    action:
+    - service_template: >
+       {{ trigger.event.data.data["entityType"] }}.{{ trigger.event.data.data["secureAction"] }}
+      data_template:
+        entity_id: >
+         {{ trigger.event.data.data["entityName"] }}
+#******************************************************************************
+  - alias: "HTML5 push notification action button clicked Turn on lights"
+    trigger:
+      platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: button1
+    action:
+      - service: light.turn_on
+        entity_id: group.kitchen
+#******************************************************************************
+  - alias: "HTML5 push notification action button clicked Turn on lights 2"
+    trigger:
+      platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: button2
+    action:
+      - service: light.turn_on
+        entity_id: group.kitchen
+      - service: light.turn_on
+        entity_id: group.living_room
+#******************************************************************************        
