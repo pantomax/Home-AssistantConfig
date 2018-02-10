@@ -96,19 +96,6 @@
           visible: False
       - service: google_assistant.request_sync
 #******************************************************************************
-  - alias: "Restart Addons at start"
-    trigger:
-      platform: homeassistant
-      event: start
-    action:
-      - delay: '00:01:00'
-      - service: hassio.addon_restart
-        data:
-          addon: "core_git_pull"
-      - service: hassio.addon_restart
-        data:
-          addon: "core_google_assistant"
-#******************************************************************************
   - alias: "Shutdown/Reboot Notification"
     trigger:
       - platform: homeassistant
