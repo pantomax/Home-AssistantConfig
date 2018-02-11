@@ -36,8 +36,9 @@ logbook:
       - history_graph
       - panel_iframe
 logger:
-  default: warning
+  default: critical
   logs:
+    homeassistant.components: info
     homeassistant.components.dialogflow: debug
 recorder:
   purge_interval: 2
