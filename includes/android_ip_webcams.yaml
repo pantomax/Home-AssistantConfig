@@ -6,7 +6,7 @@
   - name: 'Cucina'
     username: !secret cam_user
     password: !secret cam_password
-    host: 192.168.1.72
+    host: !secret tabletcucina
     scan_interval: 10
     sensors:
       - battery_voltage
@@ -16,7 +16,7 @@
   - name: 'Bagno'
     username: !secret cam_user
     password: !secret cam_password
-    host: 192.168.1.85
+    host: !secret tabletbagno
     scan_interval: 10
     sensors:
       - battery_voltage
@@ -26,7 +26,7 @@
   - name: 'Salotto 2'
     username: !secret cam_user
     password: !secret cam_password
-    host: 192.168.1.106
+    host: !secret zidoo
     port: 8081
     scan_interval: 10
     sensors:

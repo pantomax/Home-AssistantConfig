@@ -89,7 +89,7 @@ sensor:
   - platform: broadlink
     update_interval: 120
     name: Temperatura Salotto per termostato
-    host: 192.168.1.69
+    host: !secret broadlink_rm_pro
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
@@ -97,7 +97,7 @@ sensor:
 switch:
 #------------------------------------------------------------------------------
   - platform: broadlink
-    host: 192.168.1.69
+    host: !secret broadlink_rm_pro
     mac: '34:EA:34:F4:52:AC'
     timeout: 15
     type: rm2

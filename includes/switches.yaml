@@ -36,31 +36,31 @@
         command_off: "hassio ha restart"
 #************************ PRESA INSETTIVORO ***********************************
   - platform: broadlink
-    host: 192.168.1.68
+    host: !secret broadlink_sp_mini_1
     mac: '34:ea:34:f5:b9:52'
     type: sp3
     friendly_name: 'Insettivoro'
 #************************ PRESA SCRIVANIA *************************************
   - platform: broadlink
-    host: 192.168.1.83
+    host: !secret broadlink_sp_mini_2
     mac: '34:ea:34:f5:ad:ad'
     type: sp3
     friendly_name: 'Light Desk'
 #************************ PRESA CORRIDOIO PORTA *******************************
   - platform: broadlink
-    host: 192.168.1.84
+    host: !secret broadlink_sp_mini_3
     mac: '34:ea:34:f5:be:23'
     type: sp3
     friendly_name: 'Corridoio Porta'
 #************************ PRESA CORRIDOIO BAGNO *******************************
   - platform: broadlink
-    host: 192.168.1.87
+    host: !secret broadlink_sp_mini_4
     mac: '34:ea:34:f5:ba:50'
     type: sp3
     friendly_name: 'Corridoio Bagno'
 #***************************** PRESA CUCINA 2 *********************************
   - platform: broadlink
-    host: 192.168.1.113
+    host: !secret broadlink_outlet
     mac: '34:ea:34:b6:9c:1d'
     type: sp2
     friendly_name: 'Cucina 2'
@@ -71,7 +71,7 @@
         command_off: 'curl http://192.168.1.76:5001/shutdown'
   - platform: wake_on_lan
     name: windowswol
-    host: 192.168.1.76
+    host: !secret computersalotto
     mac_address: D0:50:99:98:0E:53
   - platform: template
     friendly_name: 'Accendi PC'
@@ -102,7 +102,7 @@
         signal_repetitions: 15
 #*************************************************************************************
   - platform: broadlink
-    host: 192.168.1.96
+    host: !secret broadlink_rm_mini
     mac: '34:ea:34:41:2f:bd'
     timeout: 15
     type: rm_mini
@@ -137,7 +137,7 @@
         command_off: 'JgBQAAABL5IVERIUEhMUERMTFBEVERIUEjgTNxI3EzcVNRQ2EjgSOBI4ExISFBI4FBEUERMTFBEUEhQ2FDYUERQ2EjgUNhI4EgAFIgABK0oTAA0FAAAAAAAAAAA='
 ###############################################################################################################################################################################
   - platform: broadlink
-    host: 192.168.1.69
+    host: !secret broadlink_rm_pro
     mac: '34:EA:34:F4:52:AC'
     timeout: 15
     type: rm2
@@ -779,7 +779,7 @@
         command_on: 'JgDyABMAAkxiAAEmEBEQMREQEBEQEBEQEBAREBAREDEQERARDzIQERAQDzMPMhAxEDERMRAQERAQEBEQEBEQERAQEBEQEQ8SDxEPEhAQERAREBAQERAQERAQERAQEBEQEBEQERAQEBEQEQ8SDxEPEhAQERAQMREwETEQMRBiYgABJhAxEREPERARDxIOEg8SEBAREBAxERAQEBExEBAREBAxEREPMg8yDzIPMhExEDEQMREwERAQERAQETARMg8wEREPEhAREBAREBAxERAQMRAxETARMRAyDzIPMg8SEBEQEBAREBAREBAREDEQMRAxETARAA0FAAAAAAAA'
 ###############################################################################################################################################################################
   - platform: broadlink
-    host: 192.168.1.104
+    host: !secret broadlink_rm_pro_2
     mac: '34:EA:34:D0:9F:5F'
     timeout: 15
     type: rm2

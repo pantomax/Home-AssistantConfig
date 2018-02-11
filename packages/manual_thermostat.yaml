@@ -150,7 +150,7 @@ sensor:
   - platform: broadlink
     update_interval: 120
     name: Temperatura Salotto per termostato manuale
-    host: 192.168.1.69
+    host: !secret broadlink_rm_pro
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
@@ -158,7 +158,7 @@ sensor:
   - platform: broadlink
     update_interval: 120
     name: Temperatura Bagno per termostato manuale
-    host: 192.168.1.69
+    host: !secret broadlink_rm_pro
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature
@@ -166,7 +166,7 @@ sensor:
   - platform: broadlink
     update_interval: 120
     name: Temperatura Camera per termostato manuale
-    host: 192.168.1.69
+    host: !secret broadlink_rm_pro
     mac: '34:ea:34:f4:52:ac'
     monitored_conditions:
       - temperature

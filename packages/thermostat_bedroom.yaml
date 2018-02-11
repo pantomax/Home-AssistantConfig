@@ -89,7 +89,7 @@ sensor:
   - platform: broadlink
     update_interval: 120
     name: Temperatura camera per termostato
-    host: 192.168.1.104
+    host: !secret broadlink_rm_pro_2
     mac: '34:ea:34:d0:9f:5f'
     monitored_conditions:
       - temperature
@@ -97,7 +97,7 @@ sensor:
 switch:
 #------------------------------------------------------------------------------
   - platform: broadlink
-    host: 192.168.1.104
+    host: !secret broadlink_rm_pro_2
     mac: '34:ea:34:d0:9f:5f'
     timeout: 15
     type: rm2
