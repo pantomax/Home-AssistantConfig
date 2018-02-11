@@ -98,7 +98,7 @@ switch:
 #------------------------------------------------------------------------------
   - platform: broadlink
     host: !secret broadlink_rm_pro
-    mac: '34:EA:34:F4:52:AC'
+    mac: !secret mac_broadlink_rm_pro
     timeout: 15
     type: rm2
     switches:
