@@ -93,7 +93,7 @@ switch:
 #------------------------------------------------------------------------------
   - platform: broadlink
     host: !secret broadlink_rm_mini
-    mac: '34:ea:34:41:2f:bd'
+    mac: !secret mac_broadlink_rm_mini
     timeout: 15
     type: rm_mini
     switches:

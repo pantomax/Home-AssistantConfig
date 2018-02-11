@@ -90,7 +90,7 @@ sensor:
     update_interval: 120
     name: Temperatura Salotto per termostato
     host: !secret broadlink_rm_pro
-    mac: '34:ea:34:f4:52:ac'
+    mac: !secret mac_broadlink_rm_pro
     monitored_conditions:
       - temperature
 #------------------------------------------------------------------------------

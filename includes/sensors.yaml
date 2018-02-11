@@ -24,7 +24,7 @@
     update_interval: 60
     name: Sensore
     host: !secret broadlink_a1
-    mac: '34:EA:34:E9:BB:FA'
+    mac: !secret mac_broadlink_a1
     monitored_conditions:
       - temperature 
       - humidity
@@ -37,7 +37,7 @@
     update_interval: 60
     name: Temperatura Salotto
     host: !secret broadlink_rm_pro
-    mac: '34:ea:34:f4:52:ac'
+    mac: !secret mac_broadlink_rm_pro
     monitored_conditions:
       - temperature
 #******************************************************************************
@@ -46,7 +46,7 @@
     update_interval: 60
     name: Temperatura Camera
     host: !secret broadlink_rm_pro_2
-    mac: '34:ea:34:d0:9f:5f'
+    mac: !secret mac_broadlink_rm_pro_2
     monitored_conditions:
       - temperature
 #******************************************************************************

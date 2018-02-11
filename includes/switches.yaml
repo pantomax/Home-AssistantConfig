@@ -37,31 +37,31 @@
 #************************ PRESA INSETTIVORO ***********************************
   - platform: broadlink
     host: !secret broadlink_sp_mini_1
-    mac: '34:ea:34:f5:b9:52'
+    mac: !secret mac_broadlink_sp_mini_1
     type: sp3
     friendly_name: 'Insettivoro'
 #************************ PRESA SCRIVANIA *************************************
   - platform: broadlink
     host: !secret broadlink_sp_mini_2
-    mac: '34:ea:34:f5:ad:ad'
+    mac: !secret mac_broadlink_sp_mini_2
     type: sp3
     friendly_name: 'Light Desk'
 #************************ PRESA CORRIDOIO PORTA *******************************
   - platform: broadlink
     host: !secret broadlink_sp_mini_3
-    mac: '34:ea:34:f5:be:23'
+    mac: !secret mac_broadlink_sp_mini_3
     type: sp3
     friendly_name: 'Corridoio Porta'
 #************************ PRESA CORRIDOIO BAGNO *******************************
   - platform: broadlink
     host: !secret broadlink_sp_mini_4
-    mac: '34:ea:34:f5:ba:50'
+    mac:!secret mac_broadlink_sp_mini_4
     type: sp3
     friendly_name: 'Corridoio Bagno'
 #***************************** PRESA CUCINA 2 *********************************
   - platform: broadlink
     host: !secret broadlink_outlet
-    mac: '34:ea:34:b6:9c:1d'
+    mac: !secret mac_broadlink_outlet
     type: sp2
     friendly_name: 'Cucina 2'
 #******************************** COMPUTER ************************************
@@ -72,7 +72,7 @@
   - platform: wake_on_lan
     name: windowswol
     host: !secret computersalotto
-    mac_address: D0:50:99:98:0E:53
+    mac_address: !secret mac_computersalotto
   - platform: template
     friendly_name: 'Accendi PC'
     switches:
@@ -103,7 +103,7 @@
 #*************************************************************************************
   - platform: broadlink
     host: !secret broadlink_rm_mini
-    mac: '34:ea:34:41:2f:bd'
+    mac: !secret mac_broadlink_rm_mini
     timeout: 15
     type: rm_mini
     switches:
