@@ -55,7 +55,7 @@
 #************************ PRESA CORRIDOIO BAGNO *******************************
   - platform: broadlink
     host: !secret broadlink_sp_mini_4
-    mac:!secret mac_broadlink_sp_mini_4
+    mac: !secret mac_broadlink_sp_mini_4
     type: sp3
     friendly_name: 'Corridoio Bagno'
 #***************************** PRESA CUCINA 2 *********************************
