@@ -38,6 +38,13 @@
           addon: de3cd379_audio_player
           input: "http://192.168.1.100:8123/local/power_down.mp3"
 #******************************************************************************
+  local_radio:
+    sequence:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://icestreaming.rai.it/1.mp3"
+#******************************************************************************
   normal_mode:
     sequence:
       - service: input_select.select_option
