@@ -66,6 +66,13 @@
           addon: de3cd379_audio_player
           input: "http://icestreaming.rai.it/1.mp3"
 #******************************************************************************
+  stop_audio_player:
+    sequence:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: ""
+#******************************************************************************
   normal_mode:
     sequence:
       - service: input_select.select_option
