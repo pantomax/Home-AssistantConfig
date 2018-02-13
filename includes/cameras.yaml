@@ -38,32 +38,32 @@
     name: Meteo Infrarosso
 #******************************* WEBCAMS CASA *********************************
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.72:8080/video
+    mjpeg_url: !secret mjpeg_url_tabletcucina
     name: Webcam Cucina
     username: !secret http_user
     password: !secret camera_password
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.94:8080/video
+    mjpeg_url: !secret mjpeg_url_smartphonesalotto
     name: Webcam Salotto
     username: !secret http_user
     password: !secret camera_password
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.85:8080/video
+    mjpeg_url: !secret mjpeg_url_tabletbagno
     name: Webcam Bagno
     username: !secret http_user
     password: !secret camera_password
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.106:8081/video
+    mjpeg_url: !secret mjpeg_url_zidoo
     name: Webcam Salotto 2
     username: !secret http_user
     password: !secret camera_password
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.105:8080/video
+    mjpeg_url: !secret mjpeg_url_smartphonesalotto3
     name: Webcam Salotto 3
     username: !secret http_user
     password: !secret camera_password
   - platform: mjpeg
-    mjpeg_url: http://192.168.1.111:8080/video
+    mjpeg_url: !secret mjpeg_url_camera_da_letto
     name: Webcam Camera da letto
     username: !secret http_user
     password: !secret camera_password

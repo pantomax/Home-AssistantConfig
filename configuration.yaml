@@ -38,6 +38,8 @@ logbook:
 logger:
   default: critical
   logs:
+    homeassistant.components: info
+    homeassistant.components.http: debug
     homeassistant.components.dialogflow: debug
 recorder:
   purge_interval: 2

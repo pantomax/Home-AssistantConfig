@@ -92,16 +92,10 @@
     name: Musica Cucina
     control: hidden
     entities:
-      - scene.spegni_musica_cucina
       - scene.radio_successiva_cucina
-  volume_media_cucina:
-    name: Volume Musica
-    control: hidden
-    entities:
       - input_number.volume_radio_cucina
-      - scene.mute_volume_kitchen
       - switch.volume_radio_mute_cucina
-      - input_boolean.volume_radio_mute_cucina
+      - scene.spegni_musica_cucina
 #******************************************************************************
   sensore_bagno:
     name: Sensore
@@ -268,6 +262,8 @@
       - binary_sensor.dash_button_nescafe_1
       - binary_sensor.dash_button_lor_1
       - binary_sensor.dash_button_barilla_1
+      - switch.led_green
+      - switch.led_red
   dev_pi:
     name: Pi
     control: hidden
@@ -436,10 +432,9 @@
     name: Cucina
     view: yes
     entities:
-      - group.kitchen
       - media_player.kitchen
+      - group.kitchen
       - group.media_cucina
-      - group.volume_media_cucina
   Tab_Corridoio:
     name: Corridoio
     view: yes
@@ -525,12 +520,12 @@
       - group.presence
       - group.webcam_casa
       - group.ring_doorbell
-      - camera.last_ring_video
   Tab_Traffico:
     name: Traffico
     view: yes
     icon: mdi:traffic-light
     entities:
+      - camera.last_ring_video
       - camera.1_verona_nord
       - camera.2_nogarole
       - camera.3_mantova_sud

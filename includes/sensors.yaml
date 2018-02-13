@@ -23,8 +23,8 @@
   - platform: broadlink
     update_interval: 60
     name: Sensore
-    host: 192.168.1.66
-    mac: '34:EA:34:E9:BB:FA'
+    host: !secret broadlink_a1
+    mac: !secret mac_broadlink_a1
     monitored_conditions:
       - temperature 
       - humidity
@@ -36,8 +36,8 @@
   - platform: broadlink
     update_interval: 60
     name: Temperatura Salotto
-    host: 192.168.1.69
-    mac: '34:ea:34:f4:52:ac'
+    host: !secret broadlink_rm_pro
+    mac: !secret mac_broadlink_rm_pro
     monitored_conditions:
       - temperature
 #******************************************************************************
@@ -45,8 +45,8 @@
   - platform: broadlink
     update_interval: 60
     name: Temperatura Camera
-    host: 192.168.1.104
-    mac: '34:ea:34:d0:9f:5f'
+    host: !secret broadlink_rm_pro_2
+    mac: !secret mac_broadlink_rm_pro_2
     monitored_conditions:
       - temperature
 #******************************************************************************
@@ -103,6 +103,19 @@
       - apparent_temperature_min
       - precip_intensity_max
       - uv_index
+#******************************************************************************
+# Calcolo Luce esterna per gestione luci
+  - platform: template
+    sensors:
+      above_cloud_lux:
+        friendly_name: "Above Cloud Lux"
+        unit_of_measurement: "Lux"
+        value_template: >-
+          {{ states.sun.sun.attributes.daylight | round(0) }}
+      lux:
+        friendly_name: "Exterior Lux"
+        unit_of_measurement: "lux"
+        value_template: '{{ ((100-states.sensor.dark_sky_cloud_coverage.state|float)/100 * states.sun.sun.attributes.daylight) | round(0)  }}'
 #******************************************************************************
 # Traduzione in Presente/Assente del valore di movimento delle Android IP Webcam
   - platform: template

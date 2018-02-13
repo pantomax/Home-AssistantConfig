@@ -6,7 +6,7 @@
 #*********************************SALOTTO**************************************
   - platform: flux_led
     devices:
-      192.168.1.103:
+      !secret led_strip:
         name: led_strip
         mode: "rgbw"
 #        protocol: 'ledenet'

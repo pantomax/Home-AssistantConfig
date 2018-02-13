@@ -1,0 +1,158 @@
+###############################################################################
+#
+#                             SHOWS AND HIDES GROUPS
+#
+###############################################################################
+#------------------------------------------------------------------------------
+automation:
+#------------------------------------------------------------------------------
+#******************************************************************************
+  - alias: "Togli Visibilita Gruppo Webcam"
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+    - service: group.set_visibility
+      entity_id: group.webcam_casa
+      data:
+        visible: False
+    - service: hassio.addon_stdin
+      data:
+        addon: de3cd379_audio_player
+        input: "http://192.168.1.100:8123/local/tos-redalert.wav"
+#******************************************************************************
+  - alias: "Cambia Visibilita Gruppo Webcam"
+    trigger:
+    - platform: state
+      entity_id: input_number.visibilita_gruppo
+    action:
+    - service: group.set_visibility
+      entity_id: group.webcam_casa
+      data_template:
+        visible: >
+          {% if is_state("input_number.visibilita_gruppo", "24.0") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando Condizionatori"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.telecomando_visibile
+    action:
+    - service: group.set_visibility
+      entity_id: group.airconditioner
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.telecomando_visibile", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando Termoventilatore"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_termoventilatore
+    action:
+    - service: group.set_visibility
+      entity_id: group.termoventilatore_bagno
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_termoventilatore", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando MEDIA"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_tv
+    action:
+    - service: group.set_visibility
+      entity_id: group.media_salotto
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_tv", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando Radio"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_radio
+    action:
+    - service: group.set_visibility
+      entity_id: group.radio
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_radio", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando TV"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_televisione
+    action:
+    - service: group.set_visibility
+      entity_id: group.telecomando_tv
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_televisione", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Tastierino SKY"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_tastierino_sky
+    action:
+    - service: group.set_visibility
+      entity_id: group.tastierino_sky
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_tastierino_sky", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Telecomando SKY"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_telecomando_sky
+    action:
+    - service: group.set_visibility
+      entity_id: group.telecomando_sky
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_telecomando_sky", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************
+  - alias: "Cambia Visibilita Gruppo Dash Button"
+    trigger:
+    - platform: state
+      entity_id: input_boolean.visualizza_gruppo_dashbutton
+    action:
+    - service: group.set_visibility
+      entity_id: group.dash_buttons
+      data_template:
+        visible: >
+          {% if is_state("input_boolean.visualizza_gruppo_dashbutton", "on") %}
+            True
+          {% else %}
+            False
+          {% endif %}
+#******************************************************************************

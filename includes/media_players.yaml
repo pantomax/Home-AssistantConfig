@@ -4,16 +4,16 @@
 #
 ###############################################################################
   - platform: cast
-    host: 192.168.1.73
+    host: !secret chromecast_salotto
     name: Chromecast Salotto
   - platform: cast
-    host: 192.168.1.70
+    host: !secret chromecast_cucina
     name: Chromecast Cucina
   - platform: cast
-    host: 192.168.1.110
+    host: !secret chromecast_bagno
     name: Chromecast Bagno
   - platform: kodi
-    host: 192.168.1.106
+    host: !secret zidoo
     username: !secret kodi_user
     password: !secret kodi_password
   - platform: mpd

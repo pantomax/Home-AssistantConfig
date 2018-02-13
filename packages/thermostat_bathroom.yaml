@@ -92,8 +92,8 @@ sensor:
 switch:
 #------------------------------------------------------------------------------
   - platform: broadlink
-    host: 192.168.1.96
-    mac: '34:ea:34:41:2f:bd'
+    host: !secret broadlink_rm_mini
+    mac: !secret mac_broadlink_rm_mini
     timeout: 15
     type: rm_mini
     switches:

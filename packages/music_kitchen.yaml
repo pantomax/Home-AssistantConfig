@@ -12,9 +12,7 @@ scene:
   - name: Radio Successiva Cucina
     entities:
       script.radio_successiva_con_dash_button_cucina: on
-  - name: Mute Volume Kitchen
-    entities:
-      script.mute_volume_kitchen: on
+
 #------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
@@ -28,15 +26,14 @@ input_number:
     name: Volume Radio Cucina
     min: 0
     max: 10
-    step: 1
-    initial: 6
+    step: 0.1
+    initial: 6.0
 #------------------------------------------------------------------------------
 input_boolean:
 #------------------------------------------------------------------------------
   volume_radio_mute_cucina:
     name: Mute
     initial: off
-    icon: mdi:volume-mute
 #------------------------------------------------------------------------------
 sensor:
 #------------------------------------------------------------------------------
@@ -55,7 +52,7 @@ switch:
   - platform: template
     switches:
       volume_radio_mute_cucina:
-        friendly_name: volume radio mute cucina
+        friendly_name: Mute
         value_template: "{{ is_state('input_boolean.volume_radio_mute_cucina', 'on') }}"
         turn_on:
         - service: input_boolean.turn_on
@@ -73,6 +70,12 @@ switch:
           data_template:
             entity_id: media_player.kitchen
             is_volume_muted: False
+        icon_template: >-
+          {% if is_state('input_boolean.volume_radio_mute_cucina', 'on') %}
+            mdi:volume-high
+          {% else %}
+            mdi:volume-mute
+          {% endif %}
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
@@ -86,16 +89,7 @@ script:
         data_template:
           entity_id: input_number.numero_radio_cucina
           value: '1.0'
-  mute_volume_kitchen:
-    alias: Toggle Media Kitchen Volume to Mute
-    sequence:
-      - service: media_player.turn_off
-        data:
-          entity_id: media_player.kitchen
-      - service: input_number.set_value
-        data_template:
-          entity_id: input_number.numero_radio_cucina
-          value: '1.0'
+
 #******************************************************************************
   radio_successiva_con_dash_button_cucina:
     alias: Radio Successiva con Dash Button Cucina
@@ -103,7 +97,7 @@ script:
     - service: media_player.volume_set
       data_template:
         entity_id: media_player.kitchen
-        volume_level: '{{ states.input_slider.volume_radio_cucina.state | float }}'
+        volume_level: '{{ states.input_number.volume_radio_cucina.state | float }}'
     - service: media_player.play_media
       data_template:
         entity_id: media_player.kitchen
@@ -148,5 +142,5 @@ automation:
     - service: media_player.volume_set
       data_template:
         entity_id: media_player.kitchen
-        volume_level: '{{ states.input_slider.volume_radio_cucina.state | float }}'
+        volume_level: '{{ states.input_number.volume_radio_cucina.state | float / 10 }}'
         

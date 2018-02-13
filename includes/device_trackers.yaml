@@ -6,84 +6,60 @@
   - platform: nmap_tracker
     hosts: 192.168.1.1/24
     home_interval: 10
-    exclude:
-      - 192.168.1.254
-      - 192.168.1.76
-      - 192.168.1.100
-      - 192.168.1.106
-      - 192.168.1.64
-      - 192.168.1.65
-      - 192.168.1.66
-      - 192.168.1.67
-      - 192.168.1.69
-      - 192.168.1.85
-      - 192.168.1.74
-      - 192.168.1.72
-      - 192.168.1.73
-      - 192.168.1.79
-      - 192.168.1.80
-      - 192.168.1.81
-      - 192.168.1.68
-      - 192.168.1.112
-      - 192.168.1.83
-      - 192.168.1.84
-      - 192.168.1.87
-      - 192.168.1.75
-      - 192.168.1.77
   - platform: ping
     hosts:
-      computersalotto: 192.168.1.76
-      tabletbagno: 192.168.1.85
-      tabletcucina: 192.168.1.72
-      tabletcucina2: 192.168.1.88
-      smartphonesalotto: 192.168.1.94
-      smartphonesalotto3: 192.168.1.95
-      zidoo: 192.168.1.106
-      google: 8.8.8.8
+      computersalotto: !secret computersalotto
+      tabletbagno: !secret tabletbagno
+      tabletcucina: !secret tabletcucina
+      tabletcucina2: !secret tabletcucina2
+      smartphonesalotto: !secret smartphonesalotto
+      smartphonesalotto3: !secret smartphonesalotto3
+      zidoo: !secret zidoo
+      google: !secret google
 #******************************************************************************
-      chromecast_salotto: 192.168.1.73
-      chromecast_cucina: 192.168.1.70
-      chromecast_bagno: 192.168.1.110
+      chromecast_salotto: !secret chromecast_salotto
+      chromecast_cucina: !secret chromecast_cucina
+      chromecast_bagno: !secret chromecast_bagno
 #******************************************************************************
-      maurolavoro: 192.168.1.78
-      mauropersonale: 192.168.1.91
-      maxpersonale: 192.168.1.99
-      maxlavoro: 192.168.1.90
+      maurolavoro: !secret maurolavoro
+      mauropersonale: !secret mauropersonale
+      maxpersonale: !secret maxpersonale
+      maxlavoro: !secret maxlavoro
 #******************************************************************************
-      nabaztag: 192.168.1.180
-      netgear_repeater: 192.168.1.250
+      nabaztag: !secret nabaztag
+      netgear_repeater: !secret netgear_repeater
 #******************************************************************************
-      ring: 192.168.1.150
-      ring_chime_pro: 192.168.1.151
-      tp_link: 192.168.1.252
+      ring: !secret ring
+      ring_chime_pro: !secret ring_chime_pro
+      tp_link: !secret tp_link
 #******************************************************************************
-      broadlink_rm_pro: 192.168.1.69
-      broadlink_rm_pro_2: 192.168.1.104
-      broadlink_rm_mini: 192.168.1.96
-      broadlink_sp_mini_1: 192.168.1.68
-      broadlink_sp_mini_2: 192.168.1.83
-      broadlink_sp_mini_3: 192.168.1.84
-      broadlink_sp_mini_4: 192.168.1.87
-      broadlink_outlet: 192.168.1.113
-      broadlink_a1: 192.168.1.66
-      broadlink_s1: 192.168.1.107
-      led_strip: 192.168.1.103
+      broadlink_rm_pro: !secret broadlink_rm_pro
+      broadlink_rm_pro_2: !secret broadlink_rm_pro_2
+      broadlink_rm_mini: !secret broadlink_rm_mini
+      broadlink_sp_mini_1: !secret broadlink_sp_mini_1
+      broadlink_sp_mini_2: !secret broadlink_sp_mini_2
+      broadlink_sp_mini_3: !secret broadlink_sp_mini_3
+      broadlink_sp_mini_4: !secret broadlink_sp_mini_4
+      broadlink_outlet: !secret broadlink_outlet
+      broadlink_a1: !secret broadlink_a1
+      broadlink_s1: !secret broadlink_s1
+      led_strip: !secret led_strip
 #******************************************************************************
-      mediaaccess_tg589vn_v3: 192.168.1.254 
-      desktop_win10: 192.168.1.76
-      hassio: 192.168.1.100
-      condizionatore_camera: 192.168.1.65
-      condizionatore_salotto: 192.168.1.67
-      sky_hd: 192.168.1.74
-      slingbox: 192.168.1.64
-      dash_button_brabantia: 192.168.1.77
-      dash_button_pellini: 192.168.1.82
-      dash_button_langelica: 192.168.1.92
-      dash_button_biorepair_1: 192.168.1.97
-      dash_button_biorepair_2: 192.168.1.98
-      dash_button_sholl_1: 192.168.1.101
-      dash_button_sholl_2: 192.168.1.102
-      dash_button_nescafe_1: 192.168.1.109
-      dash_button_lor_1: 192.168.1.114
-      dash_button_barilla_1: 192.168.1.111
+      mediaaccess_tg589vn_v3: !secret mediaaccess_tg589vn_v3 
+      desktop_win10: !secret computersalotto
+      hassio: !secret hassio
+      condizionatore_camera: !secret condizionatore_camera
+      condizionatore_salotto: !secret condizionatore_salotto
+      sky_hd: !secret sky_hd
+      slingbox: !secret slingbox
+      dash_button_brabantia: !secret dash_button_brabantia
+      dash_button_pellini: !secret dash_button_pellini
+      dash_button_langelica: !secret dash_button_langelica
+      dash_button_biorepair_1: !secret dash_button_biorepair_1
+      dash_button_biorepair_2: !secret dash_button_biorepair_2
+      dash_button_sholl_1: !secret dash_button_sholl_1
+      dash_button_sholl_2: !secret dash_button_sholl_2
+      dash_button_nescafe_1: !secret dash_button_nescafe_1
+      dash_button_lor_1: !secret dash_button_lor_1
+      dash_button_barilla_1: !secret dash_button_barilla_1
 #******************************************************************************
