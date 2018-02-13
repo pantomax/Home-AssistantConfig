@@ -10,7 +10,7 @@
         value_template: "{{ is_state('sensor.luce_accesa_bagno', 'Accesa') }}"
 #******************************************************************************
       automations_off:
-        device_class: motion
+        device_class: problem
         value_template: "{{ is_state('automation.startup_notification', 'unknown') }}"
       movimento_cucina_s1c:
         device_class: motion
