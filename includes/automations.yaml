@@ -13,8 +13,8 @@
         entity_id: binary_sensor.computersalotto
         state: 'on'
     action:
-#      - service: switch.turn_off
-#        entity_id: switch.windows
+      - service: switch.turn_off
+        entity_id: switch.windows
       - service: notify.notify
         data:
           message: "E' saltata la luce."
@@ -22,7 +22,7 @@
 #******************************************************************************
   - alias: "Restart HA during the weekdays"
     trigger: 
-      platform: state
+      platform: time
       at: "16:30:00"
     condition:
       condition: time
