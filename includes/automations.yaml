@@ -54,11 +54,12 @@
 #    trigger:
 #      - platform: state
 #        entity_id: binary_sensor.automations_off
-#        to: 'off'
+#        to: 'on'
 #        for:
 #          minutes: 5
-#    action:
-#      - service: homeassistant.restart
+#      - service: notify.notify
+#        data:
+#          message: "Home Assistant è in riavvio."
 #******************************************************************************
   - alias: Startup Notification
     trigger:
