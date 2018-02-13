@@ -88,15 +88,15 @@ sensor:
 # 4.9 - 7.2	Medium
 # 7.3 - 9.6	Medium/High
 # 9.7 - 12.0	High
-  - platform: pollen
-    zip_code: 10128
-    monitored_conditions:
-      - allergy_average_forecasted
-      - allergy_average_historical
-      - allergy_index_today
-      - allergy_index_tomorrow
-      - allergy_index_yesterday
-      - disease_average_forecasted
+#  - platform: pollen
+#    zip_code: 10128
+#    monitored_conditions:
+#      - allergy_average_forecasted
+#      - allergy_average_historical
+#      - allergy_index_today
+#      - allergy_index_tomorrow
+#      - allergy_index_yesterday
+#      - disease_average_forecasted
 #------------------------------------------------------------------------------
 input_text:
 #------------------------------------------------------------------------------
