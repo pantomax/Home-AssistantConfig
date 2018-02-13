@@ -79,6 +79,24 @@ sensor:
     longitude: !secret airvisual_longitude
     radius: 1000
     show_on_map: false
+# Pollen Sensor
+# Pollen.com (https://home-assistant.io/components/sensor.pollen/)
+# {{ states('sensor.us_air_quality_index') }} >>> AirVisual index
+# Range	Rating
+# 0.0 - 2.4	Low
+# 2.5 - 4.8	Low/Medium
+# 4.9 - 7.2	Medium
+# 7.3 - 9.6	Medium/High
+# 9.7 - 12.0	High
+  - platform: pollen
+    zip_code: 10128
+    monitored_conditions:
+      - allergy_average_forecasted
+      - allergy_average_historical
+      - allergy_index_today
+      - allergy_index_tomorrow
+      - allergy_index_yesterday
+      - disease_average_forecasted
 #------------------------------------------------------------------------------
 input_text:
 #------------------------------------------------------------------------------
