@@ -3,6 +3,10 @@
 #                                 PANEL IFRAMES
 #
 ###############################################################################
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://hassio.local:8123
   editor:
     title: Editor
     icon: mdi:file-document
