@@ -60,8 +60,12 @@ tts:
     cache_dir: /config/www/vl/voice
 mqtt:
   broker: core-mosquitto
-  username: homeassistant
-  password: !secret http_password
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  protocol: 3.1 
 
 ############
 # Includes

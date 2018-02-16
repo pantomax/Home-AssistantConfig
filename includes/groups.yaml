@@ -243,6 +243,14 @@
     entities:
       - binary_sensor.nabaztag
       - binary_sensor.netgear_repeater
+  gprs_shield_outlet:
+    name: GPRS Shield
+    entities:
+      - switch.mqtt_switch_1
+      - switch.mqtt_switch_2
+      - switch.mqtt_switch_3
+      - switch.mqtt_switch_4
+      - switch.mqtt_switch_4
   ring_network:
     name: Ring Network
     entities:
@@ -497,7 +505,7 @@
       - group.broadlink_network
       - group.condizionatori
       - group.nabaztag
-      - group.links
+      - group.gprs_shield_outlet
       - group.dev_pi
       - group.ring_network
       - group.pc_windows
