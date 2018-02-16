@@ -250,7 +250,7 @@
       - switch.mqtt_switch_2
       - switch.mqtt_switch_3
       - switch.mqtt_switch_4
-      - switch.mqtt_switch_4
+      - script.reboot_router
   ring_network:
     name: Ring Network
     entities:

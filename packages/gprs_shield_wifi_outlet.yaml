@@ -38,3 +38,17 @@ switch:
     payload_off: "0"
     qos: 0
     retain: true
+#------------------------------------------------------------------------------
+script:
+#------------------------------------------------------------------------------
+  reboot_router:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.mqtt_switch_1
+      - delay: 00:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.mqtt_switch_1
+
+#******************************************************************************
