@@ -6,7 +6,7 @@
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: http://hassio.local:8123
+    url: http://hassio.local:3218
   editor:
     title: Editor
     icon: mdi:file-document

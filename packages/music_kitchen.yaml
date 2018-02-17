@@ -12,7 +12,6 @@ scene:
   - name: Radio Successiva Cucina
     entities:
       script.radio_successiva_con_dash_button_cucina: on
-
 #------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
