@@ -5,10 +5,10 @@
 ###############################################################################
   entities:
     - name: Router
-      url: http://192.168.1.254/
+      url: !secret mediaaccess_tg589vn_v3
       icon: mdi:router-wireless
     - name: Router da fuori
-      url: !secret router_url
+      url: !secret panel_iframe_router_url
       icon: mdi:router-wireless
     - name: Home Assistant
       url: https://home-assistant.io
@@ -17,6 +17,6 @@
       url: https://community.home-assistant.io
       icon: mdi:forum
     - name: Nabaztag
-      url: http://192.168.1.180
+      url: !secret nabaztag
       icon: mdi:carrot
 #******************************************************************************
