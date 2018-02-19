@@ -6,21 +6,17 @@
   ide:
     title: IDE
     icon: mdi:code-braces
-    url: https://addres.to.your.hass.io:8321
+    url: !secret panel_iframe_ide_url
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: http://hassio.local:3218
-  editor:
-    title: Editor
-    icon: mdi:file-document
-    url: !secret editor_url
+    url: !secret panel_iframe_configurator_url
   terminal:
     title: Terminal
     icon: mdi:console-line
-    url: !secret terminal_url
+    url: !secret panel_iframe_terminal_url
   kodi:
     title: Kodi
     icon: mdi:movie
-    url: !secret kodi_url
+    url: !secret panel_iframe_kodi_url
 #******************************************************************************
