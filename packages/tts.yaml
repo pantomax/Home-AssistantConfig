@@ -1,0 +1,66 @@
+#tts:
+#  - platform: google
+#    cache: true
+#    cache_dir: /config/www/tts
+
+media_player:
+  - platform: universal
+    name: hassio
+
+input_text:
+  hassio_voice:
+    name: TTS
+    initial: Say Something...
+    min: 1
+    max: 500
+    pattern: '[a-fA-F0-9]*'
+
+sensor:
+- platform: command_line
+    name: last tts
+    command: "ls /config/www/vl/voice/ -1t | head -1"
+
+script:
+  hassio_talk:
+    alias: Hassio talk script
+    sequence:
+      - alias: Hassio Talk 
+        service: tts.google_say
+        entity_id: media_player.hassio
+        data_template: 
+          message: >
+            '{{ message }}'
+          language: it
+          cache: True
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/vl/voice/{{ sensor.last_tts }}"
+      - alias: Clearing Google TTS
+        service: tts.clear_cache
+
+automation:
+  - alias: "TTS message at start"
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: script.hassio_talk
+        data:
+          message: "Server attivo"
+
+  - alias: "Hassio Talk"
+    trigger:
+    - platform: state
+      entity_id: input_text.hassio_voice
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_text.hassio_voice', ' ') }}"
+    action:
+    - service: script.nabaztag_talk
+      data_template:
+        message: "{{ states('input_text.hassio_voice') }}"
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.hassio_voice
+        value: ' '
