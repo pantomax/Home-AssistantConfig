@@ -50,7 +50,7 @@ automation:
   - alias: "Hassio Talk"
     trigger:
     - platform: state
-      entity_id: sensor.last_tts
+      entity_id: input_text.hassio_voice
     condition:
       condition: template
       value_template: "{{ not is_state('input_text.hassio_voice', ' ') }}"
