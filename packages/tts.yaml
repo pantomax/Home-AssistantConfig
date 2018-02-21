@@ -71,7 +71,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
+          input: http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}
       - delay: '00:02:00'
       - alias: Clearing Google TTS
         service: tts.clear_cache
