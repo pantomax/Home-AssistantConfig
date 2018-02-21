@@ -80,6 +80,6 @@ automation:
     - service: hassio.addon_stdin
       data:
         addon: de3cd379_audio_player
-        input: {{ states('input_text.mp3_file_name') }}
+        input: "{{ states('input_text.mp3_file_name') }}"
     - delay: '00:02:00'
     - service: tts.clear_cache
