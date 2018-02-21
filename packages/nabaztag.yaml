@@ -580,7 +580,7 @@ shell_command:
   nab_ear_right_14: curl {{ states('input_text.nabaztag_ip_address') }}right?p=14&d=0
   nab_ear_right_15: curl {{ states('input_text.nabaztag_ip_address') }}right?p=15&d=0
   nab_ear_right_16: curl {{ states('input_text.nabaztag_ip_address') }}right?p=16&d=0
-  nab_talk: bash /config/www/vl/voice/talk.sh
+  nab_talk: bash /config/www/vl/talk.sh
   nab_weather_0: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=0
   nab_weather_1: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=1
   nab_weather_2: curl {{ states('input_text.nabaztag_ip_address') }}weather?v=2
