@@ -32,6 +32,7 @@ script:
             '{{ message }}'
           language: it
           cache: True
+      - delay: '00:01:00'
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
