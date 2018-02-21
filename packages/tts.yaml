@@ -32,14 +32,6 @@ script:
             '{{ message }}'
           language: it
           cache: True
-      - delay: '00:01:00'
-      - service: hassio.addon_stdin
-        data:
-          addon: de3cd379_audio_player
-          input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
-      - delay: '00:02:00'
-      - alias: Clearing Google TTS
-        service: tts.clear_cache
 
 automation:
   - alias: "TTS message at start"
@@ -54,7 +46,7 @@ automation:
   - alias: "Hassio Talk"
     trigger:
     - platform: state
-      entity_id: input_text.hassio_voice
+      entity_id: sensor.last_tts
     condition:
       condition: template
       value_template: "{{ not is_state('input_text.hassio_voice', ' ') }}"
@@ -66,3 +58,16 @@ automation:
       data:
         entity_id: input_text.hassio_voice
         value: ' '
+
+  - alias: "Read TTS"
+    trigger:
+    - platform: state
+      entity_id: sensor.last_tts
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
+      - delay: '00:02:00'
+      - alias: Clearing Google TTS
+        service: tts.clear_cache
