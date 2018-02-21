@@ -73,13 +73,13 @@ automation:
     - platform: state
       entity_id: sensor.last_tts
     action:
-    - service: input_text.set_value
-      data:
-        entity_id: input_text.mp3_file_name
-        value: http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}
+#    - service: input_text.set_value
+#      data_template:
+#        entity_id: input_text.mp3_file_name
+#        value: http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}
     - service: hassio.addon_stdin
-      data:
+      data_template:
         addon: de3cd379_audio_player
-        input: "{{ states('input_text.mp3_file_name') }}"
+        input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
     - delay: '00:02:00'
     - service: tts.clear_cache
