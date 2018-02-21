@@ -17,6 +17,10 @@ input_text:
     min: 1
     max: 500
     pattern: '[a-fA-F0-9]*'
+  mp3_file_name:
+    name: MP3 file name
+    min: 1
+    max: 500
 
 sensor:
 - platform: command_line
@@ -63,15 +67,20 @@ automation:
         entity_id: input_text.hassio_voice
         value: ' '
 
+
   - alias: "Read TTS"
     trigger:
     - platform: state
       entity_id: sensor.last_tts
     action:
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.mp3_file_name
+          value: 'http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}'
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}
+          input: {{ states('input_text.mp3_file_name') }}
       - delay: '00:02:00'
       - alias: Clearing Google TTS
         service: tts.clear_cache
