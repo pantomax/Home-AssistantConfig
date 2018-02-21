@@ -57,7 +57,7 @@ automation:
       condition: template
       value_template: "{{ not is_state('input_text.hassio_voice', ' ') }}"
     action:
-    - service: script.nabaztag_talk
+    - service: script.hassio_talk
       data_template:
         message: "{{ states('input_text.hassio_voice') }}"
     - service: input_text.set_value

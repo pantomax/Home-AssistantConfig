@@ -443,6 +443,7 @@
       - media_player.kitchen
       - group.kitchen
       - group.media_cucina
+      - input_text.hassio_voice
   Tab_Corridoio:
     name: Corridoio
     view: yes
