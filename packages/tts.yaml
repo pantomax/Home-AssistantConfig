@@ -82,5 +82,4 @@ automation:
         addon: de3cd379_audio_player
         input: {{ states('input_text.mp3_file_name') }}
     - delay: '00:02:00'
-    - alias: Clearing Google TTS
-        service: tts.clear_cache
+    - service: tts.clear_cache
