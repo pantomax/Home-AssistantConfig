@@ -18,7 +18,7 @@ input_text:
 sensor:
 - platform: command_line
   name: "last tts"
-  command: "ls /config/www/vl/voice/ -1t | head -1"
+  command: "ls /config/www/vl/voice/*.mp3 -1t | head -1"
 
 script:
   hassio_talk:
