@@ -26,6 +26,7 @@ sensor:
 - platform: command_line
   name: "last tts"
   command: "ls /config/www/vl/voice/ -1t | head -1"
+  scan_interval: 5
 
 script:
   hassio_talk:
@@ -73,10 +74,6 @@ automation:
     - platform: state
       entity_id: sensor.last_tts
     action:
-#    - service: input_text.set_value
-#      data_template:
-#        entity_id: input_text.mp3_file_name
-#        value: http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}
     - service: hassio.addon_stdin
       data_template:
         addon: de3cd379_audio_player
