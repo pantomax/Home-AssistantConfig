@@ -8,7 +8,7 @@ media_player:
     name: hassio
 
 shell_command:
-  clean_mp3: rm /config/www/vl/voice/*.mp3
+  remove_old_mp3_files: rm /config/www/vl/voice/*.mp3
 
 input_text:
   hassio_voice:
@@ -47,7 +47,7 @@ automation:
       - platform: homeassistant
         event: start
     action:
-      - service: shell_command.clean_mp3
+      - service: shell_command.remove_old_mp3_files
       - service: script.hassio_talk
         data:
           message: "Server on line"
