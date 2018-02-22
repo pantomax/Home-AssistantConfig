@@ -32,7 +32,6 @@ script:
   hassio_talk:
     alias: Hassio talk script
     sequence:
-      - service: shell_command.clean_mp3
       - alias: Hassio Talk 
         service: tts.google_say
         entity_id: media_player.hassio
@@ -48,6 +47,7 @@ automation:
       - platform: homeassistant
         event: start
     action:
+      - service: shell_command.clean_mp3
       - service: script.hassio_talk
         data:
           message: "Server on line"
@@ -78,3 +78,5 @@ automation:
       data_template:
         addon: de3cd379_audio_player
         input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
+    - delay: '00:00:05'
+    - service: tts.clear_cache
