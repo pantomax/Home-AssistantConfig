@@ -73,6 +73,9 @@ automation:
     trigger:
     - platform: state
       entity_id: sensor.last_tts
+    condition:
+      condition: template
+      value_template: "{{ not is_state('sensor.last_tts', '') }}"
     action:
     - service: hassio.addon_stdin
       data_template:
