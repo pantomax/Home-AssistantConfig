@@ -78,5 +78,3 @@ automation:
       data_template:
         addon: de3cd379_audio_player
         input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
-    - delay: '00:02:00'
-    - service: tts.clear_cache
