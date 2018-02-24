@@ -1,33 +1,44 @@
+###############################################################################
+#
+#                          TTS using Local Player 
+#
+###############################################################################
+#------------------------------------------------------------------------------
 #tts:
 #  - platform: google
 #    cache: true
-#    cache_dir: /config/www/tts
-
+#    cache_dir: /config/www/vl/voice
+#------------------------------------------------------------------------------
 media_player:
+#------------------------------------------------------------------------------
   - platform: universal
     name: hassio
-
+#------------------------------------------------------------------------------
 shell_command:
-  clean_mp3: rm /config/www/vl/voice/*.mp3
-
+#------------------------------------------------------------------------------
+  remove_old_mp3_files: rm /config/www/vl/voice/*.mp3
+#------------------------------------------------------------------------------
 input_text:
+#------------------------------------------------------------------------------
   hassio_voice:
     name: TTS
     initial: Say Something...
     min: 1
     max: 500
     pattern: '[a-fA-F0-9]*'
-
+#------------------------------------------------------------------------------
 sensor:
+#------------------------------------------------------------------------------
 - platform: command_line
   name: "last tts"
   command: "ls /config/www/vl/voice/ -1t | head -1"
-
+  scan_interval: 5
+#------------------------------------------------------------------------------
 script:
+#------------------------------------------------------------------------------
   hassio_talk:
     alias: Hassio talk script
     sequence:
-      - service: shell_command.clean_mp3
       - alias: Hassio Talk 
         service: tts.google_say
         entity_id: media_player.hassio
@@ -36,17 +47,19 @@ script:
             '{{ message }}'
           language: it
           cache: True
-
+#------------------------------------------------------------------------------
 automation:
+#------------------------------------------------------------------------------
   - alias: "TTS message at start"
     trigger:
       - platform: homeassistant
         event: start
     action:
+      - service: shell_command.remove_old_mp3_files
       - service: script.hassio_talk
         data:
           message: "Server on line"
-
+#******************************************************************************
   - alias: "Hassio Talk"
     trigger:
     - platform: state
@@ -62,16 +75,24 @@ automation:
       data:
         entity_id: input_text.hassio_voice
         value: ' '
-
-
+#******************************************************************************
   - alias: "Read TTS"
     trigger:
     - platform: state
       entity_id: sensor.last_tts
+    condition:
+      condition: template
+      value_template: "{{ not is_state('sensor.last_tts', '') }}"
     action:
     - service: hassio.addon_stdin
       data_template:
         addon: de3cd379_audio_player
         input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
+<<<<<<< HEAD
     - delay: '00:00:20'
     - service: tts.clear_cache
+=======
+    - delay: '00:00:05'
+    - service: tts.clear_cache
+#******************************************************************************
+>>>>>>> c7f6ca7e5f82834a8e7d163331026414449a7573
