@@ -10,6 +10,9 @@ sensor:
     state_topic: "sensors/rf/receiver"
     name: "RF Receiver"
   - platform: mqtt
+    state_topic: "sensors/us/receiver"
+    name: "US Receiver"
+  - platform: mqtt
     state_topic: "sensors/rf/receiver2"
     name: "RF Receiver 2"
 #------------------------------------------------------------------------------

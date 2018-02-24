@@ -435,6 +435,7 @@
       - group.s1c
       - history_graph.temperatura_salotto
       - group.dhtsensor
+      - sensor.us_receiver
   Tab_Cucina:
     icon: mdi:food
     name: Cucina
