@@ -87,6 +87,7 @@
     entities:
       - sensor.dht_humidity
       - sensor.dht_temperature
+      - sensor.us_receiver
 #******************************************************************************
   media_cucina:
     name: Musica Cucina
@@ -435,7 +436,6 @@
       - group.s1c
       - history_graph.temperatura_salotto
       - group.dhtsensor
-      - sensor.us_receiver
   Tab_Cucina:
     icon: mdi:food
     name: Cucina
