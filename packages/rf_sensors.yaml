@@ -97,7 +97,50 @@ binary_sensor:
         friendly_name: "Telecomando RF 3D On"
         value_template: >-
           {{ is_state('sensor.rf_receiver', '5725196') }}
-
+#****************** Telecomando Bianco Luci Posizione IV***********************
+  - platform: template
+    sensors:
+# luci salotto spente
+      telecomando_rf_1d_off:
+        friendly_name: "Telecomando RF 1D Off"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2326706688') }}
+# luci salotto accese
+      telecomando_rf_1d_on:
+        friendly_name: "Telecomando RF 1IV On"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2192488960') }}
+# blu
+      telecomando_rf_2d_off:
+        friendly_name: "Telecomando RF 2IV Off"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2729359872') }}
+# modalità film
+      telecomando_rf_2d_on:
+        friendly_name: "Telecomando RF 2IV On"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2897132032') }}
+# arancio
+      telecomando_rf_3d_off:
+        friendly_name: "Telecomando RF 3IV Off"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2460924416') }}
+# azzurro
+      telecomando_rf_3d_on:
+        friendly_name: "Telecomando RF 3IV On"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2628696576') }}
+# arancio
+      telecomando_rf_3d_off:
+        friendly_name: "Telecomando RF 4IV Off"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2746137088') }}
+# azzurro
+      telecomando_rf_3d_on:
+        friendly_name: "Telecomando RF 4IV On"
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '2477701632') }}
+#Isnatch IV
 #-------------------------------------------------------------------------------
 automation:
 #-------------------------------------------------------------------------------
@@ -277,3 +320,67 @@ timer:
   spegnimento_bagno:
     duration: '00:00:3'
 #******************************************************************************
+  - alias: 'Accende luci salotto 1'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_1iv_on
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 2'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_1iv_off
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 3'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_2iv_on
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 4'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_2iv_off
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 5'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_3iv_on
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 6'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_3iv_off
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 7'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_4iv_on
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
+  - alias: 'Accende luci salotto 8'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.telecomando_rf_4iv_off
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.luci_sala_accese
