@@ -314,12 +314,6 @@ automation:
           color_name: "orchid"
           brightness_pct: "100"
 #******************************************************************************
-timer:
-  spegnimento_automatico_bagno:
-    duration: '00:10:00'
-  spegnimento_bagno:
-    duration: '00:00:3'
-#******************************************************************************
   - alias: 'Accende luci salotto 1'
     trigger:
       - platform: state
@@ -384,3 +378,10 @@ timer:
     action:
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
+#******************************************************************************
+timer:
+  spegnimento_automatico_bagno:
+    duration: '00:10:00'
+  spegnimento_bagno:
+    duration: '00:00:3'
+#******************************************************************************
