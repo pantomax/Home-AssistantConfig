@@ -282,7 +282,7 @@
       - sensor.disk_use_percent_ 
       - sensor.memory_free
       - sensor.memory_use_percent
-      - sensor.since_last_boot
+#      - sensor.since_last_boot
       - sensor.network_out_eth0
       - sensor.network_in_eth0
       - script.reboot
