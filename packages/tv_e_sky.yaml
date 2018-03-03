@@ -395,14 +395,14 @@ automation:
         entity_id:
           - switch.retro_tv
 #******************************************************************************
-  - alias: Cambia stato Guarda TV se Chromecast è off line
-    trigger:
-      - platform: state
-        entity_id: sensor.livingroomchromecast
-        to: 'Offline'
-    action:
-        service: homeassistant.turn_off
-        entity_id: input_boolean.guarda_tv
+#  - alias: Cambia stato Guarda TV se Chromecast è off line
+#    trigger:
+#      - platform: state
+#        entity_id: sensor.livingroomchromecast
+#        to: 'Offline'
+#    action:
+#        service: homeassistant.turn_off
+#        entity_id: input_boolean.guarda_tv
 #******************************************************************************
 #  - alias: Cambia stato Guarda TV se Chromecast è on line alla partenza
 #    trigger:
