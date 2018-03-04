@@ -12,13 +12,16 @@ google_assistant:
   agent_user_id: !secret google_agent_user_id
   api_key: !secret google_api_key
   expose_by_default: false
-  exposed_domains:
-    - light
-    - scene
-    - switch
-    - script
-    - sensor
+#  exposed_domains:
+#    - light
+#    - scene
+#    - switch
+#    - script
+#    - sensor
   entity_config:
+#******************************************************************************
+#*******************************   LIGHTS  ************************************
+#******************************************************************************
     light.tavolino:
       name: table
       expose: true
@@ -109,6 +112,9 @@ google_assistant:
       aliases:
         - light in the bathroom
         - entity s 15
+#******************************************************************************
+#*******************************   SCENES  ************************************
+#******************************************************************************
     scene.buona_notte:
       name: night
       expose: true
@@ -210,6 +216,9 @@ google_assistant:
       aliases:
         - sky news channel
         - entity s 34
+#******************************************************************************
+#*****************************   SWITCHES  ************************************
+#******************************************************************************
     switch.insettivoro:
       name: bug eater
       expose: true
@@ -259,6 +268,9 @@ google_assistant:
       aliases:
         - nabaztag
         - entity s 46
+#******************************************************************************
+#******************************   SCRIPTS  ************************************
+#******************************************************************************
     script.apricancello:
       name: gate
       expose: true
@@ -267,6 +279,9 @@ google_assistant:
         - open sesame
         - stargate
         - entity s 60
+#******************************************************************************
+#******************************   SENSORS  ************************************
+#******************************************************************************
     sensor.dht_humidity:
       name: humidity
       type: climate

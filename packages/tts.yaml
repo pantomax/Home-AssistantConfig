@@ -54,6 +54,10 @@ automation:
     trigger:
       - platform: homeassistant
         event: start
+    condition:
+      condition: time
+      after: '8:00:00'
+      before: '22:00:00'
     action:
       - service: shell_command.remove_old_mp3_files
       - service: script.hassio_talk
