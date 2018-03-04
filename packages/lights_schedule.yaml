@@ -573,6 +573,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_1d_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_spente
 #******************************************************************************
@@ -582,6 +586,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_1d_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
 #******************************************************************************
@@ -591,6 +599,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_2d_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: light.turn_on
         data_template:
           entity_id: light.led_strip
@@ -603,6 +615,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_2d_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.film
 #******************************************************************************
@@ -612,6 +628,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_3d_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: light.turn_on
         data_template:
           entity_id: light.led_strip
@@ -624,6 +644,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_3d_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: light.turn_on
         data_template:
           entity_id: light.led_strip
@@ -636,6 +660,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_1iv_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 2'
@@ -644,6 +672,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_1iv_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 3'
@@ -652,6 +684,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_2iv_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 4'
@@ -660,6 +696,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_2iv_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 5'
@@ -668,6 +708,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_3iv_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 6'
@@ -676,6 +720,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_3iv_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 7'
@@ -684,6 +732,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_4iv_on
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
   - alias: 'Accende luci salotto 8'
@@ -692,6 +744,10 @@ automation:
         entity_id: binary_sensor.telecomando_rf_4iv_off
         to: 'on'
     action:
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/computerbeep_12.mp3"
       - service: scene.turn_on
         entity_id: scene.luci_sala_accese
 #******************************************************************************
