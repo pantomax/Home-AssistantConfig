@@ -28,7 +28,7 @@ binary_sensor:
           seconds: 20
         value_template: >-
           {{ is_state('sensor.rf_receiver', '13679406') }}
-#****************************   SCRIVANIA  *************************************
+#****************************   CORRIDOIO  *************************************
   - platform: template
     sensors:
       motion_sensor_rf_2:
@@ -171,7 +171,7 @@ automation:
   - alias: 'Accendi luce scrivania'
     trigger:
       - platform: state
-        entity_id: binary_sensor.motion_sensor_rf_2
+        entity_id: binary_sensor.movimento_salotto
         to: 'on'
     condition:
       - condition: state
@@ -189,7 +189,7 @@ automation:
   - alias: 'Spegni luce scrivania'
     trigger:
       - platform: state
-        entity_id: binary_sensor.motion_sensor_rf_2
+        entity_id: binary_sensor.movimento_salotto
         to: 'off'
     action:
       - service: light.turn_off
