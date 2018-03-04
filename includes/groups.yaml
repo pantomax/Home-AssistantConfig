@@ -33,7 +33,7 @@
       - binary_sensor.movimento_salotto
       - binary_sensor.motion_sensor_rf_1
       - binary_sensor.movimento_bagno
-      - binary_sensor.ring_front_door_motion
+      - binary_sensor.cancello
       - binary_sensor.luce_bagno
       - binary_sensor.porta_retro_s1c
       - binary_sensor.porta_corridoio_s1c
