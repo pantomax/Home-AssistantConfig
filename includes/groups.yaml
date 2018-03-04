@@ -424,6 +424,51 @@
       - input_boolean.motion_rf_sensor_1
       - sensor.countdown_rf_sensor_1
       - input_number.countdown_rf_sensor_1
+  binary_sensors:
+    name: Binary Sensor
+    control: hidden
+    entities:
+      - binary_sensor.broadlink_a1
+      - binary_sensor.broadlink_outlet
+      - binary_sensor.broadlink_rm_mini
+      - binary_sensor.broadlink_rm_pro
+      - binary_sensor.broadlink_rm_pro_2
+      - binary_sensor.broadlink_s1
+      - binary_sensor.broadlink_sp_mini_1
+      - binary_sensor.broadlink_sp_mini_2
+      - binary_sensor.broadlink_sp_mini_3
+      - binary_sensor.broadlink_sp_mini_4
+      - binary_sensor.led_strip
+      - binary_sensor.luce_bagno
+      - binary_sensor.motion_sensor_rf_1
+      - binary_sensor.motion_sensor_rf_2
+      - binary_sensor.motion_sensor_rf_3
+      - binary_sensor.motion_sensor_rf_4
+      - binary_sensor.motion_sensor_rf_5
+      - binary_sensor.movimento_corridoio_s1c
+      - binary_sensor.movimento_cucina_s1c
+      - binary_sensor.finestra_salotto_s1c
+      - binary_sensor.porta_corridoio_s1c
+      - binary_sensor.porta_retro_s1c
+      - binary_sensor.permetti_accensione_luci
+      - binary_sensor.ring
+      - binary_sensor.ring_chime_pro
+      - binary_sensor.ring_front_door_ding
+      - binary_sensor.ring_front_door_motion
+      - binary_sensor.telecomando_rf_1d_off
+      - binary_sensor.telecomando_rf_1d_on
+      - binary_sensor.telecomando_rf_1iv_off
+      - binary_sensor.telecomando_rf_1iv_on
+      - binary_sensor.telecomando_rf_2d_off
+      - binary_sensor.telecomando_rf_2d_on
+      - binary_sensor.telecomando_rf_2iv_off
+      - binary_sensor.telecomando_rf_2iv_on
+      - binary_sensor.telecomando_rf_3d_off
+      - binary_sensor.telecomando_rf_3d_on
+      - binary_sensor.telecomando_rf_3iv_off
+      - binary_sensor.telecomando_rf_3iv_on
+      - binary_sensor.telecomando_rf_4iv_off
+      - binary_sensor.telecomando_rf_4iv_on
 #******************************************************************************
 #                                 Tabs
 #******************************************************************************
@@ -558,6 +603,12 @@
       - group.nabaztag_body
       - group.nabaztag_lights
       - group.nabaztag_locale_setup
+  Tab_sensors:
+    name: Binary Sensors
+    view: yes
+    icon: mdi:orbit
+    entities:
+      - group.binary_sensors
 #******************************************************************************
 #                                   Default View
 #******************************************************************************
