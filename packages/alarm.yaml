@@ -118,20 +118,20 @@ automation:
   - alias: 'Trigger alarm while armed away'
     trigger:
       - platform: state
-        entity_id: sensor.movimento_cucina_s1c
-        to: 'Presente'
+        entity_id: binary_sensor.movimento_cucina
+        to: 'on'
       - platform: state
-        entity_id: sensor.movimento_corridoio_s1c
-        to: 'Presente'
+        entity_id: binary_sensor.movimento_corridoio
+        to: 'on'
       - platform: state
-        entity_id: sensor.porta_retro_s1c
-        to: 'Aperta'
+        entity_id: binary_sensor.porta_retro
+        to: 'on'
       - platform: state
-        entity_id: sensor.porta_corridoio_s1c
-        to: 'Aperta'
+        entity_id: binary_sensor.porta_corridoio
+        to: 'on'
       - platform: state
-        entity_id: sensor.finestra_salotto_s1c
-        to: 'Aperta'
+        entity_id: binary_sensor.finestra_salotto
+        to: 'on'
     condition:
       - condition: state
         entity_id: alarm_control_panel.home_alarm
@@ -143,11 +143,11 @@ automation:
   - alias: 'Trigger alarm while armed home'
     trigger:
       - platform: state
-        entity_id: sensor.porta_retro_s1c
-        to: 'Aperta'
+        entity_id: binary_sensor.porta_retro
+        to: 'on'
       - platform: state
-        entity_id: sensor.finestra_salotto_s1c
-        to: 'Aperta'
+        entity_id: binary_sensor.finestra_salotto
+        to: 'on'
     condition:
       - condition: state
         entity_id: alarm_control_panel.home_alarm

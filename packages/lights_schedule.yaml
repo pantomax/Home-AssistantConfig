@@ -195,10 +195,10 @@ automation:
   - alias: "Accendi Luci corridoio con porta"
     trigger:
       - platform: state
-        entity_id: binary_sensor.porta_retro_s1c
+        entity_id: binary_sensor.porta_retro
         to: 'on'
       - platform: state
-        entity_id: binary_sensor.porta_corridoio_s1c
+        entity_id: binary_sensor.porta_corridoio
         to: 'on'
     action:
       - service: switch.turn_on
@@ -213,10 +213,10 @@ automation:
   - alias: "Spegni Luci corridoio con porte"
     trigger:
       - platform: state
-        entity_id: binary_sensor.porta_retro_s1c
+        entity_id: binary_sensor.porta_retro
         to: 'off'
       - platform: state
-        entity_id: binary_sensor.porta_corridoio_s1c
+        entity_id: binary_sensor.porta_corridoio
         to: 'off'
     condition:
       condition: state
@@ -266,10 +266,10 @@ automation:
         entity_id: binary_sensor.movimento_corridoio
         state: 'off'
       - condition: state
-        entity_id: binary_sensor.porta_retro_s1c
+        entity_id: binary_sensor.porta_retro
         state: 'off'
       - condition: state
-        entity_id: binary_sensor.porta_corridoio_s1c
+        entity_id: binary_sensor.porta_corridoio
         state: 'off'
     action:
       - service: switch.turn_off

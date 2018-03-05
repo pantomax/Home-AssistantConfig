@@ -189,13 +189,13 @@
     binary_sensor.movimento_corridoio:
       friendly_name: "Movimento Corridoio"
       icon: mdi:run-fast
-    binary_sensor.porta_corridoio_s1c:
+    binary_sensor.porta_corridoio:
       friendly_name: "Porta Corridoio"
       icon: mdi:glassdoor
-    binary_sensor.porta_retro_s1c:
+    binary_sensor.porta_retro:
       friendly_name: "Porta Retro"
       icon: mdi:glassdoor
-    binary_sensor.finestra_salotto_s1c:
+    binary_sensor.finestra_salotto:
       friendly_name: "Finestra Salotto"
       icon: mdi:window-closed
     sensor.ring_front_door_battery:

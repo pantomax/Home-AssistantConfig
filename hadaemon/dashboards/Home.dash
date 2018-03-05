@@ -111,19 +111,19 @@ sens2:
 sens3:
     widget_type: binary_sensor
     title: Corridoio
-    entity: binary_sensor.porta_corridoio_s1c
+    entity: binary_sensor.porta_corridoio
     icon_on: mdi-glassdoor
     icon_off: mdi-glassdoor
 sens4:
     widget_type: binary_sensor
     title: Ingresso
-    entity: binary_sensor.porta_retro_s1c
+    entity: binary_sensor.porta_retro
     icon_on: mdi-glassdoor
     icon_off: mdi-glassdoor
 sens5:
     widget_type: binary_sensor
     title: Salotto
-    entity: binary_sensor.finestra_salotto_s1c
+    entity: binary_sensor.finestra_salotto
     icon_on: mdi-window-closed
     icon_off: mdi-window-closed
 

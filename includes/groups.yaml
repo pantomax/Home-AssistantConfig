@@ -35,9 +35,9 @@
       - binary_sensor.movimento_bagno
       - binary_sensor.cancello
       - binary_sensor.luce_bagno
-      - binary_sensor.porta_retro_s1c
-      - binary_sensor.porta_corridoio_s1c
-      - binary_sensor.finestra_salotto_s1c
+      - binary_sensor.porta_retro
+      - binary_sensor.porta_corridoio
+      - binary_sensor.finestra_salotto
       - sensor.rf_receiver
       - sun.sun
   living_room:
@@ -447,9 +447,9 @@
       - binary_sensor.motion_sensor_rf_5
       - binary_sensor.movimento_corridoio_s1c
       - binary_sensor.movimento_cucina_s1c
-      - binary_sensor.finestra_salotto_s1c
-      - binary_sensor.porta_corridoio_s1c
-      - binary_sensor.porta_retro_s1c
+      - binary_sensor.finestra_salotto
+      - binary_sensor.porta_corridoio
+      - binary_sensor.porta_retro
       - binary_sensor.permetti_accensione_luci
       - binary_sensor.ring
       - binary_sensor.ring_chime_pro

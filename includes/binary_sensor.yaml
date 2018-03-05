@@ -44,13 +44,13 @@
       movimento_corridoio_s1c:
         device_class: motion
         value_template: "{{ is_state('sensor.movimento_corridoio_s1c', 'Presente') }}"
-      porta_corridoio_s1c:
+      porta_corridoio:
         device_class: opening
         value_template: "{{ is_state('sensor.porta_corridoio_s1c', 'Aperta') }}"
-      porta_retro_s1c:
+      porta_retro:
         device_class: opening
         value_template: "{{ is_state('sensor.porta_retro_s1c', 'Aperta') }}"
-      finestra_salotto_s1c:
+      finestra_salotto:
         device_class: opening
         value_template: "{{ is_state('sensor.finestra_salotto_s1c', 'Aperta') }}"
 #********************************** LUCE BAGNO ********************************

@@ -37,7 +37,7 @@
   - name: 'Salotto 3'
     username: !secret cam_user
     password: !secret cam_password
-    host: 192.168.1.105
+    host: !secret smartphonesalotto3
     scan_interval: 10
     sensors:
       - battery_voltage
@@ -47,7 +47,7 @@
   - name: 'Camera da letto'
     username: !secret cam_user
     password: !secret cam_password
-    host: 192.168.1.111
+    host: !secret smartphonecamera_da_letto
     scan_interval: 10
     sensors:
       - battery_voltage
