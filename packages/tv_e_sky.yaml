@@ -287,6 +287,27 @@ script:
           entity_id: input_select.tv_channel_pick
           option: "Sky News"
 #------------------------------------------------------------------------------
+scene:
+#------------------------------------------------------------------------------
+  - name: nhk
+    entities:
+      script.nhk: on
+  - name: skyuno
+    entities:
+      script.skyuno: on
+  - name: skynews
+    entities:
+      script.skynews: on
+  - name: hdmi 1
+    entities:
+      switch.select_hdmi_1: on
+  - name: hdmi 2
+    entities:
+      switch.select_hdmi_2: on
+  - name: hdmi 3
+    entities:
+      switch.select_hdmi_3: on
+#------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
   - alias: "Sky News"
@@ -366,10 +387,6 @@ automation:
       - platform: state
         entity_id: input_boolean.guarda_tv
         to: 'on'
-#    condition:
-#      - condition: state
-#        entity_id: sensor.livingroomchromecast
-#        state: 'Offline'
     action:
         service: script.turn_on
         entity_id: script.sky_on
@@ -394,46 +411,4 @@ automation:
       - service: switch.turn_on
         entity_id:
           - switch.retro_tv
-#******************************************************************************
-#  - alias: Cambia stato Guarda TV se Chromecast è off line
-#    trigger:
-#      - platform: state
-#        entity_id: sensor.livingroomchromecast
-#        to: 'Offline'
-#    action:
-#        service: homeassistant.turn_off
-#        entity_id: input_boolean.guarda_tv
-#******************************************************************************
-#  - alias: Cambia stato Guarda TV se Chromecast è on line alla partenza
-#    trigger:
-#      - platform: homeassistant
-#        event: start
-#    condition:
-#      - condition: state
-#        entity_id: sensor.livingroomchromecast
-#        state: 'Online'
-#    action:
-#      - service: homeassistant.turn_on
-#        entity_id: input_boolean.guarda_tv
-#------------------------------------------------------------------------------
-scene:
-#------------------------------------------------------------------------------
-  - name: nhk
-    entities:
-      script.nhk: on
-  - name: skyuno
-    entities:
-      script.skyuno: on
-  - name: skynews
-    entities:
-      script.skynews: on
-  - name: hdmi 1
-    entities:
-      switch.select_hdmi_1: on
-  - name: hdmi 2
-    entities:
-      switch.select_hdmi_2: on
-  - name: hdmi 3
-    entities:
-      switch.select_hdmi_3: on
 #******************************************************************************

@@ -360,9 +360,7 @@
     binary_sensor.dash_button_sholl_1:
       friendly_name: "Sholl 1"
       icon: mdi:disqus-outline
-    binary_sensor.dash_button_sholl_2:
-      friendly_name: "Sholl 2"
-      icon: mdi:disqus-outline
+    binary_sensor.dash_button_sholl_2W
     binary_sensor.dash_button_nescafe_1:
       friendly_name: "Nescafe"
       icon: mdi:disqus-outline
@@ -409,4 +407,37 @@
       icon: mdi:restore
     script.nabaztag_reboot:
       icon: mdi:refresh
-#******************************************************************************
+#*************************** TASTIERINO SKY ***********************************
+    switch.sky_power:
+      friendly_name: "Power"
+      icon: mdi:
+    switch.sky_button_tv_channel_1:
+      friendly_name: "1"
+      icon: mdi:numeric-1-box
+    switch.sky_button_tv_channel_2:
+      friendly_name: "2"
+      icon: mdi:numeric-2-box
+    switch.sky_button_tv_channel_3:
+      friendly_name: "3"
+      icon: mdi:numeric-3-box
+    switch.sky_button_tv_channel_4:
+      friendly_name: "4"
+      icon: mdi:numeric-4-box
+    switch.sky_button_tv_channel_5:
+      friendly_name: "5"
+      icon: mdi:numeric-5-box
+    switch.sky_button_tv_channel_6:
+      friendly_name: "6"
+      icon: mdi:numeric-6-box
+    switch.sky_button_tv_channel_7:
+      friendly_name: "7"
+      icon: mdi:numeric-7-box
+    switch.sky_button_tv_channel_8:
+      friendly_name: "8"
+      icon: mdi:numeric-8-box
+    switch.sky_button_tv_channel_9:
+      friendly_name: "9"
+      icon: mdi:numeric-9-box
+    switch.sky_button_tv_channel_0:
+      friendly_name: "0"
+      icon: mdi:numeric-0-box
