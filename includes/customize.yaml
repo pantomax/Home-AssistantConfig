@@ -360,7 +360,9 @@
     binary_sensor.dash_button_sholl_1:
       friendly_name: "Sholl 1"
       icon: mdi:disqus-outline
-    binary_sensor.dash_button_sholl_2W
+    binary_sensor.dash_button_sholl_2:
+      friendly_name: "Sholl 2"
+      icon: mdi:disqus-outline
     binary_sensor.dash_button_nescafe_1:
       friendly_name: "Nescafe"
       icon: mdi:disqus-outline
