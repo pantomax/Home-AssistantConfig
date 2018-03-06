@@ -1529,3 +1529,16 @@ automation:
     - service: switch.turn_off
       entity_id: switch.nabaztaglife
 #******************************************************************************
+  - alias: "Keep it off at night if it resets and turns on"
+    trigger:
+    - platform: time
+      minutes: '/1'
+      seconds: 00
+    condition:
+      condition: time
+       # At least one of the following is required.
+      after: '23:30:00'
+      before: '07:00:00'
+    action:
+    - service: shell_command.nab_sleep
+
