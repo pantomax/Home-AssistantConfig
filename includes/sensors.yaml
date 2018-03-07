@@ -23,6 +23,7 @@
   - platform: broadlink_s1c
     ip_address: !secret broadlink_s1
     mac: !secret mac_broadlink_s1
+
   - platform: broadlink
     update_interval: 60
     name: Sensore
