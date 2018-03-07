@@ -38,6 +38,7 @@ logbook:
 logger:
   default: critical
   logs:
+    custom_components.sensor.broadlink_s1c: debug
     homeassistant.components: info
     homeassistant.components.http: debug
     homeassistant.components.dialogflow: debug
