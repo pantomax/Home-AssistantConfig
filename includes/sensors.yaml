@@ -20,6 +20,9 @@
       - upload
 #******************************************************************************
 # Sensore Broadlink A1 in bagno
+  - platform: broadlink_s1c
+    ip_address: "192.168.1.77"
+    mac: "34:ea:34:b6:6d:1c"
   - platform: broadlink
     update_interval: 60
     name: Sensore
