@@ -5,7 +5,7 @@
 ###############################################################################
   entities:
     - name: Router
-      url: !secret mediaaccess_tg589vn_v3
+      url: !secret mediaaccess_tg589vn_v3_url
       icon: mdi:router-wireless
     - name: Router da fuori
       url: !secret panel_iframe_router_url
@@ -17,7 +17,7 @@
       url: https://community.home-assistant.io
       icon: mdi:forum
     - name: Nabaztag
-      url: !secret nabaztag
+      url: !secret nabaztag_url
       icon: mdi:carrot
       
 #******************************************************************************
