@@ -180,6 +180,11 @@ automation:
         data_template:
          entity_id: input_number.countdown_corridoio
          value: "360"
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
 #******************************************************************************
   - alias: "Spegni Luci corridoio"
     trigger:
@@ -499,11 +504,6 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.light_desk
-      - service: mqtt.publish
-        data:
-          topic: 'sensors/rf/receiver'
-          payload: '1111111'
-          retain: 'true'
 #******************************************************************************
   - alias: 'Spegni luce scrivania'
     trigger:

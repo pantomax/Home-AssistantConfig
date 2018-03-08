@@ -22,6 +22,8 @@
 #********************************** SALOTTO ***********************************
       movimento_salotto:
         device_class: motion
+        delay_off:
+          minutes: 4
         value_template: "{{ is_state('binary_sensor.movimento_corridoio_s1c', 'on') }}"
 #********************************** BAGNO *************************************
       movimento_bagno:

@@ -182,7 +182,9 @@ input_boolean:
   nabaztag_taichi:
     initial: off
   nabaztag_nose:
-    initial: off       
+    initial: off
+  nabaztag_is_awake:
+    initial: off
 #------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
@@ -1487,11 +1489,8 @@ automation:
     action:
     - service: switch.turn_on
       entity_id: switch.nabaztaglife
-    - delay:
-          seconds: 5
-    - service: script.nabaztag_talk
-      data:
-        message: "Buongiorno mondo!"
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.nabaztag_is_awake
 #******************************************************************************
   - alias: "Sleep times for the Nabaztag during the day"
     trigger:
@@ -1508,36 +1507,25 @@ automation:
         - thu
         - fri
     action:
-    - service: script.nabaztag_talk
-      data:
-        message: "Credo che mi farò un riposino."
-    - delay:
-          seconds: 5
-    - service: switch.turn_off
-      entity_id: switch.nabaztaglife  
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.nabaztag_is_awake
 #******************************************************************************
   - alias: "Sleep time for the Nabaztag during the night"
     trigger:
     - platform: time
       at: '23:30:00'
     action:
-    - service: script.nabaztag_talk
-      data:
-        message: "Buonanotte a tutti."
-    - delay:
-          seconds: 5
-    - service: switch.turn_off
-      entity_id: switch.nabaztaglife
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.nabaztag_is_awake
 #******************************************************************************
-  - alias: "Keep it off at night if it resets and turns on"
+  - alias: "Keep it off if it resets and turns on"
     trigger:
     - platform: time
       minutes: '/1'
       seconds: 00
     condition:
-      condition: time
-       # At least one of the following is required.
-      after: '23:30:00'
-      before: '07:00:00'
+    - condition: state
+      entity_id: 'input_boolean.nabaztag_is_awake'
+      state: 'off'
     action:
     - service: shell_command.nab_sleep
