@@ -67,7 +67,7 @@ automation:
   - alias: "TTS info message"
     trigger:
     - platform: time
-      at: '10:00:00'
+      at: '10:10:00'
     condition:
     - condition: state
       entity_id: 'input_boolean.mute'
