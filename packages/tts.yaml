@@ -64,6 +64,20 @@ automation:
         data:
           message: "Server on line"
 #******************************************************************************
+  - alias: "TTS info message"
+    trigger:
+    - platform: time
+      at: '9:40:00'
+    condition:
+    - condition: state
+      entity_id: 'input_boolean.mute'
+      state: 'off'
+    action:
+      - service: shell_command.remove_old_mp3_files
+      - service: script.hassio_talk
+        data:
+          message: "In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. Buona giornata."
+#******************************************************************************
   - alias: "Hassio Talk"
     trigger:
     - platform: state

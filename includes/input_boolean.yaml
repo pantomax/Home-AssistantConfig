@@ -39,4 +39,8 @@
     name: scene
     initial: off
     icon: mdi:account
+  mute:
+    name: Mute
+    initial: off
+    icon: mdi:volume-off
 #******************************************************************************

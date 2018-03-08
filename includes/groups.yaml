@@ -166,6 +166,7 @@
 #      - sensor.pws_weather_3n_metric
 #      - sensor.pws_weather_4d_metric
 #      - sensor.pws_weather_4n_metric
+
   sole:
     name: Sole
     entities:
