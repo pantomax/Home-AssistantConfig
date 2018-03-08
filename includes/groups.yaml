@@ -429,6 +429,11 @@
     name: Binary Sensor
     control: hidden
     entities:
+      - sensor.broadlink_s1c_motion1
+      - sensor.broadlink_s1c_motion2
+      - sensor.broadlink_s1c_finestra_salotto
+      - sensor.broadlink_s1c_porta_corridoio
+      - sensor.broadlink_s1c_porta_retro
       - binary_sensor.broadlink_a1
       - binary_sensor.broadlink_outlet
       - binary_sensor.broadlink_rm_mini
