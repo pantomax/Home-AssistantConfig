@@ -21,10 +21,8 @@
 #******************************************************************************
 # Sensore Broadlink S1 custom component
   - platform: broadlink_s1c
-    ip_address: 192.168.1.77
-    mac: '34:EA:34:B6:6D:1C'
-#    ip_address: !secret broadlink_s1
-#    mac: !secret mac_broadlink_s1
+    ip_address: !secret broadlink_s1
+    mac: !secret mac_broadlink_s1
 #******************************************************************************
 # Sensore Broadlink A1 in bagno
   - platform: broadlink
