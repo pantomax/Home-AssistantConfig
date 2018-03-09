@@ -982,14 +982,19 @@ automation:
       minutes: 58
       seconds: 00
     condition:
-      condition: or
+      condition: and
       conditions:
       - condition: state
-        entity_id: 'input_select.nabaztag_show_info'
-        state: 'Weather'
-      - condition: state
-        entity_id: 'input_select.nabaztag_show_info'
-        state: 'All'
+        entity_id: 'input_boolean.nabaztag_is_awake'
+        state: 'on'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'Weather'
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'All'
     action:
     - service: shell_command.nab_clear
 #    - delay:
@@ -1116,6 +1121,9 @@ automation:
       conditions:
       - condition: template
         value_template: "{{ not is_state('input_number.bitcoin_value_difference', '0.0') }}"
+      - condition: state
+        entity_id: 'input_boolean.nabaztag_is_awake'
+        state: 'on'
       - condition: or
         conditions:
         - condition: state
@@ -1211,14 +1219,19 @@ automation:
       minutes: 54
       seconds: 00
     condition:
-      condition: or
+      condition: and
       conditions:
       - condition: state
-        entity_id: 'input_select.nabaztag_show_info'
-        state: 'Traffic'
-      - condition: state
-        entity_id: 'input_select.nabaztag_show_info'
-        state: 'All'
+        entity_id: 'input_boolean.nabaztag_is_awake'
+        state: 'on'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'Traffic'
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'All'
     action:
     - service: shell_command.nab_clear
 #    - delay:
@@ -1312,14 +1325,19 @@ automation:
       minutes: 56
       seconds: 00
     condition:
-      condition: or
+      condition: and
       conditions:
       - condition: state
-        entity_id: 'input_select.nabaztag_show_info'
-        state: 'Pollution'
-      - condition: state
-        entity_id: 'input_select.nabaztag_show_info'
-        state: 'All'
+        entity_id: 'input_boolean.nabaztag_is_awake'
+        state: 'on'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'Pollution'
+        - condition: state
+          entity_id: 'input_select.nabaztag_show_info'
+          state: 'All'
     action:
     - service: shell_command.nab_clear
 #    - delay:
