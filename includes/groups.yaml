@@ -429,11 +429,22 @@
     name: Binary Sensor
     control: hidden
     entities:
+      - binary_sensor.movimento_corridoio_s1c
+      - binary_sensor.movimento_cucina_s1c
+      - binary_sensor.finestra_salotto
+      - binary_sensor.porta_corridoio
+      - binary_sensor.porta_retro
+      - sensor.movimento_cucina_s1c
       - sensor.broadlink_s1c_motion1
+      - sensor.movimento_corridoio_s1c
       - sensor.broadlink_s1c_motion2
+      - sensor.finestra_salotto_s1c
       - sensor.broadlink_s1c_finestra_salotto
+      - sensor.porta_corridoio_s1c
       - sensor.broadlink_s1c_porta_corridoio
+      - sensor.porta_retro_s1c
       - sensor.broadlink_s1c_porta_retro
+      - binary_sensor.permetti_accensione_luci
       - binary_sensor.broadlink_a1
       - binary_sensor.broadlink_outlet
       - binary_sensor.broadlink_rm_mini
@@ -451,12 +462,6 @@
       - binary_sensor.motion_sensor_rf_3
       - binary_sensor.motion_sensor_rf_4
       - binary_sensor.motion_sensor_rf_5
-      - binary_sensor.movimento_corridoio_s1c
-      - binary_sensor.movimento_cucina_s1c
-      - binary_sensor.finestra_salotto
-      - binary_sensor.porta_corridoio
-      - binary_sensor.porta_retro
-      - binary_sensor.permetti_accensione_luci
       - binary_sensor.ring
       - binary_sensor.ring_chime_pro
       - binary_sensor.ring_front_door_ding
