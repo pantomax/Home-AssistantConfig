@@ -10,27 +10,13 @@ binary_sensor:
     sensors:
       mauro:
         friendly_name: "mauro"
-#        entity_id:
-#          - device_tracker.ec9bf3074845
-#          - device_tracker.f823b2ea1ff1
-#          - device_tracker.mauropersonale
-#          - device_tracker.maurolavoro
         value_template: >-
-          {{ is_state('device_tracker.ec9bf3074845', 'home')
-             or is_state('device_tracker.f823b2ea1ff1', 'home')
-             or is_state('device_tracker.mauropersonale', 'home')
+          {{ is_state('device_tracker.mauropersonale', 'home')
              or is_state('device_tracker.maurolavoro', 'home') }}
       max:
         friendly_name: "max"
- #       entity_id:
- #         - device_tracker.a039f73be2c7
- #         - device_tracker.28c671063a1f
- #         - device_tracker.maxpersonale
- #         - device_tracker.maxlavoro
         value_template: >-
-          {{ is_state('device_tracker.a039f73be2c7', 'home')
-             or is_state('device_tracker.28c671063a1f', 'home')
-             or is_state('device_tracker.maxpersonale', 'home')
+          {{ is_state('device_tracker.maxpersonale', 'home')
              or is_state('device_tracker.maxlavoro', 'home') }}
 #------------------------------------------------------------------------------
 input_boolean:
