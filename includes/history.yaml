@@ -16,9 +16,10 @@
       - sensor.speedtest_upload
       - input_boolean.mxhome
       - input_boolean.muhome
-      - sensor.movimento_cucina_s1c
-      - sensor.movimento_corridoio_s1c
-      - sensor.porta_retro_s1c
-      - sensor.porta_corridoio_s1c
-      - sensor.finestra_salotto_s1c
+      - binary_sensor.movimento_cucina
+      - binary_sensor.movimento_corridoio
+      - binary_sensor.porta_retro
+      - binary_sensor.porta_corridoio
+      - binary_sensor.finestra_salotto
+
 #******************************************************************************
