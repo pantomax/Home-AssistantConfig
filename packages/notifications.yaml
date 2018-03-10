@@ -21,7 +21,7 @@ automation:
             - action: "button1"
               title: "Apri cancello"
             - action: "button2"
-              title: "Luci cucina e salotto"
+              title: "Accendi Luci"
 #******************************************************************************
   - alias: "HTML5 push notification action button clicked"
     trigger:
