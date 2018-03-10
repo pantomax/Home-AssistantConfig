@@ -33,6 +33,8 @@ sensor:
   name: "last tts"
   command: "ls /config/www/vl/voice/ -1t | head -1"
   scan_interval: 5
+- platform: folder
+  folder: /config/www/vl/voice/
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
