@@ -15,7 +15,7 @@ automation:
     - service: notify.notify
       data:
         message: "Welcome home"
-        target: "Smartphone Max"
+        target: ["unnamed device", "unnamed device_4"]
         data:
           actions:
             - action: "button1"
