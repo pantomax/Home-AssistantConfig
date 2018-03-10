@@ -3,6 +3,14 @@
 #                                AMBIANCE PACKAGE
 #
 ###############################################################################
+#media_extractor_test:
+#alias: Media Extractor Test
+#sequence:
+#- service: media_extractor.play_media
+#entity_id: media_player.lounge
+#data:
+#media_content_id: "https://www.youtube.com/watch?v=Pj0w0xo2ChY&list=PL71F771F239EF17F7"
+#media_content_type: video/youtube
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
