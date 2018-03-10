@@ -67,16 +67,20 @@ automation:
   - alias: "TTS info message"
     trigger:
     - platform: time
-      at: '10:20:00'
+      at: '10:35:00'
     condition:
     - condition: state
       entity_id: 'input_boolean.mute'
       state: 'off'
     action:
       - service: shell_command.remove_old_mp3_files
-      - service: script.hassio_talk
+      - service: input_text.set_value
         data:
-          message: In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. Buona giornata.
+          entity_id: input_text.hassio_voice
+          value: In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. Buona giornata
+#      - service: script.hassio_talk
+#        data:
+#          message: In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. Buona giornata
 #******************************************************************************
   - alias: "Hassio Talk"
     trigger:
