@@ -284,14 +284,14 @@ google_assistant:
 #******************************************************************************
     sensor.dht_humidity:
       name: humidity
-      type: climate
+#      type: climate
       expose: true
       aliases:
         - humidity near the server
         - entity s 70
     sensor.dht_temperature:
       name: temperature
-      type: climate
+#      type: climate
       expose: true
       aliases:
         - temperature near the server
