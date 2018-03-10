@@ -19,7 +19,7 @@ automation:
         data:
           actions:
             - action: "button1"
-              title: "Luce cucina"
+              title: "Apri cancello"
             - action: "button2"
               title: "Luci cucina e salotto"
 #******************************************************************************
@@ -43,8 +43,8 @@ automation:
       event_data:
         action: button1
     action:
-      - service: light.turn_on
-        entity_id: group.kitchen
+      - service: script.turn_on
+        entity_id: script.apricancello
 #******************************************************************************
   - alias: "HTML5 push notification action button clicked Turn on lights 2"
     trigger:
