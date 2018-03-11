@@ -216,22 +216,22 @@ script:
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_on
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_on
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_on
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_on
         entity_id:
           - switch.volume
@@ -243,22 +243,22 @@ script:
         entity_id:
           - switch.volume_down
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_off
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_off
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_off
         entity_id:
           - switch.volume
       - delay:
-            milliseconds: 200
+            milliseconds: 100
       - service: switch.turn_off
         entity_id:
           - switch.volume
