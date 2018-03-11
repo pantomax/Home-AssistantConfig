@@ -31,6 +31,27 @@ sensor:
     monitored_conditions:
       - temperature
       - humidity
+  - platform: filter
+    name: "filtered dht humidity"
+    entity_id: sensor.dht_humidity
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 4.0
+      - filter: lowpass
+        time_constant: 10
+        precision: 2
+  - platform: filter
+    name: "filtered dht temperature"
+    entity_id: sensor.dht_temperature
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 4.0
+      - filter: lowpass
+        time_constant: 10
+        precision: 2
+        
 #******************************************************************************
 
 #------------------------------------------------------------------------------

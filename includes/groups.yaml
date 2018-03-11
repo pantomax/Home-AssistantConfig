@@ -85,8 +85,8 @@
     name: DHT Sensor
     control: hidden
     entities:
-      - sensor.dht_humidity
-      - sensor.dht_temperature
+      - sensor.filtered_dht_humidity
+      - sensor.filtered_dht_temperature
       - sensor.us_receiver
 #******************************************************************************
   media_cucina:
