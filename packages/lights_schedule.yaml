@@ -319,7 +319,7 @@ automation:
             after: '17:00'
           - condition: numeric_state
             entity_id: sensor.dark_sky_cloud_coverage
-            above: 90
+            above: 70
 # nel weekend per tutto il giorno dopo le 7 del mattino se c'è nuvoloso
         - condition: and
           conditions:
@@ -327,7 +327,7 @@ automation:
             after: '7:00'
           - condition: numeric_state
             entity_id: sensor.dark_sky_cloud_coverage
-            above: 90
+            above: 70
           - condition: time
             weekday:
               - sat

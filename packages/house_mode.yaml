@@ -31,8 +31,6 @@ binary_sensor:
   - platform: template
     sensors:
       permetti_accensione_luci:
-#        entity_id:
-#          - input_select.house_mode
         value_template: >-
           {{ is_state('input_select.house_mode', 'Normal')
              or is_state('input_select.house_mode', 'At home')
