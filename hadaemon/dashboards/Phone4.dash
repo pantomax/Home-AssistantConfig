@@ -1,7 +1,7 @@
 title: Phone4
-widget_dimensions: [87, 92]
-widget_margins: [2, 3]
-columns: 4
+widget_dimensions: [105, 105]
+widget_margins: [10, 8]
+columns: 3
 
 layout:
     - info, giallo, blu, 
