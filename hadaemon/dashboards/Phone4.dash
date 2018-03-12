@@ -4,11 +4,13 @@ widget_margins: [2, 3]
 columns: 4
 
 layout:
-    - registra, giallo, blu, demand-my
-    - uno, due, tre, su
-    - quattro, cinque, sei, giu
-    - sette, otto, nove, sinistra
-    - esc, zero, ok, destra 
+    - info, giallo, blu, 
+    - uno, due, tre
+    - quattro, cinque, sei
+    - sette, otto, nove
+    - esc, zero, ok
+    - registra, su, demand-my
+    - sinistra, giu, destra
     - include: bottom_panel_phone
 
 zero:
@@ -99,6 +101,12 @@ registra:
     icon_on: mdi-record-rec
     icon_off: mdi-record-rec
     entity: switch.sky_button_rec
+info:
+    widget_type: scene
+    title: Info
+    icon_on: mdi-information
+    icon_off: mdi-information
+    entity: switch.sky_button_i
 giallo:
     widget_type: scene
     title: Giallo
