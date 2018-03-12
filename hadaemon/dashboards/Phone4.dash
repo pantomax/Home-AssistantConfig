@@ -8,20 +8,8 @@ layout:
     - uno, due, tre, su
     - quattro, cinque, sei, giu
     - sette, otto, nove, sinistra
-    - ok, zero, esc, destra 
+    - esc, zero, ok, destra 
     - include: bottom_panel_phone
-tv:
-    widget_type: switch
-    title: TV
-    icon_on: mdi-power
-    icon_off: mdi-power
-    entity: switch.tv_power
-tv_onoff:
-    widget_type: scene
-    title: TV
-    icon_on: mdi-television-classic
-    icon_off: mdi-television-classic
-    entity: switch.tv_power
 
 zero:
     widget_type: scene

@@ -4,7 +4,7 @@ widget_margins: [10, 8]
 columns: 3
 
 layout:
-    - sky_onoff, tv, tv_onoff
+    - esc, tv, ok
     - hdmi1, hdmi2, hdmi3
     - volumegiu, canalesu, volumesu
     - pause, canalegiu, numeri
@@ -16,18 +16,18 @@ tv:
     icon_on: mdi-power
     icon_off: mdi-power
     entity: switch.tv
-tv_onoff:
+ok:
     widget_type: scene
-    title: TV
-    icon_on: mdi-television-classic
-    icon_off: mdi-television-classic
-    entity: switch.tv_power
-sky_onoff:
+    title: ok
+    icon_on: mdi-checkbox-marked
+    icon_off: mdi-checkbox-marked
+    entity: switch.sky_button_ok
+esc:
     widget_type: scene
-    title: TV
-    icon_on: mdi-satellite-variant
-    icon_off: mdi-satellite-variant
-    entity: switch.sky_power
+    title: esc
+    icon_on: mdi-close-box
+    icon_off: mdi-close-box
+    entity: switch.sky_button_esc
 hdmi1:
     widget_type: scene
     title: Hdmi 1
