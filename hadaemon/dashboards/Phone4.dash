@@ -4,7 +4,7 @@ widget_margins: [10, 8]
 columns: 3
 
 layout:
-    - info, giallo, blu, 
+    - info, giallo, blu
     - uno, due, tre
     - quattro, cinque, sei
     - sette, otto, nove
