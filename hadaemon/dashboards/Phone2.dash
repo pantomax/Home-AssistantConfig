@@ -44,7 +44,7 @@ allarme_nero:
 film:
     widget_type: scene
     title: Film
-    entity: scene.buona_notte
+    entity: scene.film
     icon_on: mdi-movie-roll
     icon_off: mdi-movie-roll
 
