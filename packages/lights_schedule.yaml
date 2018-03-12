@@ -224,9 +224,13 @@ automation:
         entity_id: binary_sensor.porta_corridoio
         to: 'off'
     condition:
-      condition: state
-      entity_id: binary_sensor.movimento_corridoio
-      state: 'off'
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ not is_state('input_select.house_mode', 'Lights On') }}"
+      - condition: state
+        entity_id: binary_sensor.movimento_corridoio
+        state: 'off'
     action:
       - service: switch.turn_off
         entity_id: switch.corridoio_bagno
@@ -267,14 +271,15 @@ automation:
       minutes: '/5'
       seconds: 00
     condition:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ not is_state('input_select.house_mode', 'Lights On') }}"
       - condition: state
         entity_id: binary_sensor.movimento_corridoio
         state: 'off'
       - condition: state
         entity_id: binary_sensor.porta_retro
-        state: 'off'
-      - condition: state
-        entity_id: binary_sensor.porta_corridoio
         state: 'off'
     action:
       - service: switch.turn_off
@@ -341,6 +346,9 @@ automation:
       - platform: state
         entity_id: binary_sensor.movimento_cucina
         to: 'off'
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'Lights On') }}"
     action:
       - service: light.turn_off
         entity_id: group.kitchen
@@ -351,6 +359,10 @@ automation:
       minutes: '/9'
       seconds: 00
     condition:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ not is_state('input_select.house_mode', 'Lights On') }}"
       - condition: state
         entity_id: binary_sensor.movimento_cucina
         state: 'off'
@@ -510,6 +522,9 @@ automation:
       - platform: state
         entity_id: binary_sensor.movimento_salotto
         to: 'off'
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'Lights On') }}"
     action:
       - service: light.turn_off
         entity_id: light.light_desk
@@ -550,6 +565,9 @@ automation:
         event_type: timer.finished
         event_data:
           entity_id: timer.spegnimento_automatico_bagno
+    condition:
+      condition: template
+      value_template: "{{ not is_state('input_select.house_mode', 'Lights On') }}"
     action:
       - service: light.turn_off
         entity_id: light.bagno
