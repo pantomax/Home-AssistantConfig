@@ -5,7 +5,7 @@ columns: 3
 
 layout:
     - luci_cucina,  scalda_camera, buona_notte
-    - luci_salotto, scalda_salotto, lightson
+    - luci_salotto, scalda_salotto, lights_on
     - luci_bagno, scalda_bagno, apri_cancello
     - luci_corridoio, luci_camera, luci_giardino
     - include: bottom_panel_phone
@@ -72,7 +72,7 @@ buona_notte:
     icon_on: mdi-sleep
     icon_off: mdi-sleep
     entity: scene.buona_notte
-lightson:
+lights_on:
     widget_type: mode
     title: Lights On
     icon_on: mdi-lightbulb-outline
@@ -81,10 +81,11 @@ lightson:
     mode: Lights On
     script: script.lights_on_mode
 apri_cancello:
-    widget_type: mode
-    title: Lights On
+    widget_type: script
+    title: Apri Cancello
     icon_on: mdi-gate
     icon_off: mdi-gate
+    entity: script.apricancello
     mode: Apri Cancello
     script: script.apricancello
 
