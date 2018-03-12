@@ -9,11 +9,11 @@ columns: 10
 # Layout
 #
 layout:
-    - clock(2x1),veronanord, nogarole, pegognaga, reggiolo, campogalliano, luci_cucina, scalda_salotto, living_temp
-    - mode(2x1), meteocamera(5x3),  luci_salotto, scalda_camera, bedroom_temp
-    - weather(2x2),  luci_corridoio, scalda_bagno, laundry_temp
-    - sens5, luce_bagno,  buona_notte
-    - athome, vacation,normal, dog, night, weekend, sens1, sens2, sens3, sens4
+    - clock(2x1),veronanord, nogarole, pegognaga, reggiolo, campogalliano, luci_cucina, sens1, scalda_camera
+    - mode(2x1), meteocamera(5x3), luci_salotto, sens2, scalda_salotto
+    - weather(2x2), luci_bagno, sens7, scalda_bagno
+    - luci_corridoio, sens6, sens3
+    - athome, vacation,normal, dog, night, weekend, lightson, sens5, buona_notte, sens4
     - include: bottom_panel
 veronanord:
     widget_type: camera
@@ -90,6 +90,12 @@ luci_corridoio:
     icon_on: mdi-lightbulb-on
     icon_off: mdi-lightbulb
     entity: group.luci_corridoio_e_bagno
+luci_bagno:
+    widget_type: switch
+    title: Luci Bagno
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.bagno
 buona_notte:
     widget_type: scene
     title: Spegni Casa
@@ -99,13 +105,13 @@ buona_notte:
 sens1:
     widget_type: binary_sensor
     title: Cucina
-    entity: binary_sensor.movimento_cucina_s1c
+    entity: binary_sensor.movimento_cucina
     icon_on: mdi-run-fast
     icon_off: mdi-run-fast
 sens2:
     widget_type: binary_sensor
-    title: Corridoio
-    entity: binary_sensor.movimento_corridoio_s1c
+    title: Salotto
+    entity: binary_sensor.movimento_salotto
     icon_on: mdi-run-fast
     icon_off: mdi-run-fast
 sens3:
@@ -126,7 +132,18 @@ sens5:
     entity: binary_sensor.finestra_salotto
     icon_on: mdi-window-closed
     icon_off: mdi-window-closed
-
+sens6:
+    widget_type: binary_sensor
+    title: Corridoio
+    entity: binary_sensor.movimento_corridoio
+    icon_on: mdi-run-fast
+    icon_off: mdi-run-fast
+sens7:
+    widget_type: binary_sensor
+    title: Bagno
+    entity: binary_sensor.movimento_bagno
+    icon_on: mdi-run-fast
+    icon_off: mdi-run-fast
 luce_bagno:
     widget_type: binary_sensor
     title: Luce Bagno
@@ -199,6 +216,14 @@ vacation:
     entity: input_select.house_mode
     mode: Vacation Mode
     script: script.vacation_mode
+lightson:
+    widget_type: mode
+    title: Lights On
+    icon_on: mdi-lightbulb-outline
+    icon_off: mdi-lightbulb-outline
+    entity: input_select.house_mode
+    mode: Lights On
+    script: script.lights_on_mode
 locks_status:
     widget_type: binary_sensor
     title: All Locks
