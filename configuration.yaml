@@ -37,7 +37,7 @@ logbook:
       - history_graph
       - panel_iframe
 logger:
-  default: warning
+  default: critical
   logs:
     custom_components.sensor.broadlink_s1c: debug
     homeassistant.components: info
