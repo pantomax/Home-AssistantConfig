@@ -34,6 +34,7 @@ binary_sensor:
         value_template: >-
           {{ is_state('input_select.house_mode', 'Normal')
              or is_state('input_select.house_mode', 'At home')
+             or is_state('input_select.house_mode', 'Lights On')
              or is_state('input_select.house_mode', 'Weekend Mode') }}
 #------------------------------------------------------------------------------
 automation:
