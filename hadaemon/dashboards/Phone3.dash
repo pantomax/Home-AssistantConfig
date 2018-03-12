@@ -62,13 +62,13 @@ canalesu:
     title: Canale Su
     icon_on: mdi-arrow-up-bold
     icon_off: mdi-arrow-up-bold
-    entity: switch.canale_su
+    entity: switch.sky_button_chan_up 
 canalegiu:
     widget_type: scene
     title: Canale Giù
     icon_on: mdi-arrow-down-bold
     icon_off: mdi-arrow-down-bold
-    entity: switch.canale_giu
+    entity: switch.sky_button_chan_down
 volumegiu:
     widget_type: scene
     title: Volume Giù
