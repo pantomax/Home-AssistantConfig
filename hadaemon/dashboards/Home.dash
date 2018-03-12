@@ -13,7 +13,7 @@ layout:
     - mode(2x1), meteocamera(5x3), luci_salotto, sens2, scalda_salotto
     - weather(2x2), luci_bagno, sens7, scalda_bagno
     - luci_corridoio, sens6, sens3
-    - athome, vacation,normal, dog, night, weekend, lightson, sens5, buona_notte, sens4
+    - athome, vacation,normal, dog, night, weekend, lights_on, sens5, buona_notte, sens4
     - include: bottom_panel
 veronanord:
     widget_type: camera
@@ -216,7 +216,7 @@ vacation:
     entity: input_select.house_mode
     mode: Vacation Mode
     script: script.vacation_mode
-lightson:
+lights_on:
     widget_type: mode
     title: Lights On
     icon_on: mdi-lightbulb-outline
