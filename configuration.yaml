@@ -36,6 +36,9 @@ logbook:
       - weblink
       - history_graph
       - panel_iframe
+      - script
+      - input_boolean
+      - input_number
 logger:
   default: critical
   logs:
