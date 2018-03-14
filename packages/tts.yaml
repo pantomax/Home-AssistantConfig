@@ -92,6 +92,10 @@ automation:
       - service: script.hassio_talk
         data_template:
           message: Buongiorno! In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. Passate una buona giornata
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
 #******************************************************************************
   - alias: "TTS info morning message weekend"
     trigger:
@@ -116,6 +120,10 @@ automation:
       - service: script.hassio_talk
         data_template:
           message: Buongiorno! In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. Passate una buona giornata
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
 #******************************************************************************
   - alias: "TTS info evening message"
     trigger:
@@ -134,6 +142,10 @@ automation:
       - service: script.hassio_talk
         data_template:
           message: Buonasera! In casa ci sono {{ states('sensor.temperatura_salotto_temperature') }} gradi mentre all'esterno la temperatura è di {{ states('sensor.dark_sky_temperature') }} gradi. 
+      - service: hassio.addon_stdin
+        data:
+          addon: de3cd379_audio_player
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
 #******************************************************************************
   - alias: "Hassio Talk"
     trigger:
