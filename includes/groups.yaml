@@ -429,6 +429,7 @@
     name: Binary Sensor
     control: hidden
     entities:
+      - binary_sensor.someone_at_home
       - binary_sensor.movimento_corridoio_s1c
       - binary_sensor.movimento_cucina_s1c
       - binary_sensor.finestra_salotto

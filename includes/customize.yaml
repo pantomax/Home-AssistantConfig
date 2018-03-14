@@ -375,6 +375,9 @@
     binary_sensor.dash_button_barilla_1:
       friendly_name: "Barilla"
       icon: mdi:disqus-outline
+    binary_sensor.someone_at_home:
+      friendly_name: "Someone at home"
+      icon: mdi:radar
 #*********************************AUTOMATIONS**********************************
     automation.chromecast_in_stop:
       icon: mdi:stop
