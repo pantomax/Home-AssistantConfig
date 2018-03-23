@@ -54,9 +54,6 @@ automation:
         entity_id: input_boolean.nabaztag_esclama
         state: 'off'
     action:
-      - service: script.nabaztag_talk
-        data_template:
-          message: "Cosa c'è di bello in tv stasera?"
       - service: homeassistant.turn_on
         entity_id: input_boolean.nabaztag_esclama
 #******************************************************************************
