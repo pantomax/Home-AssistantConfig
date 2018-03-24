@@ -570,13 +570,13 @@
     entities:
       - group.rete
       - group.broadlink_network
-      - group.condizionatori
-      - group.nabaztag
+      - group.pc_windows
       - group.wifi_shield_outlet
       - group.dev_pi
-      - group.ring_network
-      - group.pc_windows
       - group.check_automations
+      - group.nabaztag
+      - group.condizionatori
+      - group.ring_network
       - group.dash_buttons
   Tab_Cam:
     name: Webcam
