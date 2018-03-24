@@ -239,8 +239,8 @@
       - binary_sensor.condizionatore_camera
       - binary_sensor.condizionatore_salotto
       - binary_sensor.led_strip
-      - input_boolean.visualizza_gruppo_dashbutton
       - binary_sensor.multipresa_wifi
+      - input_boolean.visualizza_gruppo_dashbutton
   nabaztag:
     name: Nabaztag
     entities:
@@ -568,16 +568,15 @@
     view: yes
     icon: mdi:server-network
     entities:
+      - group.dash_buttons
       - group.rete
       - group.broadlink_network
-      - group.pc_windows
-      - group.wifi_shield_outlet
-      - group.dev_pi
-      - group.check_automations
-      - group.nabaztag
       - group.condizionatori
-      - group.dash_buttons
+      - group.dev_pi
+      - group.nabaztag
       - group.ring_network
+      - group.wifi_shield_outlet
+      - group.pc_windows
   Tab_Cam:
     name: Webcam
     view: yes
