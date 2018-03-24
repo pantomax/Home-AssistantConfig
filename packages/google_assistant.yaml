@@ -12,8 +12,8 @@ google_assistant:
   agent_user_id: !secret google_agent_user_id
   api_key: !secret google_api_key
   expose_by_default: false
-#  exposed_domains:
-#    - light
+  exposed_domains:
+    - light
 #    - scene
 #    - switch
 #    - script

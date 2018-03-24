@@ -578,8 +578,6 @@
       - group.pc_windows
       - group.check_automations
       - group.dash_buttons
-#      - group.home_switches
-#      - group.bitcoin
   Tab_Cam:
     name: Webcam
     view: yes
