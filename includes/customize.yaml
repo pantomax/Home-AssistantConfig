@@ -339,6 +339,9 @@
     binary_sensor.led_strip:
       friendly_name: "Striscia LED"
       icon: mdi:led-strip
+    binary_sensor.multipresa_wifi:
+      friendly_name: "Multipresa WIFI"
+      icon: mdi:power-socket-eu
     binary_sensor.sky_hd:
       friendly_name: "Sky HD"
       icon: mdi:television

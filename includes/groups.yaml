@@ -240,6 +240,7 @@
       - binary_sensor.condizionatore_salotto
       - binary_sensor.led_strip
       - input_boolean.visualizza_gruppo_dashbutton
+      - binary_sensor.multipresa_wifi
   nabaztag:
     name: Nabaztag
     entities:
@@ -252,7 +253,6 @@
       - switch.mqtt_switch_2
       - switch.mqtt_switch_3
       - switch.mqtt_switch_4
-      - binary_sensor.multipresa_wifi
   ring_network:
     name: Ring Network
     entities:
