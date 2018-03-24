@@ -133,9 +133,9 @@
       led_strip:
         device_class: connectivity
         value_template: "{{ is_state('device_tracker.led_strip', 'home') }}"
-      multipresa-wifi:
+      multipresa_wifi:
         device_class: connectivity
-        value_template: "{{ is_state('device_tracker.multipresa-wifi', 'home') }}"
+        value_template: "{{ is_state('device_tracker.multipresa_wifi', 'home') }}"
 #************************************ NABAZTAG ********************************
       nabaztag:
         device_class: connectivity

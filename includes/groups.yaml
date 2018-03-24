@@ -252,7 +252,7 @@
       - switch.mqtt_switch_2
       - switch.mqtt_switch_3
       - switch.mqtt_switch_4
-      - binary_sensor.multipresa-wifi
+      - binary_sensor.multipresa_wifi
   ring_network:
     name: Ring Network
     entities:

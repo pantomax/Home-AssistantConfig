@@ -52,7 +52,7 @@
       condizionatore_salotto: !secret condizionatore_salotto
       sky_hd: !secret sky_hd
       slingbox: !secret slingbox
-      multipresa-wifi: !secret multipresa-wifi
+      multipresa_wifi: !secret multipresa_wifi
       dash_button_brabantia: !secret dash_button_brabantia
       dash_button_pellini: !secret dash_button_pellini
       dash_button_langelica: !secret dash_button_langelica
