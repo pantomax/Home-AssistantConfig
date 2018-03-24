@@ -48,7 +48,7 @@ sensor:
       countdown_hours:
         value_template: >
           {% if ( ( states('input_number.countdown') | float / 3600 ) | int ) < 10 %}
-            0{{( states('input_number.countdown') | float / 3600 ) | int}}
+            {{( states('input_number.countdown') | float / 3600 ) | int}}
           {% else %}
             {{( states('input_number.countdown') | float / 3600 ) | int}}
           {% endif %}
