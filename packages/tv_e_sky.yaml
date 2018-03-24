@@ -94,7 +94,6 @@ group:
     name: telecomando Sky
     control: hidden
     entities:
-      - switch.sky_left_arrow
       - switch.sky_button_tv
       - switch.sky_button_sky
       - switch.sky_button_guida_tv

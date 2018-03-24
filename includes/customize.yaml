@@ -464,3 +464,84 @@
     switch.sky_button_tv_channel_0:
       friendly_name: "0"
       icon: mdi:numeric-0-box
+    switch.sky_button_tv:
+      friendly_name: "Tv"
+      icon: mdi:numeric-0-box
+    switch.sky_button_sky:
+      friendly_name: "Sky"
+      icon: mdi:numeric-0-box
+    switch.sky_button_guida_tv:
+      friendly_name: "Guida"
+      icon: mdi:numeric-0-box
+    switch.sky_button_primafila:
+      friendly_name: "Primafila"
+      icon: mdi:numeric-0-box
+    switch.sky_button_menu:
+      friendly_name: "Menu"
+      icon: mdi:numeric-0-box
+    switch.sky_button_on_demand:
+      friendly_name: "On Demand"
+      icon: mdi:numeric-0-box
+    switch.sky_button_i:
+      friendly_name: "Info"
+      icon: mdi:numeric-0-box
+    switch.sky_button_chan_up:
+      friendly_name: "Canale Su"
+      icon: mdi:numeric-0-box
+    switch.sky_button_chan_down:
+      friendly_name: "Canale Giu"
+      icon: mdi:numeric-0-box
+    switch.sky_button_arrow_up:
+      friendly_name: "Freccia Su"
+      icon: mdi:numeric-0-box
+    switch.sky_button_arrow_down:
+      friendly_name: "Freccia Giu"
+      icon: mdi:numeric-0-box
+    switch.sky_button_arrow_left:
+      friendly_name: "Freccia Sinistra"
+      icon: mdi:numeric-0-box
+    switch.sky_button_arrow_right:
+      friendly_name: "Freccia Destra"
+      icon: mdi:numeric-0-box
+    switch.sky_button_ok:
+      friendly_name: "Ok"
+      icon: mdi:numeric-0-box
+    switch.sky_button_p:
+      friendly_name: "Precedente"
+      icon: mdi:numeric-0-box
+    switch.sky_button_esc:
+      friendly_name: "Esc"
+      icon: mdi:numeric-0-box
+    switch.sky_button_my:
+      friendly_name: "My Channel"
+      icon: mdi:numeric-0-box
+    switch.sky_button_rewind:
+      friendly_name: "Rewind"
+      icon: mdi:numeric-0-box
+    switch.sky_button_forward:
+      friendly_name: "Forward"
+      icon: mdi:numeric-0-box
+    switch.sky_button_pause:
+      friendly_name: "Pausa"
+      icon: mdi:numeric-0-box
+    switch.sky_button_play:
+      friendly_name: "Play"
+      icon: mdi:numeric-0-box
+    switch.sky_button_rec:
+      friendly_name: "Registra"
+      icon: mdi:numeric-0-box
+    switch.sky_button_stop:
+      friendly_name: "Stop"
+      icon: mdi:numeric-0-box
+    switch.sky_button_red:
+      friendly_name: "Rosso"
+      icon: mdi:numeric-0-box
+    switch.sky_button_green:
+      friendly_name: "Verde"
+      icon: mdi:numeric-0-box
+    switch.sky_button_yellow:
+      friendly_name: "Giallo"
+      icon: mdi:numeric-0-box
+    switch.sky_button_blue:
+      friendly_name: "Blu"
+      icon: mdi:numeric-0-box
