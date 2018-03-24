@@ -464,27 +464,28 @@
     switch.sky_button_tv_channel_0:
       friendly_name: "0"
       icon: mdi:numeric-0-box
+#*************************** TELECOMANDO SKY ***********************************
     switch.sky_button_tv:
       friendly_name: "Tv"
-      icon: mdi:numeric-0-box
+      icon: mdi:television-box
     switch.sky_button_sky:
       friendly_name: "Sky"
-      icon: mdi:numeric-0-box
+      icon: mdi:satellite-variant
     switch.sky_button_guida_tv:
       friendly_name: "Guida"
-      icon: mdi:numeric-0-box
+      icon: mdi:television-guide
     switch.sky_button_primafila:
       friendly_name: "Primafila"
-      icon: mdi:numeric-0-box
+      icon: mdi:theater
     switch.sky_button_menu:
       friendly_name: "Menu"
-      icon: mdi:numeric-0-box
+      icon: mdi:menu
     switch.sky_button_on_demand:
       friendly_name: "On Demand"
-      icon: mdi:numeric-0-box
+      icon: mdi:cloud-download
     switch.sky_button_i:
       friendly_name: "Info"
-      icon: mdi:numeric-0-box
+      icon: mdi:information-outline
     switch.sky_button_chan_up:
       friendly_name: "Canale Su"
       icon: mdi:numeric-0-box
