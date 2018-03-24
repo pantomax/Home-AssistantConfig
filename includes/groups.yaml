@@ -576,8 +576,8 @@
       - group.check_automations
       - group.nabaztag
       - group.condizionatori
-      - group.ring_network
       - group.dash_buttons
+      - group.ring_network
   Tab_Cam:
     name: Webcam
     view: yes
