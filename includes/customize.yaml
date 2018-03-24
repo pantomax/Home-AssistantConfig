@@ -158,6 +158,18 @@
       friendly_name: "Sole"
     switch.volume:
       icon: mdi:volume-high
+    switch.mqtt_switch_1:
+      friendly_name: "MQTT Switch 1"
+      icon: mdi:power-socket-eu
+    switch.mqtt_switch_2:
+      friendly_name: "MQTT Switch 2"
+      icon: mdi:power-socket-eu
+    switch.mqtt_switch_3:
+      friendly_name: "MQTT Switch 3"
+      icon: mdi:power-socket-eu
+    switch.mqtt_switch_4:
+      friendly_name: "MQTT Switch 4"
+      icon: mdi:power-socket-eu
 #*********************************SCENE****************************************
     scene.luci_sala_spente:
       entity_picture: /local/lightsoff.png
