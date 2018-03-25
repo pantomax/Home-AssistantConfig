@@ -491,10 +491,10 @@
       icon: mdi:information-outline
     switch.sky_button_chan_up:
       friendly_name: "Canale Su"
-      icon: mdi:arrow-up-hold-box
+      icon: mdi:arrow-up-bold-box
     switch.sky_button_chan_down:
       friendly_name: "Canale Giu"
-      icon: mdi:arrow-down-hold-box
+      icon: mdi:arrow-down-bold-box
     switch.sky_button_arrow_up:
       friendly_name: "Freccia Su"
       icon: mdi:arrow-up-thick
@@ -509,43 +509,43 @@
       icon: mdi:arrow-right-thick
     switch.sky_button_ok:
       friendly_name: "Ok"
-      icon: mdi:check-outline
+      icon: mdi:checkbox-marked-outline
     switch.sky_button_p:
       friendly_name: "Precedente"
-      icon: mdi:numeric-0-box
+      icon: mdi:backup-restore
     switch.sky_button_esc:
       friendly_name: "Esc"
-      icon: mdi:numeric-0-box
+      icon: mdi:close-box-outline
     switch.sky_button_my:
       friendly_name: "My Channel"
-      icon: mdi:numeric-0-box
+      icon: mdi:format-list-checks
     switch.sky_button_rewind:
       friendly_name: "Rewind"
-      icon: mdi:numeric-0-box
+      icon: mdi:rewind
     switch.sky_button_forward:
       friendly_name: "Forward"
-      icon: mdi:numeric-0-box
+      icon: mdi:forward
     switch.sky_button_pause:
       friendly_name: "Pausa"
-      icon: mdi:numeric-0-box
+      icon: mdi:pause
     switch.sky_button_play:
       friendly_name: "Play"
-      icon: mdi:numeric-0-box
+      icon: mdi:play-pause
     switch.sky_button_rec:
       friendly_name: "Registra"
-      icon: mdi:numeric-0-box
+      icon: mdi:record-rec
     switch.sky_button_stop:
       friendly_name: "Stop"
-      icon: mdi:numeric-0-box
+      icon: mdi:stop
     switch.sky_button_red:
       friendly_name: "Rosso"
-      icon: mdi:numeric-0-box
+      icon: mdi:circle-outline
     switch.sky_button_green:
       friendly_name: "Verde"
-      icon: mdi:numeric-0-box
+      icon: mdi:circle-outline
     switch.sky_button_yellow:
       friendly_name: "Giallo"
-      icon: mdi:numeric-0-box
+      icon: mdi:circle-outline
     switch.sky_button_blue:
       friendly_name: "Blu"
-      icon: mdi:numeric-0-box
+      icon: mdi:circle-outline
