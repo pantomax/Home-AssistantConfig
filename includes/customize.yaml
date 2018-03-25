@@ -491,25 +491,25 @@
       icon: mdi:information-outline
     switch.sky_button_chan_up:
       friendly_name: "Canale Su"
-      icon: mdi:numeric-0-box
+      icon: mdi:arrow-up-hold-box
     switch.sky_button_chan_down:
       friendly_name: "Canale Giu"
-      icon: mdi:numeric-0-box
+      icon: mdi:arrow-down-hold-box
     switch.sky_button_arrow_up:
       friendly_name: "Freccia Su"
-      icon: mdi:numeric-0-box
+      icon: mdi:arrow-up-thick
     switch.sky_button_arrow_down:
       friendly_name: "Freccia Giu"
-      icon: mdi:numeric-0-box
+      icon: mdi:arrow-down-thick
     switch.sky_button_arrow_left:
       friendly_name: "Freccia Sinistra"
-      icon: mdi:numeric-0-box
+      icon: mdi:arrow-left-thick
     switch.sky_button_arrow_right:
       friendly_name: "Freccia Destra"
-      icon: mdi:numeric-0-box
+      icon: mdi:arrow-right-thick
     switch.sky_button_ok:
       friendly_name: "Ok"
-      icon: mdi:numeric-0-box
+      icon: mdi:check-outline
     switch.sky_button_p:
       friendly_name: "Precedente"
       icon: mdi:numeric-0-box
