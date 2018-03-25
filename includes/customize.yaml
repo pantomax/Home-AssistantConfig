@@ -195,6 +195,9 @@
     binary_sensor.movimento_bagno:
       friendly_name: "Movimento Bagno"
       icon: mdi:run-fast
+    binary_sensor.movimento_bagno_in_telemetria:
+      friendly_name: "Movimento Bagno"
+      icon: mdi:run-fast
     binary_sensor.ring_front_door_motion:
       friendly_name: "Movimento Cancello"
       icon: mdi:run-fast
