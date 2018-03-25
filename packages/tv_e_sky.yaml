@@ -91,26 +91,26 @@ group:
       - switch.sky_button_tv_channel_0
 #******************************************************************************      
   telecomando_sky:
-    name: telecomando Sky
+    name: Sky
     control: hidden
     entities:
-      - switch.sky_button_tv
+#      - switch.sky_button_tv
       - switch.sky_button_sky
       - switch.sky_button_guida_tv
       - switch.sky_button_primafila
       - switch.sky_button_menu
+      - switch.sky_button_my
       - switch.sky_button_on_demand
       - switch.sky_button_i
+      - switch.sky_button_ok
+      - switch.sky_button_esc
       - switch.sky_button_chan_up
       - switch.sky_button_chan_down
       - switch.sky_button_arrow_up
       - switch.sky_button_arrow_down
       - switch.sky_button_arrow_left
       - switch.sky_button_arrow_right
-      - switch.sky_button_ok
       - switch.sky_button_p
-      - switch.sky_button_esc
-      - switch.sky_button_my
       - switch.sky_button_rewind
       - switch.sky_button_forward
       - switch.sky_button_pause
