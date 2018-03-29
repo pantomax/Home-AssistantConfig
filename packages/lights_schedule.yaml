@@ -115,35 +115,6 @@ automation:
       service: light.turn_off
       entity_id: light.giardino
 #******************************************************************************
-  - alias: "Exterior Lighting on when someone in front of house during the night"
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.cancello
-        from: 'off'
-        to: 'on'
-    condition:
-      condition: time
-      after: '1:00:00'
-      before: '04:30:00'
-    action:
-      service: light.turn_on
-      entity_id: light.giardino
-#******************************************************************************
-  - alias: "Turn Off Exterior Lighting 5 minutes after last movement"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.cancello
-      to: 'off'
-      for:
-        minutes: 5
-    condition:
-      condition: time
-      after: '1:00:00'
-      before: '04:30:00'
-    action:
-      service: light.turn_off
-      entity_id: light.giardino
-#******************************************************************************
   - alias: "Controllo spegnimento luce giardino in caso di riavvii del server - Accensione"
     trigger:
       platform: time
