@@ -15,6 +15,9 @@ sensor:
   - platform: mqtt
     state_topic: "sensors/rf/receiver2"
     name: "RF Receiver 2"
+  - platform: mqtt
+    state_topic: "sensors/wifi/receiver"
+    name: "Wifi Pir Sensor"
 #------------------------------------------------------------------------------
 binary_sensor:
 #------------------------------------------------------------------------------
