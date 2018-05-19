@@ -303,7 +303,7 @@ automation:
             after: '7:00'
           - condition: numeric_state
             entity_id: sensor.dark_sky_cloud_coverage
-            above: 70
+            above: 80
           - condition: time
             weekday:
               - sat
