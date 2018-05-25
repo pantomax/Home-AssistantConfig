@@ -285,9 +285,9 @@ automation:
           conditions:
           - condition: sun
             after: sunset
-            after_offset: "-4:00:00"
+            after_offset: "-00:30:00"
           - condition: time
-            after: '17:00'
+            after: '20:00'
 # tutti i giorni dopo le 17 se c'è nuvoloso
         - condition: and
           conditions:
@@ -295,7 +295,7 @@ automation:
             after: '17:00'
           - condition: numeric_state
             entity_id: sensor.dark_sky_cloud_coverage
-            above: 70
+            above: 90
 # nel weekend per tutto il giorno dopo le 7 del mattino se c'è nuvoloso
         - condition: and
           conditions:
@@ -303,7 +303,7 @@ automation:
             after: '7:00'
           - condition: numeric_state
             entity_id: sensor.dark_sky_cloud_coverage
-            above: 80
+            above: 90
           - condition: time
             weekday:
               - sat
