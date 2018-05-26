@@ -4,6 +4,18 @@
 #
 ###############################################################################
 #------------------------------------------------------------------------------
+binary_sensor:
+#------------------------------------------------------------------------------
+  - platform: template
+    sensors:
+      permetti_accensione_luci:
+        value_template: >-
+          {{  is_state('input_boolean.giorno', 'On')
+             and (is_state('input_select.house_mode', 'Normal')
+             or is_state('input_select.house_mode', 'At home')
+             or is_state('input_select.house_mode', 'Lights On')
+             or is_state('input_select.house_mode', 'Weekend Mode')) }}
+#------------------------------------------------------------------------------
 timer:
 #------------------------------------------------------------------------------
   spegnimento_automatico_bagno:
@@ -17,6 +29,9 @@ input_boolean:
     name: Countdown_corridoio
     initial: off
     icon: mdi:timelapse
+  giorno:
+    name: Giorno
+    initial: off
 #------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
@@ -93,6 +108,23 @@ script:
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
+
+#******************************************************************************
+  - alias: "Giorno"
+    trigger:
+      platform: time
+      at: '6:30'
+    action:
+      service: homeassistant.turn_on
+      entity_id: input_boolean.giorno
+#******************************************************************************
+  - alias: "Notte"
+    trigger:
+      platform: time
+      at: '20:00:00'
+    action:
+      service: homeassistant.turn_off
+      entity_id: input_boolean.giorno
 #******************************************************************************
 #*****************************   GIARDINO  ************************************
 #******************************************************************************

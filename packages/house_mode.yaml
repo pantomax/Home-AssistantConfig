@@ -26,17 +26,6 @@ input_select:
     initial: Normal
     icon: mdi:home-variant
 #------------------------------------------------------------------------------
-binary_sensor:
-#------------------------------------------------------------------------------
-  - platform: template
-    sensors:
-      permetti_accensione_luci:
-        value_template: >-
-          {{ is_state('input_select.house_mode', 'Normal')
-             or is_state('input_select.house_mode', 'At home')
-             or is_state('input_select.house_mode', 'Lights On')
-             or is_state('input_select.house_mode', 'Weekend Mode') }}
-#------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
   - alias: Attiva House Mode - Normal
