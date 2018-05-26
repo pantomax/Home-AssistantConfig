@@ -10,7 +10,7 @@ binary_sensor:
     sensors:
       permetti_accensione_luci:
         value_template: >-
-          {{  is_state('input_boolean.giorno', 'On')
+          {{  is_state('input_boolean.giorno', 'off')
              and (is_state('input_select.house_mode', 'Normal')
              or is_state('input_select.house_mode', 'At home')
              or is_state('input_select.house_mode', 'Lights On')
