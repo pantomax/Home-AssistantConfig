@@ -116,83 +116,83 @@ google_assistant:
 #*******************************   SCENES  ************************************
 #******************************************************************************
     scene.buona_notte:
-      name: night
+      name: notte
       expose: true
       aliases:
-        - a sweet sweet good night
-        - good night
-        - good night scene
+        - fai una buona notte
+        - buonanotte
+        - buona notte
+        - scena buona notte
         - entity s 20
     scene.corridoio_spento:
       expose: true
-      name: hallway
+      name: corridoio
       aliases:
-        - hallway lights
+        - luci nel corridoio
         - entity s 21
     scene.film:
-      name: movie
+      name: cinema
       expose: true
       aliases:
-        - movie lights
-        - movie scene
-        - movie 1
+        - luci cinema
+        - scena cinema
         - entity s 22
     scene.black_alert:
-      name: black alert
+      name: allarme nero
       expose: true
       aliases:
-        - black alert immediatly
+        - allarme nero immediato
         - entity s 23
     scene.red_alert:
-      name: red alert
+      name: allarme rosso
       expose: true
       aliases:
-        - red alert immediatly
+        - scena allarme rosso
         - entity s 24
     scene.foresta:
-      name: forest
+      name: foresta
       expose: true
       aliases:
-        - forest scene
+        - scena foresta
         - entity s 25
     scene.inverno:
-      name: winter
+      name: inverno
       expose: true
       aliases:
-        - winter scene
+        - scena inverno
         - entity s 26
     scene.oceano:
-      name: ocean
+      name: oceano
       expose: true
       aliases:
-        - ocean scene
+        - scena oceano
         - entity s 27
     scene.club:
       name: club
       expose: true
       aliases:
-        - club scene
+        - scena club
         - entity s 28
     scene.acquario:
-      name: aquarium
+      name: acquario
       expose: true
       aliases:
-        - aquarium scene
+        - scena acquario
         - entity s 29
     scene.hdmi_1:
-      name: channel 1
+      name: canale 1
       expose: true
       aliases:
         - hdmi 1
         - entity s 29
     scene.hdmi_2:
-      name: channel 2
+      name: canale 2
       expose: true
       aliases:
         - hdmi 2
         - entity s 30
     scene.hdmi_3:
-      name: channel 3
+      name: canale 3
       expose: true
       aliases:
         - hdmi 3
@@ -201,20 +201,19 @@ google_assistant:
       name: nhk
       expose: true
       aliases:
-        - nhk channel
-        - nhk japanese news channel
+        - canale nhk
         - entity s 32
     scene.skyuno:
       name: sky one
       expose: true
       aliases:
-        - sky one channel
+        - canale sky one
         - entity s 33
     scene.skynews:
       name: sky news
       expose: true
       aliases:
-        - sky news channel
+        - canale sky news
         - entity s 34
 #******************************************************************************
 #*****************************   SWITCHES  ************************************
@@ -276,17 +275,17 @@ google_assistant:
 #******************************   SENSORS  ************************************
 #******************************************************************************
     sensor.dht_humidity:
-      name: humidity
+      name: umidità
 #      type: climate
       expose: true
       aliases:
-        - humidity near the server
+        - umidità vicino al server
         - entity s 70
     sensor.dht_temperature:
-      name: temperature
+      name: temperatura
 #      type: climate
       expose: true
       aliases:
-        - temperature near the server
+        - temperatura vicino al server
         - entity s 71
 #******************************************************************************
