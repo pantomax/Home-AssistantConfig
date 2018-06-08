@@ -1,0 +1,148 @@
+  alexa:
+    filter:
+      include_domains:
+ light
+#      switch.stairs:
+#        display_categories: LIGHT
+    entity_config:
+#******************************************************************************
+#*******************************   LIGHTS  ************************************
+#******************************************************************************
+      light.tavolino:
+        name: tavolino
+        description: luce sul tavolo
+      light.libreria:
+        name: libreria
+        description: luce sulla libreria
+      light.mobile_tv:
+        name: mobile
+        description: luce sul mobile tv
+      light.retro_tv:
+        name: tv
+        description: luce dietro la tv
+      light.light_desk:
+        name: scrivania
+        description: luce sulla scrivania
+      light.led_strip:
+        name: striscia led
+        description: luce led
+      light.light_kitchen:
+        name: lavandino
+        description: luce lavandino
+      light.light_kitchen_2:
+        name: entrata
+        description: luce entrata
+      light.corridoio_bagno:
+        name: bianca
+        description: luce bianca nel corridoio
+      light.corridoio_porta:
+        name: blu
+        description: luce blu nel corridoio
+      light.tv:
+        name: retro tv
+        description: luce sul retro della tv
+      light.soffitto:
+        name: soffitto
+        description: luce che punta al soffitto
+      light.giardino:
+        name: giardino
+        description: luce in giardino
+      light.camera:
+        name: camera da letto
+        description: luce sotto il letto
+      light.bagno:
+        name: bagno
+        description: luce in bagno
+#******************************************************************************
+#*******************************   SCENES  ************************************
+#******************************************************************************
+      scene.buona_notte:
+        name: notte
+        description: fai una buona notte
+      scene.corridoio_spento:
+        name: corridoio
+        description: luci nel corridoio
+      scene.film:
+        name: cinema
+        description: luci cinema
+      scene.black_alert:
+        name: allarme nero
+        description: allarme nero immediato
+      scene.red_alert:
+        name: allarme rosso
+        description: scena allarme rosso
+      scene.foresta:
+        name: foresta
+        description: scena foresta
+      scene.inverno:
+        name: inverno
+        description: scena inverno
+      scene.oceano:
+        name: oceano
+        description: scena oceano
+      scene.club:
+        name: club
+        description: scena club
+      scene.acquario:
+        name: acquario
+        description: scena acquario
+      scene.hdmi_1:
+        name: canale 1
+        description: hdmi 1
+      scene.hdmi_2:
+        name: canale 2
+        description: hdmi 2
+      scene.hdmi_3:
+        name: canale 3
+        description: hdmi 3
+      scene.nhk:
+        name: nhk
+        description: canale nhk
+      scene.skyuno:
+        name: sky one
+        description: canale sky one
+      scene.skynews:
+        name: sky news
+        description: canale sky news
+#******************************************************************************
+#*****************************   SWITCHES  ************************************
+#******************************************************************************
+      switch.insettivoro:
+        name: ventilatore
+        description: ventilatore in sala
+      switch.tv:
+        name: tv
+        description: televisione
+      switch.accendi_termostato_dashboard_bagno:
+        name: scalda il bagno
+        description: il termoventilatore in bagno
+      switch.accendi_termostato_dashboard_salotto:
+        name: scalda il salotto
+        description: il termoventilatore in salotto
+      switch.accendi_termostato_dashboard_camera:
+        name: scalda la camera
+        description: il termoventilatore in camera
+      switch.tv_volume:
+        name: volume tv
+        description: volume della tv
+      switch.nabaztaglife:
+        name: coniglio
+        description: nabaztag
+#******************************************************************************
+#******************************   SCRIPTS  ************************************
+#******************************************************************************
+      script.apricancello:
+        name: cancello
+        description: apriti sesamo
+#******************************************************************************
+#******************************   SENSORS  ************************************
+#******************************************************************************
+      sensor.dht_humidity:
+        name: umidità
+#        type: climate
+        description: umidità vicino al server
+      sensor.dht_temperature:
+        name: temperatura
+#        type: climate
+        description: temperatura vicino al server
+#******************************************************************************
