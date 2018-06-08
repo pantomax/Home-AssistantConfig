@@ -23,94 +23,94 @@ google_assistant:
 #*******************************   LIGHTS  ************************************
 #******************************************************************************
     light.tavolino:
-      name: table
+      name: tavolino
       expose: true
       aliases:
-        - light on the small table
+        - luce sul tavolo
         - entity s 1
     light.libreria:
-      name: library
+      name: libreria
       expose: true
       aliases:
-        - light on the library
+        - luce sulla libreria
         - entity s 2
     light.mobile_tv:
-      name: spot
+      name: mobile
       expose: true
       aliases:
-        - lights on the black library
+        - luce sul mobile tv
         - entity s 3
     light.retro_tv:
-      name: tv light
+      name: tv
       expose: true
       aliases:
-        - light over the tv
+        - luce dietro la tv
         - entity s 4
     light.light_desk:
-      name: desk
+      name: scrivania
       expose: true
       aliases:
-        - light on the desk
+        - luce sulla scrivania
         - entity s 5
     light.led_strip:
-      name: led strip
+      name: striscia led
       expose: true
       aliases:
-        - led strip light
+        - luce led
         - entity s 6
     light.light_kitchen:
-      name: sink
+      name: lavandino
       expose: true
       aliases:
-        - sink light
+        - luce lavandino
         - entity s 7
     light.light_kitchen_2:
-      name: entrance
+      name: entrata
       expose: true
       aliases:
-        - entrance light
+        - luce entrata
         - entity s 8
     light.corridoio_bagno:
-      name: white
+      name: bianca
       expose: true
       aliases:
-        - white bulb light in the hallway
+        - luce bianca nel corridoio
         - entity s 9
     light.corridoio_porta:
-      name: blue
+      name: blu
       expose: true
       aliases:
-        - small blue lamp in the hallway
+        - luce blu nel corridoio
         - entity s 10
     light.tv:
-      name: on the back of tv 
+      name: retro tv
       expose: true
       aliases:
-        - light on the back of tv
+        - luce sul retro della tv
         - entity s 11
     light.soffitto:
-      name: ceiling
+      name: soffitto
       expose: true
       aliases:
-        - light toward the ceiling
+        - luce che punta al soffitto
         - entity s 12
     light.giardino:
-      name: garden
+      name: giardino
       expose: true
       aliases:
-        - light in the garden
+        - luce in giardino
         - entity s 13
     light.camera:
-      name: bedroom
+      name: camera da letto
       expose: true
       aliases:
-        - light under the bed
+        - luce sotto il letto
         - entity s 14
     light.bagno:
-      name: bathroom
+      name: bagno
       expose: true
       aliases:
-        - light in the bathroom
+        - luce in bagno
         - entity s 15
 #******************************************************************************
 #*******************************   SCENES  ************************************
@@ -220,50 +220,44 @@ google_assistant:
 #*****************************   SWITCHES  ************************************
 #******************************************************************************
     switch.insettivoro:
-      name: bug eater
+      name: ventilatore
       expose: true
       aliases:
-        - bug eater on the library
+        - ventilatore in sala
         - entity s 40
     switch.tv:
       name: tv
       expose: true
       aliases:
-        - television
+        - televisione
         - entity s 41
     switch.accendi_termostato_dashboard_bagno:
-      name: warm up bathroom
+      name: scalda il bagno
       expose: true
       aliases:
-        - the heater in the bathroom
-        - warm up the bathroom
-        - warm up the toilet
+        - il termoventilatore in bagno
+        - scalda il cesso
         - entity s 42
     switch.accendi_termostato_dashboard_salotto:
-      name: warm up living room
+      name: scalda il salotto
       expose: true
       aliases:
-        - the heater in the living room
-        - warm up the livin
-        - warm up the living room
+        - il termoventilatore in salotto
         - entity s 43
     switch.accendi_termostato_dashboard_camera:
-      name: warm up bed room
+      name: scalda la camera
       expose: true
       aliases:
-        - the heater in the master bedroom
-        - warm up the bedroom
-        - warm up the bedroom
+        - il termoventilatore in camera
         - entity s 44
     switch.tv_volume:
-      name: tv volume
+      name: volume tv
       expose: true
       aliases:
-        - television volume
-        - volume on the tv
+        - volume della tv
         - entity s 45
     switch.nabaztaglife:
-      name: rabbit
+      name: coniglio
       expose: true
       aliases:
         - nabaztag
@@ -272,12 +266,11 @@ google_assistant:
 #******************************   SCRIPTS  ************************************
 #******************************************************************************
     script.apricancello:
-      name: gate
+      name: cancello
       expose: true
       aliases:
-        - gate opener
-        - open sesame
-        - stargate
+        - apriti sesamo
+        - lo stargate
         - entity s 60
 #******************************************************************************
 #******************************   SENSORS  ************************************
