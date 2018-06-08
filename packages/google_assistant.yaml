@@ -27,91 +27,91 @@ google_assistant:
       expose: true
       aliases:
         - luce sul tavolo
-        - entity s 1
+        - entity t 1
     light.libreria:
       name: libreria
       expose: true
       aliases:
         - luce sulla libreria
-        - entity s 2
+        - entity t 2
     light.mobile_tv:
       name: mobile
       expose: true
       aliases:
         - luce sul mobile tv
-        - entity s 3
+        - entity t 3
     light.retro_tv:
       name: tv
       expose: true
       aliases:
         - luce dietro la tv
-        - entity s 4
+        - entity t 4
     light.light_desk:
       name: scrivania
       expose: true
       aliases:
         - luce sulla scrivania
-        - entity s 5
+        - entity t 5
     light.led_strip:
       name: striscia led
       expose: true
       aliases:
         - luce led
-        - entity s 6
+        - entity t 6
     light.light_kitchen:
       name: lavandino
       expose: true
       aliases:
         - luce lavandino
-        - entity s 7
+        - entity t 7
     light.light_kitchen_2:
       name: entrata
       expose: true
       aliases:
         - luce entrata
-        - entity s 8
+        - entity t 8
     light.corridoio_bagno:
       name: bianca
       expose: true
       aliases:
         - luce bianca nel corridoio
-        - entity s 9
+        - entity t 9
     light.corridoio_porta:
       name: blu
       expose: true
       aliases:
         - luce blu nel corridoio
-        - entity s 10
+        - entity t 10
     light.tv:
       name: retro tv
       expose: true
       aliases:
         - luce sul retro della tv
-        - entity s 11
+        - entity t 11
     light.soffitto:
       name: soffitto
       expose: true
       aliases:
         - luce che punta al soffitto
-        - entity s 12
+        - entity t 12
     light.giardino:
       name: giardino
       expose: true
       aliases:
         - luce in giardino
-        - entity s 13
+        - entity t 13
     light.camera:
       name: camera da letto
       expose: true
       aliases:
         - luce sotto il letto
-        - entity s 14
+        - entity t 14
     light.bagno:
       name: bagno
       expose: true
       aliases:
         - luce in bagno
-        - entity s 15
+        - entity t 15
 #******************************************************************************
 #*******************************   SCENES  ************************************
 #******************************************************************************
@@ -123,98 +123,98 @@ google_assistant:
         - buonanotte
         - buona notte
         - scena buona notte
-        - entity s 20
+        - entity t 20
     scene.corridoio_spento:
       expose: true
       name: corridoio
       aliases:
         - luci nel corridoio
-        - entity s 21
+        - entity t 21
     scene.film:
       name: cinema
       expose: true
       aliases:
         - luci cinema
         - scena cinema
-        - entity s 22
+        - entity t 22
     scene.black_alert:
       name: allarme nero
       expose: true
       aliases:
         - allarme nero immediato
-        - entity s 23
+        - entity t 23
     scene.red_alert:
       name: allarme rosso
       expose: true
       aliases:
         - scena allarme rosso
-        - entity s 24
+        - entity t 24
     scene.foresta:
       name: foresta
       expose: true
       aliases:
         - scena foresta
-        - entity s 25
+        - entity t 25
     scene.inverno:
       name: inverno
       expose: true
       aliases:
         - scena inverno
-        - entity s 26
+        - entity t 26
     scene.oceano:
       name: oceano
       expose: true
       aliases:
         - scena oceano
-        - entity s 27
+        - entity t 27
     scene.club:
       name: club
       expose: true
       aliases:
         - scena club
-        - entity s 28
+        - entity t 28
     scene.acquario:
       name: acquario
       expose: true
       aliases:
         - scena acquario
-        - entity s 29
+        - entity t 29
     scene.hdmi_1:
       name: canale 1
       expose: true
       aliases:
         - hdmi 1
-        - entity s 29
+        - entity t 29
     scene.hdmi_2:
       name: canale 2
       expose: true
       aliases:
         - hdmi 2
-        - entity s 30
+        - entity t 30
     scene.hdmi_3:
       name: canale 3
       expose: true
       aliases:
         - hdmi 3
-        - entity s 31
+        - entity t 31
     scene.nhk:
       name: nhk
       expose: true
       aliases:
         - canale nhk
-        - entity s 32
+        - entity t 32
     scene.skyuno:
       name: sky one
       expose: true
       aliases:
         - canale sky one
-        - entity s 33
+        - entity t 33
     scene.skynews:
       name: sky news
       expose: true
       aliases:
         - canale sky news
-        - entity s 34
+        - entity t 34
 #******************************************************************************
 #*****************************   SWITCHES  ************************************
 #******************************************************************************
@@ -223,44 +223,44 @@ google_assistant:
       expose: true
       aliases:
         - ventilatore in sala
-        - entity s 40
+        - entity t 40
     switch.tv:
       name: tv
       expose: true
       aliases:
         - televisione
-        - entity s 41
+        - entity t 41
     switch.accendi_termostato_dashboard_bagno:
       name: scalda il bagno
       expose: true
       aliases:
         - il termoventilatore in bagno
         - scalda il cesso
-        - entity s 42
+        - entity t 42
     switch.accendi_termostato_dashboard_salotto:
       name: scalda il salotto
       expose: true
       aliases:
         - il termoventilatore in salotto
-        - entity s 43
+        - entity t 43
     switch.accendi_termostato_dashboard_camera:
       name: scalda la camera
       expose: true
       aliases:
         - il termoventilatore in camera
-        - entity s 44
+        - entity t 44
     switch.tv_volume:
       name: volume tv
       expose: true
       aliases:
         - volume della tv
-        - entity s 45
+        - entity t 45
     switch.nabaztaglife:
       name: coniglio
       expose: true
       aliases:
         - nabaztag
-        - entity s 46
+        - entity t 46
 #******************************************************************************
 #******************************   SCRIPTS  ************************************
 #******************************************************************************
@@ -270,7 +270,7 @@ google_assistant:
       aliases:
         - apriti sesamo
         - lo stargate
-        - entity s 60
+        - entity t 60
 #******************************************************************************
 #******************************   SENSORS  ************************************
 #******************************************************************************
@@ -280,12 +280,12 @@ google_assistant:
       expose: true
       aliases:
         - umidità vicino al server
-        - entity s 70
+        - entity t 70
     sensor.dht_temperature:
       name: temperatura
 #      type: climate
       expose: true
       aliases:
         - temperatura vicino al server
-        - entity s 71
+        - entity t 71
 #******************************************************************************
