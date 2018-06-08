@@ -7,7 +7,7 @@ homeassistant:
   time_zone: Europe/Rome
   customize: !include includes/customize.yaml
   packages: !include_dir_named packages
-cloud:  !include includes/cloud.yaml
+cloud: !include includes/cloud.yaml
 config:
 updater:
 discovery:
