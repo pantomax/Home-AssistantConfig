@@ -21,8 +21,8 @@
         description: luce sul mobile tv
         display_categories: LIGHT
       light.retro_tv:
-        name: tv
-        description: luce dietro la tv
+        name: retro
+        description: luce dietro
         display_categories: LIGHT
       light.light_desk:
         name: scrivania
@@ -47,10 +47,6 @@
       light.corridoio_porta:
         name: blu
         description: luce blu nel corridoio
-        display_categories: LIGHT
-      light.tv:
-        name: retro tv
-        description: luce sul retro della tv
         display_categories: LIGHT
       light.soffitto:
         name: soffitto
@@ -138,7 +134,7 @@
         name: scalda la camera
         description: il termoventilatore in camera
       switch.tv_volume:
-        name: volume tv
+        name: volume
         description: volume della tv
       switch.nabaztaglife:
         name: coniglio
