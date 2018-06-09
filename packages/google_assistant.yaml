@@ -38,13 +38,13 @@ google_assistant:
       name: mobile
       expose: true
       aliases:
-        - luce sul mobile tv
+        - luce sul mobile
         - entity t 3
     light.retro_tv:
-      name: tv
+      name: retro
       expose: true
       aliases:
-        - luce dietro la tv
+        - luce dietro
         - entity t 4
     light.light_desk:
       name: scrivania
@@ -82,12 +82,12 @@ google_assistant:
       aliases:
         - luce blu nel corridoio
         - entity t 10
-    light.tv:
-      name: retro tv
-      expose: true
-      aliases:
-        - luce sul retro della tv
-        - entity t 11
+#    light.tv:
+#      name: retro tv
+#      expose: true
+#      aliases:
+#        - luce sul retro della tv
+#        - entity t 11
     light.soffitto:
       name: soffitto
       expose: true
@@ -123,6 +123,7 @@ google_assistant:
         - buonanotte
         - buona notte
         - scena buona notte
+        - modalità notte
         - entity t 20
     scene.corridoio_spento:
       expose: true
@@ -136,12 +137,13 @@ google_assistant:
       aliases:
         - luci cinema
         - scena cinema
+        - modalità cinema
         - entity t 22
     scene.black_alert:
       name: allarme nero
       expose: true
       aliases:
-        - allarme nero immediato
+        - allarme nero immediatamente
         - entity t 23
     scene.red_alert:
       name: allarme rosso
@@ -154,30 +156,35 @@ google_assistant:
       expose: true
       aliases:
         - scena foresta
+        - modalità foresta
         - entity t 25
     scene.inverno:
       name: inverno
       expose: true
       aliases:
         - scena inverno
+        - modalità inverno
         - entity t 26
     scene.oceano:
       name: oceano
       expose: true
       aliases:
         - scena oceano
+        - modalità oceano
         - entity t 27
     scene.club:
       name: club
       expose: true
       aliases:
         - scena club
+        - modalità club
         - entity t 28
     scene.acquario:
       name: acquario
       expose: true
       aliases:
         - scena acquario
+        - modalità acquario
         - entity t 29
     scene.hdmi_1:
       name: canale 1
@@ -235,7 +242,6 @@ google_assistant:
       expose: true
       aliases:
         - il termoventilatore in bagno
-        - scalda il cesso
         - entity t 42
     switch.accendi_termostato_dashboard_salotto:
       name: scalda il salotto
@@ -250,10 +256,10 @@ google_assistant:
         - il termoventilatore in camera
         - entity t 44
     switch.tv_volume:
-      name: volume tv
+      name: volume
       expose: true
       aliases:
-        - volume della tv
+        - il volume
         - entity t 45
     switch.nabaztaglife:
       name: coniglio
