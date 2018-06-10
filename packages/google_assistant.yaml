@@ -237,6 +237,12 @@ google_assistant:
       aliases:
         - il televisore
         - entity t 41
+    sky_ir_power:
+      name: sky
+      expose: true
+      aliases:
+        - il ricevitore di sky
+        - entity t 49
     switch.sky_button_pause:
       name: pausa sky
       expose: true
