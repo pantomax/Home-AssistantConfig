@@ -10,6 +10,7 @@ homeassistant:
 cloud: !include includes/alexa.yaml
 config:
 updater:
+hassio:
 discovery:
 sun:
 dialogflow:
