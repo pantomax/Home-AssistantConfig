@@ -9,6 +9,7 @@ homeassistant:
   packages: !include_dir_named packages
 cloud: !include includes/alexa.yaml
 config:
+hassio:
 updater:
 discovery:
 sun:
