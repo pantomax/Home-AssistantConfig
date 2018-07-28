@@ -205,3 +205,294 @@
 #******************************************************************************
 #******************************************************************************
 #******************************************************************************
+  google_actions:
+    filter:
+      include_entities:
+        - switch.insettivoro
+        - switch.tv
+        - switch.sky_ir_power
+        - switch.sky_button_pause
+        - switch.sky_button_play
+        - switch.accendi_termostato_dashboard_bagno
+        - switch.accendi_termostato_dashboard_salotto
+        - switch.accendi_termostato_dashboard_camera
+        - switch.tv_volume
+        - switch.nabaztaglife
+        - script.apricancello
+      include_domains:
+        - light
+        - scene
+      exclude_domains:
+        - switch
+        - script
+        - sensor
+    entity_config:
+#******************************************************************************
+#*******************************   LIGHTS  ************************************
+#******************************************************************************
+      light.tavolino:
+        name: tavolino
+        aliases:
+          - luce sul tavolo
+          - entity t 1
+        room: salotto
+      light.libreria:
+        name: libreria
+        aliases:
+          - luce sulla libreria
+          - entity t 2
+        room: salotto
+      light.mobile_tv:
+        name: mobile
+        aliases:
+          - luce sul mobile
+          - entity t 3
+        room: salotto
+      light.retro_tv:
+        name: retro
+        aliases:
+          - luce dietro
+          - entity t 4
+        room: salotto
+      light.light_desk:
+        name: scrivania
+        aliases:
+          - luce sulla scrivania
+          - entity t 5
+        room: salotto
+      light.led_strip:
+        name: striscia led
+        aliases:
+          - luce led
+          - entity t 6
+        room: salotto
+      light.light_kitchen:
+        name: lavandino
+        aliases:
+          - luce lavandino
+          - entity t 7
+        room: cucina
+      light.light_kitchen_2:
+        name: entrata
+        aliases:
+          - luce entrata
+          - entity t 8
+        room: cucina
+      light.corridoio_bagno:
+        name: bianca
+        aliases:
+          - luce bianca nel corridoio
+          - entity t 9
+        room: corridoio
+      light.corridoio_porta:
+        name: blu
+        aliases:
+          - luce blu nel corridoio
+          - entity t 10
+        room: corridoio
+      light.soffitto:
+        name: soffitto
+        aliases:
+          - luce che punta al soffitto
+          - entity t 12
+        room: corridoio
+      light.giardino:
+        name: giardino
+        aliases:
+          - luce in giardino
+          - entity t 13
+        room: giardino
+      light.camera:
+        name: camera da letto
+        aliases:
+          - luce sotto il letto
+          - entity t 14
+        room: camera da letto
+      light.bagno:
+        name: bagno
+        aliases:
+          - luce in bagno
+          - entity t 15
+        room: bagno
+#******************************************************************************
+#*******************************   SCENES  ************************************
+#******************************************************************************
+      scene.buona_notte:
+        name: notte
+        aliases:
+          - fai una buona notte
+          - buonanotte
+          - buona notte
+          - scena buona notte
+          - modalità notte
+          - entity t 20
+        room: salotto
+      scene.corridoio_spento:
+        name: corridoio
+        aliases:
+          - luci nel corridoio
+          - entity t 21
+        room: salotto
+      scene.film:
+        name: cinema
+        aliases:
+          - luci cinema
+          - scena cinema
+          - modalità cinema
+          - entity t 22
+        room: salotto
+      scene.black_alert:
+        name: allarme nero
+        aliases:
+          - allarme nero immediatamente
+          - entity t 23
+        room: salotto
+      scene.red_alert:
+        name: allarme rosso
+        aliases:
+          - scena allarme rosso
+          - entity t 24
+        room: salotto
+      scene.foresta:
+        name: foresta
+        aliases:
+          - scena foresta
+          - modalità foresta
+          - entity t 25
+        room: salotto
+      scene.inverno:
+        name: inverno
+        aliases:
+          - scena inverno
+          - modalità inverno
+          - entity t 26
+        room: salotto
+      scene.oceano:
+        name: oceano
+        aliases:
+          - scena oceano
+          - modalità oceano
+          - entity t 27
+        room: salotto
+      scene.club:
+        name: club
+        aliases:
+          - scena club
+          - modalità club
+          - entity t 28
+        room: salotto
+      scene.acquario:
+        name: acquario
+        aliases:
+          - scena acquario
+          - modalità acquario
+          - entity t 29
+        room: salotto
+      scene.hdmi_1:
+        name: canale 1
+        aliases:
+          - hdmi 1
+          - entity t 29
+        room: salotto
+      scene.hdmi_2:
+        name: canale 2
+        aliases:
+          - hdmi 2
+          - entity t 30
+        room: salotto
+      scene.hdmi_3:
+        name: canale 3
+        aliases:
+          - hdmi 3
+          - entity t 31
+        room: salotto
+      scene.nhk:
+        name: nhk
+        aliases:
+          - canale nhk
+          - entity t 32
+        room: salotto
+      scene.skyuno:
+        name: sky one
+        aliases:
+          - canale sky one
+          - entity t 33
+        room: salotto
+      scene.skynews:
+        name: sky news
+        aliases:
+          - canale sky news
+          - entity t 34
+        room: salotto
+#******************************************************************************
+#*****************************   SWITCHES  ************************************
+#******************************************************************************
+      switch.insettivoro:
+        name: ventilatore
+        aliases:
+          - ventilatore in sala
+          - entity t 40
+        room: salotto
+      switch.tv:
+        name: tv
+        aliases:
+          - il televisore
+          - entity t 41
+        room: salotto
+      switch.sky_ir_power:
+        name: sky
+        aliases:
+          - il ricevitore di sky
+          - entity t 49
+        room: salotto
+      switch.sky_button_pause:
+        name: pausa sky
+        aliases:
+          - pausa su ricevitore sky
+          - entity t 47
+        room: salotto
+      switch.sky_button_play:
+        name: riproduci sky
+        aliases:
+          - riproduzione su ricevitore sky
+          - entity t 48
+        room: salotto
+      switch.accendi_termostato_dashboard_bagno:
+        name: scalda il bagno
+        aliases:
+          - il termoventilatore in bagno
+          - entity t 42
+        room: salotto
+      switch.accendi_termostato_dashboard_salotto:
+        name: scalda il salotto
+        aliases:
+          - il termoventilatore in salotto
+          - entity t 43
+        room: salotto
+      switch.accendi_termostato_dashboard_camera:
+        name: scalda la camera
+        aliases:
+          - il termoventilatore in camera
+          - entity t 44
+        room: salotto
+      switch.tv_volume:
+        name: volume
+        aliases:
+          - il volume
+          - entity t 45
+        room: salotto
+      switch.nabaztaglife:
+        name: coniglio
+        aliases:
+          - nabaztag
+          - entity t 46
+        room: salotto
+#******************************************************************************
+#******************************   SCRIPTS  ************************************
+#******************************************************************************
+      script.apricancello:
+        name: cancello
+        aliases:
+          - apriti sesamo
+          - lo stargate
+          - entity t 60
