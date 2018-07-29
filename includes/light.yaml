@@ -14,7 +14,7 @@
     lights:
       tavolino:
         friendly_name: "Tavolino"
-        value_template: "{{ is_state('switch.tavolino', 'on') }}"
+        value_template: "{{ is_state('switch.luce_rf_1', 'on') }}"
         turn_on:
           service: switch.turn_on
           entity_id: switch.tavolino
@@ -25,7 +25,7 @@
     lights:
       libreria:
         friendly_name: "Libreria"
-        value_template: "{{ is_state('switch.libreria', 'on') }}"
+        value_template: "{{ is_state('switch.luce_rf_2', 'on') }}"
         turn_on:
           service: switch.turn_on
           entity_id: switch.libreria
@@ -36,7 +36,7 @@
     lights:
       mobile_tv:
         friendly_name: "Mobile TV"
-        value_template: "{{ is_state('switch.mobile_tv', 'on') }}"
+        value_template: "{{ is_state('switch.luce_rf_3', 'on') }}"
         turn_on:
           service: switch.turn_on
           entity_id: switch.mobile_tv
@@ -47,7 +47,7 @@
     lights:
       retro_tv:
         friendly_name: "Retro TV"
-        value_template: "{{ is_state('switch.retro_tv', 'on') }}"
+        value_template: "{{ is_state('switch.luce_rf_4', 'on') }}"
         turn_on:
           service: switch.turn_on
           entity_id: switch.retro_tv
@@ -92,7 +92,7 @@
     lights:
       light_kitchen:
         friendly_name: "Cucina"
-        value_template: "{{ is_state('switch.light_kitchen', 'on') }}"
+        value_template: "{{ is_state('switch.luce_rf_5', 'on') }}"
         turn_on:
           service: switch.turn_on
           entity_id: switch.light_kitchen
