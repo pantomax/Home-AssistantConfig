@@ -549,8 +549,6 @@
     switch.sky_button_blue:
       friendly_name: "Blu"
       icon: mdi:circle-outline
-    switch.luce_rf_1:
-      friendly_name: "Tavolino"
     switch.stereo:
       friendly_name: "Stereo"
     switch.stereo_vol_up:
