@@ -70,51 +70,67 @@
       scene.buona_notte:
         name: notte
         description: fai una buona notte
+        display_categories: SCENE_TRIGGER
       scene.corridoio_spento:
         name: corridoio
         description: luci nel corridoio
+        display_categories: SCENE_TRIGGER
       scene.film:
         name: cinema
         description: luci cinema
+        display_categories: SCENE_TRIGGER
       scene.black_alert:
         name: allarme nero
         description: allarme nero immediato
+        display_categories: SCENE_TRIGGER
       scene.red_alert:
         name: allarme rosso
         description: scena allarme rosso
+        display_categories: SCENE_TRIGGER
       scene.foresta:
         name: foresta
         description: scena foresta
+        display_categories: SCENE_TRIGGER
       scene.inverno:
         name: inverno
         description: scena inverno
+        display_categories: SCENE_TRIGGER
       scene.oceano:
         name: oceano
         description: scena oceano
+        display_categories: SCENE_TRIGGER
       scene.club:
         name: club
         description: scena club
+        display_categories: SCENE_TRIGGER
       scene.acquario:
         name: acquario
         description: scena acquario
+        display_categories: SCENE_TRIGGER
       scene.hdmi_1:
         name: canale 1
         description: hdmi 1
+        display_categories: SCENE_TRIGGER
       scene.hdmi_2:
         name: canale 2
         description: hdmi 2
+        display_categories: SCENE_TRIGGER
       scene.hdmi_3:
         name: canale 3
         description: hdmi 3
+        display_categories: SCENE_TRIGGER
       scene.nhk:
         name: nhk
         description: canale nhk
+        display_categories: SCENE_TRIGGER
       scene.skyuno:
         name: sky one
         description: canale sky one
+        display_categories: SCENE_TRIGGER
       scene.skynews:
         name: sky news
         description: canale sky news
+        display_categories: SCENE_TRIGGER
 #******************************************************************************
 #*****************************   SWITCHES  ************************************
 #******************************************************************************
@@ -158,4 +174,34 @@
 #        type: climate
         description: temperatura vicino al server
         display_categories: TEMPERATURE_SENSOR
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
+#******************************************************************************
 #******************************************************************************

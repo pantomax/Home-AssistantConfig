@@ -235,8 +235,26 @@ google_assistant:
       name: tv
       expose: true
       aliases:
-        - televisione
+        - il televisore
         - entity t 41
+    sky_ir_power:
+      name: sky
+      expose: true
+      aliases:
+        - il ricevitore di sky
+        - entity t 49
+    switch.sky_button_pause:
+      name: pausa sky
+      expose: true
+      aliases:
+        - pausa su ricevitore sky
+        - entity t 47
+    switch.sky_button_play:
+      name: riproduci sky
+      expose: true
+      aliases:
+        - riproduzione su ricevitore sky
+        - entity t 48
     switch.accendi_termostato_dashboard_bagno:
       name: scalda il bagno
       expose: true
