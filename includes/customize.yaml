@@ -564,3 +564,129 @@
       friendly_name: "Light Kitchen"
     switch.luce_rf_6:
       friendly_name: "Soffitto"
+    switch.stereo:
+      friendly_name: "Stereo"
+    switch.stereo_vol_up:
+      friendly_name: "Stereo Vol Up"
+    switch.stereo_vol_down:
+      friendly_name: "Stereo Vol Down"
+    switch.tv_ir_power:
+      friendly_name: "Tv Power"
+    switch.sound_mute:
+      friendly_name: "Mute"
+    switch.volume:
+      friendly_name: "Volume"
+    switch.volume_up:
+      friendly_name: "Volume Su"
+    switch.volume_down:
+      friendly_name: "Volume Giu"
+    switch.input_hdmi:
+      friendly_name: "Select Hdmi"
+    switch.input_hdmi1:
+      friendly_name: "Select Hdmi 1"
+    switch.input_hdmi2:
+      friendly_name: "Select Hdmi 2"
+    switch.input_hdmi3:
+      friendly_name: "Select Hdmi 3"
+    switch.input_pulsante:
+      friendly_name: "pulsante di prova"
+    switch.input_hdmi_choose:
+      friendly_name: "Hdmi 1 o 2"
+#************************ SKY ******************************
+    switch.sky_ir_power:
+      friendly_name: "Sky Power"
+    switch.sky_ir_esc:
+      friendly_name: "Ok Esc"
+    switch.channel_up_down:
+      friendly_name: "Canale Su Giu"
+    switch.sky_left_arrow:
+      friendly_name: "Sinistra"
+    switch.sky_button_tv:
+      friendly_name: "sky_button_tv"
+    switch.sky_button_sky:
+      friendly_name: "sky_button_sky"
+    switch.sky_button_guida_tv:
+      friendly_name: "sky_button_guida_tv"
+    switch.sky_button_primafila:
+      friendly_name: "sky_button_primafila"
+    switch.sky_button_menu:
+      friendly_name: "sky_button_menu"
+    switch.sky_button_on_demand:
+      friendly_name: "sky_button_on_demand"
+    switch.sky_button_i:
+      friendly_name: "sky_button_i"
+    switch.sky_button_chan_up:
+      friendly_name: "sky_button_chan_up"
+    switch.sky_button_chan_down:
+      friendly_name: "sky_button_chan_down"
+    switch.sky_button_arrow_up:
+      friendly_name: "sky_button_arrow_up"
+    switch.sky_button_arrow_down:
+      friendly_name: "sky_button_arrow_down"
+    switch.sky_button_arrow_left:
+      friendly_name: "sky_button_arrow_left"
+    switch.sky_button_arrow_right:
+      friendly_name: "sky_button_arrow_right"
+    switch.sky_button_ok:
+      friendly_name: "sky_button_ok"
+    switch.sky_button_p:
+      friendly_name: "sky_button_p"
+    switch.sky_button_esc:
+      friendly_name: "sky_button_esc"
+    switch.sky_button_my:
+      friendly_name: "sky_button_my"
+    switch.sky_button_rewind:
+      friendly_name: "sky_button_rewind"
+    switch.sky_button_forward:
+      friendly_name: "sky_button_forward"
+    switch.sky_button_pause:
+      friendly_name: "sky_button_pause"
+    switch.sky_button_play:
+      friendly_name: "sky_button_play"
+    switch.sky_button_rec:
+      friendly_name: "sky_button_rec"
+    switch.sky_button_stop:
+      friendly_name: "sky_button_stop"
+    switch.sky_button_red:
+      friendly_name: "sky_button_red"
+    switch.sky_button_green:
+      friendly_name: "sky_button_green"
+    switch.sky_button_yellow:
+      friendly_name: "sky_button_yellow"
+    switch.sky_button_blue:
+      friendly_name: "sky_button_blue"
+    switch.sky_button_tv_channel_0:
+      friendly_name: "sky_button_tv_channel_0"
+    switch.sky_button_tv_channel_1:
+      friendly_name: "sky_button_tv_channel_1"
+    switch.sky_button_tv_channel_2:
+      friendly_name: "sky_button_tv_channel_2"
+    switch.sky_button_tv_channel_3:
+      friendly_name: "sky_button_tv_channel_3"
+    switch.sky_button_tv_channel_4:
+      friendly_name: "sky_button_tv_channel_4"
+    switch.sky_button_tv_channel_5:
+      friendly_name: "sky_button_tv_channel_5"
+    switch.sky_button_tv_channel_6:
+      friendly_name: "sky_button_tv_channel_6"
+    switch.sky_button_tv_channel_7:
+      friendly_name: "sky_button_tv_channel_7"
+    switch.sky_button_tv_channel_8:
+      friendly_name: "sky_button_tv_channel_8"
+    switch.sky_button_tv_channel_9:
+      friendly_name: "sky_button_tv_channel_9"
+    switch.bagno_termoventilatore_accendi_spegni:
+      friendly_name: "Power"
+    switch.bagno_termoventilatore_eco_com:
+      friendly_name: "Eco/Comfort"
+    switch.bagno_termoventilatore_timer:
+      friendly_name: "Timer"
+    switch.bagno_termoventilatore_basculante:
+      friendly_name: "Basculante"
+    switch.bagno_termoventilatore_canc:
+      friendly_name: "Canc"
+    switch.bagno_termoventilatore_piu:
+      friendly_name: "Più"
+    switch.bagno_termoventilatore_meno:
+      friendly_name: "Meno"
+
