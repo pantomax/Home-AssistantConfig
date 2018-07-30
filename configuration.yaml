@@ -7,7 +7,6 @@ homeassistant:
   time_zone: Europe/Rome
   customize: !include includes/customize.yaml
   packages: !include_dir_named packages
-cloud: !include includes/cloud.yaml
 config:
 hassio:
 updater:
@@ -101,3 +100,4 @@ sensor: !include includes/sensors.yaml
 switch: !include includes/switches.yaml
 weblink: !include includes/weblinks.yaml
 zone: !include includes/zones.yaml
+cloud: !include includes/cloud.yaml
