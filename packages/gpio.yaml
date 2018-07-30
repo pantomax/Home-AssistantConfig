@@ -63,6 +63,7 @@ sensor:
 #  - platform: template
 #    sensors:
 #      wired_motion_sensor_desktop:
+#        friendly_name: "Wired Motion Sensor Desktop"
 #        device_class: motion
 #        delay_off:
 #          seconds: 20
