@@ -100,4 +100,4 @@ sensor: !include includes/sensors.yaml
 switch: !include includes/switches.yaml
 weblink: !include includes/weblinks.yaml
 zone: !include includes/zones.yaml
-cloud: !include includes/cloud.yaml
+#cloud: !include includes/cloud.yaml
