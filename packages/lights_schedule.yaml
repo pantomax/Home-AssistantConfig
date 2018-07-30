@@ -47,6 +47,7 @@ sensor:
   - platform: template
     sensors:
       countdown_corridoio:
+        friendly_name: "Tempo Rimanente"
         value_template: "{{ states('sensor.countdown_corridoio_hours') }} : {{ states('sensor.countdown_corridoio_minutes') }} : {{ states('sensor.countdown_corridoio_seconds') }}"
   - platform: template
     sensors:
