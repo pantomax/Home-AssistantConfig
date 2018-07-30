@@ -30,7 +30,6 @@ sensor:
   - platform: template
     sensors:
       foo_battery_level:
-        friendly_name: "foo_battery_level"
         unit_of_measurement: '%'
         value_template: "{{ states.sensor.foo.attributes.batteryLevel }}"
 switch:
@@ -41,4 +40,3 @@ switch:
       command_off: !secret foo_screen_off
       command_state: !secret foo_screen_state
       value_template: '{{ value == "on" }}'
-      friendly_name: Foo Screen
