@@ -47,7 +47,7 @@
         turn_on:
           service: switch.turn_on
           entity_id: switch.retro_tv
-        turn_off:nsett
+        turn_off:
           service: switch.turn_off
           entity_id: switch.retro_tv
   - platform: template
