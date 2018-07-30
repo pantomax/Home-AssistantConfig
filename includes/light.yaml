@@ -13,6 +13,7 @@
   - platform: template
     lights:
       tavolino:
+        friendly_name: "Tavolino"
         value_template: "{{ is_state('switch.luce_rf_1', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -23,6 +24,7 @@
   - platform: template
     lights:
       libreria:
+        friendly_name: "Libreria"
         value_template: "{{ is_state('switch.luce_rf_2', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -33,6 +35,7 @@
   - platform: template
     lights:
       mobile_tv:
+        friendly_name: "Mobile TV"
         value_template: "{{ is_state('switch.luce_rf_3', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -43,6 +46,7 @@
   - platform: template
     lights:
       retro_tv:
+        friendly_name: "Retro TV"
         value_template: "{{ is_state('switch.luce_rf_4', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -53,6 +57,7 @@
   - platform: template
     lights:
       soffitto:
+        friendly_name: "Soffitto"
         value_template: "{{ is_state('switch.soffitto', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -63,6 +68,7 @@
   - platform: template
     lights:
       light_desk:
+        friendly_name: "Scrivania"
         value_template: "{{ is_state('switch.light_desk', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -73,6 +79,7 @@
   - platform: template
     lights:
       insettivoro:
+        friendly_name: "Insettivoro"
         value_template: "{{ is_state('switch.insettivoro', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -84,6 +91,7 @@
   - platform: template
     lights:
       light_kitchen:
+        friendly_name: "Cucina"
         value_template: "{{ is_state('switch.luce_rf_5', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -94,6 +102,7 @@
   - platform: template
     lights:
       light_kitchen_2:
+        friendly_name: "Cucina 2"
         value_template: "{{ is_state('switch.cucina_2', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -105,6 +114,7 @@
   - platform: template
     lights:
       corridoio_porta:
+        friendly_name: "Corridorio Porta"
         value_template: "{{ is_state('switch.corridoio_porta', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -115,6 +125,7 @@
   - platform: template
     lights:
       corridoio_bagno:
+        friendly_name: "Corridoio Bagno"
         value_template: "{{ is_state('switch.corridoio_bagno', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -126,6 +137,7 @@
   - platform: template
     lights:
       camera:
+        friendly_name: "Camera"
         value_template: "{{ is_state('switch.camera', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -137,6 +149,7 @@
   - platform: template
     lights:
       bagno:
+        friendly_name: "Bagno"
         value_template: "{{ is_state('switch.bagno', 'on') }}"
         turn_on:
           service: switch.turn_on
@@ -148,6 +161,178 @@
   - platform: template
     lights:
       giardino:
+        friendly_name: "Giardino"
+        value_template: "{{ is_state('switch.giardino', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.giardino
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.giardino
+#******************************************************************************###############################################################################
+#
+#                                  LIGHTS
+#
+###############################################################################
+#*********************************SALOTTO**************************************
+  - platform: flux_led
+    devices:
+      !secret led_strip:
+        name: led_strip
+        mode: "rgbw"
+#        protocol: 'ledenet'
+  - platform: template
+    lights:
+      tavolino:
+        friendly_name: "Tavolino"
+        value_template: "{{ is_state('switch.luce_rf_1', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.tavolino
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.tavolino
+  - platform: template
+    lights:
+      libreria:
+        friendly_name: "Libreria"
+        value_template: "{{ is_state('switch.luce_rf_2', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.libreria
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.libreria
+  - platform: template
+    lights:
+      mobile_tv:
+        friendly_name: "Mobile TV"
+        value_template: "{{ is_state('switch.luce_rf_3', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.mobile_tv
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.mobile_tv
+  - platform: template
+    lights:
+      retro_tv:
+        friendly_name: "Retro TV"
+        value_template: "{{ is_state('switch.luce_rf_4', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.retro_tv
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.retro_tv
+  - platform: template
+    lights:
+      soffitto:
+        friendly_name: "Soffitto"
+        value_template: "{{ is_state('switch.soffitto', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.soffitto
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.soffitto
+  - platform: template
+    lights:
+      light_desk:
+        friendly_name: "Scrivania"
+        value_template: "{{ is_state('switch.light_desk', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.light_desk
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.light_desk
+  - platform: template
+    lights:
+      insettivoro:
+        friendly_name: "Insettivoro"
+        value_template: "{{ is_state('switch.insettivoro', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.insettivoro
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.insettivoro
+#*********************************CUCINA***************************************
+  - platform: template
+    lights:
+      light_kitchen:
+        friendly_name: "Cucina"
+        value_template: "{{ is_state('switch.luce_rf_5', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.light_kitchen
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.light_kitchen
+  - platform: template
+    lights:
+      light_kitchen_2:
+        friendly_name: "Cucina 2"
+        value_template: "{{ is_state('switch.cucina_2', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.cucina_2
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.cucina_2
+#*********************************CORRIDOIO************************************
+  - platform: template
+    lights:
+      corridoio_porta:
+        friendly_name: "Corridorio Porta"
+        value_template: "{{ is_state('switch.corridoio_porta', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.corridoio_porta
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.corridoio_porta
+  - platform: template
+    lights:
+      corridoio_bagno:
+        friendly_name: "Corridoio Bagno"
+        value_template: "{{ is_state('switch.corridoio_bagno', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.corridoio_bagno
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.corridoio_bagno
+#*********************************CAMERA DA LETTO *****************************
+  - platform: template
+    lights:
+      camera:
+        friendly_name: "Camera"
+        value_template: "{{ is_state('switch.camera', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.camera
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.camera
+#*********************************BAGNO****************************************
+  - platform: template
+    lights:
+      bagno:
+        friendly_name: "Bagno"
+        value_template: "{{ is_state('switch.bagno', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.bagno
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.bagno
+#*********************************GIARDINO*************************************
+  - platform: template
+    lights:
+      giardino:
+        friendly_name: "Giardino"
         value_template: "{{ is_state('switch.giardino', 'on') }}"
         turn_on:
           service: switch.turn_on
