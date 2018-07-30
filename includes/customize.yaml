@@ -4,7 +4,6 @@
 #
 ###############################################################################
 #**********************************GOOGLE**************************************
-#**********************************SALOTTO*************************************
     light.tavolino:
       friendly_name: "Tavolino"
       icon: mdi:lamp
@@ -23,29 +22,24 @@
     light.led_strip:
       friendly_name: "Striscia Led"
       icon: mdi:led-strip
-    light.tv:
-      friendly_name: "Tv"
-      icon: mdi:television-classic
-    light.soffitto:
-      friendly_name: "Soffitto"
-      icon: mdi:format-vertical-align-top
-    light.insettivoro:
-      friendly_name: "Insettivoro"
-#**********************************CUCINA**************************************
     light.light_kitchen:
       friendly_name: "Lavello"
       icon: mdi:water-pump
     light.light_kitchen_2:
       friendly_name: "Ingresso"
       icon: mdi:glassdoor
-#**********************************CORRIDOIO**************************************
     light.corridoio_bagno:
       friendly_name: "Corridoio Bagno"
       icon: mdi:ceiling-light
     light.corridoio_porta:
       friendly_name: "Corridoio Porta"
       icon: mdi:ceiling-light
-#**********************************GIARDINO**************************************
+    light.tv:
+      friendly_name: "Tv"
+      icon: mdi:television-classic
+    light.soffitto:
+      friendly_name: "Soffitto"
+      icon: mdi:format-vertical-align-top
     light.giardino:
       friendly_name: "Luce Giardino"
       icon: mdi:flower
@@ -55,103 +49,6 @@
     light.bagno:
       friendly_name: "Luce Bagno"
       icon: mdi:human-male-female
-#**********************************SWITCH**************************************
-    switch.insettivoro:
-      friendly_name: "Insettivoro"
-      icon: mdi:bug
-    switch.tv:
-      friendly_name: "Accendi TV" 
-      icon: mdi:satellite-variant
-    switch.accendi_termostato_dashboard_bagno:
-      friendly_name: "Scalda bagno"
-      icon: mdi:fire
-    switch.accendi_termostato_dashboard_salotto:
-      friendly_name: "Scalda salotto"
-      icon: mdi:fire
-    switch.accendi_termostato_dashboard_camera:
-      friendly_name: "Scalda camera"
-      icon: mdi:fire
-    switch.tv_volume:
-      friendly_name: "Alza il volume" 
-      icon: mdi:satellite-variant
-    switch.windows:
-      friendly_name: "Pc Windows"
-      icon: mdi:desktop-classic
-    switch.volume:
-      icon: mdi:volume-high
-    switch.mqtt_switch_1:
-      friendly_name: "MQTT Switch 1"
-      icon: mdi:power-socket-eu
-    switch.mqtt_switch_2:
-      friendly_name: "MQTT Switch 2"
-      icon: mdi:power-socket-eu
-    switch.mqtt_switch_3:
-      friendly_name: "MQTT Switch 3"
-      icon: mdi:power-socket-eu
-    switch.mqtt_switch_4:
-      friendly_name: "MQTT Switch 4"
-      icon: mdi:power-socket-eu
-    switch.giardino:
-      friendly_name: "Giardino"
-    switch.luce_rf_1:
-      friendly_name: "Tavolino"
-    switch.luce_rf_2:
-      friendly_name: "Libreria"
-    switch.luce_rf_3:
-      friendly_name: "Mobile TV"
-    switch.luce_rf_4:
-      friendly_name: "Retro TV"
-    switch.luce_rf_5:
-      friendly_name: "Light Kitchen"
-    switch.luce_rf_6:
-      friendly_name: "Soffitto"
-    switch.stereo:
-      friendly_name: "Stereo"
-    switch.stereo_vol_up:
-      friendly_name: "Stereo Vol Up"
-    switch.stereo_vol_down:
-      friendly_name: "Stereo Vol Down"
-    switch.tv_ir_power:
-      friendly_name: "Tv Power"
-    switch.sound_mute:
-      friendly_name: "Mute"
-    switch.volume_up:
-      friendly_name: "Volume Su"
-    switch.volume_down:
-      friendly_name: "Volume Giu"
-    switch.input_hdmi:
-      friendly_name: "Select Hdmi"
-    switch.input_hdmi1:
-      friendly_name: "Select Hdmi 1"
-    switch.input_hdmi2:
-      friendly_name: "Select Hdmi 2"
-    switch.input_hdmi3:
-      friendly_name: "Select Hdmi 3"
-    switch.input_pulsante:
-      friendly_name: "pulsante di prova"
-    switch.input_hdmi_choose:
-      friendly_name: "Hdmi 1 o 2"
-#**********************************SCRIPTS**************************************
-    script.apricancello:
-      friendly_name : "Apri Cancello"
-      icon: mdi:gate
-    script.forest:
-      friendly_name : "La foret"
-      entity_picture: /local/foresta.jpg
-    script.hiver:
-      friendly_name: "Feu de cheminée"
-      entity_picture: /local/fuoco.jpg
-    script.ocean:
-      friendly_name: "Ocean"
-      entity_picture: /local/oceano.jpg
-#**********************************SENSORS**************************************
-    sensor.dht_humidity:
-      friendly_name : "Umidità DHT"
-      icon: mdi:water-percent
-    sensor.dht_temperature:
-      friendly_name : "Temperatura DHT"
-      icon: mdi:thermometer-lines
-#**********************************SCENE**************************************
     scene.buona_notte:
       entity_picture: /local/goodnight.png
     scene.corridoio_spento:
@@ -192,8 +89,36 @@
     scene.hdmi_3:
       friendly_name: "HDMI 3"
       icon: mdi:numeric-3-box-multiple-outline
+    switch.insettivoro:
+      friendly_name: "Insettivoro"
+      icon: mdi:bug
+    switch.tv:
+      friendly_name: "Accendi TV" 
+      icon: mdi:satellite-variant
+    switch.accendi_termostato_dashboard_bagno:
+      friendly_name: "Scalda bagno"
+      icon: mdi:fire
+    switch.accendi_termostato_dashboard_salotto:
+      friendly_name: "Scalda salotto"
+      icon: mdi:fire
+    switch.accendi_termostato_dashboard_camera:
+      friendly_name: "Scalda camera"
+      icon: mdi:fire
+    switch.tv_volume:
+      friendly_name: "Alza il volume" 
+      icon: mdi:satellite-variant
+    script.apricancello:
+      friendly_name : "Apri Cancello"
+      icon: mdi:gate
+    sensor.dht_humidity:
+      friendly_name : "Umidità DHT"
+      icon: mdi:water-percent
+    sensor.dht_temperature:
+      friendly_name : "Temperatura DHT"
+      icon: mdi:thermometer-lines
+#*********************************SCENES***************************************
     scene.luci_sala_accese:
-      friendly_name: "Luci 6666Sala Accese"
+      friendly_name: "Luci Sala Accese"
       entity_picture: /local/lightbulbs.png
     scene.stereo_max:
       friendly_name: "Stereo Max"
@@ -218,6 +143,9 @@
       friendly_name: "Mauro Lavoro"
       icon: mdi:account
 #*********************************VARIOUS**************************************
+    switch.windows:
+      friendly_name: "Pc Windows"
+      icon: mdi:desktop-classic
     group.all_switches:
       icon: mdi:home-assistant
     input_boolean.motion_timer:
@@ -228,6 +156,20 @@
       icon: mdi:google-chromecast
     sun.sun:
       friendly_name: "Sole"
+    switch.volume:
+      icon: mdi:volume-high
+    switch.mqtt_switch_1:
+      friendly_name: "MQTT Switch 1"
+      icon: mdi:power-socket-eu
+    switch.mqtt_switch_2:
+      friendly_name: "MQTT Switch 2"
+      icon: mdi:power-socket-eu
+    switch.mqtt_switch_3:
+      friendly_name: "MQTT Switch 3"
+      icon: mdi:power-socket-eu
+    switch.mqtt_switch_4:
+      friendly_name: "MQTT Switch 4"
+      icon: mdi:power-socket-eu
 #*********************************SCENE****************************************
     scene.luci_sala_spente:
       entity_picture: /local/lightsoff.png
@@ -295,8 +237,6 @@
     binary_sensor.smartphonesalotto3:
       friendly_name: "Sensore 2"
       icon: mdi:access-point
-    sensors.countdown:
-      friendly_name: "Tempo Rimanente"
     sensors.countdown_bagno:
       friendly_name: "Tempo Rimanente"
       icon: mdi:timelapse
@@ -304,9 +244,6 @@
       friendly_name: "Tempo Rimanente"
       icon: mdi:timelapse
     sensors.countdown_camera:
-      friendly_name: "Tempo Rimanente"
-      icon: mdi:timelapse
-    sensors.countdown_corridoio:
       friendly_name: "Tempo Rimanente"
       icon: mdi:timelapse
     sensor.sensore_air_quality:
@@ -470,6 +407,15 @@
       icon: mdi:play
     automation.chromecast_music:  
       icon: mdi:library-music
+    script.forest:
+      friendly_name : "La foret"
+      entity_picture: /local/foresta.jpg
+    script.hiver:
+      friendly_name: "Feu de cheminée"
+      entity_picture: /local/fuoco.jpg
+    script.ocean:
+      friendly_name: "Ocean"
+      entity_picture: /local/oceano.jpg
 #*********************************NABAZTAG*************************************
     script.nabaztag_surprise:
       icon: mdi:emoticon-excited
@@ -487,13 +433,6 @@
       icon: mdi:restore
     script.nabaztag_reboot:
       icon: mdi:refresh
-#************************ SKY ******************************
-    switch.sky_ir_power:
-      friendly_name: "Sky Power"
-    switch.sky_ir_esc:
-      friendly_name: "Ok Esc"
-    switch.channel_up_down:
-      friendly_name: "Canale Su Giu"
 #*************************** TASTIERINO SKY ***********************************
     switch.sky_power:
       friendly_name: "Power"
@@ -610,22 +549,25 @@
     switch.sky_button_blue:
       friendly_name: "Blu"
       icon: mdi:circle-outline
-#******************************TERMOVENTILATORE********************************
-    switch.bagno_termoventilatore_accendi_spegni:
-      friendly_name: "Power"
-    switch.bagno_termoventilatore_eco_com:
-      friendly_name: "Eco/Comfort"
-    switch.bagno_termoventilatore_timer:
-      friendly_name: "Timer"
-    switch.bagno_termoventilatore_basculante:
-      friendly_name: "Basculante"
-    switch.bagno_termoventilatore_canc:
-      friendly_name: "Canc"
-    switch.bagno_termoventilatore_piu:
-      friendly_name: "Più"
-    switch.bagno_termoventilatore_meno:
-      friendly_name: "Meno"
-    sensor.foo_battery_level:
-      friendly_name: "foo_battery_level"
-    switch.foo_screen:
-      friendly_name: "Foo Screen"
+    switch.luce_rf_1:
+      friendly_name: "Tavolino"
+    switch.stereo:
+      friendly_name: "Stereo"
+    switch.stereo_vol_up:
+      friendly_name: "Stereo Vol Up"
+    switch.stereo_vol_down:
+      friendly_name: "Stereo Vol Down"
+    switch.giardino:
+      friendly_name: "Giardino"
+    switch.luce_rf_1:
+      friendly_name: "Tavolino"
+    switch.luce_rf_2:
+      friendly_name: "Libreria"
+    switch.luce_rf_3:
+      friendly_name: "Mobile TV"
+    switch.luce_rf_4:
+      friendly_name: "Retro TV"
+    switch.luce_rf_5:
+      friendly_name: "Light Kitchen"
+    switch.luce_rf_6:
+      friendly_name: "Soffitto"
