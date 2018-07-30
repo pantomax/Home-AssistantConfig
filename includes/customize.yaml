@@ -550,25 +550,3 @@
       friendly_name: "Blu"
       icon: mdi:circle-outline
 #******************************************************************************
-    switch.stereo:
-      friendly_name: "Stereo"
-    switch.stereo_vol_up:
-      friendly_name: "Stereo Vol Up"
-    switch.stereo_vol_down:
-      friendly_name: "Stereo Vol Down"
-    switch.giardino:
-      friendly_name: "Giardino"
-    switch.luce_rf_1:
-      friendly_name: "Tavolino"
-    switch.luce_rf_2:
-      friendly_name: "Libreria"
-    switch.luce_rf_3:
-      friendly_name: "Mobile TV"
-    switch.luce_rf_4:
-      friendly_name: "Retro TV"
-    switch.luce_rf_5:
-      friendly_name: "Light Kitchen"
-    switch.luce_rf_6:
-      friendly_name: "Soffitto"
-    bagno_termoventilatore_accendi_spegni:
-      friendly_name: "Power"
