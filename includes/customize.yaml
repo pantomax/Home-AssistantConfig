@@ -572,37 +572,3 @@
       friendly_name: "Soffitto"
     bagno_termoventilatore_accendi_spegni:
       friendly_name: "Power"
-    bagno_termoventilatore_eco_com:
-      friendly_name: "Eco/Comfort"
-    bagno_termoventilatore_timer:
-      friendly_name: "Timer"
-    bagno_termoventilatore_basculante:
-      friendly_name: "Basculante"
-    bagno_termoventilatore_canc:
-      friendly_name: "Canc"
-    bagno_termoventilatore_piu:
-      friendly_name: "Più"
-    bagno_termoventilatore_meno:
-      friendly_name: "Meno"
-    tv_ir_power:
-      friendly_name: "Tv Power"
-    sound_mute:
-      friendly_name: "Mute"
-    volume:
-      friendly_name: "Volume"
-    volume_up:
-      friendly_name: "Volume Su"
-    volume_down:
-      friendly_name: "Volume Giu"
-    input_hdmi:
-      friendly_name: "Select Hdmi"
-    input_hdmi1:
-      friendly_name: "Select Hdmi 1"
-    input_hdmi2:
-      friendly_name: "Select Hdmi 2"
-    input_hdmi3:
-      friendly_name: "Select Hdmi 3"
-    input_pulsante:
-      friendly_name: "pulsante di prova"
-    input_hdmi_choose:
-      friendly_name: "Hdmi 1 o 2"
