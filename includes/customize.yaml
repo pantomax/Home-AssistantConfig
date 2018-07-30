@@ -569,4 +569,122 @@
       friendly_name: "Light Kitchen"
     switch.luce_rf_6:
       friendly_name: "Soffitto"
-
+    bagno_termoventilatore_accendi_spegni:
+      friendly_name: "Power"
+    bagno_termoventilatore_eco_com:
+      friendly_name: "Eco/Comfort"
+    bagno_termoventilatore_timer:
+      friendly_name: "Timer"
+    bagno_termoventilatore_basculante:
+      friendly_name: "Basculante"
+    bagno_termoventilatore_canc:
+      friendly_name: "Canc"
+    bagno_termoventilatore_piu:
+      friendly_name: "Più"
+    bagno_termoventilatore_meno:
+      friendly_name: "Meno"
+    tv_ir_power:
+      friendly_name: "Tv Power"
+    sound_mute:
+      friendly_name: "Mute"
+    volume:
+      friendly_name: "Volume"
+    volume_up:
+      friendly_name: "Volume Su"
+    volume_down:
+      friendly_name: "Volume Giu"
+    input_hdmi:
+      friendly_name: "Select Hdmi"
+    input_hdmi1:
+      friendly_name: "Select Hdmi 1"
+    input_hdmi2:
+      friendly_name: "Select Hdmi 2"
+    input_hdmi3:
+      friendly_name: "Select Hdmi 3"
+    input_pulsante:
+      friendly_name: "pulsante di prova"
+    input_hdmi_choose:
+      friendly_name: "Hdmi 1 o 2"
+#************************ SKY ******************************
+    sky_ir_power:
+      friendly_name: "Sky Power"
+    sky_ir_esc:
+      friendly_name: "Ok Esc"
+    channel_up_down:
+      friendly_name: "Canale Su Giu"
+    sky_left_arrow:
+      friendly_name: "Sinistra"
+    sky_button_tv:
+      friendly_name: "sky_button_tv"
+    sky_button_sky:
+      friendly_name: "sky_button_sky"
+    sky_button_guida_tv:
+      friendly_name: "sky_button_guida_tv"
+    sky_button_primafila:
+      friendly_name: "sky_button_primafila"
+    sky_button_menu:
+      friendly_name: "sky_button_menu"
+    sky_button_on_demand:
+      friendly_name: "sky_button_on_demand"
+    sky_button_i:
+      friendly_name: "sky_button_i"
+    sky_button_chan_up:
+      friendly_name: "sky_button_chan_up"
+    sky_button_chan_down:
+      friendly_name: "sky_button_chan_down"
+    sky_button_arrow_up:
+      friendly_name: "sky_button_arrow_up"
+    sky_button_arrow_down:
+      friendly_name: "sky_button_arrow_down"
+    sky_button_arrow_left:
+      friendly_name: "sky_button_arrow_left"
+    sky_button_arrow_right:
+      friendly_name: "sky_button_arrow_right"
+    sky_button_ok:
+      friendly_name: "sky_button_ok"
+    sky_button_p:
+      friendly_name: "sky_button_p"
+    sky_button_esc:
+      friendly_name: "sky_button_esc"
+    sky_button_my:
+      friendly_name: "sky_button_my"
+    sky_button_rewind:
+      friendly_name: "sky_button_rewind"
+    sky_button_forward:
+      friendly_name: "sky_button_forward"
+    sky_button_pause:
+      friendly_name: "sky_button_pause"
+    sky_button_play:
+      friendly_name: "sky_button_play"
+    sky_button_rec:
+      friendly_name: "sky_button_rec"
+    sky_button_stop:
+      friendly_name: "sky_button_stop"
+    sky_button_red:
+      friendly_name: "sky_button_red"
+    sky_button_green:
+      friendly_name: "sky_button_green"
+    sky_button_yellow:
+      friendly_name: "sky_button_yellow"
+    sky_button_blue:
+      friendly_name: "sky_button_blue"
+    sky_button_tv_channel_0:
+      friendly_name: "sky_button_tv_channel_0"
+    sky_button_tv_channel_1:
+      friendly_name: "sky_button_tv_channel_1"
+    sky_button_tv_channel_2:
+      friendly_name: "sky_button_tv_channel_2"
+    sky_button_tv_channel_3:
+      friendly_name: "sky_button_tv_channel_3"
+    sky_button_tv_channel_4:
+      friendly_name: "sky_button_tv_channel_4"
+    sky_button_tv_channel_5:
+      friendly_name: "sky_button_tv_channel_5"
+    sky_button_tv_channel_6:
+      friendly_name: "sky_button_tv_channel_6"
+    sky_button_tv_channel_7:
+      friendly_name: "sky_button_tv_channel_7"
+    sky_button_tv_channel_8:
+      friendly_name: "sky_button_tv_channel_8"
+    sky_button_tv_channel_9:
+      friendly_name: "sky_button_tv_channel_9"
