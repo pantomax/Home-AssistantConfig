@@ -564,25 +564,3 @@
       friendly_name: "Light Kitchen"
     switch.luce_rf_6:
       friendly_name: "Soffitto"
-    tv_ir_power:
-      friendly_name: "Tv Power"
-    sound_mute:
-      friendly_name: "Mute"
-    volume:
-      friendly_name: "Volume"
-    volume_up:
-      friendly_name: "Volume Su"
-    volume_down:
-      friendly_name: "Volume Giu"
-    input_hdmi:
-      friendly_name: "Select Hdmi"
-    input_hdmi1:
-      friendly_name: "Select Hdmi 1"
-    input_hdmi2:
-      friendly_name: "Select Hdmi 2"
-    input_hdmi3:
-      friendly_name: "Select Hdmi 3"
-    input_pulsante:
-      friendly_name: "pulsante di prova"
-    input_hdmi_choose:
-      friendly_name: "Hdmi 1 o 2"
