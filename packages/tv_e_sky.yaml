@@ -170,97 +170,97 @@ intent_script:
 script:
 #------------------------------------------------------------------------------
   sky_on:
-    alias: Turn Tv and Sky On
+    alias: Turn Tv and Sky On 
     sequence:
       - service: switch.turn_on
         entity_id:
-          - switch.tv_power
+          - switch.tv_ir_power
       - delay:
             milliseconds: 200
       - service: switch.turn_on
         entity_id:
-          - switch.sky_power
+          - switch.sky_ir_power
       - delay:
             milliseconds: 200
       - service: switch.turn_on
         entity_id:
-          - switch.tv_power
+          - switch.tv_ir_power
       - delay:
             milliseconds: 200
       - service: switch.turn_on
         entity_id:
-          - switch.ok_esc
+          - switch.sky_ir_esc
       - delay:
             milliseconds: 200
       - service: switch.turn_on
         entity_id:
-          - switch.ok_esc
+          - switch.sky_ir_esc
 #******************************************************************************
   sky_off:
     alias: Turn Tv and Sky Off
     sequence:
       - service: switch.turn_off
         entity_id:
-          - switch.tv_power
+          - switch.tv_ir_power
       - delay:
             milliseconds: 500
       - service: switch.turn_off
         entity_id:
-          - switch.sky_power
+          - switch.sky_ir_power
 #******************************************************************************
   tv_volume_up:
     alias: Turn Up the volume of 5 steps
     sequence:
       - service: switch.turn_on
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.volume
+          - switch.tv_volume
 #******************************************************************************
   tv_volume_down:
     alias: Turn Down the volume of 5 steps
     sequence:
       - service: switch.turn_off
         entity_id:
-          - switch.volume_down
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_off
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_off
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_off
         entity_id:
-          - switch.volume
+          - switch.tv_volume
       - delay:
             milliseconds: 100
       - service: switch.turn_off
         entity_id:
-          - switch.volume
+          - switch.tv_volume
 #******************************************************************************
   nhk:
     alias: Change channel on NHK
