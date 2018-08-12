@@ -47,7 +47,7 @@
 #******************************************************************************
       mediaaccess_tg589vn_v3: !secret mediaaccess_tg589vn_v3 
       desktop_win10: !secret computersalotto
-      hassioip: !secret hassioip
+      hassioip: !secret hassio
       condizionatore_camera: !secret condizionatore_camera
       condizionatore_salotto: !secret condizionatore_salotto
       sky_hd: !secret sky_hd
