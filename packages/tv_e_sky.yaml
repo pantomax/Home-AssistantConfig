@@ -213,54 +213,54 @@ script:
     sequence:
       - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_up
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_up
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_up
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_up
       - delay:
             milliseconds: 100
       - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_up
 #******************************************************************************
   tv_volume_down:
     alias: Turn Down the volume of 5 steps
     sequence:
-      - service: switch.turn_off
+      - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_down
       - delay:
             milliseconds: 100
-      - service: switch.turn_off
+      - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_down
       - delay:
             milliseconds: 100
-      - service: switch.turn_off
+      - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_down
       - delay:
             milliseconds: 100
-      - service: switch.turn_off
+      - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_down
       - delay:
             milliseconds: 100
-      - service: switch.turn_off
+      - service: switch.turn_on
         entity_id:
-          - switch.tv_volume
+          - switch.volume_down
 #******************************************************************************
   nhk:
     alias: Change channel on NHK
