@@ -17,7 +17,7 @@
     username: !secret kodi_user
     password: !secret kodi_password
   - platform: mpd
-    host: !secret hassioip
+    host: !secret hassio
   - platform: universal
     name: allmediaplayers
     children:
