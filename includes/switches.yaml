@@ -108,31 +108,24 @@
     type: rm_mini
     switches:
       bagno_termoventilatore_accendi_spegni:
-        friendly_name: "Power"
         command_on: 'JgBQAAABKpUSExIUEhQRFBEUEhMSFBEVETgSNxI4EjgSOBE4EjgSOBI4ERQSFRAUExISExIUExISExI4EjgSOBE4EjgSOBI3EgAFIwABK0kSAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABKpUSExIUEhQRFBEUEhMSFBEVETgSNxI4EjgSOBE4EjgSOBI4ERQSFRAUExISExIUExISExI4EjgSOBE4EjgSOBI3EgAFIwABK0kSAA0FAAAAAAAAAAA='
       bagno_termoventilatore_eco_com:
-        friendly_name: "Eco/Comfort"
         command_on: 'JgBQAAABLJQVEhQSExEUEhQSExIUEhMSEzYUNRU1FDYVNRM2FTUTNxQREhQSExMUExIUEhMRFBEVNRI4EzcUNRI4EzcUNhM2EgAFIwABKksSAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABLJQVEhQSExEUEhQSExIUEhMSEzYUNRU1FDYVNRM2FTUTNxQREhQSExMUExIUEhMRFBEVNRI4EzcUNRI4EzcUNhM2EgAFIwABKksSAA0FAAAAAAAAAAA='
       bagno_termoventilatore_timer:
-        friendly_name: "Timer"
         command_on: 'JgBIAAABLZQSExIUFBESFBITEhQSExIUEzcSNxM3EjgUNhQ2FDYSOBQRFBISOBI3EhQSFBEUEhMUNhQ2FBEUEhI4FDYTNxM2EwANBQ=='
         command_off: 'JgBIAAABLZQSExIUFBESFBITEhQSExIUEzcSNxM3EjgUNhQ2FDYSOBQRFBISOBI3EhQSFBEUEhMUNhQ2FBEUEhI4FDYTNxM2EwANBQ=='
       bagno_termoventilatore_basculante:
-        friendly_name: "Basculante"
         command_on: 'JgBQAAABLpUUEhITExMUERQSFBITEhIUEjgUNhQ2FDUUNxQ1FDYUNhQSExMTNhQSFREUERURFBEUNhM3EhQSNxU1EjgUNhQ2FAAFIwABLUsSAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABLpUUEhITExMUERQSFBITEhIUEjgUNhQ2FDUUNxQ1FDYUNhQSExMTNhQSFREUERURFBEUNhM3EhQSNxU1EjgUNhQ2FAAFIwABLUsSAA0FAAAAAAAAAAA='
       bagno_termoventilatore_canc:
-        friendly_name: "Canc"
         command_on: 'JgBQAAABL5MSExIVExISExQREhMVERIVEzUSOBQ2ETgVNRI4FTUUNhQRFREUEhM2ExMUEhMSExMTNRI4FDYUERI4FDYSOBQ1EgAFIgABKksUAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABL5MSExIVExISExQREhMVERIVEzUSOBQ2ETgVNRI4FTUUNhQRFREUEhM2ExMUEhMSExMTNRI4FDYUERI4FDYSOBQ1EgAFIgABKksUAA0FAAAAAAAAAAA='
       bagno_termoventilatore_piu:
-        friendly_name: "Più"
         command_on: 'JgBIAAABLpEWEhMSFBEUEhITExMUERQSFDYTNhQ2FDYSOBQ2FDYTNhI4FBITNhQ2FBITEhITFBISExQ2EhMSFBI3FDYSOBQ2EwANBQ=='
         command_off: 'JgBIAAABLpEWEhMSFBEUEhITExMUERQSFDYTNhQ2FDYSOBQ2FDYTNhI4FBITNhQ2FBITEhITFBISExQ2EhMSFBI3FDYSOBQ2EwANBQ=='
       bagno_termoventilatore_meno:
-        friendly_name: "Meno"
         command_on: 'JgBQAAABL5IVERIUEhMUERMTFBEVERIUEjgTNxI3EzcVNRQ2EjgSOBI4ExISFBI4FBEUERMTFBEUEhQ2FDYUERQ2EjgUNhI4EgAFIgABK0oTAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABL5IVERIUEhMUERMTFBEVERIUEjgTNxI3EzcVNRQ2EjgSOBI4ExISFBI4FBEUERMTFBEUEhQ2FDYUERQ2EjgUNhI4EgAFIgABK0oTAA0FAAAAAAAAAAA='
 ###############################################################################################################################################################################
@@ -172,206 +165,154 @@
         command_off: 'sgc0AAggGwwbDBsMCB8bDAgfGwwIHxsMCCAbDBsMGwwIHwggCB8IHwgfCCAIIAggGwwbDAgAASsAAAAA'
 #************************ TV ******************************
       tv_ir_power:
-        friendly_name: "Tv Power"
         command_on: 'JgBGAJaTFDYVNxQ2FRIVERUSFREVEhU1FjYVNhUSFBIVEhQSFRISOBYSFBIVNhU2FRIVERU3FBEWNhU2FRIUEhU3FDYVEhUADQUAAA=='
         command_off: 'JgDSAJWRFDYUNhM2FBEUERQRFBITEhM2FDYUNRQSExITEhMSExITEhQ1FBITEhMSExITEhMSFDUUEhM2FDYUNRQ2FDYUNRQABf2UkRQ2FDYUNRQSExITEhMSExITNhQ2FDYTEhQRFBEUERQRFBEUNhMSExIUERQRFBEUERQ2ExITNhQ2FDYTNhQ2FDYTAAX9lJITNhQ2FDYTEhMSFBEUERQRFDUUNhQ2FBEUERQRFBEUERQRFDYUERQRFBEUERQRFBEUNhQRFDYTNhQ2FDUUNhQ2FAANBQAAAAAAAA=='
       sound_mute:
-        friendly_name: "Mute"
         command_on: 'JgBGAJGWEDoQOhA6EBUQFREUEBURFBA6ETkRORITERQRFBEUEBURORE5ETkROREUERQTEhEUEBYPFhAVEBUQOg87EDoQOg8ADQUAAA=='
       volume:
-        friendly_name: "Volume"
         command_on: 'JgBGAJKVETkRORA6ERQRFBAVEBUQFRA7EDkROhAUERUQFRAUEBYQOhA6EDoPFhAVEBUQFQ8WEBUPFhAVEDoQOhA6EDoQOg8ADQUAAA=='
         command_off: 'JgBGAJKVEDoSOBE5EBUQFREUERQRFBA6EDoROREUEBURFBEUEBUQOhE5ERQROREUEBURFBAVEBUQFRE5ERQQOhE5EDoQOhAADQUAAA=='
       volume_up:
-        friendly_name: "Volume Su"
         command_on: 'JgBGAJKVETkRORA6ERQRFBAVEBUQFRA7EDkROhAUERUQFRAUEBYQOhA6EDoPFhAVEBUQFQ8WEBUPFhAVEDoQOhA6EDoQOg8ADQUAAA=='
         command_off: 'JgBGAJKVETkRORA6ERQRFBAVEBUQFRA7EDkROhAUERUQFRAUEBYQOhA6EDoPFhAVEBUQFQ8WEBUPFhAVEDoQOhA6EDoQOg8ADQUAAA=='
       volume_down:
-        friendly_name: "Volume Giu"
         command_on: 'JgBGAJKVEDoSOBE5EBUQFREUERQRFBA6EDoROREUEBURFBEUEBUQOhE5ERQROREUEBURFBAVEBUQFRE5ERQQOhE5EDoQOhAADQUAAA=='
         command_off: 'JgBGAJKVEDoSOBE5EBUQFREUERQRFBA6EDoROREUEBURFBEUEBUQOhE5ERQROREUEBURFBAVEBUQFRE5ERQQOhE5EDoQOhAADQUAAA=='
       input_hdmi:
-        friendly_name: "Select Hdmi"
         command_on: 'JgBGAJGWETkRORI4ERQRFBAVERQRFBE5ETkROREUEBURFBEUERQQOxA6EBUPOw8WDxYQFRA6DxYQFRA6EBUPOxA6ETkRFBEADQUAAA=='
         command_off: 'JgBGAJGWETkRORI4ERQRFBAVERQRFBE5ETkROREUEBURFBEUERQQOxA6EBUPOw8WDxYQFRA6DxYQFRA6EBUPOxA6ETkRFBEADQUAAA=='
       input_hdmi1:
-        friendly_name: "Select Hdmi 1"
         command_on: 'JgBGAJKVETkRORE5ERQQFRAVERQQFRE5ETkROREUERQRFBEUERQRORAVERUPOxAVDzsQOhA6EBUQOhA6EBUQOhAVEBUPFhAADQUAAA=='
       input_hdmi2:
-        friendly_name: "Select Hdmi 2"
         command_on: 'JgBGAJOUETkRORA6ERQQFRAVERQRFBA6ETkROhAVDxYQFQ8WEBUQFQ87EDoRORA6DzsQFRA6DzsPFhAVDxYQFRAVEDoQFRAADQUAAA=='
       input_hdmi3:
-        friendly_name: "Select Hdmi 3"
         command_on: 'JgBGAJOVETgRORE6DxYQFQ8WDxYPFhA6EDoQOhAVDxYQFQ8WDxYPOw8WEDoQFRAVDxYPOxA6EBUQOhAVEDoQOhA6EBUPFhAADQUAAA=='
       input_pulsante:
-        friendly_name: "pulsante di prova"
         command_on: 'JgBGAJOUEDoRORE5EsQRFRAUERQRFBE5EDsQOhAVEBUPFg8WDxYPFhA6EBUPFg8WEBUROQ87EDoQFQ87EDoQOhA6EBUPFhAADQUAAA=='
       input_hdmi_choose:
-        friendly_name: "Hdmi 1 o 2"
         command_on: 'JgBGAJOUETkRORA6ERQQFRAVERQRFBA6ETkROhAVDxYQFQ8WEBUQFQ87EDoRORA6DzsQFRA6DzsPFhAVDxYQFRAVEDoQFRAADQUAAA=='
         command_off: 'JgBGAJKVETkRORE5ERQQFRAVERQQFRE5ETkROREUERQRFBEUERQRORAVERUPOxAVDzsQOhA6EBUQOhA6EBUQOhAVEBUPFhAADQUAAA=='
 #************************ SKY ******************************
       sky_ir_power:
-        friendly_name: "Sky Power"
         command_on: 'JgB4AAwfCCQHGQdbCSkIKQglCBwHAAGnCSAIMggYBhkHLwcmBxgHGQcACmoJIAgkBxkHWwkpCCkIJQcdBwABpwkgCFYIOwgXCS0IJQcZBhkHAApqCh8IJQcYB1kMKAgqCCUGHQcAAagIIAhWCToJFwguCCUGGQcZBgANBQ=='
         command_off: 'JgCAAAsADJEJIAglBhkHXAgpCCkJJAgcBwABpwkgCFoJFwgXBxkHWwkXBxgHAAprCCAIJQcZBlwIKQkpCCUIHAYAAagIIAg3CDsJFwcYB1wIFwcZBwAKZwwgByUHGQdbCSkIKQglCBwHAAGnCSAINwg7CBcHGQZcCBgHGAcAAa8MAA0FAAAAAAAAAAA='
       sky_ir_esc:
-        friendly_name: "Ok Esc"
         command_on: 'JgBQAAkgCCUIFwdbCSkIKQglCBwHAAGnCSAIMggYBhkHIgY0CBgGGQcACmgMHwglBxgHXAgpCCoIJQccBwABqAggCFYJOgkXCCAHNAgXBxkGAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUGGQdcCCkIKQglCBwHAAGmCx8INwgXBxkGIgcvBxkGGQcACmoJIAglBxgHXAgpCCoIJQgbBwABqAggCFkLOggXByIHLwgXBxkGAA0FAAAAAAAAAAA=='
       channel_up_down:
-        friendly_name: "Canale Su Giu"
         command_on: 'JgBQAAkgCCUGGQdbCSkIKQglBx0HAAGnCSAIHAcYBxkHGAdTCBcHGQcACmoJIAglBxgHXAgpCCoIJQccBwABqAggCEAIOwgYBhkHUwgXBxkGAA0FAAAAAAAAAAA=='
         command_off: 'JgBUAAoACL4JIAglBxgHWwooCCkJJAcdBwABpwkgCBgGGQcZBhkHVwgYCBcHAAprCCAIJQcZBlwIKQkpCCUIHAYAAaYLHwg8CDsIFwcZB1cIFwcZBwANBQAAAAA=='
       sky_left_arrow:
-        friendly_name: "Sinistra"
         command_on: 'JgBQAAkgCCUIFwdcCCkIKQkkCBwHAAGnCSAIQAgXBxkGIgcmBxkGGQcACmsIIAglCBcHWgsoCCoIJQgbBwABqAggCBwHPAkXByEHJgcZBxgHAA0FAAAAAAAAAAA=='
       sky_button_tv:
-        friendly_name: "sky_button_tv"
         command_on: 'JgB4AAghCCUIGAdbCCoHKgglCBwIAAGoByEIPAcYCBgILggcCBgHGAgACnEIIQcmBxgIWwgqByoIJQgcCAABqAchCBgHPAgYCC4HHQgYBxgIAApxCCEHJgcYCFsIKQgqCCUIHAgAAacJIAgYBzwIGAcvBx0HGAgYBwANBQ=='
         command_off: 'JgB4AAghCCUIGAdbCCoHKgglCBwIAAGoByEIPAcYCBgILggcCBgHGAgACnEIIQcmBxgIWwgqByoIJQgcCAABqAchCBgHPAgYCC4HHQgYBxgIAApxCCEHJgcYCFsIKQgqCCUIHAgAAacJIAgYBzwIGAcvBx0HGAgYBwANBQ=='
       sky_button_sky:
-        friendly_name: "sky_button_sky"
         command_on: 'JgB4AAghByYHGAhbCCoHKgglCBwIAAGoByEIMwgXCBgHLwcmBxkHGAgACnEJIAglCBcIWwgpCCoIJQgcCAABpwghB1cIPAcYCC4IJQgYCBgHAApxCCEHJgcZB1sIKgcqCCUIHAgAAagHIQhXBzwIGAcvByYHGAgYBwANBQ=='
         command_off: 'JgB4AAghByYHGAhbCCoHKgglCBwIAAGoByEIMwgXCBgHLwcmBxkHGAgACnEJIAglCBcIWwgpCCoIJQgcCAABpwghB1cIPAcYCC4IJQgYCBgHAApxCCEHJgcZB1sIKgcqCCUIHAgAAagHIQhXBzwIGAcvByYHGAgYBwANBQ=='
       sky_button_guida_tv:
-        friendly_name: "sky_button_guida_tv"
         command_on: 'JgB4AAghByYHGQdbCCoHKgglCBwIAAGoByEIQAgYBxkHLwcYCBgHGAgACm4KIgcmBxgIWwcqCCoHJgcdBwABqAghBx0IPAcYCC4IGAcYCBgHAApyByEIJQgYB1wHKggqByYHHQcAAagHIgcdBzwIGAcvBxgIGAcZBwANBQ=='
         command_off: 'JgB4AAghByYHGQdbCCoHKgglCBwIAAGoByEIQAgYBxkHLwcYCBgHGAgACm4KIgcmBxgIWwcqCCoHJgcdBwABqAghBx0IPAcYCC4IGAcYCBgHAApyByEIJQgYB1wHKggqByYHHQcAAagHIgcdBzwIGAcvBxgIGAcZBwANBQ=='
       sky_button_primafila:
-        friendly_name: "sky_button_primafila"
         command_on: 'JgB4AAghByYHGQdbCCoHKgglCBwIAAGoByEINwgYBxkHLwchCBgHGAgACnEIIQcmBxgIWwgqByoIJQgcCAABqAchCFsHPAgYCC4HIgcYCBgHAApyByEIJQgYB1sIKggqByYHHQcAAagIIQdbCDwHGAguCCEHGQcYCAANBQ=='
         command_off: 'JgB4AAghByYHGQdbCCoHKgglCBwIAAGoByEINwgYBxkHLwchCBgHGAgACnEIIQcmBxgIWwgqByoIJQgcCAABqAchCFsHPAgYCC4HIgcYCBgHAApyByEIJQgYB1sIKggqByYHHQcAAagIIQdbCDwHGAguCCEHGQcYCAANBQ=='
       sky_button_menu:
-        friendly_name: "sky_button_menu"
         command_on: 'JgB4AAkgByYHGQdbCSkHKgglCBwIAAGoCCAITggXCBgIIQcYCBgHGAgACnEJIAcmBxkHWwgqByoIJQgcCAABqAggCCoHPAkXByEIGAgYBxgIAApxCCEHJgcYCFsIKgcpCSUIHAgAAacIIQgqBzwIGAchCBgHGQcYCAANBQ=='
         command_off: 'JgB4AAkgByYHGQdbCSkHKgglCBwIAAGoCCAITggXCBgIIQcYCBgHGAgACnEJIAcmBxkHWwgqByoIJQgcCAABqAggCCoHPAkXByEIGAgYBxgIAApxCCEHJgcYCFsIKgcpCSUIHAgAAacIIQgqBzwIGAchCBgHGQcYCAANBQ=='
       sky_button_on_demand:
-        friendly_name: "sky_button_on_demand"
         command_on: 'JgB4AAciByYHGAhbByoIKgcmBx0HAAGoCCEHPAgYBxkHMwgYBxgIGAcACnIHIQglCBgHXAcqCCoHJgcdBwABqAghBxgIPAcYCDMHGAgYBxkHAApxCCEHJgcZB1sIKgcqCCUIHAgAAagHIQgYBzwIGAczCBgHGQcYCAANBQ=='
         command_off: 'JgB4AAciByYHGAhbByoIKgcmBx0HAAGoCCEHPAgYBxkHMwgYBxgIGAcACnIHIQglCBgHXAcqCCoHJgcdBwABqAghBxgIPAcYCDMHGAgYBxkHAApxCCEHJgcZB1sIKgcqCCUIHAgAAagHIQgYBzwIGAczCBgHGQcYCAANBQ=='
       sky_button_i:
-        friendly_name: "sky_button_i"
         command_on: 'JgBQAAghByYHGAhbCCkJKQcmBx0HAAGoCSAHKggYCBgHLwcvBxgIGAcACnIIIAglCBgHXAgpCCoHJgcdBwABqAghB04IOwkXCC4ILggYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGAhbCCkJKQcmBx0HAAGoCSAHKggYCBgHLwcvBxgIGAcACnIIIAglCBgHXAgpCCoHJgcdBwABqAghB04IOwkXCC4ILggYBxgIAA0FAAAAAAAAAAA=='
       sky_button_chan_up:
-        friendly_name: "sky_button_chan_up"
         command_on: 'JgBQAAkgCCUGGQdbCSkIKQglBx0HAAGnCSAIHAcYBxkHGAdTCBcHGQcACmoJIAglBxgHXAgpCCoIJQccBwABqAggCEAIOwgYBhkHUwgXBxkGAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUGGQdbCSkIKQglBx0HAAGnCSAIHAcYBxkHGAdTCBcHGQcACmoJIAglBxgHXAgpCCoIJQccBwABqAggCEAIOwgYBhkHUwgXBxkGAA0FAAAAAAAAAAA=='
       sky_button_chan_down:
-        friendly_name: "sky_button_chan_down"
         command_on: 'JgBUAAoACL4JIAglBxgHWwooCCkJJAcdBwABpwkgCBgGGQcZBhkHVwgYCBcHAAprCCAIJQcZBlwIKQkpCCUIHAYAAaYLHwg8CDsIFwcZB1cIFwcZBwANBQAAAAA=='
         command_off: 'JgBUAAoACL4JIAglBxgHWwooCCkJJAcdBwABpwkgCBgGGQcZBhkHVwgYCBcHAAprCCAIJQcZBlwIKQkpCCUIHAYAAaYLHwg8CDsIFwcZB1cIFwcZBwANBQAAAAA=='
       sky_button_arrow_up:
-        friendly_name: "sky_button_arrow_up"
         command_on: 'JgBQAAkgCSQIGAdbCSkIKQkkCBwIAAGoCCAISQkXCBgHIQgcCBgHGAgACnEJIAcmBxgIWwkpCCkIJQgcCAABqAggCSQIPAgXCCEHHQgYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCSQIGAdbCSkIKQkkCBwIAAGoCCAISQkXCBgHIQgcCBgHGAgACnEJIAcmBxgIWwkpCCkIJQgcCAABqAggCSQIPAgXCCEHHQgYBxgIAA0FAAAAAAAAAAA=='
       sky_button_arrow_down:
-        friendly_name: "sky_button_arrow_down"
         command_on: 'JgBQAAkgCCUIGAdbCSkHKgkkCBwIAAGoCCAIRQgXCBgIIQchCBgHGAgACnEJIAcmBxgIWwgqByoIJQgcCAABqAggCCEHPAkXByEIIQgYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUIGAdbCSkHKgkkCBwIAAGoCCAIRQgXCBgIIQchCBgHGAgACnEJIAcmBxgIWwgqByoIJQgcCAABqAggCCEHPAkXByEIIQgYBxgIAA0FAAAAAAAAAAA=='
       sky_button_arrow_left:
-        friendly_name: "sky_button_arrow_left"
         command_on: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGnCCEIQAcZBxgIIQcmBxgIGAcACnIHIQglCBgHXAcqCCoHJgcdBwABqAciBx0HPAgYByEIJQgYBxkHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGnCCEIQAcZBxgIIQcmBxgIGAcACnIHIQglCBgHXAcqCCoHJgcdBwABqAciBx0HPAgYByEIJQgYBxkHAA0FAAAAAAAAAAA=='
       sky_button_arrow_right:
-        friendly_name: "sky_button_arrow_right"
         command_on: 'JgBQAAkgCCUIGAdbCSkIKgclCB0HAAGoCCEHPAcZBxgIIQcqCBgIGAcACnEIIQglBxkHWwgqByoIJQgcCAABqAchCBgIOwgYCCEHKggYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUIGAdbCSkIKgclCB0HAAGoCCEHPAcZBxgIIQcqCBgIGAcACnEIIQglBxkHWwgqByoIJQgcCAABqAchCBgIOwgYCCEHKggYBxgIAA0FAAAAAAAAAAA=='
       sky_button_ok:
-        friendly_name: "sky_button_ok"
         command_on: 'JgBQAAghByYHGAhbCCkJKQglBx0HAAGoCSAHOAgYBxgIIQcvBxgIGAcACnIIIAglCBgHWwkpBysHJgcdBwABqAghB1sIPAcYCCEHLwcZBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGAhbCCkJKQglBx0HAAGoCSAHOAgYBxgIIQcvBxgIGAcACnIIIAglCBgHWwkpBysHJgcdBwABqAghB1sIPAcYCCEHLwcZBxgIAA0FAAAAAAAAAAA=='
       sky_button_p:
-        friendly_name: "sky_button_p"
         command_on: 'JgBQAAggCCUIGAdcByoIKgcmBx0HAAGoCCEHJgcYCBgILgczCBgIGAcACnEJIAcmBxkHWwgqByoIJQgcCAABqAggCEkIPAcYCC4IMwcYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAggCCUIGAdcByoIKgcmBx0HAAGoCCEHJgcYCBgILgczCBgIGAcACnEJIAcmBxkHWwgqByoIJQgcCAABqAggCEkIPAcYCC4IMwcYCBgHAA0FAAAAAAAAAAA=='
       sky_button_esc:
-        friendly_name: "sky_button_esc"
         command_on: 'JgBQAAggCCUIGAdbCSkIKgcmBx0HAAGoCCEHMwgYBxgIIQgyCBgIGAcACnEJIAglCBgHWwkpCCkIJQgcCAABqAggCFcIOwkXByEIMwcYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAggCCUIGAdbCSkIKgcmBx0HAAGoCCEHMwgYBxgIIQgyCBgIGAcACnEJIAglCBgHWwkpCCkIJQgcCAABqAggCFcIOwkXByEIMwcYCBgHAA0FAAAAAAAAAAA=='
       sky_button_my:
-        friendly_name: "sky_button_my"
         command_on: 'JgBQAAchCCUIGAdcByoIKgcmBx0HAAGoCCEHRQgYBxgIJQgcCBgIGAcACnEIIQcmBxkHWwkpByoIJQgcCAABqAggCCEHPAgYByYHHQgYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAchCCUIGAdcByoIKgcmBx0HAAGoCCEHRQgYBxgIJQgcCBgIGAcACnEIIQcmBxkHWwkpByoIJQgcCAABqAggCCEHPAgYByYHHQgYBxgIAA0FAAAAAAAAAAA=='
       sky_button_rewind:
-        friendly_name: "sky_button_rewind"
         command_on: 'JgBQAAkgByYHGQdbCSkIKQglCBwIAAGoByEISQgYBxgIJQgYCBgHGAgACnEIIAgmBxgIWwgpCCoHJgcdBwABqAghByYHPAgYByYHGQcYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgByYHGQdbCSkIKQglCBwIAAGoByEISQgYBxgIJQgYCBgHGAgACnEIIAgmBxgIWwgpCCoHJgcdBwABqAghByYHPAgYByYHGQcYCBgHAA0FAAAAAAAAAAA=='
       sky_button_forward:
-        friendly_name: "sky_button_forward"
         command_on: 'JgBQAAkgByYIFwhbCSkIKQglCBwIAAGoCCAIQAkXBxgIJQghCBgHGAgACnAJIAglCBgIWwgpCSkHJgcdBwABqAkgBx0IOwkXCCUIIQcYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgByYIFwhbCSkIKQglCBwIAAGoCCAIQAkXBxgIJQghCBgHGAgACnAJIAglCBgIWwgpCSkHJgcdBwABqAkgBx0IOwkXCCUIIQcYCBgHAA0FAAAAAAAAAAA=='
       sky_button_pause:
-        friendly_name: "sky_button_pause"
         command_on: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGoByEIRQcYCBgHJgcdBxkHGAgACnEHIQglCBgIWwcqCCoHJgcdBwABqAghByEIPAcYCCUIHAgYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGoByEIRQcYCBgHJgcdBxkHGAgACnEHIQglCBgIWwcqCCoHJgcdBwABqAghByEIPAcYCCUIHAgYCBgHAA0FAAAAAAAAAAA=='
       sky_button_play:
-        friendly_name: "sky_button_play"
         command_on: 'JgBQAAghCCUIGAhbByoIKgcmBx0HAAGoCCEHPAgYBxgIJQglCBgIGAcACnEIIQglBxkHWwgqByoIJQgcCAABqAchCBgIOwgYCCUIJQgYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghCCUIGAhbByoIKgcmBx0HAAGoCCEHPAgYBxgIJQglCBgIGAcACnEIIQglBxkHWwgqByoIJQgcCAABqAchCBgIOwgYCCUIJQgYBxgIAA0FAAAAAAAAAAA=='
       sky_button_rec:
-        friendly_name: "sky_button_rec"
         command_on: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGoByEINwgYBxgIJQgqBxkHGAgACnEHIQglCBgIWwcqCCoHJgcdBwABqAghB1sIPAgYByYHKggYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGoByEINwgYBxgIJQgqBxkHGAgACnEHIQglCBgIWwcqCCoHJgcdBwABqAghB1sIPAgYByYHKggYBxgIAA0FAAAAAAAAAAA=='
       sky_button_stop:
-        friendly_name: "sky_button_stop"
         command_on: 'JgBQAAchCCUIGAdcByoIKgcmBx0HAAGoCCEHMwgYBxgIJQguCBgHGQcACnEIIQcmBxkHWwgqByoIJQgcCAABqAggCFYIPAgYByYHLggYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAchCCUIGAdcByoIKgcmBx0HAAGoCCEHMwgYBxgIJQguCBgHGQcACnEIIQcmBxkHWwgqByoIJQgcCAABqAggCFYIPAgYByYHLggYCBgHAA0FAAAAAAAAAAA=='
       sky_button_red:
-        friendly_name: "sky_button_red"
         command_on: 'JgBQAAghByYHGQdbCCoHKgglCBwIAAGoByEIRQcYCBgHKggYBxkHGAgACnEHIQgmBxgIWQkqCCoHJggcBwABpgohByEIPAcZByoIGAcYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGQdbCCoHKgglCBwIAAGoByEIRQcYCBgHKggYBxkHGAgACnEHIQgmBxgIWQkqCCoHJggcBwABpgohByEIPAcZByoIGAcYCBgHAA0FAAAAAAAAAAA=='
       sky_button_green:
-        friendly_name: "sky_button_green"
         command_on: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGoByEIQAgYBxgIKgcdBxkHGAcACnIIIAglCBgHXAcqCCoHJgcdBwABqAghBx0HPAgYByoIHAgYBxkHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghByYHGAhbCCoHKgglCBwIAAGoByEIQAgYBxgIKgcdBxkHGAcACnIIIAglCBgHXAcqCCoHJgcdBwABqAghBx0HPAgYByoIHAgYBxkHAA0FAAAAAAAAAAA=='
       sky_button_yellow:
-        friendly_name: "sky_button_yellow"
         command_on: 'JgBQAAghCCUIFwhbCCkJKQglCBwIAAGnCSAIOwkXCBgHKgkgBxgIGAgACnEIIAglCBgHXAgpCCoIJQcdBwABqAghBxgIPAgXCCoHIQgYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghCCUIFwhbCCkJKQglCBwIAAGnCSAIOwkXCBgHKgkgBxgIGAgACnEIIAglCBgHXAgpCCoIJQcdBwABqAghBxgIPAgXCCoHIQgYCBgHAA0FAAAAAAAAAAA=='
       sky_button_blue:
-        friendly_name: "sky_button_blue"
         command_on: 'JgBQAAciByYHGAhbByoIKgglBx0HAAGoCCEINwcZBxgIKgcmBxgIGAcACnIHIQglCBgHWwgqByoIJQgcCAABqAciB1sIPAcYCCoHJgcYCBgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAciByYHGAhbByoIKgglBx0HAAGoCCEINwcZBxgIKgcmBxgIGAcACnIHIQglCBgHWwgqByoIJQgcCAABqAciB1sIPAcYCCoHJgcYCBgHAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_0:
-        friendly_name: "sky_button_tv_channel_0"
         command_on: 'JgBQAAkgCCUIGAdbCSkHKgglCBwIAAGoByEIVwcYCBgHGQcYCBgHGAgACnEIIQcmBxgIWwgpCCoIJQgcCAABpwkgCDIIPAcZBxgIGAcYCBgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUIGAdbCSkHKgglCBwIAAGoByEIVwcYCBgHGQcYCBgHGAgACnEIIQcmBxgIWwgpCCoIJQgcCAABpwkgCDIIPAcZBxgIGAcYCBgIAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_1:
-        friendly_name: "sky_button_tv_channel_1"
         command_on: 'JgBQAAggCCUIGAZcCCkJKQglCBwGAAGoCCAJUQgXCRcHGQYdBxkHGAcACmsJIAgkBxkHWwkpCCkIJQgcBwABpwkgCC4IOwgXBxkHHQcYBxkHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAggCCUIGAZcCCkJKQglCBwGAAGoCCAJUQgXCRcHGQYdBxkHGAcACmsJIAgkBxkHWwkpCCkIJQgcBwABpwkgCC4IOwgXBxkHHQcYBxkHAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_2:
-        friendly_name: "sky_button_tv_channel_2"
         command_on: 'JgBQAAkgCCUGGQdWDygIKQglBx0HAAGoCCAITQgYBhkHGQYiBxkGGQcACmsIIAcmBxkGXAcrCCkHJgYeBgABqAghBisHPAgYBhkHIgYZBxkGAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUGGQdWDygIKQglBx0HAAGoCCAITQgYBhkHGQYiBxkGGQcACmsIIAcmBxkGXAcrCCkHJgYeBgABqAghBisHPAgYBhkHIgYZBxkGAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_3:
-        friendly_name: "sky_button_tv_channel_3"
         command_on: 'JgBQAAkgCCUIFwdcCCkIKQkkCBwHAAGnCSAISAkXBxkGGQcmBxkGGQcACmsIIAglBxkGXAgpCSkIJQgcBgABqAggCSQIPAgXBxkGJwYZBxkGAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUIFwdcCCkIKQkkCBwHAAGnCSAISAkXBxkGGQcmBxkGGQcACmsIIAglBxkGXAgpCSkIJQgcBgABqAggCSQIPAgXBxkGJwYZBxkGAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_4:
-        friendly_name: "sky_button_tv_channel_4"
         command_on: 'JgBQAAghCCUGGQdbCSkIKQglBx0HAAGnCCEGRggYBhkHGQYrBxkGGQcACmsIIAglBxkGXAcqCCoGJwYeBgABqAggByIGPQgYBhkHKwYZBxkGAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAghCCUGGQdbCSkIKQglBx0HAAGnCCEGRggYBhkHGQYrBxkGGQcACmsIIAglBxkGXAcqCCoGJwYeBgABqAggByIGPQgYBhkHKwYZBxkGAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_5:
-        friendly_name: "sky_button_tv_channel_5"
         command_on: 'JgBQAAciByYHGAhbByoIKgcmBx0HAAGoCCEHQQcYCBgIGAcvBxgIGAcACnIHIQglCBgHWwgqCCkIJQgdBwABqAghBx0HPAgYBxgILggYBxgIAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAciByYHGAhbByoIKgcmBx0HAAGoCCEHQQcYCBgIGAcvBxgIGAcACnIHIQglCBgHWwgqCCkIJQgdBwABqAghBx0HPAgYBxgILggYBxgIAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_6:
-        friendly_name: "sky_button_tv_channel_6"
         command_on: 'JgBQAAggCCUHGQZcCSkIKQglBx0GAAGoCCEGPQgXBxkHGAc0BhkHGQYACmsJIAglBhkHXAgpCCkJJAgcBwABpwkgCBgGPQgXBxkHMwgYBhkHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAggCCUHGQZcCSkIKQglBx0GAAGoCCEGPQgXBxkHGAc0BhkHGQYACmsJIAglBhkHXAgpCCkJJAgcBwABpwkgCBgGPQgXBxkHMwgYBhkHAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_7:
-        friendly_name: "sky_button_tv_channel_7"
         command_on: 'JgBQAAkgCCUIFwdcCCkIKQkkBx0HAAGlDB8INwgXBxkHGAc4CBgGGQcACmsIIAglCBgGWwopCCkIJQgcBgABqAggCVoIOwgYCBcHOAgXBxkHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAkgCCUIFwdcCCkIKQkkBx0HAAGlDB8INwgXBxkHGAc4CBgGGQcACmsIIAglCBgGWwopCCkIJQgcBgABqAggCVoIOwgYCBcHOAgXBxkHAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_8:
-        friendly_name: "sky_button_tv_channel_8"
         command_on: 'JgBQAAggCCUHGQZcCCkJKQglBh4GAAGoCCAIMwgXBxkGGQc8CRcHGAcACmgMIAglCBcHWwkpCCkIJQgcBwABpwkgCFYIOwgYCBcHPAkXBxgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAggCCUHGQZcCCkJKQglBh4GAAGoCCAIMwgXBxkGGQc8CRcHGAcACmgMIAglCBcHWwkpCCkIJQgcBwABpwkgCFYIOwgYCBcHPAkXBxgHAA0FAAAAAAAAAAA=='
       sky_button_tv_channel_9:
-        friendly_name: "sky_button_tv_channel_9"
         command_on: 'JgBQAAggCCUHGQZcCCoIKQglCBwGAAGoCCAJLQgYBxgHGQdBCBcHGQYACmsJIAglCBcHXAgpCCkJJAgcBwABpwkgCFEJOwgXBxkHQAkXBxgHAA0FAAAAAAAAAAA=='
         command_off: 'JgBQAAggCCUHGQZcCCoIKQglCBwGAAGoCCAJLQgYBxgHGQdBCBcHGQYACmsJIAglCBcHXAgpCCkJJAgcBwABpwkgCFEJOwgXBxkHQAkXBxgHAA0FAAAAAAAAAAA=='
 #************************ CONDIZIONATORE ON-OFF ******************************
