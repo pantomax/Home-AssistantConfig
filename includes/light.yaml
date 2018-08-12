@@ -17,10 +17,10 @@
         value_template: "{{ is_state('switch.luce_rf_1', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.tavolino
+          entity_id: switch.luce_rf_1
         turn_off:
           service: switch.turn_off
-          entity_id: switch.tavolino
+          entity_id: switch.luce_rf_1
   - platform: template
     lights:
       libreria:
@@ -28,10 +28,10 @@
         value_template: "{{ is_state('switch.luce_rf_2', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.libreria
+          entity_id: switch.luce_rf_2
         turn_off:
           service: switch.turn_off
-          entity_id: switch.libreria
+          entity_id: switch.luce_rf_2
   - platform: template
     lights:
       mobile_tv:
@@ -39,10 +39,10 @@
         value_template: "{{ is_state('switch.luce_rf_3', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.mobile_tv
+          entity_id: switch.luce_rf_3
         turn_off:
           service: switch.turn_off
-          entity_id: switch.mobile_tv
+          entity_id: switch.luce_rf_3
   - platform: template
     lights:
       retro_tv:
@@ -50,21 +50,21 @@
         value_template: "{{ is_state('switch.luce_rf_4', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.retro_tv
+          entity_id: switch.luce_rf_4
         turn_off:
           service: switch.turn_off
-          entity_id: switch.retro_tv
+          entity_id: switch.luce_rf_4
   - platform: template
     lights:
       soffitto:
         friendly_name: "Soffitto"
-        value_template: "{{ is_state('switch.soffitto', 'on') }}"
+        value_template: "{{ is_state('switch.luce_rf_6', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.soffitto
+          entity_id: switch.luce_rf_6
         turn_off:
           service: switch.turn_off
-          entity_id: switch.soffitto
+          entity_id: switch.luce_rf_6
   - platform: template
     lights:
       light_desk:
@@ -95,10 +95,10 @@
         value_template: "{{ is_state('switch.luce_rf_5', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.light_kitchen
+          entity_id: switch.luce_rf_5
         turn_off:
           service: switch.turn_off
-          entity_id: switch.light_kitchen
+          entity_id: switch.luce_rf_5
   - platform: template
     lights:
       light_kitchen_2:
