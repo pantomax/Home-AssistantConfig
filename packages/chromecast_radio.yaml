@@ -60,11 +60,11 @@ automation:
     - service: media_player.play_media
       data_template:
         entity_id: >
-          {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bathroom
-          {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.living_room
-          {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.kitchen
+          {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bagno
+          {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto
+          {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.cucina
           {%-elif is_state("input_select.radio_player", "Kodi Salotto") %} media_player.kodi
-          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bathroom, media_player.living_room, media_player.kitchen
+          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto, media_player.cucina
           {% else %}
             "None"
           {% endif %}
@@ -93,11 +93,11 @@ automation:
     - service: media_player.turn_off
       data_template:
         entity_id: >
-            {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bathroom
-            {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.living_room
-            {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.kitchen
+            {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bagno
+            {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto
+            {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.cucina
             {%-elif is_state("input_select.radio_player", "Kodi Salotto") %} media_player.kodi
-            {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bathroom, media_player.living_room, media_player.kitchen
+            {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto, media_player.cucina
             {% else %}
               "None"
             {% endif %}
@@ -113,10 +113,10 @@ automation:
     - service: media_player.volume_set
       data_template:
         entity_id: >
-          {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bathroom
-          {% elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.living_room
-          {% elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.kitchen
-          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bathroom, media_player.living_room, media_player.kitchen
+          {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bagno
+          {% elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto
+          {% elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.cucina
+          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto, media_player.cucina
           {% else %}
             "None"
           {% endif %}

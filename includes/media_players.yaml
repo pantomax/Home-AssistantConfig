@@ -21,7 +21,7 @@
   - platform: universal
     name: allmediaplayers
     children:
-      - media_player.bathroom
-      - media_player.living_room
-      - media_player.kitchen
+      - media_player.bagno
+      - media_player.salotto
+      - media_player.cucina
 #******************************************************************************

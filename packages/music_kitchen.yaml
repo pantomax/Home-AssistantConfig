@@ -40,8 +40,8 @@ sensor:
   sensors:
     volume_chromecast_cucina:
       value_template: >
-        {% if is_state('media_player.kitchen', 'on')  %}
-          {{ states.media_player.kitchen.attributes.volume_level }}
+        {% if is_state('media_player.cucina', 'on')  %}
+          {{ states.media_player.cucina.attributes.volume_level }}
         {% else %}
           0
         {% endif %}
@@ -59,7 +59,7 @@ switch:
             entity_id: input_boolean.volume_radio_mute_cucina
         - service: media_player.volume_mute
           data_template:
-            entity_id: media_player.kitchen
+            entity_id: media_player.cucina
             is_volume_muted: True
         turn_off:
         - service: input_boolean.turn_off
@@ -67,7 +67,7 @@ switch:
             entity_id: input_boolean.volume_radio_mute_cucina
         - service: media_player.volume_mute
           data_template:
-            entity_id: media_player.kitchen
+            entity_id: media_player.cucina
             is_volume_muted: False
         icon_template: >-
           {% if is_state('input_boolean.volume_radio_mute_cucina', 'on') %}
@@ -83,7 +83,7 @@ script:
     sequence:
       - service: media_player.turn_off
         data:
-          entity_id: media_player.kitchen
+          entity_id: media_player.cucina
       - service: input_number.set_value
         data_template:
           entity_id: input_number.numero_radio_cucina
@@ -95,11 +95,11 @@ script:
     sequence:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.kitchen
+        entity_id: media_player.cucina
         volume_level: '{{ states.input_number.volume_radio_cucina.state | float }}'
     - service: media_player.play_media
       data_template:
-        entity_id: media_player.kitchen
+        entity_id: media_player.cucina
         media_content_id: >
           {% if is_state("input_number.numero_radio_cucina", "1.0") %}
             http://mp3channels.webradio.antenne.de/workout-hits.aac
@@ -140,6 +140,6 @@ automation:
     action:
     - service: media_player.volume_set
       data_template:
-        entity_id: media_player.kitchen
+        entity_id: media_player.cucina
         volume_level: '{{ states.input_number.volume_radio_cucina.state | float / 10 }}'
         

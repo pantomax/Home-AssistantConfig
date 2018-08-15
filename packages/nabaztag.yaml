@@ -323,7 +323,6 @@ switch:
   - platform: template
     switches:
       nabaztaglife:
-        friendly_name: Nabaztag Switch
         value_template: "{{ is_state('input_boolean.nabaztaglife', 'on') }}"
         turn_on:
         - service: script.turn_on
@@ -332,7 +331,6 @@ switch:
         - service: script.turn_on
           entity_id: script.nabaztag_sleep
       nabaztag_taichi:
-        friendly_name: Let's Taichi
         value_template: "{{ is_state('input_boolean.nabaztag_taichi', 'on') }}"
         turn_on:
         - service: script.turn_on
@@ -341,7 +339,6 @@ switch:
         - service: script.turn_on
           entity_id: script.nabaztag_no_taichi
       nabaztag_nose:
-        friendly_name: Nose
         value_template: "{{ is_state('input_boolean.nabaztag_nose', 'on') }}"
         turn_on:
         - service: script.turn_on

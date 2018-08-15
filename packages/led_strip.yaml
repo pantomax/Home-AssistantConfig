@@ -264,7 +264,6 @@ sensor:
   - platform: template
     sensors:
       rgb_color:
-        friendly_name: "RGB Color"
         value_template: ({{ (states('input_number.r_color')|int) }}, {{ (states('input_number.g_color')|int) }}, {{ (states('input_number.b_color')|int) }})
 #------------------------------------------------------------------------------
 automation:
