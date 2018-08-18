@@ -42,7 +42,7 @@ group:
       - input_boolean.guarda_tv
       - switch.hdmi_1_o_2
       - switch.volume
-      - switch.luce_rf_4
+      - light.retro_tv
       - switch.canale_su_giu
       - input_select.tv_channel_pick
 #******************************************************************************
@@ -53,7 +53,7 @@ group:
       - input_boolean.guarda_tv
       - switch.hdmi_1_o_2
       - switch.volume
-      - switch.luce_rf_4
+      - light.retro_tv
       - switch.canale_su_giu
       - input_select.tv_channel_pick
       - input_boolean.visualizza_telecomando_televisione
@@ -407,7 +407,7 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.guarda_tv
-      - service: switch.turn_on
+      - service: light.turn_on
         entity_id:
-          - switch.luce_rf_4
+          - light.retro_tv
 #******************************************************************************
