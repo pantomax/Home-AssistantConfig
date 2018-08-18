@@ -285,6 +285,11 @@ google_assistant:
       aliases:
         - nabaztag
         - entity t 46
+    switch.ventilatore_bagno:
+      name: Ventilatore bagno
+      aliases:
+        -  ventilatore in bagno
+      expose: true
 #******************************************************************************
 #******************************   SCRIPTS  ************************************
 #******************************************************************************

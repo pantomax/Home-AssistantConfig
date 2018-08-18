@@ -463,26 +463,6 @@ automation:
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.bagno_termoventilatore_meno
-      - delay:
-            milliseconds: 100
-      - service: switch.turn_on
-        entity_id: switch.bagno_termoventilatore_meno
-      - delay:
-            milliseconds: 100
-      - service: switch.turn_on
-        entity_id: switch.bagno_termoventilatore_meno
-      - delay:
-            milliseconds: 100
-      - service: switch.turn_on
-        entity_id: switch.bagno_termoventilatore_meno
-      - delay:
-            milliseconds: 100
-      - service: switch.turn_on
-        entity_id: switch.bagno_termoventilatore_meno
-      - delay:
-            milliseconds: 100
-      - service: switch.turn_on
         entity_id: switch.bagno_termoventilatore_basculante
       - delay:
             milliseconds: 100
@@ -492,6 +472,42 @@ automation:
             milliseconds: 100
       - service: switch.turn_on
         entity_id: switch.bagno_termoventilatore_timer
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
 #******************************************************************************
   - alias: "Spegni Ventilatore Bagno, per sicurezza limite massimo di 1 ore"
     trigger:
