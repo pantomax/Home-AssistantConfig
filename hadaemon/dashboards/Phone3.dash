@@ -33,19 +33,19 @@ hdmi1:
     title: Hdmi 1
     icon_on: mdi-numeric-1-box-outline
     icon_off: mdi-numeric-1-box-outline
-    entity: switch.select_hdmi_1
+    entity: switch.input_hdmi1
 hdmi2:
     widget_type: scene
     title: Hdmi 2
     icon_on: mdi-numeric-2-box-outline
     icon_off: mdi-numeric-2-box-outline
-    entity: switch.select_hdmi_2
+    entity: switch.input_hdmi2
 hdmi3:
     widget_type: scene
     title: Hdmi 3
     icon_on: mdi-numeric-3-box-outline
     icon_off: mdi-numeric-3-box-outline
-    entity: switch.select_hdmi_3
+    entity: switch.input_hdmi3
 numeri:
     widget_type: navigate
     title: Numeri 

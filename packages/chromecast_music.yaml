@@ -58,7 +58,7 @@ automation:
         to: 'music'
     action:
       - service: switch.turn_on
-        entity_id: switch.select_hdmi_2
+        entity_id: switch.input_hdmi2
       - service: light.turn_on
         data:
           entity_id: light.led_strip

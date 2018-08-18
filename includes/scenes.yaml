@@ -117,7 +117,7 @@
 #******************************************************************************
   - name: Black Alert
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: off
@@ -138,7 +138,7 @@
 
   - name: Black Alert 1
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: off
@@ -159,7 +159,7 @@
 #******************************************************************************
   - name: Red Alert
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: off
@@ -185,7 +185,7 @@
         brightness: 0
   - name: Foresta
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: on
@@ -200,7 +200,7 @@
       input_boolean.scene: off
   - name: Inverno
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: on
       light.libreria: off
       light.soffitto: off
@@ -215,7 +215,7 @@
       input_boolean.scene: off
   - name: Oceano
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: on
@@ -230,7 +230,7 @@
       input_boolean.scene: off
   - name: Acquario
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: of
@@ -245,7 +245,7 @@
       input_boolean.scene: off
   - name: Club
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
       light.tavolino: off
       light.libreria: off
       light.soffitto: off

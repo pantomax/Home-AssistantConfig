@@ -70,9 +70,9 @@ group:
       - switch.volume_su
       - switch.volume_giu
       - switch.select_hdmi
-      - switch.select_hdmi_1
-      - switch.select_hdmi_2
-      - switch.select_hdmi_3
+      - switch.input_hdmi1
+      - switch.input_hdmi2
+      - switch.input_hdmi3
 #******************************************************************************
   tastierino_sky:
     name: Tastierino Sky
@@ -299,13 +299,13 @@ scene:
       script.skynews: on
   - name: hdmi 1
     entities:
-      switch.select_hdmi_1: on
+      switch.input_hdmi1: on
   - name: hdmi 2
     entities:
-      switch.select_hdmi_2: on
+      switch.input_hdmi2: on
   - name: hdmi 3
     entities:
-      switch.select_hdmi_3: on
+      switch.input_hdmi3: on
 #------------------------------------------------------------------------------
 automation:
 #------------------------------------------------------------------------------
