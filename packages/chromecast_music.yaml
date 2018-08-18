@@ -20,13 +20,13 @@ script:
       - alias: Light Room1 On
         service: homeassistant.turn_on
         data:
-          entity_id: switch.retro_tv
+          entity_id: switch.luce_rf_4
       - delay:
           seconds: 2
       - alias: Light Room1 Off
         service: homeassistant.turn_off
         data:
-          entity_id: switch.retro_tv
+          entity_id: switch.luce_rf_4
       - alias: call_loop
         service: script.turn_on
         data:
@@ -100,7 +100,7 @@ automation:
           transition: "20"
       - service: switch.turn_on
         entity_id:
-          - switch.retro_tv
+          - switch.luce_rf_4
 #******************************************************************************
   - alias: "Chromecast canzone successiva"
     trigger:

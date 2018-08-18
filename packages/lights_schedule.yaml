@@ -371,7 +371,7 @@ automation:
         state: 'off'
     action:
       - service: switch.turn_off
-        entity_id: switch.light_kitchen
+        entity_id: switch.luce_rf_5
 #******************************************************************************
   - alias: "Luce Cucina Rimani Accesa"
     trigger:

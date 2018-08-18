@@ -102,7 +102,7 @@ automation:
 #          before_offset: "1:00:00"
 #    action:
 #        service: switch.turn_on
-#        entity_id: switch.light_kitchen
+#        entity_id: switch.luce_rf_5
 #******************************************************************************
 #  - alias: Arriving home Max - Welcome
 #    trigger:
@@ -131,7 +131,7 @@ automation:
 #          before_offset: "1:00:00"
 #    action:
 #        service: switch.turn_on
-#        entity_id: switch.light_kitchen
+#        entity_id: switch.luce_rf_5
 #******************************************************************************
 #  - alias: Leaving home Max
 #    trigger:

@@ -80,6 +80,7 @@
       - script.apricancello
       - light.giardino
       - input_select.tv_channel_pick
+      - light.retro_tv
 #******************************************************************************
   dhtsensor:
     name: DHT Sensor
@@ -484,8 +485,6 @@
       - group.media_salotto
       - group.desk
       - light.insettivoro
-#      - media_player.kodi
-#      - media_player.salotto
       - group.termostato_salotto
       - group.led_strip_controller
       - group.s1c
@@ -544,16 +543,11 @@
     icon: mdi:weather-partlycloudy
     entities:
       - group.sole
-#      - group.temperatura_dark_sky
-#      - group.precipitazioni_dark_sky
       - group.darksky_data
       - camera.meteo_gramma
       - camera.meteo_visibile
       - camera.meteo_infrarosso
-#      - camera.meteo_infrarosso_2
       - camera.meteo_pioggia
-#      - group.meteo_wunderground
-#      - group.daily_forecast
   Tab_tech:
     name: stats
     view: yes
