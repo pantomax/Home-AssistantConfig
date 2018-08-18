@@ -85,7 +85,7 @@ timer_manuale:
     title: Timer(M)
     icon_on: mdi-timer
     icon_off: mdi-timer
-    entity: switch.timer
+    entity: switch.bagno_termoventilatore_timer
 
 basculante_manuale:
     widget_type: switch
@@ -99,7 +99,7 @@ piu_manuale:
     title: Più(M)
     icon_on: mdi-plus-circle-outline
     icon_off: mdi-plus-circle-outline
-    entity: switch.piu
+    entity: switch.bagno_termoventilatore_piu
 
 canc_manuale:
     widget_type: switch
@@ -113,7 +113,7 @@ meno_manuale:
     title: Meno(M)
     icon_on: mdi-minus-circle-outline
     icon_off: mdi-minus-circle-outline
-    entity: switch.meno
+    entity: switch.bagno_termoventilatore_meno
 
 power_termostato:
     widget_type: switch

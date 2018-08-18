@@ -120,11 +120,11 @@
     entities:
       - switch.power
       - switch.ecocomfort
-      - switch.timer
+      - switch.bagno_termoventilatore_timer
       - switch.basculante
       - switch.canc
-      - switch.piu
-      - switch.meno
+      - switch.bagno_termoventilatore_piu
+      - switch.bagno_termoventilatore_meno
       - input_boolean.visualizza_telecomando_termoventilatore
 #******************************************************************************
   bedroom:
@@ -514,6 +514,7 @@
       - history_graph.temperatura_e_umidita_bagno
       - media_player.bagno
       - timer.bagno
+      - switch.ventilatore_bagno
   Tab_Camera:
     name: Camera
     view: yes

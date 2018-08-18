@@ -130,6 +130,17 @@ switch:
           - service: homeassistant.turn_off
             data:
               entity_id: input_boolean.termostato_bagno_timer_interruttore
+#******************************************************************************
+      ventilatore_bagno:
+        value_template: "{{ is_state('input_boolean.ventilatore_termostato_bagno_interruttore', 'on') }}"
+        turn_on:
+          - service: homeassistant.turn_on
+            data:
+              entity_id: input_boolean.ventilatore_termostato_bagno_interruttore
+        turn_off:
+          - service: homeassistant.turn_off
+            data:
+              entity_id: input_boolean.ventilatore_termostato_bagno_interruttore
 #------------------------------------------------------------------------------
 climate:
 #------------------------------------------------------------------------------
@@ -183,6 +194,11 @@ input_boolean:
     name: Countdown Bagno
     initial: off
     icon: mdi:timelapse
+#******************************************************************************
+  ventilatore_termostato_bagno_interruttore:
+    name: Ventilatore
+    initial: off
+    icon: mdi:timer
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
@@ -221,47 +237,47 @@ automation:
       to: 'heat'
     action:
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.piu
+        entity_id: switch.bagno_termoventilatore_piu
       - delay:
             milliseconds: 100
       - service: switch.turn_on
@@ -269,15 +285,15 @@ automation:
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.timer
+        entity_id: switch.bagno_termoventilatore_timer
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.timer
+        entity_id: switch.bagno_termoventilatore_timer
       - delay:
             milliseconds: 100
       - service: switch.turn_on
-        entity_id: switch.timer
+        entity_id: switch.bagno_termoventilatore_timer
 #******************************************************************************
   - alias: "Termostato Bagno Accensione Manuale"
     trigger:
@@ -436,3 +452,52 @@ automation:
           entity_id: 'input_number.countdown_bagno'
           value: "{{ ( ( states.input_number.termostato_bagno_timer.state | int) * 60 ) | int }}"
 #******************************************************************************
+  - alias: "Attiva Ventilatore Bagno, basculante e limite massimo di 1 ore"
+    trigger:
+      platform: state
+      entity_id: input_boolean.ventilatore_termostato_bagno_interruttore
+      to: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_accendi_spegni
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_meno
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_basculante
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_timer
+#******************************************************************************
+  - alias: "Spegni Ventilatore Bagno, per sicurezza limite massimo di 1 ore"
+    trigger:
+      platform: state
+      entity_id: input_boolean.ventilatore_termostato_bagno_interruttore
+      to: 'off'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_accendi_spegni
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_timer

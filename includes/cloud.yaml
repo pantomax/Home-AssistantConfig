@@ -155,6 +155,10 @@
       switch.nabaztaglife:
         name: coniglio
         description: nabaztag
+      switch.ventilatore_bagno:
+        name: ventilatore bagno
+        description: ventilatore in bagno
+        display_categories: SWITCH
 #******************************************************************************
 #******************************   SCRIPTS  ************************************
 #******************************************************************************
