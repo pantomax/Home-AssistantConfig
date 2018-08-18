@@ -156,7 +156,7 @@
         name: coniglio
         description: nabaztag
       switch.ventilatore_bagno:
-        name: ventilatore bagno
+        name: Ventilatore bagno
         description: ventilatore in bagno
         display_categories: SWITCH
 #******************************************************************************

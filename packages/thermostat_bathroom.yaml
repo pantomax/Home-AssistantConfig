@@ -488,6 +488,10 @@ automation:
             milliseconds: 100
       - service: switch.turn_on
         entity_id: switch.bagno_termoventilatore_timer
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_timer
 #******************************************************************************
   - alias: "Spegni Ventilatore Bagno, per sicurezza limite massimo di 1 ore"
     trigger:
@@ -497,6 +501,10 @@ automation:
     action:
       - service: switch.turn_on
         entity_id: switch.bagno_termoventilatore_accendi_spegni
+      - delay:
+            milliseconds: 100
+      - service: switch.turn_on
+        entity_id: switch.bagno_termoventilatore_timer
       - delay:
             milliseconds: 100
       - service: switch.turn_on

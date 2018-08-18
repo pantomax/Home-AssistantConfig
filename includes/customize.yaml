@@ -107,6 +107,9 @@
     switch.tv_volume:
       friendly_name: "Alza il volume" 
       icon: mdi:satellite-variant
+    switch.ventilatore_bagno:
+      friendly_name: "Ventilatore Bagno" 
+      icon: mdi:fan
     script.apricancello:
       friendly_name : "Apri Cancello"
       icon: mdi:gate
