@@ -237,7 +237,7 @@ google_assistant:
       aliases:
         - il televisore
         - entity t 41
-    sky_ir_power:
+    switch.sky_ir_power:
       name: sky
       expose: true
       aliases:
