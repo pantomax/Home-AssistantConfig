@@ -66,7 +66,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.100:8123/local/voyredalert.mp3"
+          input: "http://192.168.1.251:8123/local/voyredalert.mp3"
       - alias: All lights On
         service: light.turn_on
       - delay:
@@ -93,7 +93,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.100:8123/local/alarm01.mp3"
+          input: "http://192.168.1.251:8123/local/alarm01.mp3"
       - alias: call_loop
         service: script.turn_on
         data:

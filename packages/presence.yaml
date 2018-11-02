@@ -172,7 +172,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.100:8123/local/tng-doorbell.wav"
+          input: "http://192.168.1.251:8123/local/tng-doorbell.wav"
 #******************************************************************************
   - alias: Mu at Home Notification
     trigger:

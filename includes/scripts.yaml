@@ -57,7 +57,7 @@
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.100:8123/local/power_down.mp3"
+          input: "http://192.168.1.251:8123/local/power_down.mp3"
 #******************************************************************************
   local_radio:
     sequence:
