@@ -87,7 +87,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/sensor.mp3"
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
       - service: shell_command.remove_old_mp3_files
       - service: script.hassio_talk
         data_template:
@@ -95,7 +95,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/sensor.mp3"
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
 #******************************************************************************
   - alias: "TTS info morning message weekend"
     trigger:
@@ -115,7 +115,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/sensor.mp3"
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
       - service: shell_command.remove_old_mp3_files
       - service: script.hassio_talk
         data_template:
@@ -123,7 +123,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/sensor.mp3"
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
 #******************************************************************************
   - alias: "TTS info evening message"
     trigger:
@@ -137,7 +137,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/sensor.mp3"
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
       - service: shell_command.remove_old_mp3_files
       - service: script.hassio_talk
         data_template:
@@ -145,7 +145,7 @@ automation:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/sensor.mp3"
+          input: "http://192.168.1.100:8123/local/sensor.mp3"
 #******************************************************************************
   - alias: "Hassio Talk"
     trigger:
@@ -174,7 +174,7 @@ automation:
     - service: hassio.addon_stdin
       data_template:
         addon: de3cd379_audio_player
-        input: "http://192.168.1.251:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
+        input: "http://192.168.1.100:8123/local/vl/voice/{{ states('sensor.last_tts') }}"
     - delay: '00:00:05'
     - service: tts.clear_cache
 #******************************************************************************

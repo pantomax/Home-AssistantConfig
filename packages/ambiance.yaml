@@ -43,7 +43,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_on.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
           entity_id: light.led_strip
@@ -78,13 +78,13 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/fireplace.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/fireplace.mp4"
       - delay: 00:00:10
       - wait_template: "{{ states.media_player.salotto.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_off_2.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   foresta:
     alias: Ambiance Foresta
@@ -94,7 +94,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_on.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
           entity_id: light.led_strip
@@ -129,13 +129,13 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/forest.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/forest.mp4"
       - delay: 00:00:10
       - wait_template: "{{ states.media_player.salotto.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_off_2.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   oceano:
     alias: Ambiance Oceano
@@ -145,7 +145,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_on.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
           entity_id: light.led_strip
@@ -180,13 +180,13 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/ocean.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/ocean.mp4"
       - delay: 00:00:10
       - wait_template: "{{ states.media_player.salotto.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_off_2.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   club:
     alias: Ambiance Club
@@ -196,7 +196,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_on.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
           entity_id: light.led_strip
@@ -231,13 +231,13 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/club.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/club.mp4"
       - delay: 00:00:10
       - wait_template: "{{ states.media_player.salotto.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_off_2.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   acquario:
     alias: Ambiance Aquario
@@ -247,7 +247,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_on.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_on.mp3"
       - service: light.turn_on
         data:
           entity_id: light.led_strip
@@ -282,13 +282,13 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/acquario.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/acquario.mp4"
       - delay: 00:00:10
       - wait_template: "{{ states.media_player.salotto.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/hologram_off_2.mp3"
+          input: "http://192.168.1.100:8123/local/hologram_off_2.mp3"
 #******************************************************************************
   black_alert:
     alias: black_alert
@@ -318,7 +318,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/voybluealert.mp3"
+          input: "http://192.168.1.100:8123/local/voybluealert.mp3"
       - service: media_player.volume_set
         data:
           entity_id: media_player.salotto
@@ -327,7 +327,7 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/STBlueAlert.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/STBlueAlert.mp4"
       - delay: 00:00:05
       - service: light.turn_on
         data:
@@ -363,7 +363,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/voybluealert.mp3"
+          input: "http://192.168.1.100:8123/local/voybluealert.mp3"
       - service: media_player.volume_set
         data:
           entity_id: media_player.salotto
@@ -372,7 +372,7 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/STBlueAlert.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/STBlueAlert.mp4"
       - delay: 00:00:05
       - service: light.turn_on
         data:
@@ -382,15 +382,15 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/computer_activate.mp3"
+          input: "http://192.168.1.100:8123/local/computer_activate.mp3"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/consolewarning.mp3"
+          input: "http://192.168.1.100:8123/local/consolewarning.mp3"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/intruderalertdeck8_ep.mp3"
+          input: "http://192.168.1.100:8123/local/intruderalertdeck8_ep.mp3"
       - service: light.turn_on
         data:
           entity_id: light.light_kitchen
@@ -401,7 +401,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/automaticdefenseproceduresinitiated.mp3"
+          input: "http://192.168.1.100:8123/local/automaticdefenseproceduresinitiated.mp3"
       - delay: 00:00:20
       - service: media_player.volume_set
         data:
@@ -411,7 +411,7 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/lcars.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/lcars.mp4"
 #******************************************************************************
   red_alert:
     alias: red_alert
@@ -441,7 +441,7 @@ script:
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
-          input: "http://192.168.1.251:8123/local/voyredalert.mp3"
+          input: "http://192.168.1.100:8123/local/voyredalert.mp3"
       - service: media_player.volume_set
         data:
           entity_id: media_player.salotto
@@ -450,7 +450,7 @@ script:
         data:
           entity_id: media_player.salotto
           media_content_type: "VIDEO"
-          media_content_id: "http://192.168.1.251:8123/local/STRedAlert.mp4"
+          media_content_id: "http://192.168.1.100:8123/local/STRedAlert.mp4"
       - delay: 00:00:15
       - service: light.turn_on
         data:
