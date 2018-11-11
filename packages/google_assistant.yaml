@@ -229,7 +229,7 @@ google_assistant:
       name: ventilatore
       expose: true
       aliases:
-        - ventilatore in sala
+        - ventilatore 1
         - entity t 40
     switch.tv:
       name: tv
@@ -286,7 +286,7 @@ google_assistant:
         - nabaztag
         - entity t 46
     switch.ventilatore_bagno:
-      name: Ventilatore 1
+      name: Ventilatore 2
       expose: true
 #******************************************************************************
 #******************************   SCRIPTS  ************************************
