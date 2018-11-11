@@ -46,3 +46,11 @@ media_player.salotto_nuovo:
   name:
   platform: cast
   unique_id: b9fdeb2f-c9df-73f0-0912-f41c48c698b7
+media_player.musica:
+  name:
+  platform: cast
+  unique_id: 0428c27e-82a1-4215-aab6-6d7d5fa53b9f
+media_player.gruppo_casa:
+  name:
+  platform: cast
+  unique_id: edf8093f-c66a-407b-9944-1e990490e6d8
