@@ -1,0 +1,56 @@
+sensor.us_air_pollution_level:
+  name:
+  platform: airvisual
+  unique_id: 44.65018,10.930217_pollution_level
+sensor.us_main_pollutant:
+  name:
+  platform: airvisual
+  unique_id: 44.65018,10.930217_main_pollutant
+sensor.us_air_quality_index:
+  name:
+  platform: airvisual
+  unique_id: 44.65018,10.930217_aqi
+media_player.bagno:
+  name:
+  platform: cast
+  unique_id: 2d8f019e-dd20-f540-609d-f2e6f915d786
+media_player.salotto:
+  name:
+  platform: cast
+  unique_id: 44ccae8e-a14a-502d-c46c-12d8248c4ab4
+media_player.salotto_2:
+  name:
+  platform: cast
+  unique_id: 5350fe0e-693e-584a-872d-86ef4f1457f0
+media_player.cucina:
+  name:
+  platform: cast
+  unique_id: f37b45af-4540-9d4d-9bc9-7dd423ae8e14
+media_player.cucina_2:
+  name:
+  platform: cast
+  unique_id: d1571d68-1cf8-ec76-b3ae-c38372468dc0
+media_player.chromecast0517:
+  name:
+  platform: cast
+  unique_id: c4592bc8-ccd4-36cb-8e07-49d2dfa6d62f
+media_player.cucina_2_2:
+  name:
+  platform: cast
+  unique_id: 966b6a49-e509-8538-358b-87b8fea0844e
+media_player.camera_da_letto:
+  name:
+  platform: cast
+  unique_id: fbe09c7f-397a-ee76-fdb2-6c5a28223afb
+media_player.salotto_nuovo:
+  name:
+  platform: cast
+  unique_id: b9fdeb2f-c9df-73f0-0912-f41c48c698b7
+media_player.musica:
+  name:
+  platform: cast
+  unique_id: 0428c27e-82a1-4215-aab6-6d7d5fa53b9f
+media_player.gruppo_casa:
+  name:
+  platform: cast
+  unique_id: edf8093f-c66a-407b-9944-1e990490e6d8
