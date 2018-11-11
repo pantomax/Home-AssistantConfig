@@ -286,7 +286,7 @@ google_assistant:
         - nabaztag
         - entity t 46
     switch.ventilatore_bagno:
-      name: Ventola
+      name: Ventola1
       expose: true
 #******************************************************************************
 #******************************   SCRIPTS  ************************************
