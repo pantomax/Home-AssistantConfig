@@ -121,7 +121,7 @@ automation:
   - alias: "Notte"
     trigger:
       platform: time
-      at: '20:00:00'
+      at: '16:00:00'
     action:
       service: homeassistant.turn_off
       entity_id: input_boolean.giorno
