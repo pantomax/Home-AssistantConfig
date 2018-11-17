@@ -6,11 +6,11 @@ sensor:
         - sun.sun
         - sensor.dark_sky_cloud_coverage
       value_template: >-
-        {%- set elevation = state_attr('sun.sun','elevation') | float %}
+        {%- set elevation = states.sun.sun.attributes.elevation | float %}
         {%- set cloud_coverage = states('sensor.dark_sky_cloud_coverage') | float %}
         {%- set cloud_factor = (1 - (0.75 * ( cloud_coverage / 100) ** 3 )) %}
         {%- set min_elevation = -6 %}
-        {%- set max_elevation = 90 %}
+        {%- set max_elevation = 80 %}
         {%- set adjusted_elevation = elevation - min_elevation %}
         {%- set adjusted_elevation = [adjusted_elevation,0] | max %}
         {%- set adjusted_elevation = [adjusted_elevation,max_elevation - min_elevation] | min %}
