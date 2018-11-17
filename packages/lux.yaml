@@ -20,4 +20,4 @@ sensor:
         {%- set brightness = adjusted_elevation * cloud_factor %}
         {{ brightness | round }}
       unit_of_measurement: '%'
-      device_class: 'illuminance'
+      #device_class: 'illuminance'
