@@ -173,6 +173,8 @@
     entities:
       - sun.sun
       - sensor.dark_sky_uv_index
+      - input_boolean.giorno
+      - sensor.sunlight_pct
   darksky_data:
     name: Dati Darksky
     entities:

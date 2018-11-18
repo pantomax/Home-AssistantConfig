@@ -110,18 +110,36 @@ automation:
 #------------------------------------------------------------------------------
 
 #******************************************************************************
+#  - alias: "Giorno"
+#    trigger:
+#      platform: time
+#      at: '6:30'
+#    action:
+#      service: homeassistant.turn_on
+#      entity_id: input_boolean.giorno
+#******************************************************************************
+#  - alias: "Notte"
+#    trigger:
+#      platform: time
+#      at: '16:00:00'
+#    action:
+#      service: homeassistant.turn_off
+#      entity_id: input_boolean.giorno
+#******************************************************************************
   - alias: "Giorno"
     trigger:
-      platform: time
-      at: '6:30'
+      platform: numeric_state
+      entity_id: sensor.sunlight_pct
+      above: 20
     action:
       service: homeassistant.turn_on
       entity_id: input_boolean.giorno
 #******************************************************************************
   - alias: "Notte"
     trigger:
-      platform: time
-      at: '16:00:00'
+      platform: numeric_state
+      entity_id: sensor.sunlight_pct
+      below: 20
     action:
       service: homeassistant.turn_off
       entity_id: input_boolean.giorno
