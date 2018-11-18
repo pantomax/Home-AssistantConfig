@@ -533,7 +533,7 @@
       - group.hdmi
       - group.media_salotto_2
       - media_player.kodi
-      - media_player.salotto_nuovo
+      - media_player.salotto_nuovo_nuovo
       - media_player.bagno
       - media_player.cucina
       - media_player.plex_web_chrome
