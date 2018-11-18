@@ -16,7 +16,7 @@ automation:
   - alias: "Chromecast in partenza"
     trigger:
       - platform: state
-        entity_id: media_player.salotto
+        entity_id: media_player.salotto_nuovo
         from: 'idle'
         to: 'playing'
         for:
@@ -42,7 +42,7 @@ automation:
   - alias: "Nabaztag esclama con Chromecast in partenza"
     trigger:
       - platform: state
-        entity_id: media_player.salotto
+        entity_id: media_player.salotto_nuovo
         from: 'idle'
         to: 'playing'
         for:
@@ -60,7 +60,7 @@ automation:
   - alias: "Chromecast in stop"
     trigger:
       - platform: state
-        entity_id: media_player.salotto
+        entity_id: media_player.salotto_nuovo
         to: 'off'
         for:
           seconds: 20
@@ -75,7 +75,7 @@ automation:
   - alias: "Chromecast in stop"
     trigger:
       - platform: state
-        entity_id: media_player.salotto
+        entity_id: media_player.salotto_nuovo
         from: 'playing'
         to: 'idle'
         for:
@@ -93,7 +93,7 @@ automation:
   - alias: "Chromecast in pausa"
     trigger:
       - platform: state
-        entity_id: media_player.salotto
+        entity_id: media_player.salotto_nuovo
         from: 'playing'
         to: 'paused'
         for:
@@ -114,7 +114,7 @@ automation:
   - alias: "Chromecast in riproduzione"
     trigger:
       - platform: state
-        entity_id: media_player.salotto
+        entity_id: media_player.salotto_nuovo
         from: 'paused'
         to: 'playing'
     condition:

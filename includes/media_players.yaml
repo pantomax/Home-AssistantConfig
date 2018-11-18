@@ -22,6 +22,6 @@
     name: allmediaplayers
     children:
       - media_player.bagno
-      - media_player.salotto
+      - media_player.salotto_nuovo
       - media_player.cucina
 #******************************************************************************

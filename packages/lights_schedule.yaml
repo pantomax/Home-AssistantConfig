@@ -149,10 +149,8 @@ automation:
   - alias: "Exterior Lighting on when dark outside"
     trigger:
       platform: numeric_state
-      entity_id: sun.sun
-      value_template: "{{ state.attributes.elevation }}"
-      # Can be a positive or negative number
-      below: -4.0
+      entity_id: sensor.sunlight_pct
+      below: 1
     action:
       service: light.turn_on
       entity_id: light.giardino
