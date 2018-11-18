@@ -61,10 +61,10 @@ automation:
       data_template:
         entity_id: >
           {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bagno
-          {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto_nuovo_nuovo
+          {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto_nuovo
           {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.cucina
           {%-elif is_state("input_select.radio_player", "Kodi Salotto") %} media_player.kodi
-          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto_nuovo_nuovo, media_player.cucina
+          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto_nuovo, media_player.cucina
           {% else %}
             "None"
           {% endif %}
@@ -94,10 +94,10 @@ automation:
       data_template:
         entity_id: >
             {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bagno
-            {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto_nuovo_nuovo
+            {%-elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto_nuovo
             {%-elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.cucina
             {%-elif is_state("input_select.radio_player", "Kodi Salotto") %} media_player.kodi
-            {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto_nuovo_nuovo, media_player.cucina
+            {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto_nuovo, media_player.cucina
             {% else %}
               "None"
             {% endif %}
@@ -114,9 +114,9 @@ automation:
       data_template:
         entity_id: >
           {% if is_state("input_select.radio_player", "Chromecast Bagno") %} media_player.bagno
-          {% elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto_nuovo_nuovo
+          {% elif is_state("input_select.radio_player", "Chromecast Salotto") %} media_player.salotto_nuovo
           {% elif is_state("input_select.radio_player", "Chromecast Cucina") %} media_player.cucina
-          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto_nuovo_nuovo, media_player.cucina
+          {% elif is_state("input_select.radio_player", "Tutti") %} media_player.bagno, media_player.salotto_nuovo, media_player.cucina
           {% else %}
             "None"
           {% endif %}

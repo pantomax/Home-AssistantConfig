@@ -14,11 +14,11 @@ media_player.bagno:
   name:
   platform: cast
   unique_id: 2d8f019e-dd20-f540-609d-f2e6f915d786
-media_player.salotto_nuovo_nuovo:
+media_player.salotto_nuovo:
   name:
   platform: cast
   unique_id: 44ccae8e-a14a-502d-c46c-12d8248c4ab4
-media_player.salotto_nuovo_nuovo_2:
+media_player.salotto_nuovo_2:
   name:
   platform: cast
   unique_id: 5350fe0e-693e-584a-872d-86ef4f1457f0
@@ -42,7 +42,7 @@ media_player.camera_da_letto:
   name:
   platform: cast
   unique_id: fbe09c7f-397a-ee76-fdb2-6c5a28223afb
-media_player.salotto_nuovo_nuovo_nuovo:
+media_player.salotto_nuovo_nuovo:
   name:
   platform: cast
   unique_id: b9fdeb2f-c9df-73f0-0912-f41c48c698b7

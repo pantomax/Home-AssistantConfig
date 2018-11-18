@@ -33,7 +33,7 @@ script:
           brightness: 255
       - service: media_player.turn_off
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
 #******************************************************************************
   inverno:
     alias: Ambiance Inverno
@@ -67,20 +67,20 @@ script:
           effect: red_fade
       - service: media_player.volume_mute
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           is_volume_muted: false
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 1.00
       - alias: Media play Camino
         service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/fireplace.mp4"
       - delay: 00:00:10
-      - wait_template: "{{ states.media_player.salotto_nuovo_nuovo.state == 'off' }}"
+      - wait_template: "{{ states.media_player.salotto_nuovo.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
@@ -118,20 +118,20 @@ script:
           effect: green_fade
       - service: media_player.volume_mute
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           is_volume_muted: false
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 1.00
       - alias: Media play forest
         service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/forest.mp4"
       - delay: 00:00:10
-      - wait_template: "{{ states.media_player.salotto_nuovo_nuovo.state == 'off' }}"
+      - wait_template: "{{ states.media_player.salotto_nuovo.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
@@ -169,20 +169,20 @@ script:
           effect: cyan_fade
       - service: media_player.volume_mute
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           is_volume_muted: false
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 1.00
       - alias: Media Play Ocean
         service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/ocean.mp4"
       - delay: 00:00:10
-      - wait_template: "{{ states.media_player.salotto_nuovo_nuovo.state == 'off' }}"
+      - wait_template: "{{ states.media_player.salotto_nuovo.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
@@ -220,20 +220,20 @@ script:
           effect: purple_fade
       - service: media_player.volume_mute
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           is_volume_muted: false
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 1.00
       - alias: Media Play Club
         service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/club.mp4"
       - delay: 00:00:10
-      - wait_template: "{{ states.media_player.salotto_nuovo_nuovo.state == 'off' }}"
+      - wait_template: "{{ states.media_player.salotto_nuovo.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
@@ -271,20 +271,20 @@ script:
           effect: cyan_fade
       - service: media_player.volume_mute
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           is_volume_muted: false
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 1.00
       - alias: Media Play Aquarium
         service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/acquario.mp4"
       - delay: 00:00:10
-      - wait_template: "{{ states.media_player.salotto_nuovo_nuovo.state == 'off' }}"
+      - wait_template: "{{ states.media_player.salotto_nuovo.state == 'off' }}"
       - service: hassio.addon_stdin
         data:
           addon: de3cd379_audio_player
@@ -321,11 +321,11 @@ script:
           input: "http://192.168.1.100:8123/local/voybluealert.mp3"
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 0
       - service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/STBlueAlert.mp4"
       - delay: 00:00:05
@@ -366,11 +366,11 @@ script:
           input: "http://192.168.1.100:8123/local/voybluealert.mp3"
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 0
       - service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/STBlueAlert.mp4"
       - delay: 00:00:05
@@ -405,11 +405,11 @@ script:
       - delay: 00:00:20
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 255
       - service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/lcars.mp4"
 #******************************************************************************
@@ -444,11 +444,11 @@ script:
           input: "http://192.168.1.100:8123/local/voyredalert.mp3"
       - service: media_player.volume_set
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           volume_level: 0
       - service: media_player.play_media
         data:
-          entity_id: media_player.salotto_nuovo_nuovo
+          entity_id: media_player.salotto_nuovo
           media_content_type: "VIDEO"
           media_content_id: "http://192.168.1.100:8123/local/STRedAlert.mp4"
       - delay: 00:00:15

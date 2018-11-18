@@ -154,7 +154,7 @@
     input_boolean.motion_timer:
       friendly_name: "Motion Timer"
       icon: mdi:toggle-switch
-    media_player.salotto_nuovo_nuovo:
+    media_player.salotto_nuovo:
       friendly_name: "Chromecast"
       icon: mdi:google-chromecast
     sun.sun:
