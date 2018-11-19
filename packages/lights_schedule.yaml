@@ -314,48 +314,48 @@ automation:
         entity_id: binary_sensor.movimento_cucina
         to: 'on'
     condition:
-    - condition: and
-      conditions:
+#    - condition: and
+#      conditions:
       - condition: state
         entity_id: binary_sensor.permetti_accensione_luci
         state: 'on'
-      - condition: or
-        conditions:
+#      - condition: or
+#        conditions:
 # tutti i giorni dalle 7.15 alle 8.15
-        - condition: and
-          conditions:
-          - condition: time
-            after: '7:15'
-          - condition: time
-            before: '8:15'
+#        - condition: and
+#          conditions:
+#          - condition: time
+#            after: '7:15'
+#          - condition: time
+#            before: '8:15'
 # tutti i giorni dopo il tramonto comunque dopo le 17 fino a mezzanotte
-        - condition: and
-          conditions:
-          - condition: sun
-            after: sunset
-            after_offset: "-00:30:00"
-          - condition: time
-            after: '20:00'
+#        - condition: and
+#          conditions:
+#          - condition: sun
+#            after: sunset
+#            after_offset: "-00:30:00"
+#          - condition: time
+#            after: '20:00'
 # tutti i giorni dopo le 17 se c'è nuvoloso
-        - condition: and
-          conditions:
-          - condition: time
-            after: '17:00'
-          - condition: numeric_state
-            entity_id: sensor.dark_sky_cloud_coverage
-            above: 90
+#        - condition: and
+#          conditions:
+#          - condition: time
+#            after: '17:00'
+#          - condition: numeric_state
+#            entity_id: sensor.dark_sky_cloud_coverage
+#            above: 90
 # nel weekend per tutto il giorno dopo le 7 del mattino se c'è nuvoloso
-        - condition: and
-          conditions:
-          - condition: time
-            after: '7:00'
-          - condition: numeric_state
-            entity_id: sensor.dark_sky_cloud_coverage
-            above: 90
-          - condition: time
-            weekday:
-              - sat
-              - sun
+#        - condition: and
+#          conditions:
+#          - condition: time
+#            after: '7:00'
+#          - condition: numeric_state
+#            entity_id: sensor.dark_sky_cloud_coverage
+#            above: 90
+#          - condition: time
+#            weekday:
+#              - sat
+#              - sun
     action:
       - service: light.turn_on
         entity_id: group.kitchen
