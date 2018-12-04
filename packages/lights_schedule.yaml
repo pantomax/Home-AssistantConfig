@@ -360,7 +360,7 @@ automation:
       - service: light.turn_on
         entity_id: group.kitchen
 #******************************************************************************
-  - alias: "Spegni Luce Cucina"
+  - alias: "Spegni Luce Cucina "
     trigger:
       - platform: state
         entity_id: binary_sensor.movimento_cucina
