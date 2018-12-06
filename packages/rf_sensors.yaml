@@ -31,6 +31,17 @@ binary_sensor:
           seconds: 20
         value_template: >-
           {{ is_state('sensor.rf_receiver', '13679406') }}
+
+  - platform: template
+    sensors:
+      motion_sensor_rf_6:
+        friendly_name: "Motion Sensor RF 6"
+        device_class: motion
+        delay_off:
+          seconds: 20
+        value_template: >-
+          {{ is_state('sensor.rf_receiver', '1847644') }}
+ 
 #****************************   CORRIDOIO  *************************************
   - platform: template
     sensors:
