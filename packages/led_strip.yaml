@@ -19,6 +19,19 @@ group:
       - input_number.r_color
       - input_number.g_color
       - input_number.b_color
+  led_strip_controller_Camera:
+    name: Striscia Led Camera
+    entities:
+      - input_number.brightness_white_camera
+      - input_select.profile_camera
+      - input_select.effect_name_camera
+      - input_number.brightness_list_camera
+      - input_select.color_name_camera
+      - input_number.brightness_rgb_camera
+      - sensor.rgb_color_camera
+      - input_number.r_color_camera
+      - input_number.g_color_camera
+      - input_number.b_color_camera
 #------------------------------------------------------------------------------
 input_select:
 #------------------------------------------------------------------------------
@@ -212,6 +225,199 @@ input_select:
       - yellowgreen
     initial: " "
     icon: mdi:format-color-fill
+
+
+  profile_camera:
+    name: Profilo Bianco
+    options:
+      - " "
+      - relax
+      - energize
+      - concentrate
+      - reading
+    initial: " "
+    icon: mdi:radio
+  effect_name_camera:
+    name: Effetto Colori
+    options:
+      - " "
+      - colorloop
+      - colorjump
+      - colorstrobe
+      - random
+      - red_fade
+      - green_fade
+      - blue_fade
+      - yellow_fade
+      - cyan_fade
+      - purple_fade
+      - white_fade
+      - rg_cross_fade
+      - rb_cross_fade
+      - gb_cross_fade
+      - red_strobe
+      - green_strobe
+      - blue_strobe
+      - yellow_strobe
+      - cyan_strobe
+      - purple_strobe
+      - white_strobe
+    initial: " "
+    icon: mdi:flash
+  color_name_camera:
+    name: Nome Colore
+    options:
+      - " "
+      - aliceblue
+      - antiquewhite
+      - aqua
+      - aquamarine
+      - azure
+      - beige
+      - bisque
+      - black
+      - blanchedalmond
+      - blue
+      - blueviolet
+      - brown
+      - burlywood
+      - cadetblue
+      - chartreuse
+      - chocolate
+      - coral
+      - cornflowerblue
+      - cornsilk
+      - crimson
+      - cyan
+      - darkblue
+      - darkcyan
+      - darkgoldenrod
+      - darkgray
+      - darkgreen
+      - darkgrey
+      - darkkhaki
+      - darkmagenta
+      - darkolivegreen
+      - darkorange
+      - darkorchid
+      - darkred
+      - darksalmon
+      - darkseagreen
+      - darkslateblue
+      - darkslategray
+      - darkslategrey
+      - darkturquoise
+      - darkviolet
+      - deeppink
+      - deepskyblue
+      - dimgray
+      - dimgrey
+      - dodgerblue
+      - firebrick
+      - floralwhite
+      - forestgreen
+      - fuchsia
+      - gainsboro
+      - ghostwhite
+      - gold
+      - goldenrod
+      - gray
+      - green
+      - greenyellow
+      - grey
+      - honeydew
+      - hotpink
+      - indianred
+      - indigo
+      - ivory
+      - khaki
+      - lavender
+      - lavenderblush
+      - lawngreen
+      - lemonchiffon
+      - lightblue
+      - lightcoral
+      - lightcyan
+      - lightgoldenrodyellow
+      - lightgray
+      - lightgreen
+      - lightgrey
+      - lightpink
+      - lightsalmon
+      - lightseagreen
+      - lightskyblue
+      - lightslategray
+      - lightslategrey
+      - lightsteelblue
+      - lightyellow
+      - lime
+      - limegreen
+      - linen
+      - magenta
+      - maroon
+      - mediumaquamarine
+      - mediumblue
+      - mediumorchid
+      - mediumpurple
+      - mediumseagreen
+      - mediumslateblue
+      - mediumspringgreen
+      - mediumturquoise
+      - mediumvioletred
+      - midnightblue
+      - mintcream
+      - mistyrose
+      - moccasin
+      - navajowhite
+      - navy
+      - oldlace
+      - olive
+      - olivedrab
+      - orange
+      - orangered
+      - orchid
+      - palegoldenrod
+      - palegreen
+      - paleturquoise
+      - palevioletred
+      - papayawhip
+      - peachpuff
+      - peru
+      - pink
+      - plum
+      - powderblue
+      - purple
+      - red
+      - rosybrown
+      - royalblue
+      - saddlebrown
+      - salmon
+      - sandybrown
+      - seagreen
+      - seashell
+      - sienna
+      - silver
+      - skyblue
+      - slateblue
+      - slategray
+      - slategrey
+      - snow
+      - springgreen
+      - steelblue
+      - tan
+      - teal
+      - thistle
+      - tomato
+      - turquoise
+      - violet
+      - wheat
+      - white
+      - whitesmoke
+      - yellow
+      - yellowgreen
+    initial: " "
+    icon: mdi:format-color-fill
+
 #------------------------------------------------------------------------------
 input_number:
 #------------------------------------------------------------------------------
@@ -251,10 +457,51 @@ input_number:
     max: 100
     step: 1
     initial: 100
+
+  r_color_camera:
+    name: Rosso
+    min: 0
+    max: 255
+    step: 1
+    initial: 255
+  g_color_camera:
+    name: Verde
+    min: 0
+    max: 255
+    step: 1
+    initial: 255
+  b_color_camera:
+    name: Blu
+    min: 0
+    max: 255
+    step: 1
+    initial: 255
+  brightness_white_camera:
+    name: Bianco
+    min: 0
+    max: 255
+    step: 1
+    initial: 255
+  brightness_rgb_camera:
+    name: Lum RGB
+    min: 0
+    max: 255
+    step: 1
+    initial: 255
+  brightness_list_camera:
+    name: Lum Nome
+    min: 0
+    max: 100
+    step: 1
+    initial: 100
 #------------------------------------------------------------------------------
 input_boolean:
 #------------------------------------------------------------------------------
   rgb_color:
+    name: RGB Color
+    initial: off
+    icon: mdi:invert-colors
+  rgb_color_camera:
     name: RGB Color
     initial: off
     icon: mdi:invert-colors
@@ -264,6 +511,11 @@ sensor:
   - platform: template
     sensors:
       rgb_color:
+        value_template: ({{ (states('input_number.r_color')|int) }}, {{ (states('input_number.g_color')|int) }}, {{ (states('input_number.b_color')|int) }})
+
+  - platform: template
+    sensors:
+      rgb_color_camera:
         value_template: ({{ (states('input_number.r_color')|int) }}, {{ (states('input_number.g_color')|int) }}, {{ (states('input_number.b_color')|int) }})
 #------------------------------------------------------------------------------
 automation:
@@ -284,6 +536,23 @@ automation:
           entity_id: light.led_strip
           rgb_color: ["{{ (states('input_number.r_color')|int) }}", "{{ (states('input_number.g_color')|int) }}", "{{ (states('input_number.b_color')|int) }}"]
           brightness: "{{ states('input_number.brightness_rgb')|int }}"
+  - alias: "led change color rgb camera"
+    trigger:
+      - platform: state
+        entity_id: input_number.g_color_camera
+      - platform: state
+        entity_id: input_number.r_color_camera
+      - platform: state
+        entity_id: input_number.b_color_camera
+      - platform: state
+        entity_id: input_number.brightness_rgb_camera
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip_camera
+          rgb_color: ["{{ (states('input_number.r_color_camera')|int) }}", "{{ (states('input_number.g_color_camera')|int) }}", "{{ (states('input_number.b_color_camera')|int) }}"]
+          brightness: "{{ states('input_number.brightness_rgb_camera')|int }}"
+
 #******************************************************************************
   - alias: "led change color list"
     trigger:
@@ -292,15 +561,24 @@ automation:
       - platform: state
         entity_id: input_number.brightness_list
     action:
-#      - service: light.turn_on
-#        data:
-#          entity_id: light.led_strip
-#          brightness: 0
       - service: light.turn_on
         data_template:
           entity_id: light.led_strip
           color_name: "{{ states('input_select.color_name') }}"
           brightness_pct: "{{ states('input_number.brightness_list')|int }}"
+
+  - alias: "led change color list camera"
+    trigger:
+      - platform: state
+        entity_id: input_select.color_name_camera
+      - platform: state
+        entity_id: input_number.brightness_list_camera
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip_camera
+          color_name: "{{ states('input_select.color_name_camera') }}"
+          brightness_pct: "{{ states('input_number.brightness_list_camera')|int }}"
 #******************************************************************************
   - alias: "led brightness white"
     trigger:
@@ -311,6 +589,16 @@ automation:
         data_template:
           entity_id: light.led_strip
           brightness: "{{ states('input_number.brightness_white') | int }}"
+
+  - alias: "led brightness white_camera"
+    trigger:
+      - platform: state
+        entity_id: input_number.brightness_white_camera
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip_camera
+          brightness: "{{ states('input_number.brightness_white_camera') | int }}"
 #******************************************************************************
   - alias: "led brightness profile"
     trigger:
@@ -323,6 +611,18 @@ automation:
         data_template:
           entity_id: light.led_strip
           profile: "{{ states('input_select.profile') }}"
+
+  - alias: "led brightness profile_camera"
+    trigger:
+      - platform: state
+        entity_id: input_select.profile_camera
+      - platform: state
+        entity_id: input_number.brightness_list_camera
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip_camera
+          profile: "{{ states('input_select.profile_camera') }}"
 #******************************************************************************
   - alias: "led effect list"
     trigger:
@@ -337,4 +637,18 @@ automation:
         data_template:
           entity_id: light.led_strip
           effect: "{{ states('input_select.effect_name') }}"
+
+  - alias: "led effect list"
+    trigger:
+      - platform: state
+        entity_id: input_select.effect_name_camera
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_camera
+          brightness: 0
+      - service: light.turn_on
+        data_template:
+          entity_id: light.led_strip_camera
+          effect: "{{ states('input_select.effect_name_camera') }}"
 #******************************************************************************

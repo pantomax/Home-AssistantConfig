@@ -132,6 +132,7 @@
     name: Luci Camera
     entities:
       - light.camera
+      - light.led_strip_camera
 #******************************************************************************
   hdmi:
     name: Hdmi
@@ -523,6 +524,7 @@
     icon: mdi:hotel
     entities:
       - group.termostato_camera
+      - group.led_strip_controller_camera
       - history_graph.temperatura_camera
       - group.bedroom
   Tab_Tv:
