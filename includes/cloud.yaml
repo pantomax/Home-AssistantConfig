@@ -32,6 +32,10 @@
         name: striscia led
         description: luce led
         display_categories: LIGHT
+      light.led_strip_camera:
+        name: striscia led
+        description: luce led
+        display_categories: LIGHT
       light.light_kitchen:
         name: lavandino
         description: luce lavandino

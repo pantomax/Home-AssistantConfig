@@ -44,6 +44,7 @@
       broadlink_a1: !secret broadlink_a1
       broadlink_s1: !secret broadlink_s1
       led_strip: !secret led_strip
+      led_strip_camera: !secret led_strip_camera
 #******************************************************************************
       mediaaccess_tg589vn_v3: !secret mediaaccess_tg589vn_v3 
       desktop_win10: !secret computersalotto

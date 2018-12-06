@@ -470,7 +470,10 @@ automation:
       - service: light.turn_on
         entity_id: light.camera
       - service: light.turn_on
-        entity_id: light.led_strip_camera
+        data:
+          entity_id: light.led_strip_camera
+          rgb_color: [255, 255, 255]
+          brightness: 2
       - service: mqtt.publish
         data:
           topic: 'sensors/rf/receiver'
@@ -485,7 +488,7 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.camera
-      - service: light.turn_on
+      - service: light.turn_off
         entity_id: light.led_strip_camera
 #******************************************************************************
   - alias: "Accende le luci sui comodini tutti i giorni alle 7.10 del lun al ven"
