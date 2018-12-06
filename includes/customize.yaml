@@ -198,6 +198,9 @@
     binary_sensor.motion_sensor_rf_1:
       friendly_name: "Movimento Camera"
       icon: mdi:run-fast
+    binary_sensor.letto:
+      friendly_name: "Movimento Camera"
+      icon: mdi:run-fast
     binary_sensor.movimento_bagno:
       friendly_name: "Movimento Bagno"
       icon: mdi:run-fast
