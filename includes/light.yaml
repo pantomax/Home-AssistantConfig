@@ -122,6 +122,11 @@
           service: switch.turn_off
           entity_id: switch.corridoio_bagno
 #*********************************CAMERA DA LETTO *****************************
+  - platform: flux_led
+    devices:
+      !secret led_strip_camera:
+        name: led_strip_camera
+        mode: "rgb"
   - platform: template
     lights:
       camera:
