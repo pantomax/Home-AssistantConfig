@@ -473,7 +473,7 @@ automation:
         data:
           entity_id: light.led_strip_camera
           rgb_color: [255, 255, 255]
-          brightness: 2
+          brightness: 10
       - service: mqtt.publish
         data:
           topic: 'sensors/rf/receiver'
