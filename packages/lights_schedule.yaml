@@ -467,13 +467,13 @@ automation:
         entity_id: binary_sensor.letto
         to: 'on'
     action:
-      - service: light.turn_on
-        entity_id: light.camera
+#      - service: light.turn_on
+#        entity_id: light.camera
       - service: light.turn_on
         data:
           entity_id: light.led_strip_camera
           rgb_color: [255, 255, 255]
-          brightness: 10
+          brightness: 5
       - service: mqtt.publish
         data:
           topic: 'sensors/rf/receiver'
@@ -486,8 +486,8 @@ automation:
         entity_id: binary_sensor.letto
         to: 'off'
     action:
-      - service: light.turn_off
-        entity_id: light.camera
+#      - service: light.turn_off
+#        entity_id: light.camera
       - service: light.turn_off
         entity_id: light.led_strip_camera
 #******************************************************************************
