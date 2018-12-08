@@ -461,19 +461,43 @@ automation:
 #******************************************************************************
 #******************************   LETTO   **************************************
 #******************************************************************************
-  - alias: 'Accendi luce sotto il letto'
+  - alias: 'Accendi luce sotto il letto di notte'
     trigger:
       - platform: state
         entity_id: binary_sensor.letto
         to: 'on'
+    condition:
+      - condition: time
+        after: '00:00:00'
+        before: '10:00:00'
     action:
-#      - service: light.turn_on
-#        entity_id: light.camera
       - service: light.turn_on
         data:
           entity_id: light.led_strip_camera
           rgb_color: [255, 255, 255]
-          brightness: 5
+          brightness: 2
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
+  - alias: 'Accendi luci di giorno'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.letto
+        to: 'on'
+    condition:
+      - condition: time
+        after: '10:00:00'
+        before: '00:00:00'
+    action:
+      - service: light.turn_on
+        entity_id: light.camera
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_camera
+          rgb_color: [255, 255, 255]
+          brightness: 100
       - service: mqtt.publish
         data:
           topic: 'sensors/rf/receiver'
@@ -486,8 +510,8 @@ automation:
         entity_id: binary_sensor.letto
         to: 'off'
     action:
-#      - service: light.turn_off
-#        entity_id: light.camera
+      - service: light.turn_off
+        entity_id: light.camera
       - service: light.turn_off
         entity_id: light.led_strip_camera
 #******************************************************************************
