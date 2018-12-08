@@ -469,8 +469,18 @@ automation:
     condition:
       - condition: time
         after: '00:00:00'
-        before: '10:00:00'
+        before: '7:00:00'
     action:
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_camera
+          rgb_color: [255, 255, 255]
+          brightness: 2
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_camera
+          rgb_color: [255, 255, 255]
+          brightness: 2
       - service: light.turn_on
         data:
           entity_id: light.led_strip_camera
@@ -488,9 +498,16 @@ automation:
         to: 'on'
     condition:
       - condition: time
-        after: '10:00:00'
+        after: '7:00:00'
         before: '00:00:00'
     action:
+      - service: light.turn_on
+        entity_id: light.camera
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_camera
+          rgb_color: [255, 255, 255]
+          brightness: 100
       - service: light.turn_on
         entity_id: light.camera
       - service: light.turn_on
@@ -512,6 +529,14 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.camera
+      - service: light.turn_off
+        entity_id: light.camera
+      - service: light.turn_off
+        entity_id: light.camera
+      - service: light.turn_off
+        entity_id: light.led_strip_camera
+      - service: light.turn_off
+        entity_id: light.led_strip_camera
       - service: light.turn_off
         entity_id: light.led_strip_camera
 #******************************************************************************
