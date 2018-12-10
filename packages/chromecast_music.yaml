@@ -9,8 +9,11 @@ sensor:
   - platform: template
     sensors:
       tipo_di_media:
-#        entity_id: media_player.salotto_nuovo
         value_template: '{{ states.media_player.salotto_nuovo.attributes.media_content_type }}'
+  - platform: template
+    sensors:
+      tipo_di_media_bagno:
+        value_template: '{{ states.media_player.bagno.attributes.media_content_id }}'
 #------------------------------------------------------------------------------
 script:
 #------------------------------------------------------------------------------
