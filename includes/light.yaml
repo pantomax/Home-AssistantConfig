@@ -148,6 +148,11 @@
         turn_off:
           service: switch.turn_off
           entity_id: switch.bagno
+  - platform: flux_led
+    devices:
+      !secret led_strip_bagno:
+        name: led_strip_bagno
+        mode: "rgb"
 #*********************************GIARDINO*************************************
   - platform: template
     lights:

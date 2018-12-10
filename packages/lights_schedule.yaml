@@ -606,20 +606,76 @@ automation:
 #******************************************************************************
 #*******************************   BAGNO   ************************************
 #******************************************************************************
-  - alias: 'Accendi luce bagno'
+  - alias: 'Accendi luce bagno giorno'
     trigger:
       - platform: state
         entity_id: binary_sensor.movimento_bagno
         to: 'on'
     condition:
       - condition: time
-        after: '7:10:00'
-        before: '01:00:00'
+        after: '7:20:00'
+        before: '00:00:00'
     action:
       - service: timer.cancel
         entity_id: timer.spegnimento_bagno
       - service: light.turn_on
         entity_id: light.bagno
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_bagno
+          rgb_color: [0, 0, 255]
+          brightness: 50
+      - service: light.turn_on
+        entity_id: light.bagno
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_bagno
+          rgb_color: [0, 0, 255]
+          brightness: 50
+      - service: light.turn_on
+        entity_id: light.bagno
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_bagno
+          rgb_color: [0, 0, 255]
+          brightness: 50
+      - service: mqtt.publish
+        data:
+          topic: 'sensors/rf/receiver'
+          payload: '1111111'
+          retain: 'true'
+      - service: timer.start
+        entity_id: timer.spegnimento_automatico_bagno
+      - service: timer.cancel
+        entity_id: timer.spegnimento_bagno
+
+  - alias: 'Accendi luce bagno notte'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.movimento_bagno
+        to: 'on'
+    condition:
+      - condition: time
+        after: '00:00:00'
+        before: '07:20:00'
+    action:
+      - service: timer.cancel
+        entity_id: timer.spegnimento_bagno
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_bagno
+          rgb_color: [0, 0, 255]
+          brightness: 50
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_bagno
+          rgb_color: [0, 0, 255]
+          brightness: 50
+      - service: light.turn_on
+        data:
+          entity_id: light.led_strip_bagno
+          rgb_color: [0, 0, 255]
+          brightness: 50
       - service: mqtt.publish
         data:
           topic: 'sensors/rf/receiver'
@@ -646,6 +702,16 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.bagno
+      - service: light.turn_off
+        entity_id: light.led_strip_bagno
+      - service: light.turn_off
+        entity_id: light.bagno
+      - service: light.turn_off
+        entity_id: light.led_strip_bagno
+      - service: light.turn_off
+        entity_id: light.bagno
+      - service: light.turn_off
+        entity_id: light.led_strip_bagno
       - service: timer.cancel
         entity_id: timer.spegnimento_bagno
       - service: timer.cancel
