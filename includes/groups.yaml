@@ -521,6 +521,7 @@
       - history_graph.temperatura_e_umidita_bagno
       - media_player.bagno
       - timer.bagno
+      - group.led_strip_controller_bagno
   Tab_Camera:
     name: Camera
     view: yes
