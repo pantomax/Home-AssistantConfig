@@ -623,22 +623,22 @@ automation:
       - service: light.turn_on
         data:
           entity_id: light.led_strip_bagno
-          rgb_color: [0, 0, 255]
-          brightness: 50
+          rgb_color: [255, 255, 255]
+          brightness: 100
       - service: light.turn_on
         entity_id: light.bagno
       - service: light.turn_on
         data:
           entity_id: light.led_strip_bagno
-          rgb_color: [0, 0, 255]
-          brightness: 50
+          rgb_color: [255, 255, 255]
+          brightness: 100
       - service: light.turn_on
         entity_id: light.bagno
       - service: light.turn_on
         data:
           entity_id: light.led_strip_bagno
-          rgb_color: [0, 0, 255]
-          brightness: 50
+          rgb_color: [255, 255, 255]
+          brightness: 100
       - service: mqtt.publish
         data:
           topic: 'sensors/rf/receiver'

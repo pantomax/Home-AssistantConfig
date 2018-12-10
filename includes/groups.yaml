@@ -109,12 +109,16 @@
       - sensor.sensore_temperature
       - sensor.luce_accesa_bagno
   media_bagno:
-    name: Musica Bagno
+    name: Coontrolli Bagno
     control: hidden
     entities:
       - media_player.bagno
       - scene.spegni_musica
       - scene.radio_successiva
+      - input_boolean.termostato_bagno_interruttore
+      - switch.ventilatore_bagno
+      - light.bagno
+      - light.led_strip_bagno
   termoventilatore_bagno:
     name: Termoventilatore
     control: hidden
@@ -517,7 +521,6 @@
       - history_graph.temperatura_e_umidita_bagno
       - media_player.bagno
       - timer.bagno
-      - switch.ventilatore_bagno
   Tab_Camera:
     name: Camera
     view: yes

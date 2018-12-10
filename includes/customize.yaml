@@ -25,6 +25,9 @@
     light.led_strip_camera:
       friendly_name: "Striscia Led Camera"
       icon: mdi:led-strip
+    light.led_strip_bagno:
+      friendly_name: "Striscia Led Bagno"
+      icon: mdi:led-strip
     light.light_kitchen:
       friendly_name: "Lavello"
       icon: mdi:water-pump
