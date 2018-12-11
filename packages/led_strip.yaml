@@ -649,15 +649,15 @@ input_number:
   brightness_white:
     name: Bianco
     min: 0
-    max: 255
+    max: 100
     step: 1
-    initial: 255
+    initial: 100
   brightness_rgb:
     name: Lum RGB
     min: 0
-    max: 255
+    max: 100
     step: 1
-    initial: 255
+    initial: 100
   brightness_list:
     name: Lum Nome
     min: 0
@@ -686,15 +686,15 @@ input_number:
   brightness_white_camera:
     name: Bianco
     min: 0
-    max: 255
+    max: 100
     step: 1
-    initial: 255
+    initial: 100
   brightness_rgb_camera:
     name: Lum RGB
     min: 0
-    max: 255
+    max: 100
     step: 1
-    initial: 255
+    initial: 100
   brightness_list_camera:
     name: Lum Nome
     min: 0
@@ -723,15 +723,15 @@ input_number:
   brightness_white_bagno:
     name: Bianco
     min: 0
-    max: 255
+    max: 100
     step: 1
-    initial: 255
+    initial: 100
   brightness_rgb_bagno:
     name: Lum RGB
     min: 0
-    max: 255
+    max: 100
     step: 1
-    initial: 255
+    initial: 100
   brightness_list_bagno:
     name: Lum Nome
     min: 0
