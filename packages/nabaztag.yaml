@@ -102,7 +102,7 @@ input_text:
 #------------------------------------------------------------------------------
   nabaztag_ip_address:
     name: Nabaztag Ip Address
-    initial: http://192.168.1.180/
+    initial: http://192.168.1.81/
   nabaztag_tts_language:
     name: Nabaztag Tts Language
     initial: it
