@@ -51,6 +51,16 @@
           entity_id: switch.luci_corridoio_tutte
   - platform: template
     lights:
+      luci_giardino_tutte:
+        value_template: "{{ is_state('switch.luci_giardino_tutte', 'on') }}"
+        turn_on:
+          service: switch.turn_on
+          entity_id: switch.luci_giardino_tutte
+        turn_off:
+          service: switch.turn_off
+          entity_id: switch.luci_giardino_tutte
+  - platform: template
+    lights:
       luci_camera_tutte:
         value_template: "{{ is_state('switch.luci_camera_tutte', 'on') }}"
         turn_on:

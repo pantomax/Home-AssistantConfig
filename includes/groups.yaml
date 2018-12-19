@@ -63,9 +63,11 @@
     name: Luci Casa
     entities:
       - light.luci_cucina_tutte
-      - light.luci_bagno_tutte
       - light.luci_corridoio_tutte
+      - light.luci_bagno_tutte
       - light.luci_camera_tutte
+      - light.luci_giardino_tutte
+      - light.insettivoro
   varie_default:
     name: Varie
     control: hidden
@@ -632,8 +634,9 @@
       - group.riepilogo_dati
       - group.living_room
       - group.kitchen
-      - group.luce_cucina
-      - group.luci_corridoio_e_bagno
+      - group.luci_casa
+#      - group.luce_cucina
+#      - group.luci_corridoio_e_bagno
       - group.varie_default
       - group.alarm
       - group.media_salotto

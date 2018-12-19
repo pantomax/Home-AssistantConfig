@@ -103,6 +103,24 @@
         - service: light.turn_off
           data:
             entity_id: light.led_strip_camera
+#*************************** TUTTE LUCI GIRDINO ********************************
+  - platform: template
+    switches:
+      luci_giardino_tutte:
+        value_template: >-
+          {% if (is_state('light.giardino','on')) %} 
+          on
+          {% else %}
+          off
+          {% endif %}
+        turn_on:
+        - service: light.turn_on
+          data:
+            entity_id: light.giardino
+        turn_off:
+        - service: light.turn_off
+          data:
+            entity_id: light.giardino
 #*************************** LED TO GREEN LIGHT *******************************
   - platform: template
     switches:

@@ -49,6 +49,21 @@
     light.giardino:
       friendly_name: "Luce Giardino"
       icon: mdi:flower
+    light.luci_cucina_tutte:
+      friendly_name: "Luci Cucina"
+      icon: mdi:food
+    light.luci_corridoio_tutte:
+      friendly_name: "Luci Corridoio"
+      icon: mdi:door
+    light.luci_bagno_tutte:
+      friendly_name: "Luci Bagno"
+      icon: mdi:human-male-female
+    light.luci_camera_tutte:
+      friendly_name: "Luci Camera"
+      icon: mdi:hotel
+    light.luci_giardino_tutte:
+      friendly_name: "Luci Giardino"
+      icon: mdi:flower
     light.camera:
       friendly_name: "Luce Camera"
       icon: mdi:hotel
