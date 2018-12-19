@@ -52,17 +52,20 @@
   kitchen:
     name: Luci Cucina
     entities:
-      - light.luci_cucina
-      - light.luci_bagno
-      - light.luci_corridoio
-      - light.luci_camera
-#      - light.light_kitchen
-#      - light.light_kitchen_2
+      - light.light_kitchen
+      - light.light_kitchen_2
   Luci_Corridoio_e_Bagno:
     name: Luci Corridorio
     entities:
       - light.corridoio_bagno
       - light.corridoio_porta
+  luci_casa:
+    name: Luci Casa
+    entities:
+      - light.luci_cucina_tutte
+      - light.luci_bagno_tutte
+      - light.luci_corridoio_tutte
+      - light.luci_camera_tutte
   varie_default:
     name: Varie
     control: hidden
@@ -615,6 +618,7 @@
     view: yes
     icon: mdi:orbit
     entities:
+      - group.luci_casa
       - group.binary_sensors
 #******************************************************************************
 #                                   Default View

@@ -6,7 +6,7 @@
 #*************************** TUTTE LUCI CUCINA ********************************
   - platform: template
     switches:
-      luci_cucina:
+      luci_cucina_tutte:
         value_template: >-
           {% if (is_state('light.light_kitchen','on')) or
           (is_state('light.light_kitchen_2','on')) %} 
@@ -31,7 +31,7 @@
 #*************************** TUTTE LUCI BAGNO *********************************
   - platform: template
     switches:
-      luci_bagno:
+      luci_bagno_tutte:
         value_template: >-
           {% if (is_state('light.bagno','on')) or
           (is_state('light.led_strip_bagno','on')) %} 
@@ -56,7 +56,7 @@
 #*************************** TUTTE LUCI CORRIDOIO *****************************
   - platform: template
     switches:
-      luci_corridoio:
+      luci_corridoio_tutte:
         value_template: >-
           {% if (is_state('light.corridoio_bagno','on')) or
           (is_state('light.corridoio_porta','on')) %} 
@@ -81,7 +81,7 @@
 #*************************** TUTTE LUCI CAMERA ********************************
   - platform: template
     switches:
-      luci_cucina:
+      luci_camera_tutte:
         value_template: >-
           {% if (is_state('light.camera','on')) or
           (is_state('light.led_strip_camera','on')) %} 

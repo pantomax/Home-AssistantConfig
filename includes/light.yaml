@@ -21,44 +21,44 @@
           entity_id: switch.luce_rf_1
   - platform: template
     lights:
-      luci_cucina:
-        value_template: "{{ is_state('switch.luci_cucina', 'on') }}"
+      luci_cucina_tutte:
+        value_template: "{{ is_state('switch.luci_cucina_tutte', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.luci_cucina
+          entity_id: switch.luci_cucina_tutte
         turn_off:
           service: switch.turn_off
-          entity_id: switch.luci_cucina
+          entity_id: switch.luci_cucina_tutte
   - platform: template
     lights:
-      luci_bagno:
-        value_template: "{{ is_state('switch.luci_bagno', 'on') }}"
+      luci_bagno_tutte:
+        value_template: "{{ is_state('switch.luci_bagno_tutte', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.luci_bagno
+          entity_id: switch.luci_bagno_tutte
         turn_off:
           service: switch.turn_off
-          entity_id: switch.luci_cucina
+          entity_id: switch.luci_bagno_tutte
   - platform: template
     lights:
-      luci_corridoio:
-        value_template: "{{ is_state('switch.luci_corridoio', 'on') }}"
+      luci_corridoio_tutte:
+        value_template: "{{ is_state('switch.luci_corridoio_tutte', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.luci_corridoio
+          entity_id: switch.luci_corridoio_tutte
         turn_off:
           service: switch.turn_off
-          entity_id: switch.luci_corridoio
+          entity_id: switch.luci_corridoio_tutte
   - platform: template
     lights:
-      luci_camera:
-        value_template: "{{ is_state('switch.luci_camera', 'on') }}"
+      luci_camera_tutte:
+        value_template: "{{ is_state('switch.luci_camera_tutte', 'on') }}"
         turn_on:
           service: switch.turn_on
-          entity_id: switch.luci_camera
+          entity_id: switch.luci_camera_tutte
         turn_off:
           service: switch.turn_off
-          entity_id: switch.luci_camera
+          entity_id: switch.luci_camera_tutte
   - platform: template
     lights:
       libreria:
