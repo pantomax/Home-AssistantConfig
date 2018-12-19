@@ -52,8 +52,9 @@
   kitchen:
     name: Luci Cucina
     entities:
-      - light.light_kitchen
-      - light.light_kitchen_2
+      - light.luci_cucina
+#      - light.light_kitchen
+#      - light.light_kitchen_2
   Luci_Corridoio_e_Bagno:
     name: Luci Corridorio
     entities:
