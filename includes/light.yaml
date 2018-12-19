@@ -22,13 +22,43 @@
   - platform: template
     lights:
       luci_cucina:
-        value_template: "{{ is_state('switch.luci_cucina', 'on') }}"
+        value_template: "{{ is_state('light.luci_cucina', 'on') }}"
         turn_on:
-          service: switch.turn_on
-          entity_id: switch.luci_cucina
+          service: light.turn_on
+          entity_id: light.luci_cucina
         turn_off:
-          service: switch.turn_off
-          entity_id: switch.luci_cucina
+          service: light.turn_off
+          entity_id: light.luci_cucina
+  - platform: template
+    lights:
+      luci_bagno:
+        value_template: "{{ is_state('light.luci_cucina', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.luci_cucina
+        turn_off:
+          service: light.turn_off
+          entity_id: light.luci_cucina
+  - platform: template
+    lights:
+      luci_cucina:
+        value_template: "{{ is_state('light.luci_cucina', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.luci_cucina
+        turn_off:
+          service: light.turn_off
+          entity_id: light.luci_cucina
+  - platform: template
+    lights:
+      luci_cucina:
+        value_template: "{{ is_state('light.luci_cucina', 'on') }}"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.luci_cucina
+        turn_off:
+          service: light.turn_off
+          entity_id: light.luci_cucina
   - platform: template
     lights:
       libreria:

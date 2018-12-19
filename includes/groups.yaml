@@ -53,6 +53,9 @@
     name: Luci Cucina
     entities:
       - light.luci_cucina
+      - light.luci_bagno
+      - light.luci_corridoio
+      - light.luci_camera
 #      - light.light_kitchen
 #      - light.light_kitchen_2
   Luci_Corridoio_e_Bagno:
