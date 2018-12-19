@@ -7,7 +7,7 @@
   - platform: template
     switches:
       luci_cucina:
-        value_template: >-    
+        value_template: >-
           {% if (is_state('light.light_kitchen','on')) or
           (is_state('light.light_kitchen_2','on')) %} 
           on
@@ -32,7 +32,7 @@
   - platform: template
     switches:
       luci_bagno:
-        value_template: >-    
+        value_template: >-
           {% if (is_state('light.bagno','on')) or
           (is_state('light.led_strip_bagno','on')) %} 
           on
@@ -57,7 +57,7 @@
   - platform: template
     switches:
       luci_corridoio:
-        value_template: >-    
+        value_template: >-
           {% if (is_state('light.corridoio_bagno','on')) or
           (is_state('light.corridoio_porta','on')) %} 
           on
@@ -82,7 +82,7 @@
   - platform: template
     switches:
       luci_cucina:
-        value_template: >-    
+        value_template: >-
           {% if (is_state('light.camera','on')) or
           (is_state('light.led_strip_camera','on')) %} 
           on
