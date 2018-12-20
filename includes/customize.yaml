@@ -72,7 +72,7 @@
       icon: mdi:human-male-female
     light.insettivoro:
       friendly_name: "Luce Calda"
-      icon: mdi:globe-model
+      icon: mdi:earth
     scene.buona_notte:
       entity_picture: /local/goodnight.png
     scene.corridoio_spento:
