@@ -48,6 +48,7 @@
       - light.soffitto
       - light.mobile_tv
       - light.light_desk
+      - light.retro_tv
       - light.led_strip
   kitchen:
     name: Luci Cucina
@@ -77,8 +78,6 @@
       - switch.accendi_termostato_dashboard_bagno
       - switch.accendi_termostato_dashboard_salotto
       - switch.accendi_termostato_dashboard_camera
-      - light.camera
-      - light.bagno
   alarm:
     name: Allarme
     control: hidden
@@ -89,7 +88,6 @@
       - script.apricancello
       - light.giardino
       - input_select.tv_channel_pick
-      - light.retro_tv
 #******************************************************************************
   dhtsensor:
     name: DHT Sensor
