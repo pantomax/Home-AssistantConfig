@@ -116,7 +116,7 @@
       - sensor.sensore_temperature
       - sensor.luce_accesa_bagno
   media_bagno:
-    name: Coontrolli Bagno
+    name: Controlli Bagno
     control: hidden
     entities:
       - media_player.bagno
@@ -124,8 +124,7 @@
       - scene.radio_successiva
       - input_boolean.termostato_bagno_interruttore
       - switch.ventilatore_bagno
-      - light.bagno
-      - light.led_strip_bagno
+
   termoventilatore_bagno:
     name: Termoventilatore
     control: hidden
@@ -144,6 +143,11 @@
     entities:
       - light.camera
       - light.led_strip_camera
+  bathroom_lights:
+    name: Luci Bagno
+    entities:
+      - light.bagno
+      - light.led_strip_bagno
 #******************************************************************************
   hdmi:
     name: Hdmi
@@ -152,6 +156,13 @@
       - scene.hdmi_1
       - scene.hdmi_2
       - scene.hdmi_3
+  tv_lights:
+    name: Luci TV
+    entities:
+      - light.insettivoro
+      - light.mobile_tv
+      - light.retro_tv
+      - light.led_strip
 #******************************************************************************
 #  Meteo_Wunderground:
 #    name: Meteo
@@ -529,6 +540,7 @@
       - media_player.bagno
       - timer.bagno
       - group.led_strip_controller_bagno
+      - group.bathroom_lights
   Tab_Camera:
     name: Camera
     view: yes
