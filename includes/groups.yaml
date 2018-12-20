@@ -50,6 +50,7 @@
       - light.light_desk
       - light.retro_tv
       - light.led_strip
+      - light.insettivoro
   kitchen:
     name: Luci Cucina
     entities:
@@ -68,13 +69,15 @@
       - light.luci_bagno_tutte
       - light.luci_camera_tutte
       - light.luci_giardino_tutte
-      - light.insettivoro
+
   varie_default:
     name: Varie
     control: hidden
     entities:
       - input_boolean.guarda_tv
       - input_select.tv_channel_pick
+      - scene.hdmi_1
+      - scene.hdmi_2
       - switch.windows
       - switch.accendi_termostato_dashboard_bagno
       - switch.accendi_termostato_dashboard_salotto

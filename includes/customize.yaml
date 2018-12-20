@@ -71,7 +71,7 @@
       friendly_name: "Luce Bagno"
       icon: mdi:human-male-female
     light.insettivoro:
-      friendly_name: "Luce Calda"
+      friendly_name: "Mappamondo"
       icon: mdi:earth
     scene.buona_notte:
       entity_picture: /local/goodnight.png
