@@ -633,7 +633,7 @@
       - group.grupposcene
       - group.riepilogo_dati
       - group.living_room
-      - group.kitchen
+#      - group.kitchen
       - group.luci_casa
 #      - group.luce_cucina
 #      - group.luci_corridoio_e_bagno
