@@ -49,8 +49,8 @@
       - light.mobile_tv
       - light.light_desk
       - light.retro_tv
-      - light.led_strip
       - light.insettivoro
+      - light.led_strip
   kitchen:
     name: Luci Cucina
     entities:
