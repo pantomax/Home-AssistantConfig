@@ -143,6 +143,9 @@
     sensor.dht_temperature:
       friendly_name : "Temperatura DHT"
       icon: mdi:thermometer-lines
+    binary_sensor.permetti_accensione_luci:
+      friendly_name : "Accensione Luci"
+      icon: mdi:flash
 #*********************************SCENES***************************************
     scene.luci_sala_accese:
       friendly_name: "Luci Sala Accese"

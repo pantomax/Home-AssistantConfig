@@ -38,7 +38,7 @@
       - binary_sensor.porta_retro
       - binary_sensor.porta_corridoio
       - binary_sensor.finestra_salotto
-      - sensor.rf_receiver
+      - binary_sensor.permetti_accensione_luci
       - sun.sun
   living_room:
     name: Luci Sala
@@ -74,6 +74,7 @@
     control: hidden
     entities:
       - input_boolean.guarda_tv
+      - input_select.tv_channel_pick
       - switch.windows
       - switch.accendi_termostato_dashboard_bagno
       - switch.accendi_termostato_dashboard_salotto
@@ -87,7 +88,7 @@
       - sensor.ring_front_door_battery
       - script.apricancello
       - light.giardino
-      - input_select.tv_channel_pick
+      - sensor.rf_receiver
 #******************************************************************************
   dhtsensor:
     name: DHT Sensor
